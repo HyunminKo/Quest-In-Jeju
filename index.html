@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>QuestInJeJu</title>
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"
+    ></script>
+  </head>
+
+  <body>
+    <div>
+      <img src="img/home.png" />
+      <img src="img/quest.png" />
+      <img src="img/gamer.png" />
+    </div>
+    <div id="map" style="width:100%;height:400px;"></div>
+    <div id="app"></div>
+
+    <script></script>
+  </body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"
+></script>
+<script>
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  function success(pos) {
+    const jejuLatitued = 33.38715;
+    const jejuLongitude = 126.5266283;
+
+    var crd = pos.coords;
+    $("#app").append("<br>");
+    $("#app").append("Your current position is:");
+    $("#app").append("<br>");
+    $("#app").append("Latitude : " + crd.latitude);
+    $("#app").append("<br>");
+    $("#app").append("Longitude: " + crd.longitude);
+    $("#app").append("<br>");
+    $("#app").append("More or less " + crd.accuracy + " meters.");
+    $("#app").append("<br>");
+    var HOME_PATH = window.HOME_PATH || ".";
+    var mapOptions = {
+      center: new naver.maps.LatLng(jejuLatitued, jejuLongitude),
+      zoom: 4
+    };
+    var map = new naver.maps.Map("map", mapOptions);
+    var position = new naver.maps.LatLng(crd.latitude, crd.longitude);
+    var latlngs = [
+      new naver.maps.LatLng(33.528486, 126.7692923),
+      new naver.maps.LatLng(33.555875, 126.7938253),
+      new naver.maps.LatLng(33.5437905, 126.6666554),
+      new naver.maps.LatLng(33.366052, 126.3555555)
+    ];
+    var markerList = [];
+    var newMarker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(crd.latitude, crd.longitude),
+      map: map,
+      animation: naver.maps.Animation.BOUNCE,
+      icon: {
+        url: HOME_PATH + "/img/user_red_50_50.png",
+        size: new naver.maps.Size(50, 52),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 26)
+      }
+    });
+    for (var i = 0, size = latlngs.length; i < size; i++) {
+      var icon = {
+        url: HOME_PATH + "/img/current_icon_30_30.png",
+        size: new naver.maps.Size(50, 52),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(25, 26)
+      };
+      marker = new naver.maps.Marker({
+        position: latlngs[i],
+        map: map,
+        icon: icon
+      });
+
+      marker.set("seq", i);
+
+      markerList.push(marker);
+
+      // marker.addListener("mouseover", onMouseOver);
+      // marker.addListener("mouseout", onMouseOut);
+
+      icon = null;
+      marker = null;
+    }
+  }
+
+  function error(err) {
+    console.warn("ERROR(" + err.code + "): " + err.message);
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
