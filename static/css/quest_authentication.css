@@ -23,6 +23,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 #image-uplaod #user-location {
@@ -54,4 +55,9 @@
 
 #image-print {
   display: block;
+  max-width: 100%;
+}
+
+#outer-camera {
+  display: none;
 }

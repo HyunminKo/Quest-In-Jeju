@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="quest_authentication.css">
+    <link rel="stylesheet" href="style2.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </head>
@@ -20,18 +20,22 @@
                 <div class="panel panel-default" id="user-location">
                     <a>현재 위치 확인하기</a>
                 </div>    
-                <img id="image-print" src="#">
                 <div class="panel panel-default" id="image-upload">
+                    <img id="image-print" src="#">
                     <div id="image-upload-text">
                         <p>장소 이름이 나온 사진을 올려주세요</p>
                     <div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="inner-camera">
                         <label for="exampleInputFile">촬영 또는 앨범에서 선택하기</label>
                         <input type="file" id="exampleInputFile">
                     </div>
                 </div> 
             </div>
+        </div>
+        <div class="form-group" id="outer-camera">
+            <label for="exampleInputFile">촬영 또는 앨범에서 선택하기</label>
+            <input type="file" id="exampleInputFile">
         </div>
     </div>
 
@@ -51,6 +55,9 @@
 
             reader.onload = function (e) {
                     $('#image-print').attr('src', e.target.result);
+                    $('#image-upload-text').hide();
+                    $('#ineer-camera').show();
+                    $('#outer-camera').show();
                 }
 
               reader.readAsDataURL(input.files[0]);
