@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<meta charset="utf-8" />
+<title>TimeLine</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	height : 100%;
+	width : 100%;
+    overflow-x: hidden;
+    overflow-y : hidden;
+}
+
+header {
+	height : 10vh;
+    width : 100%;
+	background-color : #da0808;
+}
+
+main {
+	height : 79vh;
+    width : 100%;
+	background-color : #FFFFFF;
+    overflow-y : auto;
+    overflow-x : hidden;
+}
+
+footer {
+	height : 21vh;
+    width : 100%;
+	background-color : #FFFFFF;
+}
+
+hr.ShortLine {
+    margin : 0px 100px 0px 0px;
+    width : 450px;
+    color : black;
+}
+
+hr.LongLine {
+    width : 1000px;
+    color : black;
+}
+
+.Write {
+    width : 100%;
+    height : 350px;
+}
+
+.CommentBot {
+    height : 50px;
+    width : 100%;
+}
+
+.CommentTop {
+    height : 300px;
+    width : 100%;
+}
+
+.CommentLeft {
+    width : 30%;
+    height : 294px;
+    float : left;
+}
+
+.CommentMainImages {
+    width : 200px;
+    height : 200px;
+    margin : 47px;
+    border : 10px solid #da0808;
+}
+
+.CommentRight {
+    width : 70%;
+    height : 294px;
+    float : right;
+}
+
+.CommentRightTop {
+    width : 100%;
+    height : 80%;
+}
+
+.CommentRightTopLeft {
+    width : 90%;
+    height : 80%;
+    float : left;
+    margin : 45px 0px 0px 0px;
+}
+
+.WriteWrite {
+    font-size : 30px;
+    font-family: Georgia, "Malgun Gothic", serif;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.CommentRightTopRight {
+    width : 10%;
+    height : 80%;
+    float : right;
+    margin : 45px 0px 0px 0px;
+}
+
+.CommentRightBot {
+    width : 100%;
+    height : 20%;
+}
+
+.CommentRightBotLeft {
+    width : 70%;
+    height : 100%;
+    float : left;
+}
+
+.WriteWriter {
+    font-size : 25px;
+    text-align : left;
+    margin : 8px 0px 0px 0px;
+    font-family: Georgia, "Malgun Gothic", serif;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.CommentRightBotRight {
+    width : 30%;
+    height : 100%;
+    float : right;
+}
+
+.CommentIcons {
+    width : 50px;
+    height : 50px;
+    margin : 3px;
+}
+
+/* Input Comment */
+
+.IPCT {
+    width : 980px;
+    height : 220px;
+}
+
+.IPCTTop {
+    width : 980px;
+    height : 200px;
+}
+
+.IPCTBot {
+    width : 980px;
+    height : 20px;
+}
+
+.IPCTLeft {
+    width : 150px;
+    height : 200px;
+    float : left;
+}
+
+.LShape {
+    margin : 10px 0px 0px 0px;
+    width : 30px;
+    height : 30px;
+    float : right;
+}
+
+.IPCTRight {
+    width : 830px;
+    height : 200px;
+    float : right;
+}
+
+.InputCommentChang {
+    margin : 30px 65px 30px 65px;
+    width : 700px;
+    height : 140px;
+    border : 1px solid black;
+    font-size : 30px;
+    font-family: Georgia, "Malgun Gothic", serif;
+}
+
+.InputWrited {
+    margin : 30px 65px 30px 65px;
+    width : 700px;
+    height : 140px;
+    font-size : 30px;
+    font-family: Georgia, "Malgun Gothic", serif;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* footer */
+
+.RedLine {
+    height : 1vh;
+    background-color: #da0808;
+}
+
+.PlusLine {
+    height : 20vh;
+    background-color: #FFFFFF;
+}
+
+.PlusButton {
+    width : 100px;
+    height : 100px;
+    margin : 30px 30px 30px 800px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+</header>
+<main>
+    <div class="Write">
+        <div class="CommentTop">
+            <div class="CommentLeft">
+                <img class="CommentMainImages" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="CommentRight">
+                <div class="CommentRightTop">
+                    <div class="CommentRightTopLeft">
+                        <p class="WriteWrite">
+                            안녕하세요 오늘도 어김없이 갈리고 있는 이진혁이라고 합니다. 반갑습니다 내용을 다 채워야하는데 적을 내용이 없네요 이제 슬슬 꽉차지 않았을까요?
+                        </p>
+                    </div>
+                    <div class="CommentRightTopRight"></div>
+                </div>
+                <hr class="ShortLine"/>
+                <div class="CommentRightBot">
+                    <div class="CommentRightBotLeft">
+                        <p class="WriteWriter">
+                            작성자 : 이진혁 / 19.08.01 12:09:00
+                        </p>
+                    </div>
+                    <div class="CommentRightBotRight">
+                        <img class="CommentIcons" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="CommentBot">
+            <hr class="LongLine"/>
+        </div>
+    </div>
+    <div class="IPCT">
+        <div class="IPCTTop">
+            <div class="IPCTLeft">
+                <img class="LShape" src="static/img/LIcon.png" alt="오류"/>
+            </div>
+            <div class="IPCTRight">
+                <textarea class="InputCommentChang">-댓글을 입력해주세요</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="CommentComment">
+        <div class="IPCTLeft">
+            <img class="LShape" src="static/img/LIcon.png" alt="오류"/>
+        </div>
+        <div class="IPCTRight">
+            <p class="InputWrited">
+                살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살살
+            </p>
+        </div>
+    </div>
+    <div class="CommentComment">
+        <div class="IPCTLeft">
+            <img class="LShape" src="static/img/LIcon.png" alt="오류"/>
+        </div>
+        <div class="IPCTRight">
+            <p class="InputWrited">
+                려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려려
+            </p>
+        </div>
+    </div>
+    <div class="CommentComment">
+        <div class="IPCTLeft">
+            <img class="LShape" src="static/img/LIcon.png" alt="오류"/>
+        </div>
+        <div class="IPCTRight">
+            <p class="InputWrited">
+                줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘줘
+            </p>
+        </div>
+    </div>
+    <div class="Write">
+        <div class="CommentTop">
+            <div class="CommentLeft">
+                <img class="CommentMainImages" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="CommentRight">
+                <div class="CommentRightTop">
+                    <div class="CommentRightTopLeft">
+                        <p class="WriteWrite">
+                            안녕하세요 오늘도 어김없이 갈리고 있는 이진혁이라고 합니다. 반갑습니다 내용을 다 채워야하는데 적을 내용이 없네요 이제 슬슬 꽉차지 않았을까요?
+                        </p>
+                    </div>
+                    <div class="CommentRightTopRight"></div>
+                </div>
+                <hr class="ShortLine"/>
+                <div class="CommentRightBot">
+                    <div class="CommentRightBotLeft">
+                        <p class="WriteWriter">
+                            작성자 : 이진혁 / 19.08.01 12:09:00
+                        </p>
+                    </div>
+                    <div class="CommentRightBotRight">
+                        <img class="CommentIcons" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Write">
+        <div class="CommentTop">
+            <div class="CommentLeft">
+                <img class="CommentMainImages" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="CommentRight">
+                <div class="CommentRightTop">
+                    <div class="CommentRightTopLeft">
+                        <p class="WriteWrite">
+                            안녕하세요 오늘도 어김없이 갈리고 있는 이진혁이라고 합니다. 반갑습니다 내용을 다 채워야하는데 적을 내용이 없네요 이제 슬슬 꽉차지 않았을까요?
+                        </p>
+                    </div>
+                    <div class="CommentRightTopRight"></div>
+                </div>
+                <hr class="ShortLine"/>
+                <div class="CommentRightBot">
+                    <div class="CommentRightBotLeft">
+                        <p class="WriteWriter">
+                            작성자 : 이진혁 / 19.08.01 12:09:00
+                        </p>
+                    </div>
+                    <div class="CommentRightBotRight">
+                        <img class="CommentIcons" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="CommentIcons" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="RedLine">
+        
+    </div>
+    <div class="PlusLine">
+        <img class="PlusButton" src="static/img/PlusButton.png" alt="오류">
+    </div>
+</footer>
+
+</body>
+</html>
