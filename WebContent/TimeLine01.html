@@ -24,11 +24,14 @@ body {
 header {
     width : 100%;
     height : 65px;
+    background-color : #da0808;
 }
 
 main {
     width : 100%;
     height : 537px;
+    overflow-y : auto;
+    overflow-x : hidden;
 }
 
 footer {
@@ -38,31 +41,103 @@ footer {
 
 /* ~~~~~~~ Header ~~~~~~~ */
 
+.HeaderLeft {
+    width : 205px;
+    height : 100%;
+    float : left;
+}
 
+.HeaderRight {
+    width : 170px;
+    height : 100%;
+    float : right;
+}
 
-/* ~~~~~~~ Main ~~~~~~~ */
+.HeaderRightTop {
+    width : 100%;
+    height : 15px;
+}
+
+.HeaderRightBot {
+    width : 100%;
+    height : 50px;
+    border-radius : 20px 20px 0px 0px / 20px 20px 0px 0px;
+    border-top : 5px solid #FFFFFF;
+}
+
+/* ~~~~~~~ Banner ~~~~~~~ */
 
 .Banner {
-    width : 160px;
-    height : 45px;
+    width : 170px;
+    height : 55px;
     float : right;
+    left : 55%;
+    background-color : #FFFFFF;
+    border-radius : 0px 0px 20px 20px / 0px 0px 20px 20px;
+    border-bottom : 5px solid #DA0808;
+    border-left : 5px solid #DA0808;
+    border-right : 5px solid #DA0808;
+    position : fixed;
 }
 
 .BannerTop {
     width : 100%;
     height : 30px;
-    background-color: blue;
+}
+
+.BannerCircle {
+    width : 24px;
+    height : 24px;
+    float : right;
+    margin : 3px 8px 3px 8px;
 }
 
 .BannerBot {
     width : 100%;
     height : 15px;
-    background-color: red;
+}
+
+.BannerCircleName {
+    width : 30px;
+    height : 10px;
+    font-size : 5px;
+    margin : 0px 5px 0px 5px;
+    text-align : center;
+    float : right;
+}
+
+/* ~~~~ Main Write ~~~~~ */
+
+.MainWrite {
+    width : 100%;
+    height : 100%;
+}
+
+.MainWriteLeft {
+    width : 100px;
+    height : 100px;
+    background-color : blue;
+}
+
+.MainWriteRight {
+    width : 275px;
+    height : 567px;
+    background-color: aqua;
 }
 
 /* ~~~~~~~ Footer ~~~~~~~ */
 
+.FooterTop {
+    width : 100%;
+    height : 5px;
+    background-color : #DA0808;
+}
 
+.FooterBot {
+    width : 100%;
+    height : 60px;
+    background-color : #FFFFFF;
+}
 
 /* ~~~~~~~ ... ~~~~~~~ */
 
@@ -72,11 +147,11 @@ hr.LongLine {
     margin-bottom : 0px;
 }
 
-.BannerCircle {
-    width : 30px;
-    height : 30px;
-    float : right;
-    margin : 0px 5px 0px 5px;
+.HeaderTitle {
+    font-size : 25px;
+    color : #FFFFFF;
+    text-align : center;
+    margin-top : 5px;
 }
 
 </style>
@@ -84,26 +159,61 @@ hr.LongLine {
 <body>
 
 <header>
+    <div class="HeaderLeft">
+        
+    </div>
+    <div class="HeaderRight">
+        <div class="HeaderRightTop">
 
+        </div>
+        <div class="HeaderRightBot">
+            <p class="HeaderTitle">Time Line</p>
+        </div>
+    </div>
 </header>
 <main>
     <div class="Banner">
         <div class="BannerTop">
+            <img class="BannerCircle" src="static/img/BannerGreenImage.png"/>
+            <img class="BannerCircle" src="static/img/BannerBlueImage.png"/>
             <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
+            <img class="BannerCircle" src="static/img/BannerBlackImage.png"/>
         </div>
         <div class="BannerBot">
-            <p class="BannerCircleName">국어</p>
-            <p class="BannerCircleName">국어</p>
-            <p class="BannerCircleName">국어</p>
-            <p class="BannerCircleName">국어</p>
+            <p class="BannerCircleName">질문</p>
+            <p class="BannerCircleName">후기</p>
+            <p class="BannerCircleName">자유</p>
+            <p class="BannerCircleName">전체</p>
         </div>
+    </div>
+
+    <div class=MainWrite>
+        <div class="MainWriteLeft">
+
+        </div>
+        <div class="MainWriteRight">
+            <div class="MainWriteRightTop">
+
+            </div>
+            <div class="MainWriteRightBot">
+                <div class="MainWriteRightBotLeft">
+
+                </div>
+                <div class="MainWriteRightBotRight">
+
+                </div>
+            </div>
+        </div>
+        <hr class="LongLine"/>
     </div>
 </main>
 <footer>
+    <div class="FooterTop">
+        
+    </div>
+    <div class="FooterBot">
 
+    </div>
 </footer>
 
 </body>
