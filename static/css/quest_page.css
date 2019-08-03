@@ -1,0 +1,217 @@
+.container{
+  height:33%;
+  overflow: scroll;
+  width: 77%;
+  margin-top: 17%;
+  margin-left: 8%;
+}
+
+.button{
+ padding:10px;
+ font-size:15px;
+}
+.btn{
+ font-size:15px;
+ width:100%;
+}
+
+p{font-size:20px;
+ text-align:center
+}
+
+.quest{
+  position:relative;
+  clear:both;
+  padding: 3%;
+  top: 10%;
+}
+/*추가부분 - mainPage의 css*/
+
+/*orumQuest.css*/
+.wrap{
+    top: 10%;
+    position: relative;
+
+}
+.container2{
+  height:31%;
+  overflow: scroll;
+  margin-top: 20%;
+  width: 81%;
+  margin-left: 7%;
+}
+.orum-button{
+    font-size: 15px;
+    width: 83%;
+    margin-left: 6%;
+    margin-top: 4%;
+}
+.naming{
+    width: 54%;
+}
+.auth{
+  margin-left: 19%;
+      width: 20%;
+}
+.auth-wrap{
+  margin:5%;
+
+}
+
+/**/
+font-face {
+  font-family: "BRBA_B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: "BRBA_B";
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+.navbar-brand {
+  padding: 5px 5px !important;
+}
+.nav {
+  background: #da0808;
+  width: 100%;
+  height: 65px;
+  position: absolute;
+}
+.menu {
+  background: white;
+  width: 56px;
+  height: 53px;
+  /* border: 0.5px solid white; */
+  border-radius: 2px;
+  margin: 5px;
+  transition: width 0.1s ease-in;
+  webkit-transition: width 0.1s ease-in;
+}
+.menu::after {
+  width: 0;
+  height: 0;
+  border-top: 26.5px solid transparent;
+  border-bottom: 26.5px solid transparent;
+  border-right: 50px solid none;
+  border-left: 13px solid white;
+  content: "";
+  position: absolute;
+  left: 60px;
+  top: 5px;
+}
+.opened {
+  width: 55%;
+}
+#menu.opend::after {
+  width: 0;
+  height: 0;
+  border: 0;
+}
+.menu img {
+  display: block;
+  float: left;
+}
+#header-title span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 1.8em;
+  transform: translate(-50%, -50%);
+}
+.naver-map {
+  width: 100%;
+  height: 40%;
+  top: 10%;
+  position: absolute;
+}
+.user-row {
+  text-align: center;
+}
+.user-container {
+  margin-top: 5%;
+}
+.txt {
+  margin-top: 3%;
+  margin-bottom: 0;
+}
+.alias {
+  margin: 0;
+  opacity: 0.5;
+}
+.back {
+  margin-top: 10%;
+}
+.quest-border {
+  margin: 6% 0 0 0px;
+  text-align: left;
+}
+.quest-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.quest-ul li {
+  padding: 0 0 0 10px;
+  border: 0;
+  display: inline-block;
+}
+.quest-card {
+  float: left;
+  border: 1px solid #da0808;
+}
+.quest-list {
+  margin: 15% 0 0 0;
+}
+.quest-circle {
+  display: inline-block;
+  background-color: white;
+  width: 85px;
+  height: 85px;
+  border: 1px solid #da0808;
+  border-radius: 75px;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 15px;
+  vertical-align: middle;
+  line-height: 85px;
+}
+.quest-circle-container {
+  display: inline-block;
+  margin-top: 2%;
+}
+.quest-title {
+  font-size: 1.5em;
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-bottom: 0.7px solid rgba(218, 8, 8, 0.192);
+}
+.quest-head {
+  text-align: left;
+}
+.quest-body {
+  width: 150px;
+  height: 80px;
+  border: 1px solid rgba(0, 0, 0, 0.192);
+}
+.quest-circle-innertext {
+  font-size: 20px;
+  color: #da0808;
+}
+.quest-circle-title {
+  margin-top: -25px;
+  white-space: nowrap;
+}
+.name {
+  font-size: 1.3em;
+}
