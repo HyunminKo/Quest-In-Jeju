@@ -10,12 +10,12 @@ import java.util.List;
 public class JdbcTemplate {
     static {
         try{
-            Class.forName("oracle.jdbc.OracleDriver");
+        	Class.forName("com.mysql.jdbc.Driver");
         }catch (ClassNotFoundException e) {e.printStackTrace();}
     }
 
     private Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe","HR","HR");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju","root","1111");
         return conn;
     }
     public int update(String sql, Object ...args) throws Exception{

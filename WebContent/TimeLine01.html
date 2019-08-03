@@ -30,6 +30,8 @@ header {
 main {
     width : 100%;
     height : 537px;
+    overflow-y : auto;
+    overflow-x : hidden;
 }
 
 footer {
@@ -63,16 +65,19 @@ footer {
     border-top : 5px solid #FFFFFF;
 }
 
-/* ~~~~~~~ Main ~~~~~~~ */
+/* ~~~~~~~ Banner ~~~~~~~ */
 
 .Banner {
     width : 170px;
-    height : 60px;
+    height : 55px;
     float : right;
+    left : 55%;
+    background-color : #FFFFFF;
     border-radius : 0px 0px 20px 20px / 0px 0px 20px 20px;
     border-bottom : 5px solid #DA0808;
     border-left : 5px solid #DA0808;
     border-right : 5px solid #DA0808;
+    position : fixed;
 }
 
 .BannerTop {
@@ -101,9 +106,38 @@ footer {
     float : right;
 }
 
+/* ~~~~ Main Write ~~~~~ */
+
+.MainWrite {
+    width : 100%;
+    height : 100%;
+}
+
+.MainWriteLeft {
+    width : 100px;
+    height : 100px;
+    background-color : blue;
+}
+
+.MainWriteRight {
+    width : 275px;
+    height : 567px;
+    background-color: aqua;
+}
+
 /* ~~~~~~~ Footer ~~~~~~~ */
 
+.FooterTop {
+    width : 100%;
+    height : 5px;
+    background-color : #DA0808;
+}
 
+.FooterBot {
+    width : 100%;
+    height : 60px;
+    background-color : #FFFFFF;
+}
 
 /* ~~~~~~~ ... ~~~~~~~ */
 
@@ -152,9 +186,34 @@ hr.LongLine {
             <p class="BannerCircleName">전체</p>
         </div>
     </div>
+
+    <div class=MainWrite>
+        <div class="MainWriteLeft">
+
+        </div>
+        <div class="MainWriteRight">
+            <div class="MainWriteRightTop">
+
+            </div>
+            <div class="MainWriteRightBot">
+                <div class="MainWriteRightBotLeft">
+
+                </div>
+                <div class="MainWriteRightBotRight">
+
+                </div>
+            </div>
+        </div>
+        <hr class="LongLine"/>
+    </div>
 </main>
 <footer>
+    <div class="FooterTop">
+        
+    </div>
+    <div class="FooterBot">
 
+    </div>
 </footer>
 
 </body>
