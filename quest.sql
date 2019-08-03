@@ -8,12 +8,14 @@ create table quest_item (
   latitude varchar(20) NOT NULL,
   longitude varchar(20) NOT NULL,
   description TEXT NOT NULL,
-  addr varchar(100) NOT NULL
+  addr varchar(100) NOT NULL,
+  src VARCHAR(10000)
 );
 create table quest (
-    id bigint unsigned auto_increment Primary key ,
-    name varchar(24) not null ,
-    item_count int not null
+    id bigint unsigned auto_increment Primary key,
+    name varchar(24) not null,
+    item_count int not null,
+    user_id bigint unsigned not null
 );
 create table user (
 	id bigint unsigned auto_increment primary key,
@@ -26,7 +28,9 @@ create table post (
     like_count int,
 	contents text not null,
     date datetime not null,
-	user_id bigint unsigned not null
+	user_id bigint unsigned not null,
+    src VARCHAR(10000),
+    category int
 );
 create table comment (
     id bigint unsigned not null auto_increment primary key,
