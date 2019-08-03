@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html >
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -10,39 +11,29 @@
 	<title></title>
 	<style>
 
-.nanumsquare { font-family: 'NanumSquare', sans-serif !important; }
+  .nanumsquare { 
+    font-family: 'NanumSquare', sans-serif !important; 
+  }
+
 	* {
 		font-family: 'NanumSquare', sans-serif !important;                                                   
 	}
-	body { background: #FFF;
-		 }
-	h1 { color: #000;
-	 margin-left: 30px;
 
+	body { background: #FFF;
 	}
 
-	.album-cover {
+	h1 { color: #000;
+	 margin-left: 30px;
+	}
+
+	.pic {
 	  width: 100%;
 	  height: 230px;
 	  background-image: url('static/img/static/img/flag.png');
 	  background-repeat: no-repeat;
 	  background-size: cover;
 	  background-position: center;
-	  /*background-image: url('static/img/flag.png');*/
-	}
 
-	.album-info {
-	  padding: 10px;
-    width: 250px;
-	}
-
-	.album-title {
-	  font-family: 'Noto Sans KR', sans-serif;
-	}
-
-	.album-date {
-	  font-size: 12px;
-	}
 	.card{
 		display: inline-block;
 		margin-left: 100px;
@@ -72,23 +63,19 @@
 <body>
   <div style="background-color: #da0808; height: 65px;"/>
 	<p align="center"
-	style="font-size: 80px;
+	style="font-size: 2.0em;
 			position: relative;
-			top: 100px;" >QUEST LIST</p>
-	<br><br>
-	<br><br>
-
-
-	<h1>
+			top: 80px;" >QUEST LIST</p>
+	<p style="margin-top: 6em;">
     <img src ='static/img/flag.png' width="30" height="30">
-    오름 정복하기 <button type="button" class="btn btn-outline-danger">수락</button></h1>
-    <br><br>
+    오름 정복하기  <button type="button" class="btn btn-outline-danger">수락</button></p>
+    
 <div>
 	<ul style=" overflow-x: scroll;
     white-space: nowrap;">
   <li class="card">
     <div class="item">
-      <div class="album-cover" style="background-image: url('static/img/orum.jpg'"></div>
+      <div class="pic" style="background-image: url('static/img/orum.jpg'"></div>
       <div class="album-info">
       	<a href="#" >
 <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">새별오름</button>
@@ -118,7 +105,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >해변 이름</p></a>
@@ -128,7 +115,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -138,7 +125,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -158,7 +145,7 @@
     white-space: nowrap;">
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title"  >오름 이름</p></a>
@@ -168,7 +155,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -178,7 +165,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -188,7 +175,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -208,7 +195,7 @@
     white-space: nowrap;">
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -218,7 +205,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -228,7 +215,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -238,7 +225,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
       	<a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -258,7 +245,7 @@
     white-space: nowrap;">
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -268,7 +255,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -278,7 +265,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -288,7 +275,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -308,7 +295,7 @@
     white-space: nowrap;">
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -318,7 +305,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -328,7 +315,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
@@ -338,7 +325,7 @@
   </li>
   <li class="card">
     <div class="album-item">
-      <div class="album-cover"></div>
+      <div class="pic"></div>
       <div class="album-info">
         <a href="#" >
         <p class="album-title" >오름 이름</p></a>
