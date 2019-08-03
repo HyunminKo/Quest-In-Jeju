@@ -5,14 +5,17 @@ import user.UserVO;
 
 import java.util.List;
 
+import relation.UserQuestPlayDAO;
+import relation.UserQuestPlayVO;
+
 public class testtest {
     public static void main(String[] args) {
       /*  UserDAO dao = new UserDAO();
         List<UserVO> ls = dao.findAll();
         System.out.println(ls);
         */
-        AliasDAO dao = new AliasDAO();
-        List<AliasVO> ls = dao.findAll();
+        UserQuestPlayDAO dao = new UserQuestPlayDAO();
+        List<UserQuestPlayVO> ls = dao.findAll();
         System.out.println(ls);
     }
 }
