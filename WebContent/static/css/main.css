@@ -5,7 +5,7 @@
 @font-face {
   font-family: "BRBA_B";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
-    format("woff");
+  format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -28,11 +28,11 @@ html {
 }
 .menu {
   background: white;
-  width: 56px;
-  height: 53px;
+  width: 50px;
+  height: 45px;
   /* border: 0.5px solid white; */
   border-radius: 2px;
-  margin: 5px;
+  margin: 10px 0 10px 11px;
   transition: width 0.1s ease-in;
   webkit-transition: width 0.1s ease-in;
 }
@@ -46,7 +46,7 @@ html {
   content: "";
   position: absolute;
   left: 60px;
-  top: 5px;
+  top: 6px;
 }
 .opened {
   width: 55%;
@@ -59,7 +59,10 @@ html {
 .menu img {
   display: block;
   float: left;
+  margin-top: 3px;
+  margin-left: 5px;
 }
+
 #header-title span {
   position: absolute;
   top: 50%;
