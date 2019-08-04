@@ -24,6 +24,12 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: 0;
+}
+
+#temp {
+  height: 42px;
+  width: 100%;
 }
 
 #image-uplaod #user-location {
@@ -60,4 +66,17 @@
 
 #outer-camera {
   display: none;
+}
+
+#inner-panel {
+  padding-bottom: 7px;
+}
+
+#box {
+  height: 520px;
+  width: 100%;
+}
+
+#temp {
+  margin-top: 100px;
 }
