@@ -22,76 +22,215 @@
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
-          <img id="img_1" src="static/img/quest.png" width="40" height="40" alt=""/>
+          <img id="img_1" src="static/img/flag.png" width="30" height="40" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
-          <img id="img_2" src="static/img/home.png" width="40" height="40" alt=""/>
+          <img id="img_2" src="static/img/placeholder.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
-          <img id="img_3" src="static/img/gamer.png" width="40" height="40" alt=""/>
+          <img id="img_3" src="static/img/gamer-icon2.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
-          <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
+          <img id="img_4" src="static/img/timeline-icon-2.png" width="30" height="30" alt=""/>
         </a>
-      </div>
+       </div>
 
       <div id="header-title">
         <span>Quest In JeJu</span>
       </div>
     </div>
     <div id="map" class="naver-map"></div>
-    <div class="wrap">
-          <button  type="button" class="btn btn-danger btn-lg btn-block orum-button">오름 정복하기</button>
-
-     </div>
 
 
-  <div class="container2">
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary gothic naming">새별오름</button>
+        <div class="quest"  style="font-size:30px">
+        <p class="gothic"> ________님이 수행중인 퀘스트!</p>
+        </div>
 
-          <button type="button" class="btn btn-outline-danger gothic auth">인증</button>
-      </div>
+        <div class="container">
+          <div class="button" ><a href="javascript:doDisplayo();">
+      			<button type="button" class="btn btn-outline-danger gothic">오름 정복하기 ( 2/5 )</button>
+      		</a></div>
 
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">거문오름</button>
 
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
+    <!--오름리스트-->
+            <div class="container2" id="orumlist">
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary gothic naming">새별오름</button>
 
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary  naming">노로오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
+                    <button type="button" class="btn btn-outline-danger gothic auth">인증</button>
+                </div>
 
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">노꼬메오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">느지리오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">다랑쉬오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">따라비오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
-      <div class="auth-wrap">
-          <button type="button" class="btn btn-outline-secondary naming">말미오름</button>
-          <button type="button" class="btn btn-outline-danger auth">인증</button>
-      </div>
-    </div>
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">거문오름</button>
 
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary  naming">노로오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">노꼬메오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">느지리오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">다랑쉬오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">따라비오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+                <div class="auth-wrap">
+                    <button type="button" class="btn btn-outline-secondary naming">말미오름</button>
+                    <button type="button" class="btn btn-outline-danger auth">인증</button>
+                </div>
+              </div><!--container2-->
+
+
+
+
+
+
+        <!--맛집 리스트-->
+      		<div class="button"><a href="javascript:doDisplayf();">
+      			<button type="button" class="btn btn-outline-danger gothic">맛집 정복하기 ( 2/5 )</button>
+            </a>	</div>
+
+          <div class="container3" id="foodlist">
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary gothic naming">새별오름</button>
+
+                  <button type="button" class="btn btn-outline-danger gothic auth">인증</button>
+              </div>
+
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">거문오름</button>
+
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary  naming">노로오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">노꼬메오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">느지리오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">다랑쉬오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">따라비오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+              <div class="auth-wrap">
+                  <button type="button" class="btn btn-outline-secondary naming">말미오름</button>
+                  <button type="button" class="btn btn-outline-danger auth">인증</button>
+              </div>
+            </div><!--container3-->
+
+
+
+            <!--산책 리스트-->
+              <div class="button"><a href="javascript:doDisplayw();">
+                <button type="button" class="btn btn-outline-danger gothic">산책로 정복하기 ( 2/5 )</button>
+                </a>	</div>
+
+              <div class="container4" id="walklist">
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary gothic naming">새별오름</button>
+
+                      <button type="button" class="btn btn-outline-danger gothic auth">인증</button>
+                  </div>
+
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">거문오름</button>
+
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary  naming">노로오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">노꼬메오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">느지리오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">다랑쉬오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">따라비오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+                  <div class="auth-wrap">
+                      <button type="button" class="btn btn-outline-secondary naming">말미오름</button>
+                      <button type="button" class="btn btn-outline-danger auth">인증</button>
+                  </div>
+                </div><!--container4-->
+
+
+
+
+      		<div class="button">
+      			<button type="button" class="btn btn-outline-danger gothic">산책로 정복하기 ( 2/5 )</button>
+      		</div>
+      		<div class="button">
+      			<button type="button" class="btn btn-outline-danger gothic">카페 정복하기 ( 2/5 )</button>
+      		</div>
+      		<div class="button">
+      			<button type="button" class="btn btn-outline-danger gothic">바다 정복하기 ( 1/5 )</button>
+      		</div>
+      		<div class="button">
+      			<button type="button" class="btn btn-outline-danger gothic">오름 정복하기 ( 2/5 )</button>
+      		</div>
+      	</div><!--container-->
 
 
 
   </body>
 </html>
 <script>
+  function doDisplayo(){
+      var con = document.getElementById("orumlist");
+      if(con.style.display=='block'){
+          con.style.display = 'none';
+      }else{con.style.display='block';}
+  }
+  function doDisplayf(){
+      var con = document.getElementById("foodlist");
+      if(con.style.display=='block'){
+          con.style.display = 'none';
+      }else{con.style.display='block';}
+  }
+  function doDisplayw(){
+        var con = document.getElementById("walklist");
+        if(con.style.display=='block'){
+            con.style.display = 'none';
+        }else{con.style.display='block';}
+    }
+
   var options = {
     enableHighAccuracy: true,
     timeout: 5000,
