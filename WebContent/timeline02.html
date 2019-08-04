@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="static/css/main.css" />
 <script src="static/js/main.js"></script>
  
-<title>add</title>
+<title>TimeLine</title>
 <style>
 @font-face { 
     font-family: 'BRBA_B'; 
@@ -456,7 +456,7 @@ p.MainCommentRightBotComment {
     width : 50px;
     height : 50px;
     position : fixed;
-    border : 450px 10px 10px 300px;
+    margin : 460px 10px 10px 300px;
 }
 
 .modal-body {
@@ -520,7 +520,7 @@ p.MainCommentRightBotComment {
 <main>
 
     <div class="PlusButton">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"><img src="static/img/PlusButton.png" class="WritePlusButton"/></button>
+        <img src="static/img/PlusButton.png" class="WritePlusButton" data-toggle="modal" data-target="#exampleModalScrollable"/></button>
     </div>
 
     <div class="MainMain">
@@ -833,33 +833,31 @@ p.MainCommentRightBotComment {
             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
                    +
                   </button>   -->
-                  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                          <div class="modal-content">
+                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalScrollableTitle"><b class="tl-bold">|&nbsp;</b>새 글 작성</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                                <h5 class="modal-title" id="exampleModalScrollableTitle"><b class="tl-bold">|&nbsp;</b>새 글 작성</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div class="modal-body">
-                              <form method="POST" action="addpost.jsp">
-                                  <input type="radio" value="free" name="category" checked/>자유
-                                  <input type="radio" value="later" name="category"/>후기
-                                  <input type="radio" value="question" name="category"/>질문 
-                                  <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
-                                  <input type="file" name="src" class="tl-select"/>
-                                  <input type="date" name="datetime" class="tl-date"/>
-                              
+                                <form method="POST" action="addpost.jsp">
+                                    <input type="radio" value="free" name="category" checked/>자유
+                                    <input type="radio" value="later" name="category"/>후기
+                                    <input type="radio" value="question" name="category"/>질문 
+                                    <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
+                                    <input type="file" name="src" class="tl-select"/>
+                                    <input type="date" name="datetime" class="tl-date"/>   
                             </div>
                             <div class="modal-footer">
                                 <input type="submit"  class="tl-upload" name="submit" value="업로드"/>
                             </div>
-                        </form>
+                                </form>
                         </div>
-                        </div>
-                    </div>    
-                  
+                    </div>
+                </div>      
     </div>
     
 </footer>
