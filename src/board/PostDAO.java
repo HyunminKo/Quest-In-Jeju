@@ -9,14 +9,13 @@ public class PostDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
     
-    public void insert(){
-        Integer like_count = new Integer(10);
-        String contents = new String("글쓴 내용 나오나요요요용");
-        String date = new String("8월 4일");
-        Long user_id = new Long(1213);
-        String src = new String("이미지 링크");
-        Integer category = new Integer(2345);
-        
+    public void insert( PostVO vo ){
+        Integer like_count = new Integer( 0 );
+        String contents = vo.getContents();
+        String date = vo.getDate();
+        Long user_id = null;
+        String src = vo.getSrc();
+        Integer category = vo.getCategory();
         
         String sql = "insert into post"
         		+ "(like_count, contents, date, user_id, src, category) "
