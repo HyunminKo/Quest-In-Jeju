@@ -49,7 +49,7 @@ html {
   top: 6px;
 }
 .opened {
-  width: 55%;
+  width: 60%;
 }
 #menu.opend::after {
   width: 0;
