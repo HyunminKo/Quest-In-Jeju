@@ -7,6 +7,8 @@ import java.util.List;
 
 import board.PostDAO;
 import board.PostVO;
+import quest.QuestItemDAO;
+import quest.QuestItemVO;
 import relation.UserQuestPlayDAO;
 import relation.UserQuestPlayVO;
 
@@ -18,9 +20,8 @@ public class testtest {
         System.out.println(ls);
        */
        
-    	PostDAO daoo = new PostDAO();
-        List<PostVO> lss = daoo.findAll();
-        
-        System.out.println(lss);
+    	QuestItemDAO dao = new QuestItemDAO();
+    	List<QuestItemVO> ls = dao.findAll();
+    	System.out.println(ls);
     }
 }

@@ -30,6 +30,4 @@ public class UserQuestPlayDAO {
         }
         return ls;
     }
-	
-	
 }

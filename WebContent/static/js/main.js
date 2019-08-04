@@ -1,3 +1,4 @@
+
 let menuFlag = false;
 let state = "flag.png";
 
@@ -51,7 +52,6 @@ async function showStateIcons(t) {
     menuFlag = false;
   }
 }
-
 
 
 function doDisplayo(){
