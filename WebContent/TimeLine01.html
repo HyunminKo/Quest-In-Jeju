@@ -3,450 +3,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
-   
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="static/css/main.css" />
 <script src="static/js/main.js"></script>
- 
+
 <meta charset="utf-8" />
 <title>TimeLine</title>
-<style>
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family : 'HY견고딕' , sans-serif !important;
-}
+<link rel="stylesheet" href="static/css/timeline.css" />
 
-body {
-    width : 100%;
-    height : 100%;
-}
-
-header {
-    width : 100%;
-    height : 65px;
-    background-color : #da0808;
-}
-
-main {
-    width : 100%;
-    height : 537px;
-    overflow-y : auto;
-    overflow-x : hidden;
-}
-
-footer {
-    width : 100%;
-    height : 65px;
-}
-
-/* ~~~~~~~ Header ~~~~~~~ */
-
-.HeaderLeft {
-    width : 205px;
-    height : 100%;
-    float : left;
-}
-
-.HeaderRight {
-    width : 170px;
-    height : 100%;
-    float : right;
-}
-
-/* ~~~~ Main Write ~~~~~ */
-
-.MainMain {
-    width : 100%;
-    height : 100%;
-}
-
-.MainWrite {
-    width : 100%;
-    height : 100px;
-    margin-top : 10px;
-    border-top : 1px solid #eee;
-    border-bottom : 1px solid #eee;
-}
-
-.MainWriteLeft {
-    width : 100px;
-    height : 100px;
-    float : left;
-}
-
-.MainWriteLeftLeftB {
-    width : 10px;
-    height : 100%;
-    background-color : blue;
-    float : left;
-}
-.MainWriteLeftLeftG {
-    width : 10px;
-    height : 100%;
-    background-color : green;
-    float : left;
-}
-.MainWriteLeftLeftO {
-    width : 10px;
-    height : 100%;
-    background-color : orange;
-    float : left;
-}
-
-.MainWriteLeftRight {
-    width : 90px;
-    height : 100px;
-    float : right;
-}
-
-.MainImagesB {
-    width : 80px;
-    height : 80px;
-    margin : 10px 0px 10px 10px;
-    border : 5px solid blue;
-}
-.MainImagesG {
-    width : 80px;
-    height : 80px;
-    margin : 10px 0px 10px 10px;
-    border : 5px solid green;
-}
-.MainImagesO {
-    width : 80px;
-    height : 80px;
-    margin : 10px 0px 10px 10px;
-    border : 5px solid orange;
-}
-
-.MainWriteRight {
-    width : 275px;
-    height : 100px;
-    float : right;
-}
-
-.MainWriteRightLeft {
-    width : 235px;
-    height : 100%;
-    float : left;
-}
-
-.MainWriteRightLeftLeft {
-    width : 230px;
-    height : 100px;
-    float : left;
-}
-
-.MainWriteRightLeftLeftTop {
-    width : 100%;
-    height : 30px;
-}
-
-.MainWriteRightLeftLeftTopLeft {
-    width : 100px;
-    height : 100%;
-    float : left;
-}
-
-.MainWriteRightLeftLeftTopRight {
-    width : 130px;
-    height : 100%;
-    float : right;
-}
-
-.MainWriteRightLeftLeftBot {
-    width : 100%;
-    height : 70px;
-}
-
-.MainWriteRightLeftRight {
-    width : 5px;
-    height : 100px;
-    float : right;
-}
-
-.MainWriteRightRight {
-    width : 40px;
-    height : 100%;
-    float : right;
-}
-
-.ThreeIcons {
-    width : 40px;
-    height : 33px;
-    border-top : 1px solid #eee;
-    border-right : 1px solid #eee;
-    border-bottom : 1px solid #eee;
-}
-
-/* ~~~~~~ Comment ~~~~~~~ */
-
-.MainCommentLine {
-    width : 100%;
-    height : 80px;
-}
-
-.MainComment {
-    width : 300px;
-    height : 80px;
-    float : right;
-    border-bottom : 1px solid #eee;
-}
-
-.MainCommentLeftB {
-    width : 8px;
-    height : 100%;
-    float : left;
-    background-color : blue;
-}
-.MainCommentLeftG {
-    width : 8px;
-    height : 100%;
-    float : left;
-    background-color : green;
-}
-.MainCommentLeftO {
-    width : 8px;
-    height : 100%;
-    float : left;
-    background-color : orange;
-}
-
-.MainCommentRight {
-    width : 292px;
-    height : 100%;
-    float : right;
-}
-
-.MainCommentRightTop {
-    width : 100%;
-    height : 20px;
-}
-
-.MainCommentRightTopLeft {
-    width : 92px;
-    height : 100%;
-    float : left;
-}
-
-.MainCommentRightTopRight {
-    width : 200px;
-    height : 100%;
-    float : right;
-}
-
-.MainCommentRightBot {
-    width : 100%;
-    height : 60px;
-}
-
-/* ~~~~~~ Editor ~~~~~~~ */
-
-.MainEditor {
-    width : 100%;
-    height : 90px;
-    background-color : #eee;
-}
-
-.MainEditorLeft {
-    width : 305px;
-    height : 100%;
-    float : left;
-    font-size : 5px;
-}
-
-textarea.MainEditorLeftTextarea {
-    width : 275px;
-    height : 60px;
-    float : right;
-    overflow:visible;
-    margin-top : 15px;
-    border : 1px solid black;
-}
-
-.MainEditorRight {
-    width : 70px;
-    height : 100%;
-    float : right;
-    font-size : 15px;
-}
-
-.MainEditorRightSubmit {
-    width : 40px;
-    height : 60px;
-    float : left;
-    margin-top : 15px;
-    background-color : #FFFFFF;
-    border-top : 1px solid black;
-    border-right : 1px solid black;
-    border-bottom : 1px solid black;
-    border-left : 0px solid black;
-}
-
-/* ~~~~~~~ Footer ~~~~~~~ */
-
-.FooterTop {
-    width : 100%;
-    height : 5px;
-    background-color : #DA0808;
-}
-
-.FooterBot {
-    width : 100%;
-    height : 60px;
-    background-color : #FFFFFF;
-}
-
-.FooterBotLeft {
-    width : 50%;
-    height : 100%;
-    float : left;
-}
-
-.FooterBotLeftAll {
-    width : 55px;
-    height : 35px;
-    float : right;
-    background-color : black;
-    border : 1px solid black;
-    margin : 12px 5px 0px 5px;
-    border-radius : 55px;
-    color : white;
-    font-size : 15px;
-}
-
-.FooterBotLeftFreedom {
-    width : 55px;
-    height : 35px;
-    float : right;
-    background-color : blue;
-    border : 1px solid blue;
-    margin : 12px 5px 0px 5px;
-    border-radius : 55px;
-    color : white;
-    font-size : 15px;
-}
-
-.FooterBotLeftReview {
-    width : 55px;
-    height : 35px;
-    float : left;
-    background-color : green;
-    border : 1px solid green;
-    margin : 12px 5px 0px 5px;
-    border-radius : 55px;
-    color : white;
-    font-size : 15px;
-}
-
-.FooterBotLeftQuestion {
-    width : 55px;
-    height : 35px;
-    float : left;
-    background-color : orange;
-    border : 1px solid orange;
-    margin : 12px 5px 0px 5px;
-    border-radius : 55px;
-    color : white;
-    font-size : 15px;
-}
-
-.FooterBotRight {
-    width : 50%;
-    height : 100%;
-    float : right;
-}
-
-/* ~~~~~~~ ... ~~~~~~~ */
-
-hr.VerticalLine {
-    height : 100%;
-    margin-top : 0px;
-    margin-bottom:0px;
-    float : right;
-    border : solid 1px #eee;
-}
-
-hr.ImageLine {
-    width : 100%;
-    margin-top : 0px;
-    margin-bottom : 0px;
-}
-
-.RightIcons {
-    width : 25px;
-    height : 25px;
-    margin : 4px 7px 4px 7px;
-}
-
-p.MainWriteRightLeftLeftTopLeftWrite {
-    width : 100%;
-    height : 100%;
-    padding : 10px 5px 5px 10px;
-    margin : 0px;
-    font-size : 15px;
-}
-
-p.MainWriteRightLeftLeftTopRightWrite {
-    width : 100%;
-    height : 100%;
-    padding : 15px 5px 5px 5px;
-    margin : 0px;
-    font-size : 5px;
-}
-
-p.MainWriteRightLeftLeftBotWrite {
-    width : 100%;
-    height : 100%;
-    display : inline-block;
-    padding : 5px 5px 5px 25px;
-    margin : 0px;
-    font-size : 5px;
-    overflow : hidden;
-    text-overflow : ellipsis;
-    white-space: nowrap;
-}
-
-p.MainCommentRightTopLeftComment {
-    width : 92px;
-    height : 20px;
-    margin : 0px;
-    font-size : 13px;
-    padding : 5px 2px 2px 15px;
-}
-
-p.MainCommentRightTopRightComment {
-    width : 200px;
-    height : 20px;
-    margin : 0px;
-    font-size : 4px;
-    padding : 5px 10px 2px 2px;
-    overflow : hidden;
-    text-overflow : ellipsis;
-    white-space: nowrap;
-    text-align : right;
-}
-
-p.MainCommentRightBotComment {
-    width : 292px;
-    height : 60px;
-    margin : 0px;
-    font-size : 4px;
-    padding : 10px 30px 10px 20px;
-}
-
-.WritePlusButton {
-    width : 50px;
-    height : 50px;
-    position : fixed;
-    border : 450px 10px 10px 300px;
-}
-
-</style>
 </head>
 <body>
 
@@ -466,7 +33,7 @@ p.MainCommentRightBotComment {
             <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
             </a>
         </div>
-    
+
         <div id="header-title">
             <span>Time Line</span>
         </div>
@@ -475,9 +42,7 @@ p.MainCommentRightBotComment {
 
 <main>
 
-    <div class="PlusButton">
-        <img src="static/img/PlusButton.png" class="WritePlusButton"/>
-    </div>
+    <img src="static/img/PlusButton.png" class="WritePlusButton"/>
 
     <div class="MainMain">
         <div class="MainWriteLine">
@@ -523,7 +88,7 @@ p.MainCommentRightBotComment {
                         </div>
                         <div class="TreeIcons">
                             <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -542,7 +107,7 @@ p.MainCommentRightBotComment {
 
         <div class="MainCommentLine">
             <div class="MainComment">
-                <div class="MainCommentLeftB">                
+                <div class="MainCommentLeftB">
                 </div>
                 <div class="MainCommentRight">
                     <div class="MainCommentRightTop">
@@ -610,7 +175,7 @@ p.MainCommentRightBotComment {
                         </div>
                         <div class="TreeIcons">
                             <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -618,7 +183,7 @@ p.MainCommentRightBotComment {
 
         <div class="MainCommentLine">
             <div class="MainComment">
-                <div class="MainCommentLeftG">                
+                <div class="MainCommentLeftG">
                 </div>
                 <div class="MainCommentRight">
                     <div class="MainCommentRightTop">
@@ -645,7 +210,7 @@ p.MainCommentRightBotComment {
 
         <div class="MainCommentLine">
             <div class="MainComment">
-                <div class="MainCommentLeftG">                
+                <div class="MainCommentLeftG">
                 </div>
                 <div class="MainCommentRight">
                     <div class="MainCommentRightTop">
@@ -713,7 +278,7 @@ p.MainCommentRightBotComment {
                         </div>
                         <div class="TreeIcons">
                             <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -748,7 +313,7 @@ p.MainCommentRightBotComment {
 
         <div class="MainCommentLine">
             <div class="MainComment">
-                <div class="MainCommentLeftO">                
+                <div class="MainCommentLeftO">
                 </div>
                 <div class="MainCommentRight">
                     <div class="MainCommentRightTop">
