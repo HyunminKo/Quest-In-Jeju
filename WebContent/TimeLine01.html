@@ -5,214 +5,352 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/css/main.css" />
+<script src="static/js/main.js"></script>
+
 <meta charset="utf-8" />
 <title>TimeLine</title>
-<style>
 
-* { 
-    margin: 0;
-    padding: 0;
-    font-family : 'HY견고딕' , sans-serif !important;
-}
+<link rel="stylesheet" href="static/css/timeline.css" />
 
-body {
-    width : 100%;
-    height : 100%;
-}
-
-header {
-    width : 100%;
-    height : 65px;
-    background-color : #da0808;
-}
-
-main {
-    width : 100%;
-    height : 537px;
-    overflow-y : auto;
-    overflow-x : hidden;
-}
-
-footer {
-    width : 100%;
-    height : 65px;
-}
-
-/* ~~~~~~~ Header ~~~~~~~ */
-
-.HeaderLeft {
-    width : 205px;
-    height : 100%;
-    float : left;
-}
-
-.HeaderRight {
-    width : 170px;
-    height : 100%;
-    float : right;
-}
-
-.HeaderRightTop {
-    width : 100%;
-    height : 15px;
-}
-
-.HeaderRightBot {
-    width : 100%;
-    height : 50px;
-    border-radius : 20px 20px 0px 0px / 20px 20px 0px 0px;
-    border-top : 5px solid #FFFFFF;
-}
-
-/* ~~~~~~~ Banner ~~~~~~~ */
-
-.Banner {
-    width : 170px;
-    height : 55px;
-    float : right;
-    left : 55%;
-    background-color : #FFFFFF;
-    border-radius : 0px 0px 20px 20px / 0px 0px 20px 20px;
-    border-bottom : 5px solid #DA0808;
-    border-left : 5px solid #DA0808;
-    border-right : 5px solid #DA0808;
-    position : fixed;
-}
-
-.BannerTop {
-    width : 100%;
-    height : 30px;
-}
-
-.BannerCircle {
-    width : 24px;
-    height : 24px;
-    float : right;
-    margin : 3px 8px 3px 8px;
-}
-
-.BannerBot {
-    width : 100%;
-    height : 15px;
-}
-
-.BannerCircleName {
-    width : 30px;
-    height : 10px;
-    font-size : 5px;
-    margin : 0px 5px 0px 5px;
-    text-align : center;
-    float : right;
-}
-
-/* ~~~~ Main Write ~~~~~ */
-
-.MainWrite {
-    width : 100%;
-    height : 100%;
-}
-
-.MainWriteLeft {
-    width : 100px;
-    height : 100px;
-    background-color : blue;
-}
-
-.MainWriteRight {
-    width : 275px;
-    height : 567px;
-    background-color: aqua;
-}
-
-/* ~~~~~~~ Footer ~~~~~~~ */
-
-.FooterTop {
-    width : 100%;
-    height : 5px;
-    background-color : #DA0808;
-}
-
-.FooterBot {
-    width : 100%;
-    height : 60px;
-    background-color : #FFFFFF;
-}
-
-/* ~~~~~~~ ... ~~~~~~~ */
-
-hr.LongLine {
-    width : 100%;
-    margin-top : 0px;
-    margin-bottom : 0px;
-}
-
-.HeaderTitle {
-    font-size : 25px;
-    color : #FFFFFF;
-    text-align : center;
-    margin-top : 5px;
-}
-
-</style>
 </head>
 <body>
 
 <header>
-    <div class="HeaderLeft">
-        
-    </div>
-    <div class="HeaderRight">
-        <div class="HeaderRightTop">
-
+    <div class="nav">
+        <div id="menu" class="menu">
+            <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
+            <img id="img_1" src="static/img/quest.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
+            <img id="img_2" src="static/img/home.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
+            <img id="img_3" src="static/img/gamer.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
+            <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
+            </a>
         </div>
-        <div class="HeaderRightBot">
-            <p class="HeaderTitle">Time Line</p>
+
+        <div id="header-title">
+            <span>Time Line</span>
         </div>
     </div>
 </header>
+
 <main>
-    <div class="Banner">
-        <div class="BannerTop">
-            <img class="BannerCircle" src="static/img/BannerGreenImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerBlueImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
-            <img class="BannerCircle" src="static/img/BannerBlackImage.png"/>
-        </div>
-        <div class="BannerBot">
-            <p class="BannerCircleName">질문</p>
-            <p class="BannerCircleName">후기</p>
-            <p class="BannerCircleName">자유</p>
-            <p class="BannerCircleName">전체</p>
-        </div>
-    </div>
 
-    <div class=MainWrite>
-        <div class="MainWriteLeft">
+    <img src="static/img/PlusButton.png" class="WritePlusButton"/>
 
-        </div>
-        <div class="MainWriteRight">
-            <div class="MainWriteRightTop">
-
-            </div>
-            <div class="MainWriteRightBot">
-                <div class="MainWriteRightBotLeft">
-
+    <div class="MainMain">
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftB">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/CommentTestButton01.jpg" class="MainImagesB"/>
+                    </div>
                 </div>
-                <div class="MainWriteRightBotRight">
-
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentCommentIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentShareIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <hr class="LongLine"/>
+
+        <div class="MainEditor">
+            <form method="POST" action="">
+                <div class="MainEditorLeft">
+                    <textarea class="MainEditorLeftTextarea" onkeyup="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성하세요"></textarea>
+                </div>
+                <div class="MainEditorRight">
+                    <input type="submit" value="작성" class="MainEditorRightSubmit"/>
+                </div>
+            </form>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftB">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftG">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/CommentTestButton01.jpg" class="MainImagesG"/>
+                    </div>
+                </div>
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentCommentIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentShareIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftG">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftG">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftO">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/CommentTestButton01.jpg" class="MainImagesO"/>
+                    </div>
+                </div>
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentCommentIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentShareIcon.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/CommentHartIcon.png" class="RightIcons"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftO">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftO">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </main>
 <footer>
     <div class="FooterTop">
-        
     </div>
     <div class="FooterBot">
-
+        <div class="FooterBotLeft">
+            <input type="button" value="전체" class="FooterBotLeftAll"/>
+            <input type="button" value="자유" class="FooterBotLeftFreedom"/>
+        </div>
+        <div class="FooterBotRight">
+            <input type="button" value="후기" class="FooterBotLeftReview"/>
+            <input type="button" value="질문" class="FooterBotLeftQuestion"/>
     </div>
 </footer>
 

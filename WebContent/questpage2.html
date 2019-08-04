@@ -9,163 +9,166 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <script src="static/js/main.js"></script>
+		<style>
+
+
+		@font-face {
+		  font-family: 'BRBA_B';
+		  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff');
+		  font-weight: normal;
+		  font-style: normal;
+		}
+		@font-face {
+		  font-family: 'BRRA_R';
+		  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+		  font-weight: normal;
+		  font-style: normal;
+		}
+
+		/* .nanumsquare {
+		font-family: 'NanumSquare', sans-serif !important;
+		}
+
+		* {
+		font-family: 'NanumSquare', sans-serif !important;
+		} */
+
+		* {
+		font-family: 'BRBA_B';
+		}
+		.modal-body {
+		font-family: 'BRRA_R' !important;
+		}
+
+		body { background: #FFF;
+		}
+
+		.navbar-brand {
+		padding: 5px 5px !important;
+		}
+
+		.nav {
+		background: #da0808;
+		width: 100%;
+		height: 65px;
+		position: relative;
+		}
+		.menu {
+		background: white;
+		width: 56px;
+		height: 53px;
+		/* border: 0.5px solid white; */
+		border-radius: 2px;
+		margin: 5px;
+		transition: width 0.1s ease-in;
+		webkit-transition: width 0.1s ease-in;
+		}
+		.menu::after {
+		width: 0;
+		height: 0;
+		border-top: 26.5px solid transparent;
+		border-bottom: 26.5px solid transparent;
+		border-right: 50px solid none;
+		border-left: 13px solid white;
+		content: "";
+		position: absolute;
+		left: 60px;
+		top: 5px;
+		}
+		.opened {
+		width: 55%;
+		}
+		#menu.opend::after {
+		width: 0;
+		height: 0;
+		border: 0;
+		}
+		.menu img {
+		display: block;
+		float: left;
+		}
+		#header-title span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: white;
+		font-size: 1.8em;
+		transform: translate(-50%, -50%);
+		}
+
+		h1 { color: #000;
+		margin-left: 30px;
+		}
+
+		.cover {
+		width: 140px;
+		height: 140px;
+		background-image: url('static/img/static/img/flag.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		}
+
+		.info {
+		padding: 10px;
+		}
+
+		.title {
+		font-family: 'Noto Sans KR', sans-serif;
+		}
+
+		.que_box {
+		margin-bottom: 8%;
+		}
+
+		.que_start_btn {
+		float: right;
+		margin-right: 7%;
+		}
+
+		.que_list {
+		list-style: none;
+		display: inline-block;
+		margin: 10px;
+		border: 1px solid #a5a7a9;
+		}
+
+		.que_next {
+		overflow-y: scroll;
+		white-space: nowrap;
+		padding-left: 2px;
+		}
+
+		.btn-btn-primary {
+		border: none;
+		background: none;
+		}
+
+		.btn-btn-secondary {
+		border: none;
+		background: none;
+		}
+		.que_bold {
+		color: #da0808;
+		}
+
+
+		.modal-content {
+		width: 80%;
+		margin-left: 10%;
+		}
+		.que_conq_title {
+		font-size: 1.2em;
+		}
+
+
+
+		</style>
+
 	<title>questpage</title>
-	<style>
-    
-    @font-face { 
-      font-family: 'BRBA_B'; 
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff'); 
-      font-weight: normal; 
-      font-style: normal;     
-    }
-    @font-face { 
-      font-family: 'BRRA_R'; 
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff'); 
-      font-weight: normal; 
-      font-style: normal; 
-    }
 
-  /* .nanumsquare { 
-    font-family: 'NanumSquare', sans-serif !important; 
-  }
-
-	* {
-		font-family: 'NanumSquare', sans-serif !important;                                                   
-	} */
-
-  * {
-    font-family: 'BRBA_B'; 
-  }
-  .modal-body {
-    font-family: 'BRRA_R' !important;
-  }
-
-	body { background: #FFF;
-  }
-  
-  .navbar-brand {
-  padding: 5px 5px !important;
-  }
-
-  .nav {
-  background: #da0808;
-  width: 100%;
-  height: 65px;
-  position: relative;
-}
-  .menu {
-    background: white;
-    width: 56px;
-    height: 53px;
-    /* border: 0.5px solid white; */
-    border-radius: 2px;
-    margin: 5px;
-    transition: width 0.1s ease-in;
-    webkit-transition: width 0.1s ease-in;
-  }
-  .menu::after {
-    width: 0;
-    height: 0;
-    border-top: 26.5px solid transparent;
-    border-bottom: 26.5px solid transparent;
-    border-right: 50px solid none;
-    border-left: 13px solid white;
-    content: "";
-    position: absolute;
-    left: 60px;
-    top: 5px;
-  }
-  .opened {
-    width: 55%;
-  }
-  #menu.opend::after {
-    width: 0;
-    height: 0;
-    border: 0;
-  }
-  .menu img {
-    display: block;
-    float: left;
-  }
-  #header-title span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: white;
-    font-size: 1.8em;
-    transform: translate(-50%, -50%);
-  }
-
-	h1 { color: #000;
-	 margin-left: 30px;
-	}
-  
-  .cover {
-    width: 140px;
-    height: 140px;
-    background-image: url('static/img/static/img/flag.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .info {
-    padding: 10px;
-  }
-
-  .title {
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
-  .que_box {
-    margin-bottom: 8%;
-  }
- 
-  .que_start_btn {
-    float: right;       
-    margin-right: 7%;
-  }
-
-  .que_list {
-    list-style: none;
-    display: inline-block;
-    margin: 10px;
-    border: 1px solid #a5a7a9;
-  }
-
-  .que_next {
-    overflow-y: scroll;
-    white-space: nowrap;
-    padding-left: 2px;
-  }
-
-  .btn-btn-primary {
-    border: none;
-    background: none;
-  }
-
-  .btn-btn-secondary {
-    border: none;
-    background: none;
-  }
-  .que_bold {
-    color: #da0808;
-  }
-
-
-  .modal-content {
-    width: 80%;
-    margin-left: 10%;
-  }
-  .que_conq_title {
-  font-size: 1.2em;
-  }
-
-  
-
-</style>
 </head>
 <body>
   <div class="nav">
@@ -187,7 +190,7 @@
       <div id="header-title">
         <span>Quest In JeJu</span>
       </div>
-  </div>  
+  </div>
   <div style="margin: 15px;">
     <div class="que_box">
       <p class="que_conq_title">
