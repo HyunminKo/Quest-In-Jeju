@@ -69,7 +69,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-
+!out/artifacts/quest_in_jeju/quest-in-jeju.war
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
