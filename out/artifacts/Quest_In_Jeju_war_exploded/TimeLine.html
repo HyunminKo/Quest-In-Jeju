@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<meta charset="utf-8" />
+<title>TimeLine</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family : 'HY견고딕' , sans-serif !important;
+}
+
+body {
+	height : 100%;
+	width : 100%;
+    overflow-x: hidden;
+    overflow-y : hidden;
+}
+
+header {
+	height : 65px;
+    width : 100%;
+	background-color : #da0808;
+    display : block;
+}
+
+main {
+	height : 537px;
+    width : 100%;
+	background-color : #FFFFFF;
+    overflow-y : auto;
+    overflow-x : hidden;
+    display : block;
+}
+
+footer {
+	height : 65px;
+    width : 100%;
+	background-color : #FFFFFF;
+    display : block;
+}
+
+/* ~~~~~~~~~~~~~~  Main  ~~~~~~~~~~~~~~~~ */
+
+.MainTop {
+    height : 95px;
+    width : 100%;
+}
+
+.MainTopLeft {
+    height : 100%;
+    width : 95px;
+    float : left;
+}
+
+.MainTopRight {
+    height : 100%;
+    width : 280px;
+    float : right;
+}
+
+.MainTopRightTop {
+    height : 70px;
+    width : 100%;
+}
+
+.MainTopRightBot {
+    height : 25px;
+    width : 100%;
+}
+
+.MainTopRightBotLeft {
+    height : 100%;
+    width : 175px;
+    float : left;
+}
+
+.MainTopRightBotRight {
+    height : 100%;
+    width : 105px;
+    float : right;
+}
+
+.MainBot {
+    height : 5px;
+    width : 100%;
+}
+
+
+/* ~~~~~~~~~~~~~  Input  ~~~~~~~~~~~~~*/
+
+.InputWindow {
+    height : 95px;
+    width : 100%;
+    background-color : #BDBDBD;
+}
+
+.InputTop {
+    height : 70px;
+    width : 100%;
+}
+
+.InputBot {
+    height : 25px;
+    width : 100%;
+}
+
+.InputBotLeft {
+    height : 100%;
+    width : 65%;
+    float : left;
+}
+
+.InputBotRight {
+    height : 100%;
+    width : 35%;
+    float : right;
+}
+
+/* ~~~~~~~~~~~  Comment ~~~~~~~~~~~~ */
+
+.Comments {
+    height : 95px;
+    width : 100%;
+}
+
+.CommentLeft {
+    height : 100%;
+    width : 75px;
+    float : left;
+}
+
+.CommentRight {
+    height : 100%;
+    width : 300px;
+    float : right;
+}
+
+.CommentRightTop {
+    height : 70px;
+    width : 100%;
+    float : top;
+}
+
+.CommentRightBot {
+    height : 25px;
+    width : 100%;
+    float : bottom;
+}
+
+.CommentRightBotLeft {
+    height : 100%;
+    width : 50%;
+    float : left;
+}
+
+.CommentRightBotRight {
+    height : 100%;
+    width : 50%;
+    float : right;
+}
+
+/* Images Class and Write Class */
+
+.MainLeftImage {
+    height : 81px;
+    width : 81px;
+    margin : 11px 3px 3px 11px;
+}
+
+.SubRightImage {
+    height : 20px;
+    width : 20px;
+    margin : 2px 5px 3px 5px;
+}
+
+.MainWriter {
+    font-size : 12px;
+    text-align : left;
+    margin : 2px 0px 2px 15px;
+}
+
+.MainWrite {
+    margin : 8px 15px 2px 15px;
+    font-size : 13px;
+    height : 60px;
+    width : 250px;
+    text-align : left;
+    overflow : hidden;
+    text-overflow : ellipsis;
+}
+
+hr.ShortLine {
+    width : 100%;
+    text-align : right;
+    margin-right : 0px;
+    margin : 0px 0px 10px 15px;
+}
+
+hr.LongLine {
+    width : 100%;
+    height : 0px;
+    margin : 10px 0px 0px 0px;
+}
+
+hr.LongLongLine {
+    width : 100%;
+    height : 0px;
+}
+
+.Inputer {
+    height : 59px;
+    width : 295px;
+    margin : 10px 40px 1px 40px;
+    text-align : left;
+    font-size : 13px;
+}
+
+.InputButtons {
+    height : 25px;
+    width : 45px;
+    float : left;
+}
+
+.ConnectionImage {
+    height : 20px;
+    width : 20px;
+    float : right;
+    margin : 5px 5px 0px 0px;
+}
+
+.CommentWrite {
+    margin : 5px 0px 0px 15px;
+    font-size : 10px;
+    height : 60px;
+    width : 250px;
+    text-align : left;
+    overflow : hidden;
+    text-overflow : ellipsis;
+    border : 1px solid black;
+    padding : 5px;
+}
+
+.CommentWriter {
+    font-size : 12px;
+    text-align : left;
+    margin : 0px;
+}
+
+.CommentDate {
+    font-size : 12px;
+    text-align : left;
+    margin : 0px;
+}
+
+.PlusButton {
+    height : 40px;
+    width : 40px;
+    margin-right : 0px;
+    margin : 12px 0px 12px 300px;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        
+    </header>
+    <main>
+        <div class="MainTop">
+            <div class="MainTopLeft">
+                <img class="MainLeftImage" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="MainTopRight">
+                <div class="MainTopRightTop">
+                    <p class="MainWrite">이번에 가족과 함께 제주도의 월정리에 가봤어요!! 생각보다 너무 경치가 좋고 덥지 않아서 좋았어요. 근데 사람이 너무 많더라구요... 그래도 재밌었어요!! 다음에도 또 올게요~</p>
+                    <hr class="ShortLine"/>
+                </div>
+                <div class="MainTopRightBot">
+                    <div class="MainTopRightBotLeft">
+                        <p class="MainWriter">작성자 : 이진혁</p>
+                    </div>
+                    <div class="MainTopRightBotRight">
+                        <img class="SubRightImage" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainBot">
+            <hr class="LongLine"/>
+        </div>
+
+        <div class="InputWindow">
+            <div class="InputTop">
+                <textarea class="Inputer">-댓글을 입력해주세요</textarea>
+            </div>
+            <div class="InputBot">
+                <div class="InputBotLeft"></div>
+                <div class="InputBotRight">
+                    <img class="InputButtons" src="static/img/InputStartButton.png" alt="오류"/>
+                    <img class="InputButtons" src="static/img/InputCanselButton.png" alt="오류"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="Comments">
+            <div class="CommentLeft">
+                <img class="ConnectionImage" src="static/img/LIcon.png" alt="오류"/>
+            </div>
+            <div class="CommentRight">
+                <div class="CommentRightTop">
+                    <p class="CommentWrite">
+                        정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다
+                    </p>
+                </div>
+                <div class="CommentRightBot">
+                    <div class="CommentRightBotLeft">
+                        <p class="CommentWriter">작성자 : 고현민</p>
+                    </div>
+                    <div class="CommentRightBotRight">
+                        <p class="CommentDate">19-08-03 02:50:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Comments">
+            <div class="CommentLeft">
+                <img class="ConnectionImage" src="static/img/LIcon.png" alt="오류"/>
+            </div>
+            <div class="CommentRight">
+                <div class="CommentRightTop">
+                    <p class="CommentWrite">
+                        정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다 정말 좋은 글이네요 한 수 배우고 갑니다
+                    </p>
+                </div>
+                <div class="CommentRightBot">
+                    <div class="CommentRightBotLeft">
+                        <p class="CommentWriter">작성자 : 고현민</p>
+                    </div>
+                    <div class="CommentRightBotRight">
+                        <p class="CommentDate">19-08-03 02:50:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainTop">
+            <div class="MainTopLeft">
+                <img class="MainLeftImage" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="MainTopRight">
+                <div class="MainTopRightTop">
+                    <p class="MainWrite">이번에 가족과 함께 제주도의 월정리에 가봤어요!! 생각보다 너무 경치가 좋고 덥지 않아서 좋았어요. 근데 사람이 너무 많더라구요... 그래도 재밌었어요!! 다음에도 또 올게요~</p>
+                    <hr class="ShortLine"/>
+                </div>
+                <div class="MainTopRightBot">
+                    <div class="MainTopRightBotLeft">
+                        <p class="MainWriter">작성자 : 이진혁</p>
+                    </div>
+                    <div class="MainTopRightBotRight">
+                        <img class="SubRightImage" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainBot">
+            <hr class="LongLine"/>
+        </div>
+        <div class="MainTop">
+            <div class="MainTopLeft">
+                <img class="MainLeftImage" src="static/img/CommentTestButton01.jpg" alt="오류">
+            </div>
+            <div class="MainTopRight">
+                <div class="MainTopRightTop">
+                    <p class="MainWrite">이번에 가족과 함께 제주도의 월정리에 가봤어요!! 생각보다 너무 경치가 좋고 덥지 않아서 좋았어요. 근데 사람이 너무 많더라구요... 그래도 재밌었어요!! 다음에도 또 올게요~</p>
+                    <hr class="ShortLine"/>
+                </div>
+                <div class="MainTopRightBot">
+                    <div class="MainTopRightBotLeft">
+                        <p class="MainWriter">작성자 : 이진혁</p>
+                    </div>
+                    <div class="MainTopRightBotRight">
+                        <img class="SubRightImage" src="static/img/CommentShareIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentHartIcon.png" alt="오류">
+                        <img class="SubRightImage" src="static/img/CommentCommentIcon.png" alt="오류">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MainBot">
+            <hr class="LongLine"/>
+        </div>
+    </main>
+    <footer>
+        <img class="PlusButton" src="static/img/PlusButton.png" alt="오류"/>
+    </footer>
+</body>
+</html>

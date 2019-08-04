@@ -191,7 +191,8 @@
       <p class="que_conq_title">
         <img src ='static/img/flag.png' width="30" height="30">
         오름 정복하기
-        <button type="button" class="btn btn-outline-danger btn-sm que_start_btn">
+        <button type="button" class="btn btn-outline-danger btn-sm que_start_btn"
+          onclick="if(!confirm('퀘스트를 시작하시겠습니까?')){return true;}">
           start
         </button>
       </p>

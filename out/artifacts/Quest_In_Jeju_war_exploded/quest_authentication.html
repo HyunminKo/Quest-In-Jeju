@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+  <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="static/css/quest_authentication.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">menu bar</div>
 
     <div class="container text-center">
@@ -20,27 +20,38 @@
             <div class="panel-body" id="inner-panel">
                 <div class="panel panel-default" id="user-location">
                     <a>현재 위치 확인하기</a>
-                </div>
+                </div>    
                 <div class="panel panel-default" id="image-upload">
                     <img id="image-print" src="#">
                     <div id="image-upload-text">
                         <p>장소 이름이 나온 사진을 올려주세요</p>
+                    <div>
+
+                    <div class="form-group" id="inner-camera">
+                        <label for="exampleInputFile">촬영 또는 앨범에서 선택하기</label>
+                        <input type="file" id="exampleInputFile">
                     </div>
-                </div>
-                <div class="form-group" id="outer-camera">
-                    <label for="exampleInputFile">촬영 또는 앨범에서 선택하기</label>
-                    <input type="file" id="exampleInputFile">
-                </div>
+                </div> 
             </div>
-            <div class="form-group" id="authentication_submit">
-                <label for="submit-btn">완료</label>
-                <input type="button" id="submit-btn">
+        </div>
+        <div>
+            <div class="form-group" id="outer-camera">
+                <label for="exampleInputFile">촬영 또는 앨범에서 선택하기</label>
+                <input type="file" id="exampleInputFile">
             </div>
         </div>
     </div>
-    </body>
+
+    <div class="temp">
+        <div class="form-group" id="quest-authentication-submit">
+            <label for="submit-btn">완료</label>
+            <input type="button" id="submit-btn">
+        </div>
+    </div>
 
 
+
+    
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript">
         $(function() {
@@ -51,18 +62,24 @@
 
         function readURL(input) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
+            var reader = new FileReader();
 
-                reader.onload = function (e) {
+            reader.onload = function (e) {
                     $('#image-print').attr('src', e.target.result);
                     $('#image-upload-text').hide();
                     $('#ineer-camera').show();
                     $('#outer-camera').show();
                 }
 
-                reader.readAsDataURL(input.files[0]);
+              reader.readAsDataURL(input.files[0]);
             }
         }
+
+
     </script>
 
+
+
+
+  </body>
 </html>
