@@ -7,7 +7,7 @@ public class PostVO {
     private String date = null;
     private Long user_id = null;
     private String src = null;
-    private Integer category = null; // 0: 자유, 1: 후기, 2: 질문
+    private Integer category = null; 
 
     @Override
     public String toString() {
