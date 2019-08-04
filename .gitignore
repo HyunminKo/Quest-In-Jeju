@@ -68,8 +68,6 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-!out/artifacts/quest_in_jeju/quest-in-jeju.war
-out/
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
