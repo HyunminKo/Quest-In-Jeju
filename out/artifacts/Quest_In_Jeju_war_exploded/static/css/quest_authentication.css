@@ -1,0 +1,73 @@
+.header {
+  width: 100%;
+  height: 65px;
+  background-color: #da0808;
+}
+
+.panel {
+  margin-top: 20px;
+  border: 1px solid #747d8c;
+}
+
+.panel-heading {
+  background-color: white !important;
+  border-bottom-width: 2px solid #2f3640 !important;
+}
+
+#outer-panel {
+  height: 520px;
+}
+
+#image-upload {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+#temp {
+  height: 42px;
+  width: 100%;
+}
+
+#image-uplaod #user-location {
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+
+.btn {
+  border: 1px solid #da0808;
+  background-color: white !important;
+  color: #da0808;
+}
+
+#video {
+  width: 100%;
+}
+
+.form-group label {
+  border: 1px solid #da0808;
+  padding: 0.4em 0.8em;
+  border-radius: 0.25em;
+  color: #da0808;
+  display: inline;
+}
+
+#exampleInputFile {
+  display: none;
+}
+
+#image-print {
+  display: block;
+  max-width: 100%;
+}
+
+#outer-camera {
+  display: none;
+}
+
+#inner-panel {
+  padding-bottom: 7px;
+}

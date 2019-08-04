@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<meta charset="utf-8" />
+<title>TimeLine</title>
+<style>
+
+* { 
+    margin: 0;
+    padding: 0;
+    font-family : 'HY견고딕' , sans-serif !important;
+}
+
+body {
+    width : 100%;
+    height : 100%;
+}
+
+header {
+    width : 100%;
+    height : 65px;
+    background-color : #da0808;
+}
+
+main {
+    width : 100%;
+    height : 537px;
+    overflow-y : auto;
+    overflow-x : hidden;
+}
+
+footer {
+    width : 100%;
+    height : 65px;
+}
+
+/* ~~~~~~~ Header ~~~~~~~ */
+
+.HeaderLeft {
+    width : 205px;
+    height : 100%;
+    float : left;
+}
+
+.HeaderRight {
+    width : 170px;
+    height : 100%;
+    float : right;
+}
+
+.HeaderRightTop {
+    width : 100%;
+    height : 15px;
+}
+
+.HeaderRightBot {
+    width : 100%;
+    height : 50px;
+    border-radius : 20px 20px 0px 0px / 20px 20px 0px 0px;
+    border-top : 5px solid #FFFFFF;
+}
+
+/* ~~~~~~~ Banner ~~~~~~~ */
+
+.Banner {
+    width : 170px;
+    height : 55px;
+    float : right;
+    left : 55%;
+    background-color : #FFFFFF;
+    border-radius : 0px 0px 20px 20px / 0px 0px 20px 20px;
+    border-bottom : 5px solid #DA0808;
+    border-left : 5px solid #DA0808;
+    border-right : 5px solid #DA0808;
+    position : fixed;
+}
+
+.BannerTop {
+    width : 100%;
+    height : 30px;
+}
+
+.BannerCircle {
+    width : 24px;
+    height : 24px;
+    float : right;
+    margin : 3px 8px 3px 8px;
+}
+
+.BannerBot {
+    width : 100%;
+    height : 15px;
+}
+
+.BannerCircleName {
+    width : 30px;
+    height : 10px;
+    font-size : 5px;
+    margin : 0px 5px 0px 5px;
+    text-align : center;
+    float : right;
+}
+
+/* ~~~~ Main Write ~~~~~ */
+
+.MainWrite {
+    width : 100%;
+    height : 100%;
+}
+
+.MainWriteLeft {
+    width : 100px;
+    height : 100px;
+    background-color : blue;
+}
+
+.MainWriteRight {
+    width : 275px;
+    height : 567px;
+    background-color: aqua;
+}
+
+/* ~~~~~~~ Footer ~~~~~~~ */
+
+.FooterTop {
+    width : 100%;
+    height : 5px;
+    background-color : #DA0808;
+}
+
+.FooterBot {
+    width : 100%;
+    height : 60px;
+    background-color : #FFFFFF;
+}
+
+/* ~~~~~~~ ... ~~~~~~~ */
+
+hr.LongLine {
+    width : 100%;
+    margin-top : 0px;
+    margin-bottom : 0px;
+}
+
+.HeaderTitle {
+    font-size : 25px;
+    color : #FFFFFF;
+    text-align : center;
+    margin-top : 5px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="HeaderLeft">
+        
+    </div>
+    <div class="HeaderRight">
+        <div class="HeaderRightTop">
+
+        </div>
+        <div class="HeaderRightBot">
+            <p class="HeaderTitle">Time Line</p>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="Banner">
+        <div class="BannerTop">
+            <img class="BannerCircle" src="static/img/BannerGreenImage.png"/>
+            <img class="BannerCircle" src="static/img/BannerBlueImage.png"/>
+            <img class="BannerCircle" src="static/img/BannerRedImage.png"/>
+            <img class="BannerCircle" src="static/img/BannerBlackImage.png"/>
+        </div>
+        <div class="BannerBot">
+            <p class="BannerCircleName">질문</p>
+            <p class="BannerCircleName">후기</p>
+            <p class="BannerCircleName">자유</p>
+            <p class="BannerCircleName">전체</p>
+        </div>
+    </div>
+
+    <div class=MainWrite>
+        <div class="MainWriteLeft">
+
+        </div>
+        <div class="MainWriteRight">
+            <div class="MainWriteRightTop">
+
+            </div>
+            <div class="MainWriteRightBot">
+                <div class="MainWriteRightBotLeft">
+
+                </div>
+                <div class="MainWriteRightBotRight">
+
+                </div>
+            </div>
+        </div>
+        <hr class="LongLine"/>
+    </div>
+</main>
+<footer>
+    <div class="FooterTop">
+        
+    </div>
+    <div class="FooterBot">
+
+    </div>
+</footer>
+
+</body>
+</html>
