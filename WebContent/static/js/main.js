@@ -23,8 +23,8 @@ async function showStateIcons(t) {
     let nameOfImages = [
       "flag.png",
       "placeholder.png",
-      "gamer-icon-3.png",
-      "timeline-icon2.png"
+      "person.png",
+      "timeline.png"
     ];
     let index = nameOfImages.indexOf(state);
     if (index !== -1) nameOfImages.splice(index, 1);
