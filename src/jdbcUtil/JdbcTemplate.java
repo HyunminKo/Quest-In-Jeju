@@ -38,7 +38,7 @@ public class JdbcTemplate {
                     stmt.setString(i+1, (String)args[i]);
                 }
             }
-            stmt.executeUpdate();
+            rc = stmt.executeUpdate();
         }catch(Exception e){
             throw e;
         }finally {
