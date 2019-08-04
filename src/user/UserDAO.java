@@ -8,13 +8,14 @@ import java.util.List;
 
 public class UserDAO {
     JdbcTemplate jdbc = new JdbcTemplate();
+    
     public void insert(){
         String name = "testtest";
         String password = "testtest";
         String email = "testtest@testtest.org";
         String sql = "insert into user (email,name,password) values(?,?,?)";
         try {
-            jdbc.update(sql,name,password,email);
+            jdbc.update(sql,email,name,password);
         } catch (Exception e) {
             e.printStackTrace();
         }
