@@ -15,7 +15,7 @@ public class JdbcTemplate {
     }
 
     private Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju?serverTimezone=UTC", "root", "1111");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju", "root", "1111");
         return conn;
     }
     public int update(String sql, Object ...args) throws Exception{

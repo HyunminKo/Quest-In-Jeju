@@ -11,10 +11,10 @@ public class PostDAO {
     
     public void insert(){
         Integer like_count = new Integer(10);
-        String contents = new String("±Û¾´ ³»¿ë ³ª¿À³ª¿ä¿ä¿ä¿ë");
-        String date = new String("8¿ù 4ÀÏ");
+        String contents = new String("sdfsg");
+        String date = new String("8ì›”4ì¼");
         Long user_id = new Long(1213);
-        String src = new String("ÀÌ¹ÌÁö ¸µÅ©");
+        String src = new String("ì´ë¯¸ì§€ ì£¼ì†Œ");
         Integer category = new Integer(2345);
         
         
