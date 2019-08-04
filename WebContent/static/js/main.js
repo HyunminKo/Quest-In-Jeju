@@ -1,5 +1,5 @@
 let menuFlag = false;
-let state = "quest-icon-2.png";
+let state = "flag.png";
 
 $(document).ready(function() {
   $(".navbar-brand").hide();
@@ -21,9 +21,9 @@ async function showStateIcons(t) {
     $("#header-title").hide();
 
     let nameOfImages = [
-      "quest-icon-2.png",
-      "home-icon-2.png",
-      "gamer-icon-2.png",
+      "flag.png",
+      "placeholder.png",
+      "gamer-icon-3.png",
       "timeline-icon2.png"
     ];
     let index = nameOfImages.indexOf(state);
