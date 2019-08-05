@@ -8,7 +8,7 @@ import rowmapper.PostRowMapper;
 public class PostDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
-    
+
     public void insert( PostVO vo ){
         Integer like_count = vo.getLike_count();
         String contents = vo.getContents();
@@ -16,7 +16,7 @@ public class PostDAO {
         Long user_id = vo.getUser_id();
         String src = vo.getSrc();
         Integer category = vo.getCategory();
-        
+
         String sql = "insert into post"
         		+ "(like_count, contents, date, user_id, src, category) "
         		+ "values(?,?, now(),?,?,?)";

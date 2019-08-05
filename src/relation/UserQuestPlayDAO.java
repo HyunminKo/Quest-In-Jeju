@@ -10,9 +10,9 @@ import user.AliasVO;
 public class UserQuestPlayDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
-    public void insert(){
-        Long user_id = new Long(1234);
-        Long quest_id = new Long(1234);
+    public void insert(Long user, Long quest){
+        Long user_id = user;
+        Long quest_id = quest;
         String sql = "insert into user_quest_play(user_id,quest_id) values(?,?)";
         try {
             jdbc.update(sql,user_id,quest_id);
