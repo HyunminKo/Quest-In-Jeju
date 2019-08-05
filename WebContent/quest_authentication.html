@@ -19,7 +19,7 @@
             </div>
             <div class="panel-body" id="inner-panel">
                 <div class="panel panel-default" id="user-location">
-                    <a>현재 위치 확인하기</a>
+                    <a onclick=getLocation()>현재 위치 확인하기</a>
                 </div>
                 <div class="panel panel-default" id="image-upload">
                     <img id="image-print" src="#">
@@ -56,7 +56,7 @@
                 reader.onload = function (e) {
                     $('#image-print').attr('src', e.target.result);
                     $('#image-upload-text').hide();
-                    $('#ineer-camera').show();
+                    $('#inner-camera').show();
                     $('#outer-camera').show();
                 }
 
@@ -64,5 +64,7 @@
             }
         }
     </script>
+
+    <script src="static/js/user_location.js"></script>
 
 </html>
