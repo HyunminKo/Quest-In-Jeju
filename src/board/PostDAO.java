@@ -9,6 +9,10 @@ public class PostDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
     
+<<<<<<< HEAD
+
+=======
+>>>>>>> 628b80b9ae9496d9d7b40180f47e80fc838055aa
     public void insert( PostVO vo ){
         Integer like_count = vo.getLike_count();
         String contents = vo.getContents();
@@ -16,7 +20,11 @@ public class PostDAO {
         Long user_id = vo.getUser_id();
         String src = vo.getSrc();
         Integer category = vo.getCategory();
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> 628b80b9ae9496d9d7b40180f47e80fc838055aa
         String sql = "insert into post"
         		+ "(like_count, contents, date, user_id, src, category) "
         		+ "values(?,?, now(),?,?,?)";

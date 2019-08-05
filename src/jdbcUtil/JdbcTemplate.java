@@ -10,12 +10,16 @@ import java.util.List;
 public class JdbcTemplate {
     static {
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         }catch (ClassNotFoundException e) {e.printStackTrace();}
     }
 
     private Connection makeConn() throws Exception {
+<<<<<<< HEAD
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju?serverTimezone=UTC", "root", "Choi88357@");
+=======
         Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju", "root", "1111");
+>>>>>>> f3ae2520778359493f942e840b70a8a354dfc92c
         return conn;
     }
     public int update(String sql, Object ...args) throws Exception{
