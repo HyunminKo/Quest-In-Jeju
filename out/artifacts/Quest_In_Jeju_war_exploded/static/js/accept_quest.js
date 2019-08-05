@@ -15,7 +15,8 @@ function post_user_quest(){
     $.ajax({
         // 참고하세요 여기 남겨도 되나요?
         // https://ddo-o.tistory.com/94
-        url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
+        // url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
+        url: "/quest-in-jeju/test.do",
         type: "POST",
         data: JSON.stringify(params),
         dataType: 'json',

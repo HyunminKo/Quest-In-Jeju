@@ -490,6 +490,10 @@ p.MainCommentRightBotComment {
     display: none;
 }
 
+.tl-btn {
+    display: none;
+}
+
 </style>
 </head>
 <body>
@@ -842,9 +846,15 @@ p.MainCommentRightBotComment {
                             </div>
                             <div class="modal-body">
                                 <form method="POST" action="addpost_2.jsp">
+<<<<<<< HEAD
                                     <input type="radio" name="category" value="1" checked/>자유
                                     <input type="radio" name="category" value="2"/>후기
                                     <input type="radio" name="category" value="3"/>질문 
+=======
+                                    <input type="radio" values="1" name="category" checked/>자유
+                                    <input type="radio" values="2" name="category"/>후기
+                                    <input type="radio" values="3" name="category"/>질문 
+>>>>>>> 5347a621406be86eddd32bf56ab86525df6496d0
                                     <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
                                     <input type="file" name="src" class="tl-select"/>
                                     <input type="datetime" name="date" class="tl-date"/>

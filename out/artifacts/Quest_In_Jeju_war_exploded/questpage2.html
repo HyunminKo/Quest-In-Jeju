@@ -4,121 +4,401 @@
 	  <meta charset="UTF-8" />
   	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- ajax를 위해서 주석 처리 해봅니다 -->
+    <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <script src="static/js/main.js"></script>
+		<style>
+
+
+		@font-face {
+		  font-family: 'BRBA_B';
+		  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff');
+		  font-weight: normal;
+		  font-style: normal;
+		}
+		@font-face {
+		  font-family: 'BRRA_R';
+		  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+		  font-weight: normal;
+		  font-style: normal;
+		}
+
+		/* .nanumsquare {
+		font-family: 'NanumSquare', sans-serif !important;
+		}
+
+		* {
+		font-family: 'NanumSquare', sans-serif !important;
+		} */
+
+		* {
+		font-family: 'BRBA_B';
+		}
+		.modal-body {
+		font-family: 'BRRA_R' !important;
+		}
+
+		body { background: #FFF;
+		}
+
+		.navbar-brand {
+		padding: 5px 5px !important;
+		}
+
+		.nav {
+		background: #da0808;
+		width: 100%;
+		height: 65px;
+		position: relative;
+		}
+		.menu {
+		background: white;
+		width: 56px;
+		height: 53px;
+		/* border: 0.5px solid white; */
+		border-radius: 2px;
+		margin: 5px;
+		transition: width 0.1s ease-in;
+		webkit-transition: width 0.1s ease-in;
+		}
+		.menu::after {
+		width: 0;
+		height: 0;
+		border-top: 26.5px solid transparent;
+		border-bottom: 26.5px solid transparent;
+		border-right: 50px solid none;
+		border-left: 13px solid white;
+		content: "";
+		position: absolute;
+		left: 60px;
+		top: 5px;
+		}
+		.opened {
+		width: 55%;
+		}
+		#menu.opend::after {
+		width: 0;
+		height: 0;
+		border: 0;
+		}
+		.menu img {
+		display: block;
+		float: left;
+		}
+		#header-title span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: white;
+		font-size: 1.8em;
+		transform: translate(-50%, -50%);
+		}
+
+		h1 { color: #000;
+		margin-left: 30px;
+		}
+
+		.cover {
+		width: 140px;
+		height: 140px;
+		background-image: url('static/img/static/img/flag.png');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		}
+
+		.info {
+		padding: 10px;
+		}
+
+		.title {
+		font-family: 'Noto Sans KR', sans-serif;
+		}
+
+		.que_box {
+		margin-bottom: 8%;
+		}
+
+		.que_start_btn {
+		float: right;
+		margin-right: 7%;
+		}
+
+		.que_list {
+		list-style: none;
+		display: inline-block;
+		margin: 10px;
+		border: 1px solid #a5a7a9;
+		}
+
+		.que_next {
+		overflow-y: scroll;
+		white-space: nowrap;
+		padding-left: 2px;
+		}
+
+		.btn-btn-primary {
+		border: none;
+		background: none;
+		}
+
+		.btn-btn-secondary {
+		border: none;
+		background: none;
+		}
+		.que_bold {
+		color: #da0808;
+		}
+
+
+		.modal-content {
+		width: 80%;
+		margin-left: 10%;
+		}
+		.que_conq_title {
+		font-size: 1.2em;
+		}
+
+
+
+		</style>
 
 	<title>questpage</title>
-	<style>
 
-  .nanumsquare { 
-    font-family: 'NanumSquare', sans-serif !important; 
-  }
-
-	* {
-		font-family: 'NanumSquare', sans-serif !important;                                                   
-	}
-
-	body { background: #FFF;
-	}
-
-	h1 { color: #000;
-	 margin-left: 30px;
-	}
-
-	.pic {
-	  width: 100%;
-	  height: 200px;
-	  background-image: url('static/img/static/img/flag.png');
-	  background-repeat: no-repeat;
-	  background-size: cover;
-	  background-position: center;
-
-  .album-cover {
-    width: 100%;
-    height: 260px;
-    background-image: url('static/img/static/img/flag.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-.album-info {
-  padding: 10px;
-}
-
-.album-title {
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-.album-date {
-  font-size: 12px;
-}
-
-.que_list {
-  list-style: none;
-}
-
-.que_next {
-  overflow-y: scroll;
-  white-space: nowrap;
-}
-
-</style>
 </head>
 <body>
-  <div style="background-color: #da0808; height: 65px;">
-	<p 
-	style="font-size: 2.0em;
-			position: relative;
-			top: 80px;
-      text-align:center;
-      " >QUEST LIST</p>
-	<p style="margin-top: 6em;">
-    <img src ='static/img/flag.png' width="30" height="30">
-   오름 정복하기 <button type="button" class="btn btn-outline-danger">수락</button></p>
-<div>
-  <ul class="que_next">
-  <li class="que_list">
-    <div class="album-item" >
-      <div class="album-cover">
-        <img src= 'static/img/orum.jpg'>
+  <div class="nav">
+      <div id="menu" class="menu">
+        <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
+          <img id="img_1" src="static/img/quest.png" width="40" height="40" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
+          <img id="img_2" src="static/img/home.png" width="40" height="40" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
+          <img id="img_3" src="static/img/gamer.png" width="40" height="40" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
+          <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
+        </a>
+      </div>
+
+      <div id="header-title">
+        <span>Quest In JeJu</span>
+      </div>
+  </div>
+  <div style="margin: 15px;">
+    <div class="que_box">
+      <p class="que_conq_title">
+        <img src ='static/img/flag.png' width="30" height="30">
+        오름 정복하기
+        <!-- 큰 quest의 id를 <div>의 id로 주고, button을 클릭할 때 onclick 인자로 quest id를 보냅니다 -->
+        <button type="button" class="btn btn-outline-danger btn-sm que_start_btn"
+          onclick=confirm_user_accept("1")>
+          start
+        </button>
+      </p>
+    <div>
+      <ul class="que_next">
+        <li class="que_list">
+          <div class="item">
+            <div class="cover">
+              <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+            </div>
+            <div class="info">
+              <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                새별오름
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="que_list">
+            <div class="item">
+              <div class="cover">
+                <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+              </div>
+              <div class="info">
+                <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  새별오름
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="que_list">
+              <div class="item">
+                <div class="cover">
+                  <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                </div>
+                <div class="info">
+                  <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    새별오름
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="que_list">
+                <div class="item">
+                  <div class="cover">
+                    <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                  </div>
+                  <div class="info">
+                    <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                      새별오름
+                    </button>
+                  </div>
+                </div>
+              </li>
+        </ul>
+    </div>
+    </div>
+    <div class="que_box">
+        <p class="que_conq_title">
+          <img src ='static/img/flag.png' width="30" height="30">
+          오름 정복하기
+          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn">
+            start
+          </button>
+        </p>
+      <div>
+        <ul class="que_next">
+          <li class="que_list">
+            <div class="item">
+              <div class="cover">
+                <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+              </div>
+              <div class="info">
+                <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  새별오름
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="que_list">
+              <div class="item">
+                <div class="cover">
+                  <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                </div>
+                <div class="info">
+                  <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    새별오름
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="que_list">
+                <div class="item">
+                  <div class="cover">
+                    <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                  </div>
+                  <div class="info">
+                    <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                      새별오름
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="que_list">
+                  <div class="item">
+                    <div class="cover">
+                      <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="info">
+                      <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        새별오름
+                      </button>
+                    </div>
+                  </div>
+                </li>
+          </ul>
+      </div>
+    </div>
+    <div class="que_box" id="1">
+        <p class="que_conq_title">
+          <img src ='static/img/flag.png' width="30" height="30">
+          오름 정복하기
+          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn">
+            start
+          </button>
+        </p>
+      <div>
+        <ul class="que_next">
+          <li class="que_list">
+            <div class="item">
+              <div class="cover">
+                <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+              </div>
+              <div class="info">
+                <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  새별오름
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="que_list">
+              <div class="item">
+                <div class="cover">
+                  <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                </div>
+                <div class="info">
+                  <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    새별오름
+                  </button>
+                </div>
+              </div>
+            </li>
+            <li class="que_list">
+                <div class="item">
+                  <div class="cover">
+                    <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                  </div>
+                  <div class="info">
+                    <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                      새별오름
+                    </button>
+                  </div>
+                </div>
+              </li>
+              <li class="que_list">
+                  <div class="item">
+                    <div class="cover">
+                      <img src= 'static/img/orum.jpg' style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="info">
+                      <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        새별오름
+                      </button>
+                    </div>
+                  </div>
+                </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle"><b class="que_bold">|&nbsp;</b>새별오름</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>testsetsetsetsetsetsetsetsetsetsetsetsetset</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn-btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
-      <div class="album-info">
-        <p class="album-title">앨범1</p>
-        <p class="album-date">2017.02.16.</p>
       </div>
-    </div>
-  </li>
-  <li class="que_list">
-    <div class="album-item">
-      <div class="album-cover"></div>
-      <div class="album-info">
-        <p class="album-title">앨범2</p>
-        <p class="album-date">2017.02.16.</p>
-      </div>
-    </div>
-  </li>
-  <li class="que_list">
-    <div class="album-item">
-      <div class="album-cover"></div>
-      <div class="album-info">
-        <p class="album-title">앨범3</p>
-        <p class="album-date">2017.02.16.</p>
-      </div>
-    </div>
-  </li>
-  <li class="que_list">
-    <div class="album-item">
-      <div class="album-cover"></div>
-      <div class="album-info">
-        <p class="album-title">앨범4</p>
-        <p class="album-date">2017.02.16.</p>
-      </div>
-    </div>
-  </li>
-</ul>
-</div>
+  </div>
 </body>
+<script src="static/js/accept_quest.js"></script>
+<!-- cors 를 해결하기 위해 추가해 봅니다 !! -->
+<script src='https://poiemaweb.com/assets/data/data-jsonp.js'></script>
+
 </html>

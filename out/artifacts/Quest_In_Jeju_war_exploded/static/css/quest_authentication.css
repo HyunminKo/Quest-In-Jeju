@@ -18,6 +18,11 @@
   height: 520px;
 }
 
+#image-uplaod #user-location {
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+}
+
 #image-upload {
   height: 350px;
   display: flex;
@@ -25,16 +30,6 @@
   justify-content: center;
   overflow: hidden;
   margin-bottom: 0;
-}
-
-#temp {
-  height: 42px;
-  width: 100%;
-}
-
-#image-uplaod #user-location {
-  margin-top: 10px;
-  padding: 20px 0 20px 0;
 }
 
 .btn {
@@ -65,9 +60,13 @@
 }
 
 #outer-camera {
-  display: none;
+  margin-top: 16px;
 }
 
 #inner-panel {
   padding-bottom: 7px;
+}
+
+#authentication_submit {
+  margin-top: 15px;
 }

@@ -44,6 +44,18 @@
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/servlet/AdminServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UserQuestPlayServlet</servlet-name>
+        <servlet-class>servlet.UserQuestPlayServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserQuestPlayServlet</servlet-name>
+        <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>
+    </servlet-mapping>
+
     <mime-mapping>
         <extension>wsdl</extension>
         <mime-type>text/xml</mime-type>
