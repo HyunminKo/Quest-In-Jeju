@@ -490,6 +490,10 @@ p.MainCommentRightBotComment {
     display: none;
 }
 
+.tl-btn {
+    display: none;
+}
+
 </style>
 </head>
 <body>
@@ -520,7 +524,7 @@ p.MainCommentRightBotComment {
 <main>
 
     <div class="PlusButton">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"><img src="static/img/PlusButton.png" class="WritePlusButton"/></button>
+            <button type="button" class="btn btn-primary tl-btn" data-toggle="modal" data-target="#exampleModalScrollable"><img src="static/img/PlusButton.png" class="WritePlusButton"/></button>
     </div>
 
     <div class="MainMain">
@@ -844,9 +848,9 @@ p.MainCommentRightBotComment {
                             </div>
                             <div class="modal-body">
                               <form method="POST" action="addpost.jsp">
-                                  <input type="radio" value="free" name="category" checked/>자유
-                                  <input type="radio" value="later" name="category"/>후기
-                                  <input type="radio" value="question" name="category"/>질문 
+                                  <input type="radio"  name="category" checked/>자유
+                                  <input type="radio"  name="category"/>후기
+                                  <input type="radio"  name="category"/>질문 
                                   <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
                                   <input type="file" name="src" class="tl-select"/>
                                   <input type="date" name="datetime" class="tl-date"/>
