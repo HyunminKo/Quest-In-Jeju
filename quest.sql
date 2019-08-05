@@ -9,7 +9,9 @@ create table quest_item (
   longitude varchar(20) NOT NULL,
   description TEXT NOT NULL,
   addr varchar(100) NOT NULL,
-  src VARCHAR(10000)
+  originalfilename VARCHAR(1000),
+  filesystemname VARCHAR(1000),
+  user_id bigint(20) UNSIGNED NOT NULL
 );
 create table quest (
     id bigint unsigned auto_increment Primary key,
@@ -29,7 +31,8 @@ create table post (
 	contents text not null,
     date datetime not null,
 	user_id bigint unsigned not null,
-    src VARCHAR(10000),
+    originalfilename VARCHAR(1000),
+    filesystemname VARCHAR(1000),
     category int
 );
 create table comment (
@@ -69,7 +72,9 @@ create table quest_log(
     item_id bigint unsigned NOT NULL
 );
 
-alter table quest_item ADD CONSTRAINT fk_quest_item_quest_num FOREIGN KEY(quest_id) REFERENCES quest(id);
+alter table quest_item ADD CONSTRAINT fk_quest_item_quest_id FOREIGN KEY(quest_id) REFERENCES quest(id);
+alter table quest_item ADD CONSTRAINT fk_quest_item_user_id FOREIGN KEY(user_id) REFERENCES user(id);
+
 alter table post ADD CONSTRAINT fk_post_user_id FOREIGN KEY(user_id) REFERENCES user(id);
 
 alter table comment ADD CONSTRAINT fk_comment_user_id FOREIGN KEY(user_id) REFERENCES user(id);
