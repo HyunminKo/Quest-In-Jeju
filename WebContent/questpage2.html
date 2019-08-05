@@ -26,15 +26,6 @@
 		  font-weight: normal;
 		  font-style: normal;
 		}
-
-		/* .nanumsquare {
-		font-family: 'NanumSquare', sans-serif !important;
-		}
-
-		* {
-		font-family: 'NanumSquare', sans-serif !important;
-		} */
-
 		* {
 		font-family: 'BRBA_B';
 		}
@@ -97,7 +88,6 @@
 		font-size: 1.8em;
 		transform: translate(-50%, -50%);
 		}
-
 		h1 { color: #000;
 		margin-left: 30px;
 		}
@@ -163,8 +153,22 @@
 		font-size: 1.2em;
 		}
 
+  .modal-content {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .que_conq_title {
+  font-size: 1.2em;
+  }
+  
+  .modal-body {
+    font-family: 'BRRA_R' !important;
+    overflow-y: scroll;
+    height: 200px;
+  }
 
-		</style>
+ 
+    </style>
 
 	<title>questpage</title>
 
@@ -196,8 +200,7 @@
         <img src ='static/img/flag.png' width="30" height="30">
         오름 정복하기
         <!-- 큰 quest의 id를 <div>의 id로 주고, button을 클릭할 때 onclick 인자로 quest id를 보냅니다 -->
-        <button type="button" class="btn btn-outline-danger btn-sm que_start_btn"
-          onclick=confirm_user_accept("1")>
+        <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" onclick=confirm_user_accept("1")>
           start
         </button>
       </p>
@@ -258,9 +261,10 @@
         <p class="que_conq_title">
           <img src ='static/img/flag.png' width="30" height="30">
           오름 정복하기
-          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn">
-            start
-          </button>
+          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn"
+          onclick=confirm_user_accept("1")>
+          start
+        </button>
         </p>
       <div>
         <ul class="que_next">
@@ -319,9 +323,9 @@
         <p class="que_conq_title">
           <img src ='static/img/flag.png' width="30" height="30">
           오름 정복하기
-          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn">
-            start
-          </button>
+          <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" onclick=confirm_user_accept("1")>
+          start
+        </button>
         </p>
       <div>
         <ul class="que_next">
