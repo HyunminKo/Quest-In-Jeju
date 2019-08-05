@@ -52,6 +52,9 @@ function quest_authentication(user_lat, user_lng) {
   }
 }
 
+
+// 구면 코사인 법칙(Spherical Law of Cosine) 으로 두 위도/경도 지점의 거리를 구함
+// 반환 거리 단위 (km)
 function computeDistance(startCoords, destCoords) {
   const startLatRads = degreesToRadians(startCoords.latitude);
   const startLongRads = degreesToRadians(startCoords.longitude);
@@ -61,7 +64,7 @@ function computeDistance(startCoords, destCoords) {
   const Radius = 6371; //지구의 반경(km)
   const distance =
     Math.acos(
-      Math.sin(startLatRads) * Math.sin(destLatRads) +
+        Math.sin(startLatRads) * Math.sin(destLatRads) +
         Math.cos(startLatRads) *
           Math.cos(destLatRads) *
           Math.cos(startLongRads - destLongRads)
