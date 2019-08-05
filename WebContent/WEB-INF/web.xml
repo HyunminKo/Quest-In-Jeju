@@ -53,7 +53,7 @@
 
     <servlet-mapping>
         <servlet-name>UserQuestPlayServlet</servlet-name>
-        <url-pattern>/servlet/UserQuestPlayServleto</url-pattern>
+        <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>
     </servlet-mapping>
 
     <mime-mapping>
