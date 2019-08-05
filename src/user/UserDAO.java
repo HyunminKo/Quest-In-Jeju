@@ -3,16 +3,15 @@ package user;
 import jdbcUtil.JdbcTemplate;
 import rowmapper.UserRowMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
     JdbcTemplate jdbc = new JdbcTemplate();
     
     public void insert(){
-        String name = "testtest";
-        String password = "testtest";
-        String email = "testtest@testtest.org";
+        String name = "user1";
+        String password = "1234";
+        String email = "xxx@gmail.com";
         String sql = "insert into user (email,name,password) values(?,?,?)";
         try {
             jdbc.update(sql,email,name,password);
