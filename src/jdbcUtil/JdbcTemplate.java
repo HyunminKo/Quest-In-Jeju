@@ -15,7 +15,7 @@ public class JdbcTemplate {
     }
 
     private Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju?serverTimezone=UTC", "root", "1111");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju", "root", "1111");
         return conn;
     }
     public int update(String sql, Object ...args) throws Exception{
@@ -32,13 +32,15 @@ public class JdbcTemplate {
                     stmt.setObject(i+1,null);
                 }else if (args[i] instanceof Integer){
                     stmt.setInt(i+1,((Integer)args[i]).intValue());
+                }else if (args[i] instanceof Long){
+                    stmt.setLong(i+1,((Long)args[i]).longValue());
                 }else if (args[i] instanceof Double){
                     stmt.setDouble(i+1,((Double)args[i]).doubleValue());
                 }else if (args[i] instanceof String){
                     stmt.setString(i+1, (String)args[i]);
                 }
             }
-            rc = stmt.executeUpdate();
+            stmt.executeUpdate();
         }catch(Exception e){
             throw e;
         }finally {
