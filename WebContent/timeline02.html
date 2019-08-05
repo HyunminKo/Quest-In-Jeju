@@ -574,14 +574,12 @@ p.MainCommentRightBotComment {
         </div>
 
         <div class="MainEditor">
-            <form method="POST" action="">
-                <div class="MainEditorLeft">
-                    <textarea class="MainEditorLeftTextarea" onkeyup="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성하세요"></textarea>
-                </div>
-                <div class="MainEditorRight">
-                    <input type="submit" value="작성" class="MainEditorRightSubmit"/>
-                </div>
-            </form>
+            <div class="MainEditorLeft">
+                <textarea class="MainEditorLeftTextarea" onkeyup="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성하세요"></textarea>
+            </div>
+            <div class="MainEditorRight">
+                <input type="submit" value="작성" class="MainEditorRightSubmit"/>
+            </div>
         </div>
 
         <div class="MainCommentLine">
@@ -844,12 +842,12 @@ p.MainCommentRightBotComment {
                             </div>
                             <div class="modal-body">
                                 <form method="POST" action="addpost_2.jsp">
-                                    <input type="radio" value="free" name="category" checked/>자유
-                                    <input type="radio" value="later" name="category"/>후기
-                                    <input type="radio" value="question" name="category"/>질문 
+                                    <input type="radio" name="category" checked/>자유
+                                    <input type="radio" name="category"/>후기
+                                    <input type="radio" name="category"/>질문 
                                     <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
                                     <input type="file" name="src" class="tl-select"/>
-                                    <input type="date" name="datetime" class="tl-date"/>   
+                                    <input type="datetime" name="date" class="tl-date"/>
                             </div>
                             <div class="modal-footer">
                                 <input type="submit"  class="tl-upload" name="submit" value="업로드"/>
