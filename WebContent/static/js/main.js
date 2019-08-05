@@ -4,6 +4,28 @@ let state = "flag.png";
 $(document).ready(function() {
   $(".navbar-brand").hide();
   showInitIcon(state);
+
+  $(".counter").each(function() {
+    var $this = $(this),
+      countTo = $this.attr("data-count");
+
+    $({ countNum: $this.text() }).animate(
+      {
+        countNum: countTo
+      },
+
+      {
+        duration: 1000,
+        easing: "linear",
+        step: function() {
+          $this.text(Math.floor(this.countNum));
+        },
+        complete: function() {
+          $this.text(this.countNum);
+        }
+      }
+    );
+  });
 });
 function showInitIcon(state) {
   $("#img_1").attr("src", "static/img/" + state);
@@ -52,26 +74,30 @@ async function showStateIcons(t) {
   }
 }
 
-
-
-function doDisplayo(){
-    var con = document.getElementById("orumlist");
-    if(con.style.display=='block'){
-        con.style.display = 'none';
-    }else{con.style.display='block';}
-}
-function doDisplayf(){
-    var con = document.getElementById("foodlist");
-    if(con.style.display=='block'){
-        con.style.display = 'none';
-    }else{con.style.display='block';}
-}
-function doDisplayw(){
-      var con = document.getElementById("walklist");
-      if(con.style.display=='block'){
-          con.style.display = 'none';
-      }else{con.style.display='block';}
+function doDisplayo() {
+  var con = document.getElementById("orumlist");
+  if (con.style.display == "block") {
+    con.style.display = "none";
+  } else {
+    con.style.display = "block";
   }
+}
+function doDisplayf() {
+  var con = document.getElementById("foodlist");
+  if (con.style.display == "block") {
+    con.style.display = "none";
+  } else {
+    con.style.display = "block";
+  }
+}
+function doDisplayw() {
+  var con = document.getElementById("walklist");
+  if (con.style.display == "block") {
+    con.style.display = "none";
+  } else {
+    con.style.display = "block";
+  }
+}
 
 var options = {
   enableHighAccuracy: true,

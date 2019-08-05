@@ -9,19 +9,6 @@ public class PostVO {
     private String src = null;
     private Integer category = null; 
 
-    @Override
-    public String toString() {
-        return "PostVO{" +
-                "id=" + id +
-                ", like_count=" + like_count +
-                ", contents='" + contents + '\'' +
-                ", date='" + date + '\'' +
-                ", user_id=" + user_id +
-                ", src='" + src + '\'' +
-                ", category=" + category +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
