@@ -10,8 +10,7 @@ create table quest_item (
   description TEXT NOT NULL,
   addr varchar(100) NOT NULL,
   originalfilename VARCHAR(1000),
-  filesystemname VARCHAR(1000),
-  user_id bigint(20) UNSIGNED NOT NULL
+  filesystemname VARCHAR(1000)
 );
 create table quest (
     id bigint unsigned auto_increment Primary key,
@@ -72,8 +71,8 @@ create table quest_log(
     item_id bigint unsigned NOT NULL
 );
 
+alter table quest ADD CONSTRAINT fk_quest_user_id FOREIGN KEY(user_id) REFERENCES user(id);
 alter table quest_item ADD CONSTRAINT fk_quest_item_quest_id FOREIGN KEY(quest_id) REFERENCES quest(id);
-alter table quest_item ADD CONSTRAINT fk_quest_item_user_id FOREIGN KEY(user_id) REFERENCES user(id);
 
 alter table post ADD CONSTRAINT fk_post_user_id FOREIGN KEY(user_id) REFERENCES user(id);
 

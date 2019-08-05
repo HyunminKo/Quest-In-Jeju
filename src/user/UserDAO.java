@@ -8,16 +8,15 @@ import java.util.List;
 public class UserDAO {
     JdbcTemplate jdbc = new JdbcTemplate();
     
-    public void insert(){
-        String name = "user1";
-        String password = "1234";
-        String email = "xxx@gmail.com";
+    public int insert(UserVO vo){
+        int rc = -1;
         String sql = "insert into user (email,name,password) values(?,?,?)";
         try {
-            jdbc.update(sql,email,name,password);
+            rc = jdbc.update(sql,vo.getEmail(),vo.getName(),vo.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return rc;
     }
     public List<UserVO> findAll() {
         List<UserVO> ls = null;
