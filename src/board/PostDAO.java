@@ -9,18 +9,25 @@ public class PostDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> 628b80b9ae9496d9d7b40180f47e80fc838055aa
     public void insert( PostVO vo ){
-        Integer like_count = new Integer( 0 );
+        Integer like_count = vo.getLike_count();
         String contents = vo.getContents();
         String date = vo.getDate();
-        Long user_id = null;
+        Long user_id = vo.getUser_id();
         String src = vo.getSrc();
         Integer category = vo.getCategory();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 628b80b9ae9496d9d7b40180f47e80fc838055aa
         String sql = "insert into post"
         		+ "(like_count, contents, date, user_id, src, category) "
-        		+ "values(?,?,?,?,?,?)";
+        		+ "values(?,?, now(),?,?,?)";
         try {
             jdbc.update(sql,like_count,contents, date, user_id, src, category);
         } catch (Exception e) {
