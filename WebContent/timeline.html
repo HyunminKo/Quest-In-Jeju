@@ -32,38 +32,97 @@ body {
 
 header {
     width : 100%;
-    height : 65px;
+    height : 10%;
     background-color : #da0808;
 }
 
 main {
     width : 100%;
+    height : 81%;
+    overflow-y : auto;
+    overflow-x : hidden;
+}
+
+footer {
+    width : 100%;
+    height : 9%;
 }
 
 /*~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~~~~*/
 
-.MainTop {
-    width : 100%;
-    height : 80%;
-}
-
 .MainTopLeft {
-    width : 15%;
-    border-right : 2px solid #eee;
+    width : 14%;
     float : left;
 }
 
 .MainTopRight {
-    width : 85%;
+    width : 86%;
     float : right;
-    display : flex;
-    justify-content : center;
+    border-left : 2px solid #eee;
 }
 
-.MainTopRightUtil {
+.MainTopRightUtilLeft {
+    width : 10%;
+    z-index : 2;
+    float : left;
+    margin-top : 8%;
+    position : relative;
+    right : 6%;
+}
+
+.LikeButtonB {
+    width : 10vw;
+    height : 10vw;
+    border-radius : 100%;
+    border : 2px solid blue;
+    background-color : white;
+}
+.LikeButtonG {
+    width : 10vw;
+    height : 10vw;
+    border-radius : 100%;
+    border : 2px solid #3cb371;
+    background-color : white;
+}
+.LikeButtonO {
+    width : 10vw;
+    height : 10vw;
+    border-radius : 100%;
+    border : 2px solid orange;
+    background-color : white;
+}
+.likedButton {
+    width: 13vw;
+    height: 13vw;
+    background-color: blue;
+    position: relative;
+    transform : transition(-20%,0);
+    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition:width 2s, height 2s, background-color 2s, transform 2s;   
+}
+.MainTopRightUtilB {
     width : 80%;
-    margin-top : 20px;
+    margin-top : 8%;
+    margin-right : 5%;
+    float : right;
     border : 1px solid #eee;
+    border-left : 5px solid blue;
+}
+.MainTopRightUtilG {
+    width : 80%;
+    margin-top : 8%;
+    margin-right : 5%;
+    float : right;
+    border : 1px solid #eee;
+    border-left : 5px solid #3CB371;
+}
+.MainTopRightUtilO {
+    width : 80%;
+    margin-top : 8%;
+    margin-right : 5%;
+    float : right;
+    border : 1px solid #eee;
+    border-left : 5px solid orange;
 }
 
 .MainTopRightUtilWrite {
@@ -84,7 +143,7 @@ main {
 
 p.WriteNickName {
     font-size : 15px;
-    margin : 0px;
+    margin : 0px 0px 0px 5px;
 }
 
 .MainTopRightUtilWriteTopRight {
@@ -92,7 +151,7 @@ p.WriteNickName {
     height : 100%;;
     float : right;
     display : flex;
-    padding : 2% 2% 2% 10%;
+    padding : 2% 2% 2% 15%;
 }
 
 p.WriteDatetime {
@@ -104,31 +163,115 @@ p.WriteDatetime {
 
 p.WriteDate {
     font-size : 10px;
-    margin : 0px;
+    margin : 0px 2vw 0px 0px;
     text-align : right;
+}
+
+.MainTopRightUtilWriteBot {
+    width : 100%;
+}
+
+.MainTopRightUtilWriteBotLeft {
+    width : 15vw;
+    height : 15vw;
+    margin : 2vw;
+    float : left;
+}
+
+.MainTopRightUtilWriteBotLeftImage {
+    width : 100%;
+    height : 100%;
+}
+
+.MainTopRightUtilWriteBotRight {
+    width : 43vw;
+    height : 15vw;
+    margin : 2vw;
+    float : right;
+}
+
+.MainTopRightUtilWriteBotRightWrite {
+    width : 100%;
+    height : 100%;
+    font-size : 10px;
+    display : -webkit-box;
+    overflow : hidden;
+    vertical-align : top;
+    text-overflow : ellipsis;
+    word-break : break-all;
+    -webkit-box-orient : vertical;
+    -webkit-line-clamp : 4
 }
 
 .MainTopRightUtilWriter {
     width : 100%;
-    border-top : 1px solid #eee;
+    height : 10vh;
+    display : block;
+}
+
+.MainTopRightUtilWriterLeft {
+    width : 1%;
+    float : left;
+}
+
+.MainTopRightUtilWriterRight {
+    width : 99%;
     border-bottom : 1px solid #eee;
+    float : right;
 }
 
 textarea.WriterEditor {
-    width : 100%;
-    font-size : 15px;
-    overflow : visible;
+    font-size : 7px;
+    border-top : 0px solid #eee;
+    border-bottom : 0px solid #eee;
+    border-left : 0px solid #eee;
+    border-right : 0px solid #eee;
+    resize : none;
+    float : right;
 }
 
 .MainTopRightUtilComment {
     width : 100%;
+    display : block;
 }
 
-.MainBot {
+.MainTopRightUtilCommentTop {
     width : 100%;
-    height : 10%;
-    position : absolute;
-    bottom : 0px;
+    font-size : 11px;
+}
+
+.MainTopRightUtilCommentTopLeft {
+    width : 40%;
+    float : left;
+    padding : 2px 2px 2px 5px;
+}
+
+.MainTopRightUtilCommentTopRight {
+    width : 60%;
+    float : right;
+}
+
+.MainTopRightUtilCommentTopRightLeft {
+    width : 60%;
+    float : left;
+    padding : 3px 3px 2px 25px;
+    font-size : 8px;
+    text-align : right;
+}
+
+.MainTopRightUtilCommentTopRightRight {
+    width : 40%;
+    float : right;
+    padding : 3px 3px 2px 3px;
+    color : #eee;
+    font-size : 7px;
+}
+
+.MainTopRightUtilCommentBot {
+    width : 100%;
+    padding : 8px;
+    font-size : 7px;
+    border-top : 1px solid #eee;
 }
 
 .MainBotTop {
@@ -141,6 +284,66 @@ textarea.WriterEditor {
     width : 100%;
     height : 90%;
     background-color : #FFFFFF;
+}
+
+.MainBotBotLeft {
+    width : 50%;
+    height : 100%;
+    float : left;
+}
+
+.MainBotBotLeftAll {
+    width : 55px;
+    height : 35px;
+    float : right;
+    background-color : black;
+    border : 1px solid black;
+    margin : 8px 5px 0px 5px;
+    border-radius : 55px;
+    color : white;
+    font-size : 15px;
+}
+
+.MainBotBotLeftFreedom {
+    width : 55px;
+    height : 35px;
+    float : right;
+    background-color : blue;
+    border : 1px solid blue;
+    margin : 8px 5px 0px 5px;
+    border-radius : 55px;
+    color : white;
+    font-size : 15px;
+}
+
+.MainBotBotRight {
+    width : 50%;
+    height : 100%;
+    float : right;
+}
+
+.MainBotBotRightReview {
+    width : 55px;
+    height : 35px;
+    float : left;
+    background-color : #3CB371;
+    border : 1px solid #3CB371;
+    margin : 8px 5px 0px 5px;
+    border-radius : 55px;
+    color : white;
+    font-size : 15px;
+}
+
+.MainBotBotRightQuestion {
+    width : 55px;
+    height : 35px;
+    float : left;
+    background-color : orange;
+    border : 1px solid orange;
+    margin : 8px 5px 0px 5px;
+    border-radius : 55px;
+    color : white;
+    font-size : 15px;
 }
 
 </style>
@@ -170,65 +373,275 @@ textarea.WriterEditor {
     </div>
 </header>
 <main>
+    <div class="MainTopLeft">
 
-    <div class="MainTop" style="overflow:scroll">
-        <div class="MainTopLeft">
-
+    </div>
+    <div class="MainTopRight">
+        <div class="MainTopRightUtilLeft">
+            <input type="button" id="likeButton_1" class="LikeButtonB" onclick="ClickOfLike(this)"/>
         </div>
-        <div class="MainTopRight">
-            <div class="MainTopRightUtil">
-                <div class="MainTopRightUtilWrite">
-                    <div class=MainTopRightUtilWriteTop>
-                        <div class="MainTopRightUtilWriteTopLeft">
-                            <p class="WriteNickName">
-                                오징어흐물
-                            </p>
-                        </div>
-                        <div class="MainTopRightUtilWriteTopRight">
-                            <p class="WriteDate">
-                                2019.08.05
-                            </p>
-                            <p class="WriteDatetime">
-                                21:56:23
-                            </p>
-                        </div>
+        <div class="MainTopRightUtilB">
+            <div class="MainTopRightUtilWrite">
+                <div class=MainTopRightUtilWriteTop>
+                    <div class="MainTopRightUtilWriteTopLeft">
+                        <p class="WriteNickName">
+                            오징어흐물
+                        </p>
                     </div>
-                    <div class="MainTopRightUtilWriteBot">
-                        <p>
-
+                    <div class="MainTopRightUtilWriteTopRight">
+                        <p class="WriteDate">
+                            2019.08.05
+                        </p>
+                        <p class="WriteDatetime">
+                            21:56:23
                         </p>
                     </div>
                 </div>
-                <div class="MainTopRightUtilWriter">
-                    <textarea class="WriterEditor" onkeydown="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성해주세요">
-
-                    </textarea>
-                </div>
-                <div class="MainTopRightUtilComment">
-
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
                 </div>
             </div>
+            <div class="MainTopRightUtilWriter">
+                <div class="MainTopRightUtilWriterRight">
+                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        김채린
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            11:57:23
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        강사님
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            12:18:32
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    ㅇㅇ
+                </div>
+             </div>
         </div>
     </div>
-<footer>
 
-<div class="MainBot">
-        <div class="MainBotTop">
+    <div class="MainTopLeft">
 
+    </div>
+    <div class="MainTopRight">
+        <div class="MainTopRightUtilLeft">
+            <input type="button" class="LikeButtonG"/>
         </div>
-        <div class="MainBotBot">
+        <div class="MainTopRightUtilG">
+            <div class="MainTopRightUtilWrite">
+                <div class=MainTopRightUtilWriteTop>
+                    <div class="MainTopRightUtilWriteTopLeft">
+                        <p class="WriteNickName">
+                            고현민
+                        </p>
+                    </div>
+                    <div class="MainTopRightUtilWriteTopRight">
+                        <p class="WriteDate">
+                            2019.08.05
+                        </p>
+                        <p class="WriteDatetime">
+                            21:56:23
+                        </p>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="MainTopRightUtilWriter">
+                <div class="MainTopRightUtilWriterRight">
+                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        최다영
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            11:57:23
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        이정은
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            12:18:32
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    ㅇㅇ
+                </div>
+             </div>
+        </div>
+    </div>
+    
+    <div class="MainTopLeft">
 
+    </div>
+    <div class="MainTopRight">
+        <div class="MainTopRightUtilLeft">
+            <input type="button" class="LikeButtonO"/>
+        </div>
+        <div class="MainTopRightUtilO">
+            <div class="MainTopRightUtilWrite">
+                <div class=MainTopRightUtilWriteTop>
+                    <div class="MainTopRightUtilWriteTopLeft">
+                        <p class="WriteNickName">
+                            강사님
+                        </p>
+                    </div>
+                    <div class="MainTopRightUtilWriteTopRight">
+                        <p class="WriteDate">
+                            2019.08.05
+                        </p>
+                        <p class="WriteDatetime">
+                            21:56:23
+                        </p>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="MainTopRightUtilWriter">
+                <div class="MainTopRightUtilWriterRight">
+                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        오징어흐물
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            11:57:23
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요
+                </div>
+            </div>
+            <div class="MainTopRightUtilComment">
+                <div class="MainTopRightUtilCommentTop">
+                    <div class="MainTopRightUtilCommentTopLeft">
+                        오징어흐물
+                    </div>
+                    <div class="MainTopRightUtilCommentTopRight">
+                        <div class="MainTopRightUtilCommentTopRightLeft">
+                            2019.08.06
+                        </div>
+                        <div class="MainTopRightUtilCommentTopRightRight">
+                            12:18:32
+                        </div>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilCommentBot">
+                    ㅇㅇ
+                </div>
+             </div>
+        </div>
+    </div>
+    
+</main>
+
+<footer>
+    <div class="MainBotTop">
+
+    </div>
+    <div class="MainBotBot">
+        <div class="MainBotBotLeft">
+            <input type="button" value="자유" class="MainBotBotLeftFreedom"/>
+            <input type="button" value="전체" class="MainBotBotLeftAll"/>
+        </div>
+        <div class="MainBotBotRight">
+            <input type="button" value="후기" class="MainBotBotRightReview"/>
+            <input type="button" value="질문" class="MainBotBotRightQuestion"/>
         </div>
     </div>
 </footer>
 
-</main>
 </body>
-</html>
 
-<script>
-function resize(obj) {
-    obj.style.height = "1px";
-    obj.style.height = (12+obj.scrollHeight)+"px";
-}
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('#test').on('keyup', function() {
+            if($(this).val().length > 70) {
+                $(this).val($(this).val().substring(0, 70));
+            }
+        });
+    });
+    function ClickOfLike(t){
+        $("#"+t.id).toggleClass("likedButton");
+    }
 </script>
+
+</html>

@@ -10,7 +10,7 @@ import java.util.List;
 public class JdbcTemplate {
     static {
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Dri                                                                                                  ver");
         }catch (ClassNotFoundException e) {e.printStackTrace();}
     }
 
