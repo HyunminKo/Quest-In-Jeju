@@ -70,3 +70,8 @@
 #authentication_submit {
   margin-top: 15px;
 }
+
+#user-location-confirm-btn {
+  text-decoration: none;
+  color: black;
+}
