@@ -89,15 +89,6 @@ function success(pos) {
   const jejuLongitude = 126.5266283;
 
   var crd = pos.coords;
-  $("#app").append("<br>");
-  $("#app").append("Your current position is:");
-  $("#app").append("<br>");
-  $("#app").append("Latitude : " + crd.latitude);
-  $("#app").append("<br>");
-  $("#app").append("Longitude: " + crd.longitude);
-  $("#app").append("<br>");
-  $("#app").append("More or less " + crd.accuracy + " meters.");
-  $("#app").append("<br>");
   var HOME_PATH = window.HOME_PATH || ".";
   var mapOptions = {
     center: new naver.maps.LatLng(jejuLatitued, jejuLongitude),

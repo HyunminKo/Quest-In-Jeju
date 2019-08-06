@@ -1,9 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
-
-   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-
-<%
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+    <%
   Cookie[] cookies = request.getCookies();
   String userId = null;
   for( int i = 0 ; i < cookies.length ; i++ ) {
@@ -77,7 +75,7 @@
 	          <l:forEach var="vo" items="${rl}">
                 <div class="questlist">
                   <div class ="abcd">
-                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</button>
+                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
                   </div>
 
                   <div class="authbtn">
@@ -100,3 +98,4 @@
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
 </html>
+
