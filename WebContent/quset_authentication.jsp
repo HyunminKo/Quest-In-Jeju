@@ -25,7 +25,7 @@ language="java" %>
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
-          <h3 class="panel-title"><%= item_name %></h3>
+          <h3 class="panel-title">새별 오름</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">

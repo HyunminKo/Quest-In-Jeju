@@ -1,6 +1,7 @@
 package relation;
 
 import jdbcUtil.JdbcTemplate;
+import jdbcUtil.RowMapper;
 import rowmapper.UserQuestPlayRowMapper;
 
 import java.util.List;
@@ -8,6 +9,11 @@ import java.util.List;
 public class UserItemPlayDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
+
+    public <UserItemPlay> T queryForObject(String sql, RowMapper<UserItemPlayVO> vo, Object...args) throws Exception {
+        T vo = null;
+
+
     public void insert(UserItemPlayVO vo){
         String sql = "insert into user_item_play(user_id,item_id,is_completed) values(?,?,?)";
         try {

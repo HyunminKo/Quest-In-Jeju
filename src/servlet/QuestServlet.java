@@ -19,7 +19,6 @@ public class QuestServlet extends HttpServlet {
         QuestDAO dao = new QuestDAO();
         List<QuestVO> ls = dao.findAll();
 
-
     }
 
 }
