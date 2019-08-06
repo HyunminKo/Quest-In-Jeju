@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'BRRA_R';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 로그인 */
+.btn.btn-primary {
+    margin-top: 30%;
+    width: 90%;
+    margin-left: 5%;
+}
+.btn.btn-secondary{
+    margin-top: 12px;
+    background-color: #da0808;
+    border: none;
+    ffont-family: 'BRRA_B';
+
+}
+
+.main-id {
+    font-size: 1.2em;
+}
+
+.main-pw {
+    font-size: 1.2em;
+}
+
+.idcheck {
+    margin-top: 11px;
+    font-family: 'BRRA_R';
+    border: none;
+    background: none;
+}
+
+.form-control {
+    font-family: 'BRRA_R';
+}
+
+/* 회원가입 */
+.btn.btn-primary.main-su {
+    margin-top: 15px !important;
+}

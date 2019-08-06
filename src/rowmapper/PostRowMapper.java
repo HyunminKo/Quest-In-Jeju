@@ -15,7 +15,8 @@ public class PostRowMapper implements RowMapper<PostVO> {
         vo.setContents(rs.getString("contents"));
         vo.setDate(rs.getString("date"));
         vo.setUser_id(rs.getLong("user_id"));
-        vo.setSrc(rs.getString("src"));
+        vo.setOriginalfilename(rs.getString("originalfilename"));
+        vo.setFilesystemname(rs.getString("filesystemname"));
         vo.setCategory(rs.getInt("category"));
         return vo;
     }
