@@ -2,6 +2,8 @@
   User: hyunminko
   Date: 2019-08-06
   Time: 12:31
+
+<%@ page contentType="text/html;charset=utf-8" language="java" %>
 --%>
 <!DOCTYPE html>
 <html>

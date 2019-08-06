@@ -12,7 +12,7 @@ function showInitIcon(state) {
   $("#link_1").show();
 }
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve = setTimeout(resolve, ms));
 }
 async function showStateIcons(t) {
   if (!menuFlag) {
@@ -56,7 +56,8 @@ async function showStateIcons(t) {
     menuFlag = false;
   }
 }
-function doDisplayo() {
+
+function doDisplay() {
 	  var con = document.getElementById("orumlist");
 	  if (con.style.display == "block") {
 	    con.style.display = "none";

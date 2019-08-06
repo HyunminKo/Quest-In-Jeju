@@ -6,9 +6,7 @@
     <meta name="theme-color" content="#999999" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
     <title>QuestInJeJu</title>
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>
-    <script type="text/javascript" src="static/js/formcheck.js"></script>
-    
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>    
     <link rel="stylesheet" href="static/css/quest_page.css"/>
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
@@ -23,13 +21,13 @@
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
-          <img id="img_1" src="static/img/quest.png" width="30" height="30" alt=""/>
+          <img id="img_1" src="static/img/flag.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
-          <img id="img_2" src="static/img/index.png" width="30" height="30" alt=""/>
+          <img id="img_2" src="static/img/placeholder.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
-          <img id="img_3" src="static/img/mypage.png" width="30" height="30" alt=""/>
+          <img id="img_3" src="static/img/person.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
           <img id="img_4" src="static/img/timeline.png" width="30" height="30" alt=""/>
@@ -41,11 +39,10 @@
       </div>
     </div>
     <div id="map" class="naver-map"></div>
-    <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         로그인
     </button>
-    <!-- Modal -->
+    <!-- login form -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -69,15 +66,13 @@
                       <button type="submit" class="btn btn-secondary">L O G I N</button>
                     </form>
             </div>
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-primary">가입하기</button>
-            </div> -->
           </div>
         </div>
     </div>
     <button type="button" class="btn btn-primary main-su" data-toggle="modal" data-target="#exampleModalLong">
         회원가입
     </button>
+    <!-- signup form -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content sign">
@@ -88,29 +83,32 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form method="POST" action="join.jsp" id="signupform" onsubmit="return check();">
                   <div class="form-group">
                       <label class="signup-id" for="exampleDropdownFormEmail2">아이디 (Email)</label>
                         <div class="idform-check">
-                          <input type="email" class="form-control id" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                          <input type="email" class="form-control id" id="email" placeholder="email@example.com" name="email">
                           <button class="signup-id-check">check</button>
                         </div>
                   </div>
                   <div class="form-group">
                       <label class="signup-pw" for="exampleDropdownFormPassword2">비밀번호</label>
-                      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="password">
-                      <input type="password" class="form-control confirm" id="exampleDropdownFormPassword2" placeholder="confirm password">
+                      <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                      <input type="password" class="form-control confirm" id="passwordcheck" placeholder="confirm password" name="passwordcheck">
                   </div>
                   <div class="form-group">
                       <label class="signup-name" for="exampleDropdownFormEmail2">이름</label>
-                      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="name">
+                      <input type="password" class="form-control" id="name" placeholder="name" name="name">
                   </div>
-                  <button type="submit" class="btn btn-secondary">가입하기</button>
+                  <button type="submit" class="btn btn-secondary" id="signup-btn" onclick>가입하기</button>
               </form>
             </div>
             </div>
         </div>
     </div>
   </body>
+  <!-- <script type="text/javascript" src="static/js/formcheck.js"></script> -->
   <script src="static/js/main.js"></script>
+  <script src="static/js/formcheck.js"></script>
+
 </html>
