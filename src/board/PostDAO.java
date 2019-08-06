@@ -18,10 +18,10 @@ public class PostDAO {
         Integer category = vo.getCategory();
 
         String sql = "insert into post"
-        		+ "(like_count, contents, date, user_id, src, category) "
+        		+ "( like_count , contents, date, user_id, src, category) "
         		+ "values(?,?, now(),?,?,?)";
         try {
-            jdbc.update(sql,like_count,contents, date, user_id, src, category);
+            jdbc.update(sql,like_count,contents, user_id, src, category);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ public class AliasDAO {
 	
     JdbcTemplate jdbc = new JdbcTemplate();
     public void insert(){
-        String name = "testtest";
+        String name = "DBTest";
         String sql = "insert into alias (name) values(?)";
         try {
             jdbc.update(sql,name);
