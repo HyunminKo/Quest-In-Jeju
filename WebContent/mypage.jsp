@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -5,9 +6,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="theme-color" content="#999999" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
-  />
-  <title>QuestInJeJu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+
+  <title>MyPage</title>
+
   <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -17,14 +19,16 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/css/main.css" />
-  <script src="static/js/main.js"></script>
+  <script src="static/js/mypage.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 back">
-        <img src="static/img/back.png" width="20" height="20">
+        <a href="index.jsp">
+          <img src="static/img/back.png" width="20" height="20">
+        </a>
       </div>
     </div>
     <div class="row user-row">

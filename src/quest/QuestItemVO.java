@@ -7,8 +7,6 @@ public class QuestItemVO {
     private String latitude = null;
     private String longitude = null;
     private String description = null;
-    private String addr = null;
-    private String src = null;
 
     @Override
     public String toString() {
@@ -20,9 +18,32 @@ public class QuestItemVO {
                 ", longitude='" + longitude + '\'' +
                 ", description='" + description + '\'' +
                 ", addr='" + addr + '\'' +
-                ", src='" + src + '\'' +
+                ", originalFileName='" + originalFileName + '\'' +
+                ", fileSystemName='" + fileSystemName + '\'' +
                 '}';
     }
+
+    private String addr = null;
+    private String originalFileName = null;
+    private String fileSystemName = null;
+
+    public String getOriginalFileName() {
+        return originalFileName;
+    }
+
+    public void setOriginalFileName(String originalFileName) {
+        this.originalFileName = originalFileName;
+    }
+
+    public String getFileSystemName() {
+        return fileSystemName;
+    }
+
+    public void setFileSystemName(String fileSystemName) {
+        this.fileSystemName = fileSystemName;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -78,13 +99,5 @@ public class QuestItemVO {
 
     public void setAddr(String addr) {
         this.addr = addr;
-    }
-
-    public String getSrc() {
-        return src;
-    }
-
-    public void setSrc(String src) {
-        this.src = src;
     }
 }
