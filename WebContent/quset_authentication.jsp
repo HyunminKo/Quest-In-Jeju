@@ -8,9 +8,10 @@
   QuestItemVO vo = new QuestItemVO();
   try {
     vo = dao.findOne(item_id);
-    request.setAttribute("vo",vo);
-  } catch(Exception e) {
 
+    request.setAttribute("vo", vo);
+  } catch(Exception e) {
+    e.printStackTrace();
   }
 %>
 
@@ -43,8 +44,7 @@
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
-            <a id="user-location-confirm-btn" onclick="getLocation()"> 현재 위치 확인하기</a>
-            
+            <a id="user-location-confirm-btn" onclick="getLocation()">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
