@@ -5,6 +5,8 @@
     <meta charset="UTF-8"/>
   	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
 
+    <title>Quest</title>
+
     <!-- ajax를 위해서 주석 처리 해봅니다 -->
     <!--script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -15,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
     <link rel="stylesheet" type="text/css" href="static/css/quest_page2.css">
     <link rel="stylesheet" href="static/css/main.css" />
-	<title>QuestList</title>
+
 </head>
 <body>
   <%@include file="header.jsp" %>
@@ -23,7 +25,7 @@
       <div class="container-quest">
         <div class="que_box">
           <p class="que_conq_title">
-            <img src ='static/img/flag.png' width="30" height="30">
+            <img src ='static/img/quest.png' width="30" height="30">
             오름 정복하기
             <!-- 큰 quest의 id를 <div>의 id로 주고, button을 클릭할 때 onclick 인자로 quest id를 보냅니다 -->
             <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" onclick=confirm_user_accept("1")>
@@ -85,7 +87,7 @@
         </div>
         <div class="que_box">
             <p class="que_conq_title">
-              <img src ='static/img/flag.png' width="30" height="30">
+              <img src ='static/img/quest.png' width="30" height="30">
               오름 정복하기
               <button type="button" class="btn btn-outline-danger btn-sm que_start_btn"
               onclick=confirm_user_accept("1")>
@@ -147,7 +149,7 @@
         </div>
         <div class="que_box" id="1">
           <p class="que_conq_title">
-            <img src ='static/img/flag.png' width="30" height="30">
+            <img src ='static/img/quest.png' width="30" height="30">
             오름 정복하기
             <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" onclick=confirm_user_accept("1")>
             start
