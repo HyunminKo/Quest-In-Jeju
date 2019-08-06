@@ -60,6 +60,7 @@
           crossorigin="anonymous">
 
         <link rel="stylesheet" href="static/css/quest_page.css" />
+        <link rel="stylesheet" href="static/css/progressbar.css" />
         <link rel="stylesheet" href="static/css/main.css" />
 
       </head>
@@ -68,6 +69,12 @@
         <%@include file="header.jsp" %>
 
           <div id="map" class="naver-map"></div>
+          <!-- 테스트 프로그래스바 -->
+          <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+            <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+            <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+            <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
+          </svg>
           <div class="quest" style="font-size:30px">
             <p class="gothic">--------님이 수행중인 퀘스트!</p>
           </div>
@@ -107,5 +114,6 @@
       <script src="static/js/naver_map.js"></script>
       <script src="static/js/main.js"></script>
       <script src="static/js/get_playing_quest.js"></script>
+      <script src="static/js/progressbar.js"></script>
 
       </html>

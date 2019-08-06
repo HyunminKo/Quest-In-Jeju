@@ -64,8 +64,6 @@ public class UserItemPlayServlet extends HttpServlet {
         }
 
 
-    }
-
 
     // user_item_play 테이블에서 user_id와 item_id로 찾아야 됨
         // user_item_play 테이블에서 "is_completed" 애트리뷰트 값을 1로 변경 -> 완료했다는 의미
