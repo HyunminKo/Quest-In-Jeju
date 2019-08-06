@@ -1,6 +1,7 @@
 package quest;
 
 import jdbcUtil.JdbcTemplate;
+import rowmapper.QuestItemIdsRowMapper;
 import rowmapper.QuestItemRowMapper;
 
 import java.util.List;
@@ -31,6 +32,16 @@ public class QuestItemDAO {
         }
         return ls;
     }
-	
-	
+
+
+    public List<Long> findIdsByQuestId(Long quest_id) {
+        List<Long> rs = null;
+        String sql = "select id from quest_item where quest_id=?";
+        try{
+            rs = jdbc.query(sql,new QuestItemIdsRowMapper(),quest_id);
+        }catch (Exception e){
+
+        }
+        return rs;
+    }
 }

@@ -69,6 +69,8 @@ public class JdbcTemplate {
                     stmt.setDouble(i+1,((Double)args[i]).doubleValue());
                 }else if (args[i] instanceof String){
                     stmt.setString(i+1, (String)args[i]);
+                }else if (args[i] instanceof Long){
+                    stmt.setLong(i+1,((Long)args[i]).longValue());
                 }
             }
             rs = stmt.executeQuery();
@@ -110,6 +112,8 @@ public class JdbcTemplate {
                     stmt.setDouble(i+1,((Double)args[i]).doubleValue());
                 }else if (args[i] instanceof String){
                     stmt.setString(i+1, (String)args[i]);
+                }else if (args[i] instanceof Long){
+                    stmt.setLong(i+1,((Long)args[i]).longValue());
                 }
             }
             //select * from bangmyung_t;

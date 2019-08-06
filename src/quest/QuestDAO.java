@@ -30,6 +30,4 @@ public class QuestDAO {
         }
         return ls;
     }
-	
-	
 }

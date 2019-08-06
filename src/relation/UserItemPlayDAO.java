@@ -1,19 +1,17 @@
 package relation;
 
+import jdbcUtil.JdbcTemplate;
+import rowmapper.UserQuestPlayRowMapper;
+
 import java.util.List;
 
-import jdbcUtil.JdbcTemplate;
-import rowmapper.AliasRowMapper;
-import rowmapper.UserQuestPlayRowMapper;
-import user.AliasVO;
-
-public class UserQuestPlayDAO {
+public class UserItemPlayDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
-    public void insert(UserQuestPlayVO vo){
-        String sql = "insert into user_quest_play(user_id,quest_id) values(?,?)";
+    public void insert(UserItemPlayVO vo){
+        String sql = "insert into user_item_play(user_id,item_id,is_completed) values(?,?,?)";
         try {
-            jdbc.update(sql,vo.getUser_id(),vo.getQuest_id());
+            jdbc.update(sql,vo.getUser_id(),vo.getItem_id(),vo.getIs_completed());
         } catch (Exception e) {
             e.printStackTrace();
         }
