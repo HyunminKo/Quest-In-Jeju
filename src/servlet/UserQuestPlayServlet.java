@@ -24,7 +24,7 @@ public class UserQuestPlayServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println(request.getContextPath());
+
         StringBuffer sb = new StringBuffer();
         String line = null;
 
