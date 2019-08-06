@@ -55,7 +55,8 @@
 }
 
 #image-print {
-  display: block;
+  /* display: block; */
+  display: none;
   max-width: 100%;
 }
 
