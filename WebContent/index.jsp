@@ -70,7 +70,7 @@
         <div class="container">
 
           <div class="button" ><a href="javascript:doDisplayo();">
-      			<button type="button" class="btn btn-outline-danger ">오름정복하기이이이</button>
+      			<button type="button" class="btn btn-outline-danger ">오름정복하기</button>
       		</a></div>
 
 
@@ -89,8 +89,11 @@
                   </div>
 
                   <div class="authbtn">
-                        <button type="button"  class="btn btn-outline-success chkbtn"><img src="static/img/submit.png"></button>
-
+                        <button type="button"  class="btn btn-outline-success chkbtn">
+                          <a href="quset_authentication.jsp?item_id=${vo.id}">
+                          <img src="static/img/submit.png">
+                            </a>
+                        </button>
                     </div><!--authbtn-->
                 </div><!--questlist-->
 
