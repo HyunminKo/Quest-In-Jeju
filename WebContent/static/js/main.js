@@ -56,7 +56,8 @@ async function showStateIcons(t) {
     menuFlag = false;
   }
 }
-function doDisplayo() {
+
+function doDisplay() {
 	  var con = document.getElementById("orumlist");
 	  if (con.style.display == "block") {
 	    con.style.display = "none";

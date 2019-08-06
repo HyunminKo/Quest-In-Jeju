@@ -35,8 +35,7 @@ language="java" %>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
             <a id="user-location-confirm-btn" onclick="getLocation()"
-              >현재 위치 확인하기</a
-            >
+              >현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
