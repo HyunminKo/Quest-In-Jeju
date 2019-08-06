@@ -21,7 +21,7 @@ public class UserItemPlayServlet extends HttpServlet {
 
         try {
             BufferedReader reader = request.getReader();
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line);
             }
 
@@ -31,12 +31,11 @@ public class UserItemPlayServlet extends HttpServlet {
             String method = (String) jsonObject.get("method");
 
 
-            if("queryForObject".equals(method)) {
-                Long user_id = (Long)jsonObject.get("user_id");
-                Long quest_id = (Long)jsonObject.get("quset_id");
+            if ("queryForObject".equals(method)) {
+                Long user_id = (Long) jsonObject.get("user_id");
+                Long quest_id = (Long) jsonObject.get("quset_id");
 
             }
-
 
 
 //            if("insert".equals(method)){
@@ -59,17 +58,13 @@ public class UserItemPlayServlet extends HttpServlet {
 //                    userItemPlayDAO.insert(userItemPlayVO);
 //                }
 //            }
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-    // user_item_play 테이블에서 user_id와 item_id로 찾아야 됨
+        // user_item_play 테이블에서 user_id와 item_id로 찾아야 됨
         // user_item_play 테이블에서 "is_completed" 애트리뷰트 값을 1로 변경 -> 완료했다는 의미
-
-
-
 
 
 //        UserItemPlayDAO dao = new UserQuestItemDAO();
@@ -80,5 +75,5 @@ public class UserItemPlayServlet extends HttpServlet {
 
         // 모든 item을 불러와라
     }
-
 }
+

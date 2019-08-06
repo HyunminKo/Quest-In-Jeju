@@ -10,6 +10,7 @@
           break;
       }
   }
+  //request.setAttribute(" ", );??/
   System.out.println(userId);
 
 
@@ -80,7 +81,9 @@
           </div>
           <div class="contain">
             <div class="button">
-              <button type="button" class="btn btn-outline-danger" onclick="doDisplay()">오름정복하기</button>
+              <button type="button" class="btn btn-outline-danger" onclick="doDisplay()">
+                <a class="questname">오름정복하기</a>
+              </button>
             </div>
             <div class="container2" id="orumlist">
               <div class="auth-wrap">
@@ -89,7 +92,8 @@
                   <div class="questlist">
                     <div class="abcd">
                       <button type="button" class="btn btn-outline-secondary naming">
-                        <a class="itemname">${vo.name}</button>
+                        <a class="itemname">${vo.name}</a>
+                      </button>
                     </div>
 
                     <div class="authbtn">
@@ -104,11 +108,14 @@
                   <!--questlist-->
                 </l:forEach>
                 <!--1차 for문 끝-->
+
+                <!--  <a href="logout.jsp">로그아웃</a>-->
               </div>
               <!--authwrap-->
             </div>
             <!--container2-->
           </div>
+          <!--container-->
           <!--container-->
       </body>
       <script src="static/js/naver_map.js"></script>
