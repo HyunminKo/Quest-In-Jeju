@@ -42,3 +42,26 @@
 .btn.btn-primary.main-su {
     margin-top: 15px !important;
 }
+
+.form-control.confirm {
+    margin-top: 4%;
+}
+
+.modal-content.sign {
+    margin-top: 25%;
+}
+/* 
+.form-control.id  {
+    width: 30%;
+} */
+
+.idform-check {
+    display: flex;
+}
+
+.signup-id-check {
+    background: none;
+    border: 1.2px solid #dbdfe4;
+    border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}
