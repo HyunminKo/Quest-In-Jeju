@@ -65,23 +65,15 @@
 
     <div id="map" class="naver-map"></div>
     <div class="quest"  style="font-size:30px">
-        <p class="gothic"> ________님이 수행중인 퀘스트!</p>
+        <p class="gothic">--------님이 수행중인 퀘스트!</p>
     </div>
     <div class="contain">
-
         <div class="button" >
-          <a href="javascript:doDisplay();">
-    			     <button type="button" class="btn btn-outline-danger "><a class="questname">오름정복하기</a></button>
-    	  </a>
+			     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()">오름정복하기</button>
         </div>
-
-    <!--��������Ʈ-->
-      <div class="container2" id="orumlist">
-
+        <div class="container2" id="orumlist">
           <div class="auth-wrap"> <!--y-scroll-->
-
-<!--��������.. for-->
-	          <l:forEach  var="vo" items="${rl}">
+	          <l:forEach var="vo" items="${rl}">
                 <div class="questlist">
                   <div class ="abcd">
                       <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</button>
@@ -95,11 +87,10 @@
                         </button>
                     </div><!--authbtn-->
                 </div><!--questlist-->
-
 	          </l:forEach>
 <!--1차 for문 끝-->
           </div><!--authwrap-->
-      </div><!--container2-->
+        </div><!--container2-->
     </div><!--container-->
   </body>
   <script src="static/js/naver_map.js"></script>

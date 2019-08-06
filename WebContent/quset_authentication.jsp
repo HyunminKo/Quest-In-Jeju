@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"
          import="java.util.List, quest.*"%>
 
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-
 <%
   Long item_id = Long.parseLong(request.getParameter("item_id"));
 
@@ -10,34 +8,10 @@
   QuestItemVO vo = new QuestItemVO();
   try {
     vo = dao.findOne(item_id);
+    request.setAttribute("vo",vo);
   } catch(Exception e) {
 
   }
-
-
-
-  List<QuestItemVO> rl = null;
-  List<QuestVO> rl2 = null;
-  Exception err = null;
-
-
-  QuestItemDAO dao = new QuestItemDAO();
-  try{
-    rl = dao.findAll();
-    request.setAttribute("rl", rl);
-    System.out.println(rl);
-  }catch(Exception e){
-    err = e;
-  }
-
-  QuestDAO dao2 = new QuestDAO();
-  try{
-    rl2 = dao2.findAll();
-    request.setAttribute("rl2",rl2);
-  }catch(Exception e){
-    err = e;
-  }
-
 %>
 
 
