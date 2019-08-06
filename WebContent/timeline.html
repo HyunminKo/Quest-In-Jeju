@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
+<link rel="stylesheet" href="static/css/main.css" />
+<script src="static/js/main.js"></script>
+<title>TimeLine</title>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+  font-family: "BRBA_B";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
+  format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    width : 100%;
+    height : 100%;
+}
+
+header {
+    width : 100%;
+    height : 65px;
+    background-color : #da0808;
+}
+
+main {
+    width : 100%;
+}
+
+/*~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~~~~*/
+
+.MainTop {
+    width : 100%;
+    height : 80%;
+}
+
+.MainTopLeft {
+    width : 15%;
+    border-right : 2px solid #eee;
+    float : left;
+}
+
+.MainTopRight {
+    width : 85%;
+    float : right;
+    display : flex;
+    justify-content : center;
+}
+
+.MainTopRightUtil {
+    width : 80%;
+    margin-top : 20px;
+    border : 1px solid #eee;
+}
+
+.MainTopRightUtilWrite {
+    width : 100%;
+}
+
+.MainTopRightUtilWriteTop {
+    width : 100%;
+    height : 25px;
+}
+
+.MainTopRightUtilWriteTopLeft {
+    width : 40%;
+    height : 100%;
+    float : left;
+    padding : 1%;
+}
+
+p.WriteNickName {
+    font-size : 15px;
+    margin : 0px;
+}
+
+.MainTopRightUtilWriteTopRight {
+    width : 60%;
+    height : 100%;;
+    float : right;
+    display : flex;
+    padding : 2% 2% 2% 10%;
+}
+
+p.WriteDatetime {
+    font-size : 8px;
+    color : #eee;
+    margin : 0px;
+    text-align : right;
+}
+
+p.WriteDate {
+    font-size : 10px;
+    margin : 0px;
+    text-align : right;
+}
+
+.MainTopRightUtilWriter {
+    width : 100%;
+    border-top : 1px solid #eee;
+    border-bottom : 1px solid #eee;
+}
+
+textarea.WriterEditor {
+    width : 100%;
+    font-size : 15px;
+    overflow : visible;
+}
+
+.MainTopRightUtilComment {
+    width : 100%;
+}
+
+.MainBot {
+    width : 100%;
+    height : 10%;
+    position : absolute;
+    bottom : 0px;
+}
+
+.MainBotTop {
+    width : 100%;
+    height : 10%;
+    background-color : #da0808;
+}
+
+.MainBotBot {
+    width : 100%;
+    height : 90%;
+    background-color : #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div id="menu" class="menu">
+            <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
+            <img id="img_1" src="static/img/quest.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
+            <img id="img_2" src="static/img/home.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
+            <img id="img_3" src="static/img/gamer.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
+            <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
+            </a>
+        </div>
+    
+        <div id="header-title">
+            <span>Time Line</span>
+        </div>
+    </div>
+</header>
+<main>
+
+    <div class="MainTop" style="overflow:scroll">
+        <div class="MainTopLeft">
+
+        </div>
+        <div class="MainTopRight">
+            <div class="MainTopRightUtil">
+                <div class="MainTopRightUtilWrite">
+                    <div class=MainTopRightUtilWriteTop>
+                        <div class="MainTopRightUtilWriteTopLeft">
+                            <p class="WriteNickName">
+                                오징어흐물
+                            </p>
+                        </div>
+                        <div class="MainTopRightUtilWriteTopRight">
+                            <p class="WriteDate">
+                                2019.08.05
+                            </p>
+                            <p class="WriteDatetime">
+                                21:56:23
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainTopRightUtilWriteBot">
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="MainTopRightUtilWriter">
+                    <textarea class="WriterEditor" onkeydown="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성해주세요">
+
+                    </textarea>
+                </div>
+                <div class="MainTopRightUtilComment">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<footer>
+
+<div class="MainBot">
+        <div class="MainBotTop">
+
+        </div>
+        <div class="MainBotBot">
+
+        </div>
+    </div>
+</footer>
+
+</main>
+</body>
+</html>
+
+<script>
+function resize(obj) {
+    obj.style.height = "1px";
+    obj.style.height = (12+obj.scrollHeight)+"px";
+}
+</script>

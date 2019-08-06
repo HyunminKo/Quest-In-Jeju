@@ -15,11 +15,7 @@ public class JdbcTemplate {
     }
 
     private Connection makeConn() throws Exception {
-<<<<<<< HEAD
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju?serverTimezone=UTC", "root", "Choi88357@");
-=======
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju", "root", "1111");
->>>>>>> f3ae2520778359493f942e840b70a8a354dfc92c
+        Connection conn = DriverManager.getConnection("jdbc:mysql://35.237.65.93:3306/quest_in_jeju","HR","HR12345678");
         return conn;
     }
     public int update(String sql, Object ...args) throws Exception{
@@ -44,7 +40,7 @@ public class JdbcTemplate {
                     stmt.setString(i+1, (String)args[i]);
                 }
             }
-            stmt.executeUpdate();
+            rc = stmt.executeUpdate();
         }catch(Exception e){
             throw e;
         }finally {

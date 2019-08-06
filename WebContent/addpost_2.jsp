@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<%@ page import="board.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="board.PostDAO, board.PostVO" %>
 <%
 
 Exception err = null;
@@ -54,11 +54,7 @@ try {
 } catch ( Exception e ) {
 	err = e;
 }
-/*
+
 if( err != null ) response.sendRedirect("/jdbcUtil/error.jsp");
 else response.sendRedirect("/timeline.jsp");
-*/
-
-if( err != null ) System.out.println( "성공" );
-else System.out.println( "실패" );
 %>
