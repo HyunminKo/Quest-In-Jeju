@@ -1,15 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8"
     pageEncoding="EUC-KR"
     import="java.util.List, quest.*"%>
-    
-    
-   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%> 
+
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 
 <%
     List<QuestItemVO> rl = null;
     Exception err = null;
-    
-    //2. DB¿¬µ¿
+
+    //2. DBå ì™ì˜™å ì™ì˜™
     QuestItemDAO dao = new QuestItemDAO();
     try{
     	rl = dao.findAll();
@@ -17,7 +16,8 @@
     }catch(Exception e){
     	err = e;
     }
-    
+
+
 %>
 <!DOCTYPE html>
 <html>
@@ -43,13 +43,13 @@
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
-          <img id="img_1" src="static/img/flag.png" width="30" height="30" alt=""/>
+          <img id="img_1" src="static/img/quest.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
-          <img id="img_2" src="static/img/placeholder.png" width="30" height="30" alt=""/>
+          <img id="img_2" src="static/img/index.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
-          <img id="img_3" src="static/img/person.png" width="30" height="30" alt=""/>
+          <img id="img_3" src="static/img/mypage.png" width="30" height="30" alt=""/>
         </a>
         <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
           <img id="img_4" src="static/img/timeline.png" width="30" height="30" alt=""/>
@@ -64,26 +64,32 @@
 
 
         <div class="quest"  style="font-size:30px">
-        <p class="gothic"> ________´ÔÀÌ ¼öÇàÁßÀÎ Äù½ºÆ®!</p>
+        <!--<p class="gothic">_______________ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ä»¥ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ã…½ï¿½ï¿½! </p>-->
         </div>
 
         <div class="container">
           <div class="button" ><a href="javascript:doDisplayo();">
-      			<button type="button" class="btn btn-outline-danger gothic">¿À¸§ Á¤º¹ÇÏ±â ( 2/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok!( 2/5 )</button>
       		</a></div>
 
+			<div class="progress">
+			  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+			 	 aria-valuemin="0" aria-valuemax="100" style="width:70%">
+			    70%
+			  </div>
+</div>
 
-    <!--¿À¸§¸®½ºÆ®-->
+    <!--å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™íŠ¸-->
             <div class="container2" id="orumlist">
 	            <l:forEach  var="vo" items="${rl}">
     	            <div class="auth-wrap">
         	            <button type="button" class="btn btn-outline-secondary gothic naming">
             	              ${vo.name} </button>
-            	              
-                   		 <button type="button" class="btn btn-outline-danger gothic auth">ÀÎÁõ</button>
+
+                   		 <button type="button" class="btn btn-outline-danger gothic auth">check</button>
                     </div>
             	</l:forEach>
-			</div>
+			      </div>
 <!--
 <l:forEach varStatus="vs" var="vo" items="${ls}">
 
@@ -94,9 +100,8 @@
 -->
 
 
-        <!--¸ÀÁý ¸®½ºÆ®-->
       		<div class="button"><a href="javascript:doDisplayf();">
-      			<button type="button" class="btn btn-outline-danger gothic">¸ÀÁý Á¤º¹ÇÏ±â ( 2/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok!!  ( 2/5 )</button>
             </a>	</div>
 
           <div class="container3" id="foodlist">
@@ -104,17 +109,17 @@
     	            <div class="auth-wrap">
         	            <button type="button" class="btn btn-outline-secondary gothic naming">
             	              ${vo.name} </button>
-            	              
-                   		 <button type="button" class="btn btn-outline-danger gothic auth">ÀÎÁõ</button>
+
+                   		 <button type="button" class="btn btn-outline-danger gothic auth">check</button>
                     </div>
             	</l:forEach>
             </div><!--container3-->
 
 
 
-            <!--»êÃ¥ ¸®½ºÆ®-->
+            <!--å ì™ì˜™ì±… å ì™ì˜™å ì™ì˜™íŠ¸-->
               <div class="button"><a href="javascript:doDisplayw();">
-                <button type="button" class="btn btn-outline-danger gothic">»êÃ¥·Î Á¤º¹ÇÏ±â ( 2/5 )</button>
+                <button type="button" class="btn btn-outline-danger gothic">orum jungbok!( 2/5 )</button>
                 </a>	</div>
 
               <div class="container4" id="walklist">
@@ -122,8 +127,8 @@
     	            <div class="auth-wrap">
         	            <button type="button" class="btn btn-outline-secondary gothic naming">
             	              ${vo.name} </button>
-            	              
-                   		 <button type="button" class="btn btn-outline-danger gothic auth">ÀÎÁõ</button>
+
+                   		 <button type="button" class="btn btn-outline-danger gothic auth">check</button>
                     </div>
             	</l:forEach>
                </div><!--container4-->
@@ -132,16 +137,16 @@
 
 
       		<div class="button">
-      			<button type="button" class="btn btn-outline-danger gothic">»êÃ¥·Î Á¤º¹ÇÏ±â ( 2/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok! ( 2/5 )</button>
       		</div>
       		<div class="button">
-      			<button type="button" class="btn btn-outline-danger gothic">Ä«Æä Á¤º¹ÇÏ±â ( 2/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok!( 2/5 )</button>
       		</div>
       		<div class="button">
-      			<button type="button" class="btn btn-outline-danger gothic">¹Ù´Ù Á¤º¹ÇÏ±â ( 1/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok!( 2/5 )</button>
       		</div>
       		<div class="button">
-      			<button type="button" class="btn btn-outline-danger gothic">¿À¸§ Á¤º¹ÇÏ±â ( 2/5 )</button>
+      			<button type="button" class="btn btn-outline-danger gothic">orum jungbok! ( 2/5 )</button>
       		</div>
       	</div><!--container-->
 

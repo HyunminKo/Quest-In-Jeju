@@ -1,29 +1,18 @@
+
 let menuFlag = false;
-let state = "placeholder.png";
+let state = document.title;
 
 $(document).ready(function() {
   $(".navbar-brand").hide();
-  showInitIcon(state);
-
-  // $.ajax({
-  //   // 참고하세요 여기 남겨도 되나요?
-  //   // https://ddo-o.tistory.com/94
-  //   url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
-  //   type: "POST",
-  //   data: JSON.stringify(params),
-  //   dataType: 'json',
-  //   contentType: "application/json; charset=UTF-8",
-  //   success: function() {
-  //     alert("퀘스트가 시작되었습니다")
-  //   }
-  // });
+  state = state.toLocaleLowerCase();
+  showInitIcon(state+".png");
 });
 function showInitIcon(state) {
   $("#img_1").attr("src", "static/img/" + state);
   $("#link_1").show();
 }
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve = setTimeout(resolve, ms));
 }
 async function showStateIcons(t) {
   if (!menuFlag) {
@@ -34,16 +23,17 @@ async function showStateIcons(t) {
     $("#header-title").hide();
 
     let nameOfImages = [
-      "flag.png",
-      "placeholder.png",
-      "person.png",
-      "timeline.png"
+      "quest",
+      "index",
+      "mypage",
+      "timeline"
     ];
     let index = nameOfImages.indexOf(state);
     if (index !== -1) nameOfImages.splice(index, 1);
 
     for (let i = 2; i <= 4; i++) {
-      $("#img_" + i).attr("src", "static/img/" + nameOfImages[i - 2]);
+      $("#link_" + i).attr("href",nameOfImages[i-2]+".jsp")
+      $("#img_" + i).attr("src", "static/img/" + nameOfImages[i - 2]+".png");
     }
     await sleep(100);
     for (let i = 2; i <= 4; i++) {
@@ -51,7 +41,9 @@ async function showStateIcons(t) {
     }
 
     menuFlag = true;
-  } else {
+  }
+  else {
+    if(t.id != 'link_1') return;
     document.head.removeChild(document.head.lastChild);
     $(".menu").removeClass("opened");
     $(".navbar-brand").hide();
@@ -65,31 +57,27 @@ async function showStateIcons(t) {
   }
 }
 
-function doDisplayo() {
-  var con = document.getElementById("orumlist");
-  if (con.style.display == "block") {
-    con.style.display = "none";
-  } else {
-    con.style.display = "block";
-  }
-}
-function doDisplayf() {
-  var con = document.getElementById("foodlist");
-  if (con.style.display == "block") {
-    con.style.display = "none";
-  } else {
-    con.style.display = "block";
-  }
-}
-function doDisplayw() {
-  var con = document.getElementById("walklist");
-  if (con.style.display == "block") {
-    con.style.display = "none";
-  } else {
-    con.style.display = "block";
-  }
-}
-
+function doDisplay() {
+	  var con = document.getElementById("orumlist");
+	  if (con.style.display == "block") {
+	    con.style.display = "none";
+	  } else {
+	    con.style.display = "block";
+	  }
+	}
+/*
+  window.onload = function(){
+		var is = document.getElementsByTagName("img");
+			for(var i=0;i<is.length;i++){
+				var fp = function(j){
+					is[j].onclick=function(){
+						is[j].src="static/img/check.png";
+					}
+				};
+				fp(i);
+			}
+		};
+*/
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -100,15 +88,24 @@ function success(pos) {
   const jejuLatitued = 33.38715;
   const jejuLongitude = 126.5266283;
 
-  let crd = pos.coords; //현재 위도 경도
-  let HOME_PATH = window.HOME_PATH || ".";
-  let mapOptions = {
+  var crd = pos.coords;
+  $("#app").append("<br>");
+  $("#app").append("Your current position is:");
+  $("#app").append("<br>");
+  $("#app").append("Latitude : " + crd.latitude);
+  $("#app").append("<br>");
+  $("#app").append("Longitude: " + crd.longitude);
+  $("#app").append("<br>");
+  $("#app").append("More or less " + crd.accuracy + " meters.");
+  $("#app").append("<br>");
+  var HOME_PATH = window.HOME_PATH || ".";
+  var mapOptions = {
     center: new naver.maps.LatLng(jejuLatitued, jejuLongitude),
     zoom: 4
   };
-  let map = new naver.maps.Map("map", mapOptions);
-  let position = new naver.maps.LatLng(crd.latitude, crd.longitude);
-  let latlngs = [
+  var map = new naver.maps.Map("map", mapOptions);
+  var position = new naver.maps.LatLng(crd.latitude, crd.longitude);
+  var latlngs = [
     new naver.maps.LatLng(33.528486, 126.7692923),
     new naver.maps.LatLng(33.555875, 126.7938253),
     new naver.maps.LatLng(33.5437905, 126.6666554),
@@ -150,9 +147,3 @@ function success(pos) {
     marker = null;
   }
 }
-
-function error(err) {
-  console.warn("ERROR(" + err.code + "): " + err.message);
-}
-
-navigator.geolocation.getCurrentPosition(success, error, options);

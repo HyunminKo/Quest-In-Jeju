@@ -9,7 +9,7 @@ function post_user_quest(){
 
     const params = {
         "quest_id": parseInt(quest_id),
-        "user_id" : user_id
+        "method" : "insert"
     };
 
     $.ajax({
