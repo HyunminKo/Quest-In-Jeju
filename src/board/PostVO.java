@@ -6,8 +6,39 @@ public class PostVO {
     private String contents = null;
     private String date = null;
     private Long user_id = null;
-    private String src = null;
-    private Integer category = null; 
+    private Integer category = null;
+    private String originalfilename = null;
+    private String filesystemname = null;
+
+    @Override
+    public String toString() {
+        return "PostVO{" +
+                "id=" + id +
+                ", like_count=" + like_count +
+                ", contents='" + contents + '\'' +
+                ", date='" + date + '\'' +
+                ", user_id=" + user_id +
+                ", category=" + category +
+                ", originalfilename='" + originalfilename + '\'' +
+                ", filesystemname='" + filesystemname + '\'' +
+                '}';
+    }
+
+    public String getOriginalfilename() {
+        return originalfilename;
+    }
+
+    public void setOriginalfilename(String originalfilename) {
+        this.originalfilename = originalfilename;
+    }
+
+    public String getFilesystemname() {
+        return filesystemname;
+    }
+
+    public void setFilesystemname(String filesystemname) {
+        this.filesystemname = filesystemname;
+    }
 
     public Long getId() {
         return id;
@@ -47,14 +78,6 @@ public class PostVO {
 
     public void setUser_id(Long user_id) {
         this.user_id = user_id;
-    }
-
-    public String getSrc() {
-        return src;
-    }
-
-    public void setSrc(String src) {
-        this.src = src;
     }
 
     public Integer getCategory() {

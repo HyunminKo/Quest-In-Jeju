@@ -10,18 +10,11 @@ public class PostDAO {
     JdbcTemplate jdbc = new JdbcTemplate();
 
     public void insert( PostVO vo ){
-        Integer like_count = vo.getLike_count();
-        String contents = vo.getContents();
-        String date = vo.getDate();
-        Long user_id = vo.getUser_id();
-        String src = vo.getSrc();
-        Integer category = vo.getCategory();
-
         String sql = "insert into post"
-        		+ "( like_count , contents, date, user_id, src, category) "
-        		+ "values(?,?, now(),?,?,?)";
+        		+ "( like_count , contents, date, user_id, category,originalfilename,filesystemname) "
+        		+ "values(?,?, now(),?,?,?,?)";
         try {
-            jdbc.update(sql,like_count,contents, user_id, src, category);
+            jdbc.update(sql,vo.getLike_count(),vo.getContents(), vo.getUser_id(),vo.getCategory(),vo.getOriginalfilename(),vo.getFilesystemname());
         } catch (Exception e) {
             e.printStackTrace();
         }
