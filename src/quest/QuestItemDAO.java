@@ -34,11 +34,12 @@ public class QuestItemDAO {
     }
 
     public QuestItemVO findOne(Long item_id) {
+    	Long id = item_id;
         String sql = "select id from quest_item where id=?";
         QuestItemVO vo = new QuestItemVO();
         QuestItemRowMapper rowMapper = new QuestItemRowMapper();
         try {
-            vo = jdbc.queryForObject(sql, rowMapper);
+            vo = jdbc.queryForObject(sql, rowMapper,id);
         } catch (Exception e) {
             e.printStackTrace();
         }

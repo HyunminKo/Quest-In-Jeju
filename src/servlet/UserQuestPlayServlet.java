@@ -3,6 +3,7 @@ package servlet;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import quest.QuestItemDAO;
+import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
 import relation.UserQuestPlayDAO;
 import relation.UserQuestPlayVO;

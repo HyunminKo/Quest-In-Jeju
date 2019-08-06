@@ -83,4 +83,3 @@ public class UserItemPlayServlet extends HttpServlet {
         // 모든 item을 불러와라
     }
 
-}

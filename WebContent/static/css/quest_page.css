@@ -12,17 +12,18 @@
 }
 
 .questname{
-	font-size:25px;
+	font-size:1em;
 
+}
+p {
+	font-size:1.5em;
 }
 
 
-
 .btn{
-    font-size: 25px;
-    width: 31%;
+	width: 31%;
     margin-left: 5%;
-	margin-top:2%;
+    margin-top: 13%;
 }
 
 p{
@@ -32,7 +33,7 @@ p{
 .quest{
   position:relative;
   clear:both;
-  top: 8%;
+  top: 11%;
 }
 /*추가부분 - mainPage의 css*/
 
@@ -75,18 +76,20 @@ p{
 }
 
 .abcd{
-  width:100%;
-  display: inline-block;
-  height:95px;
-}
+    width: 8em;
+    display: inline-block;
+    height: 6em;
+  }
 
 .naming{
-    height: 77px;
+    width: 101%;
+    height: 145%;
 }
 
 .chkbtn{
+   margin-left: 13%;
+   margin-top: 62%;
   width: 71%;
-  font-size: 13px;
 
 }
 .checklist{

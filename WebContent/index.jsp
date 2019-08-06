@@ -12,6 +12,7 @@
           break;
       }
   }
+  //request.setAttribute(" ", );??/
   System.out.println(userId);
 
 
@@ -64,12 +65,12 @@
     <%@include file="header.jsp" %>
 
     <div id="map" class="naver-map"></div>
-    <div class="quest"  style="font-size:30px">
-        <p class="gothic">--------님이 수행중인 퀘스트!</p>
+    <div class="quest">
+        <p >--------님이 수행중인 퀘스트!</p>
     </div>
     <div class="contain">
         <div class="button" >
-			     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()">오름정복하기</button>
+			     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
         </div>
         <div class="container2" id="orumlist">
           <div class="auth-wrap"> <!--y-scroll-->
@@ -89,6 +90,8 @@
                 </div><!--questlist-->
 	          </l:forEach>
 <!--1차 for문 끝-->
+
+<!--  <a href="logout.jsp">로그아웃</a>-->
           </div><!--authwrap-->
         </div><!--container2-->
     </div><!--container-->
