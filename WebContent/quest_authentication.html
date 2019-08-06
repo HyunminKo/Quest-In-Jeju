@@ -36,7 +36,7 @@
             </div>
             <div class="form-group" id="authentication_submit">
                 <label for="submit-btn">완료</label>
-                <input type="button" id="submit-btn">
+                <!--input type="submit" id="submit-btn"-->
             </div>
         </div>
     </div>
@@ -56,6 +56,7 @@
             var reader = new FileReader();
             reader.onload = function (e) {
                 $('#image-print').attr('src', e.target.result);
+                $('#image-print').show();
                 $('#image-upload-text').hide();
                 $('#inner-camera').show();
                 $('#outer-camera').show();
