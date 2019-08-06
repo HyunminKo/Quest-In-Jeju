@@ -1,14 +1,49 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="EUC-KR"
-language="java" %>
-<%
+<%@ page contentType="text/html; charset=utf-8"
+         import="java.util.List, quest.*"%>
 
-	System.out.println(request.getParameter("item_id"));
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+
+<%
+  Long item_id = Long.parseLong(request.getParameter("item_id"));
+
+  QuestItemDAO dao = new QuestItemDAO();
+  QuestItemVO vo = new QuestItemVO();
+  try {
+    vo = dao.findOne(item_id);
+  } catch(Exception e) {
+
+  }
+
+
+
+  List<QuestItemVO> rl = null;
+  List<QuestVO> rl2 = null;
+  Exception err = null;
+
+
+  QuestItemDAO dao = new QuestItemDAO();
+  try{
+    rl = dao.findAll();
+    request.setAttribute("rl", rl);
+    System.out.println(rl);
+  }catch(Exception e){
+    err = e;
+  }
+
+  QuestDAO dao2 = new QuestDAO();
+  try{
+    rl2 = dao2.findAll();
+    request.setAttribute("rl2",rl2);
+  }catch(Exception e){
+    err = e;
+  }
+
 %>
 
 
 <html lang="ko">
   <head>
-    <title>Äù½ºÆ® ÀÎÁõ</title>
+    <title>í€˜ìŠ¤íŠ¸ ì¸ì¦</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -30,27 +65,27 @@ language="java" %>
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
-          <h3 class="panel-title">ÀÓÀÇ·Î³Ö±â</h3>
+          <h3 class="panel-title">${vo.name}</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
             <a id="user-location-confirm-btn" onclick="getLocation()"
-              >ÇöÀç À§Ä¡ È®ÀÎÇÏ±â</a
+              >í˜„ìž¬ ìœ„ì¹˜ í™•ì¸í•˜ê¸°</a
             >
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
             <div id="image-upload-text">
-              <p>Àå¼Ò ÀÌ¸§ÀÌ ³ª¿Â »çÁøÀ» ¿Ã·ÁÁÖ¼¼¿ä</p>
+              <p>ìž¥ì†Œ ì´ë¦„ì´ ë‚˜ì˜¨ ì‚¬ì§„ì„ ì˜¬ë ¤ì£¼ì„¸ìš”</p>
             </div>
           </div>
           <div class="form-group" id="outer-camera">
-            <label for="exampleInputFile">ÃÔ¿µ ¶Ç´Â ¾Ù¹ü¿¡¼­ ¼±ÅÃÇÏ±â</label>
+            <label for="exampleInputFile">ì´¬ì˜ ë˜ëŠ” ì•¨ë²”ì—ì„œ ì„ íƒí•˜ê¸°</label>
             <input type="file" id="exampleInputFile" />
           </div>
         </div>
         <div class="form-group" id="authentication_submit">
-          <label for="submit-btn">¿Ï·á</label>
+          <label for="submit-btn">ì™„ë£Œ</label>
           <!--input type="submit" id="submit-btn"-->
         </div>
       </div>
