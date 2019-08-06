@@ -51,12 +51,12 @@ footer {
 /*~~~~~~~~~~~~~~ Main ~~~~~~~~~~~~~~~~*/
 
 .MainTopLeft {
-    width : 14%;
+    width : 8%;
     float : left;
 }
 
 .MainTopRight {
-    width : 86%;
+    width : 92%;
     float : right;
     border-left : 2px solid #eee;
 }
@@ -106,7 +106,7 @@ footer {
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
 .MainTopRightUtilB {
-    width : 80%;
+    width : 85%;
     margin-top : 8%;
     margin-right : 5%;
     float : right;
@@ -114,7 +114,7 @@ footer {
     border-left : 5px solid blue;
 }
 .MainTopRightUtilG {
-    width : 80%;
+    width : 85%;
     margin-top : 8%;
     margin-right : 5%;
     float : right;
@@ -122,7 +122,7 @@ footer {
     border-left : 5px solid #3CB371;
 }
 .MainTopRightUtilO {
-    width : 80%;
+    width : 85%;
     margin-top : 8%;
     margin-right : 5%;
     float : right;
@@ -152,7 +152,7 @@ p.WriteNickName {
 }
 
 .MainTopRightUtilWriteTopRight {
-    width : 60%;
+    width : 55%;
     height : 100%;;
     float : right;
     display : flex;
@@ -177,8 +177,8 @@ p.WriteDate {
 }
 
 .MainTopRightUtilWriteBotLeft {
-    width : 15vw;
-    height : 15vw;
+    width : 30vw;
+    height : 30vw;
     margin : 2vw;
     float : left;
 }
@@ -189,7 +189,7 @@ p.WriteDate {
 }
 
 .MainTopRightUtilWriteBotRight {
-    width : 43vw;
+    width : 38vw;
     height : 15vw;
     margin : 2vw;
     float : right;
@@ -210,13 +210,8 @@ p.WriteDate {
 
 .MainTopRightUtilWriter {
     width : 100%;
-    height : 10vh;
+    height : 15vh;
     display : block;
-}
-
-.MainTopRightUtilWriterLeft {
-    width : 1%;
-    float : left;
 }
 
 .MainTopRightUtilWriterRight {
@@ -387,6 +382,16 @@ textarea.WriterEditor {
         </div>
         <div class="MainTopRightUtilB">
             <div class="MainTopRightUtilWrite">
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
+                </div>
                 <div class=MainTopRightUtilWriteTop>
                     <div class="MainTopRightUtilWriteTopLeft">
                         <p class="WriteNickName">
@@ -402,20 +407,11 @@ textarea.WriterEditor {
                         </p>
                     </div>
                 </div>
-                <div class="MainTopRightUtilWriteBot">
-                    <div class="MainTopRightUtilWriteBotLeft">
-                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
-                    </div>
-                    <div class="MainTopRightUtilWriteBotRight">
-                        <p class="MainTopRightUtilWriteBotRightWrite">
-                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                        </p>
-                    </div>
-                </div>
+                
             </div>
             <div class="MainTopRightUtilWriter">
                 <div class="MainTopRightUtilWriterRight">
-                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                    <textarea class="WriterEditor" id="test" cols="55" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
                 </div>
             </div>
             <div class="MainTopRightUtilComment">
@@ -462,14 +458,24 @@ textarea.WriterEditor {
     </div>
     <div class="MainTopRight">
         <div class="MainTopRightUtilLeft">
-            <input type="button" class="LikeButtonG"/>
+            <input type="button" id="likeButton_3" class="LikeButtonB" onclick="ClickOfLike(this)"/>
         </div>
-        <div class="MainTopRightUtilG">
+        <div class="MainTopRightUtilB">
             <div class="MainTopRightUtilWrite">
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
+                </div>
                 <div class=MainTopRightUtilWriteTop>
                     <div class="MainTopRightUtilWriteTopLeft">
                         <p class="WriteNickName">
-                            고현민
+                            오징어흐물
                         </p>
                     </div>
                     <div class="MainTopRightUtilWriteTopRight">
@@ -481,26 +487,17 @@ textarea.WriterEditor {
                         </p>
                     </div>
                 </div>
-                <div class="MainTopRightUtilWriteBot">
-                    <div class="MainTopRightUtilWriteBotLeft">
-                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
-                    </div>
-                    <div class="MainTopRightUtilWriteBotRight">
-                        <p class="MainTopRightUtilWriteBotRightWrite">
-                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                        </p>
-                    </div>
-                </div>
+                
             </div>
             <div class="MainTopRightUtilWriter">
                 <div class="MainTopRightUtilWriterRight">
-                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                    <textarea class="WriterEditor" id="test" cols="55" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
                 </div>
             </div>
             <div class="MainTopRightUtilComment">
                 <div class="MainTopRightUtilCommentTop">
                     <div class="MainTopRightUtilCommentTopLeft">
-                        최다영
+                        김채린
                     </div>
                     <div class="MainTopRightUtilCommentTopRight">
                         <div class="MainTopRightUtilCommentTopRightLeft">
@@ -518,7 +515,7 @@ textarea.WriterEditor {
             <div class="MainTopRightUtilComment">
                 <div class="MainTopRightUtilCommentTop">
                     <div class="MainTopRightUtilCommentTopLeft">
-                        이정은
+                        강사님
                     </div>
                     <div class="MainTopRightUtilCommentTopRight">
                         <div class="MainTopRightUtilCommentTopRightLeft">
@@ -532,7 +529,7 @@ textarea.WriterEditor {
                 <div class="MainTopRightUtilCommentBot">
                     ㅇㅇ
                 </div>
-             </div>
+            </div>
         </div>
     </div>
     
@@ -541,14 +538,24 @@ textarea.WriterEditor {
     </div>
     <div class="MainTopRight">
         <div class="MainTopRightUtilLeft">
-            <input type="button" class="LikeButtonO"/>
+            <input type="button" id="likeButton_3" class="LikeButtonO" onclick="ClickOfLike(this)"/>
         </div>
         <div class="MainTopRightUtilO">
             <div class="MainTopRightUtilWrite">
+                <div class="MainTopRightUtilWriteBot">
+                    <div class="MainTopRightUtilWriteBotLeft">
+                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
+                    </div>
+                    <div class="MainTopRightUtilWriteBotRight">
+                        <p class="MainTopRightUtilWriteBotRightWrite">
+                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+                        </p>
+                    </div>
+                </div>
                 <div class=MainTopRightUtilWriteTop>
                     <div class="MainTopRightUtilWriteTopLeft">
                         <p class="WriteNickName">
-                            강사님
+                            오징어흐물
                         </p>
                     </div>
                     <div class="MainTopRightUtilWriteTopRight">
@@ -560,26 +567,17 @@ textarea.WriterEditor {
                         </p>
                     </div>
                 </div>
-                <div class="MainTopRightUtilWriteBot">
-                    <div class="MainTopRightUtilWriteBotLeft">
-                        <img src="static/img/WriteTempImage.png" class="MainTopRightUtilWriteBotLeftImage"/>
-                    </div>
-                    <div class="MainTopRightUtilWriteBotRight">
-                        <p class="MainTopRightUtilWriteBotRightWrite">
-                            ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-                        </p>
-                    </div>
-                </div>
+                
             </div>
             <div class="MainTopRightUtilWriter">
                 <div class="MainTopRightUtilWriterRight">
-                    <textarea class="WriterEditor" id="test" cols="48" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+                    <textarea class="WriterEditor" id="test" cols="55" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
                 </div>
             </div>
             <div class="MainTopRightUtilComment">
                 <div class="MainTopRightUtilCommentTop">
                     <div class="MainTopRightUtilCommentTopLeft">
-                        오징어흐물
+                        김채린
                     </div>
                     <div class="MainTopRightUtilCommentTopRight">
                         <div class="MainTopRightUtilCommentTopRightLeft">
@@ -597,7 +595,7 @@ textarea.WriterEditor {
             <div class="MainTopRightUtilComment">
                 <div class="MainTopRightUtilCommentTop">
                     <div class="MainTopRightUtilCommentTopLeft">
-                        오징어흐물
+                        강사님
                     </div>
                     <div class="MainTopRightUtilCommentTopRight">
                         <div class="MainTopRightUtilCommentTopRightLeft">
@@ -611,10 +609,10 @@ textarea.WriterEditor {
                 <div class="MainTopRightUtilCommentBot">
                     ㅇㅇ
                 </div>
-             </div>
+            </div>
         </div>
     </div>
-    
+
 </main>
 
 <footer>
