@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
-
-   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
   Cookie[] cookies = request.getCookies();
   String userId = null;
@@ -65,22 +63,16 @@
 
     <div id="map" class="naver-map"></div>
     <div class="quest"  style="font-size:30px">
-        <p class="gothic"> ________님이 수행중인 퀘스트!</p>
-        </div>
+    <p class="gothic"> ________님이 수행중인 퀘스트!</p>
+    </div>
         <div class="container">
 
           <div class="button" ><a href="javascript:doDisplayo();">
       			<button type="button" class="btn btn-outline-danger ">오름정복하기이이이</button>
       		</a></div>
-
-
-    <!--��������Ʈ-->
     <div class="container2" id="orumlist">
 
-
           <div class="auth-wrap"> <!--y-scroll-->
-
-<!--��������.. for-->
 
 	          <l:forEach  var="vo" items="${rl}">
                 <div class="questlist">
