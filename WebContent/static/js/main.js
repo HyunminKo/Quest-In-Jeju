@@ -1,10 +1,11 @@
 
 let menuFlag = false;
-let state = "flag.png";
+let state = document.title;
 
 $(document).ready(function() {
   $(".navbar-brand").hide();
-  showInitIcon(state);
+  state = state.toLocaleLowerCase();
+  showInitIcon(state+".png");
 });
 function showInitIcon(state) {
   $("#img_1").attr("src", "static/img/" + state);
@@ -22,16 +23,17 @@ async function showStateIcons(t) {
     $("#header-title").hide();
 
     let nameOfImages = [
-      "flag.png",
-      "placeholder.png",
-      "person.png",
-      "timeline.png"
+      "quest",
+      "index",
+      "mypage",
+      "timeline"
     ];
     let index = nameOfImages.indexOf(state);
     if (index !== -1) nameOfImages.splice(index, 1);
 
     for (let i = 2; i <= 4; i++) {
-      $("#img_" + i).attr("src", "static/img/" + nameOfImages[i - 2]);
+      $("#link_" + i).attr("href",nameOfImages[i-2]+".jsp")
+      $("#img_" + i).attr("src", "static/img/" + nameOfImages[i - 2]+".png");
     }
     await sleep(100);
     for (let i = 2; i <= 4; i++) {
@@ -39,7 +41,9 @@ async function showStateIcons(t) {
     }
 
     menuFlag = true;
-  } else {
+  }
+  else {
+    if(t.id != 'link_1') return;
     document.head.removeChild(document.head.lastChild);
     $(".menu").removeClass("opened");
     $(".navbar-brand").hide();
@@ -142,9 +146,3 @@ function success(pos) {
     marker = null;
   }
 }
-
-function error(err) {
-  console.warn("ERROR(" + err.code + "): " + err.message);
-}
-
-navigator.geolocation.getCurrentPosition(success, error, options);

@@ -10,13 +10,13 @@ import java.util.List;
 public class JdbcTemplate {
     static {
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Dri                                                                                                  ver");
         }catch (ClassNotFoundException e) {e.printStackTrace();}
     }
 
     private Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju","root","1111");
-        return conn;				/*"jdbc:mysql://35.237.65.93:3306/test","HR","HR12345678"*/
+        Connection conn = DriverManager.getConnection("jdbc:mysql://35.237.65.93:3306/quest_in_jeju","HR","HR12345678");
+        return conn;
     }
     public int update(String sql, Object ...args) throws Exception{
         int rc = 0;
@@ -69,6 +69,8 @@ public class JdbcTemplate {
                     stmt.setDouble(i+1,((Double)args[i]).doubleValue());
                 }else if (args[i] instanceof String){
                     stmt.setString(i+1, (String)args[i]);
+                }else if (args[i] instanceof Long){
+                    stmt.setLong(i+1,((Long)args[i]).longValue());
                 }
             }
             rs = stmt.executeQuery();
@@ -110,6 +112,8 @@ public class JdbcTemplate {
                     stmt.setDouble(i+1,((Double)args[i]).doubleValue());
                 }else if (args[i] instanceof String){
                     stmt.setString(i+1, (String)args[i]);
+                }else if (args[i] instanceof Long){
+                    stmt.setLong(i+1,((Long)args[i]).longValue());
                 }
             }
             //select * from bangmyung_t;

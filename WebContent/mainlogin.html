@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#999999" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <title>QuestInJeJu</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>
+    
+    <link rel="stylesheet" href="static/css/quest_page.css"/>
+    <link rel="stylesheet" href="static/css/main.css"/>
+    <link rel="stylesheet" href="static/css/mainlogin.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="nav">
+      <div id="menu" class="menu">
+        <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
+          <img id="img_1" src="static/img/quest.png" width="30" height="30" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
+          <img id="img_2" src="static/img/index.png" width="30" height="30" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
+          <img id="img_3" src="static/img/mypage.png" width="30" height="30" alt=""/>
+        </a>
+        <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
+          <img id="img_4" src="static/img/timeline.png" width="30" height="30" alt=""/>
+        </a>
+       </div>
+
+      <div id="header-title">
+        <span>Quest In JeJu</span>
+      </div>
+    </div>
+    <div id="map" class="naver-map"></div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        로그인
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle"><b style="color: #da0808;">|&nbsp;</b>Member Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="main-id" for="exampleInputEmail1">아이디</label>
+                        <input type="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="id">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="main-pw" for="exampleInputPassword1">비밀번호</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+                      </div>
+                      <button type="submit" class="btn btn-secondary">L O G I N</button>
+                    </form>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-primary">가입하기</button>
+            </div> -->
+          </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary main-su" data-toggle="modal" data-target="#exampleModalLong">
+        회원가입
+    </button>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content sign">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><b style="color:#da0808;">|&nbsp;</b>Sign up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                      <label class="signup-id" for="exampleDropdownFormEmail2">아이디 (Email)</label>
+                        <div class="idform-check">
+                          <input type="email" class="form-control id" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                          <button class="signup-id-check">check</button>
+                        </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="signup-pw" for="exampleDropdownFormPassword2">비밀번호</label>
+                      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="password">
+                      <input type="password" class="form-control confirm" id="exampleDropdownFormPassword2" placeholder="confirm password">
+                  </div>
+                  <div class="form-group">
+                      <label class="signup-name" for="exampleDropdownFormEmail2">이름</label>
+                      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="name">
+                  </div>
+                  <button type="submit" class="btn btn-secondary">가입하기</button>
+              </form>
+            </div>
+            </div>
+        </div>
+    </div>
+  </body>
+  <script src="static/js/main.js"></script>
+</html>

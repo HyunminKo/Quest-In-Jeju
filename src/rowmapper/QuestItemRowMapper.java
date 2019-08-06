@@ -14,9 +14,10 @@ public class QuestItemRowMapper implements RowMapper<QuestItemVO> {
         vo.setQuest_id(rs.getLong("quest_id"));
         vo.setLatitude(rs.getString("latitude"));
         vo.setLongitude(rs.getString("longitude"));
-        vo.setSrc(rs.getString("src"));
         vo.setAddr(rs.getString("addr"));
         vo.setDescription(rs.getString("description"));
+        vo.setOriginalFileName(rs.getString("originalfilename"));
+        vo.setFileSystemName(rs.getString("filesystemname"));
         return vo;
     }
 }

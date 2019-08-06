@@ -8,16 +8,18 @@ function post_user_quest(){
     console.log("enter");
 
     const params = {
-        "quest_id": quest_id,
-        "user_id" : user_id
+        "quest_id": parseInt(quest_id),
+        "method" : "insert"
     };
 
     $.ajax({
         // 참고하세요 여기 남겨도 되나요?
         // https://ddo-o.tistory.com/94
-        url: "/servlet/UserQuestPlayServlet",
+        url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
         type: "POST",
         data: JSON.stringify(params),
+        dataType: 'json',
+        contentType: "application/json; charset=UTF-8",
         success: function() {
             alert("퀘스트가 시작되었습니다")
         }

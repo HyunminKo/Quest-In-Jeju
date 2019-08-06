@@ -8,20 +8,13 @@ import rowmapper.PostRowMapper;
 public class PostDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
-    
+
     public void insert( PostVO vo ){
-        Integer like_count = new Integer( 0 );
-        String contents = vo.getContents();
-        String date = vo.getDate();
-        Long user_id = null;
-        String src = vo.getSrc();
-        Integer category = vo.getCategory();
-        
         String sql = "insert into post"
-        		+ "(like_count, contents, date, user_id, src, category) "
-        		+ "values(?,?,?,?,?,?)";
+        		+ "( like_count , contents, date, user_id, category,originalfilename,filesystemname) "
+        		+ "values(?,?, now(),?,?,?,?)";
         try {
-            jdbc.update(sql,like_count,contents, date, user_id, src, category);
+            jdbc.update(sql,vo.getLike_count(),vo.getContents(), vo.getUser_id(),vo.getCategory(),vo.getOriginalfilename(),vo.getFilesystemname());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +29,7 @@ public class PostDAO {
         }
         return ls;
     }
-	
-	
-	
+
+
+
 }

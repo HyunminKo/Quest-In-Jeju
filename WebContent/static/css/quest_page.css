@@ -105,7 +105,50 @@ p{font-size:20px;
   margin-left:27%;
 }
 
+#search1{
+  margin-left: 46%;
+  display:none;
+}
 
+#search2{
+  margin-left: 46%;
+  display:none;
+}
+#search{
+
+  margin-left: 46%;
+  display:none;
+}
+
+
+
+
+/*progress bar*/
+.progress {
+  height: 12%;
+      overflow: hidden;
+      border-radius: 0.25rem;
+      margin-bottom: 4px;
+      margin-left: 10%;
+      margin-right: 11.5%;
+      padding-right: 4%;
+      width: 100%;
+      margin-top: 1%;
+}
+
+.progress-bar{
+  background-color:yellowgreen;
+
+}
+
+.btngress{
+  padding: 1%;
+  margin: 2%;
+  margin-bottom: 5%;
+
+}
+
+/**/
 font-face {
   font-family: "BRBA_B";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
