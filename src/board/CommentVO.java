@@ -7,17 +7,6 @@ public class CommentVO {
     private Long post_id = null;
     private Long user_id = null;
 
-    @Override
-    public String toString() {
-        return "CommentVO{" +
-                "id=" + id +
-                ", contents='" + contents + '\'' +
-                ", date='" + date + '\'' +
-                ", post_id=" + post_id +
-                ", user_id=" + user_id +
-                '}';
-    }
-
     public Long getId() {
         return id;
     }
