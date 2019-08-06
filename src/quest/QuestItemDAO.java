@@ -33,6 +33,19 @@ public class QuestItemDAO {
         return ls;
     }
 
+    public QuestItemVO findOne(Long item_id) {
+    	Long id = item_id;
+        String sql = "select id from quest_item where id=?";
+        QuestItemVO vo = new QuestItemVO();
+        QuestItemRowMapper rowMapper = new QuestItemRowMapper();
+        try {
+            vo = jdbc.queryForObject(sql, rowMapper,id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
 
     public List<Long> findIdsByQuestId(Long quest_id) {
         List<Long> rs = null;

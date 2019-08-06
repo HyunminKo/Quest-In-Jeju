@@ -2,8 +2,6 @@ package servlet;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import quest.QuestDAO;
 import quest.QuestItemDAO;
 import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
@@ -15,9 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
 
 public class UserQuestPlayServlet extends HttpServlet {

@@ -1,9 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
-
-   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-
-<%
+  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+    <%
   Cookie[] cookies = request.getCookies();
   String userId = null;
   for( int i = 0 ; i < cookies.length ; i++ ) {
@@ -12,6 +10,7 @@
           break;
       }
   }
+  //request.setAttribute(" ", );??/
   System.out.println(userId);
 
 
@@ -64,28 +63,19 @@
     <%@include file="header.jsp" %>
 
     <div id="map" class="naver-map"></div>
-    <div class="quest"  style="font-size:30px">
-        <p class="gothic"> ________님이 수행중인 퀘스트!</p>
+    <div class="quest">
+        <p >--------님이 수행중인 퀘스트!</p>
+    </div>
+    <div class="contain">
+        <div class="button" >
+			     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
         </div>
-        <div class="container">
-
-          <div class="button" ><a href="javascript:doDisplayo();">
-      			<button type="button" class="btn btn-outline-danger ">오름정복하기</button>
-      		</a></div>
-
-
-    <!--��������Ʈ-->
-    <div class="container2" id="orumlist">
-
-
+        <div class="container2" id="orumlist">
           <div class="auth-wrap"> <!--y-scroll-->
-
-<!--��������.. for-->
-
-	          <l:forEach  var="vo" items="${rl}">
+	          <l:forEach var="vo" items="${rl}">
                 <div class="questlist">
                   <div class ="abcd">
-                      <button type="button" class="btn btn-outline-secondary naming" >${vo.name}</button>
+                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
                   </div>
 
                   <div class="authbtn">
@@ -96,13 +86,16 @@
                         </button>
                     </div><!--authbtn-->
                 </div><!--questlist-->
+	          </l:forEach>
+<!--1차 for문 끝-->
 
-	            </l:forEach>
-
-        </div><!--authwrap-->
-    </div><!--container2-->
+<!--  <a href="logout.jsp">로그아웃</a>-->
+          </div><!--authwrap-->
+        </div><!--container2-->
+    </div><!--container-->
   </body>
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
 </html>
+
