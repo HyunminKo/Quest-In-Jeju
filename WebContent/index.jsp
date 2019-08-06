@@ -1,4 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+<%
+    Cookie[] cookies = request.getCookies();
+    String userId = null;
+    for( int i = 0 ; i < cookies.length ; i++ ) {
+        if( ( "user_id" ).equals(cookies[i].getName()) ) {
+            userId = cookies[i].getValue();
+            break;
+        }
+    }
+    System.out.println(userId);
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -26,13 +38,10 @@
     <%@include file="header.jsp" %>
 
     <div id="map" class="naver-map"></div>
-
-
-        <div class="quest"  style="font-size:30px">
+    <div class="quest"  style="font-size:30px">
         <p class="gothic"> ________님이 수행중인 퀘스트!</p>
         </div>
-
-        <div class="container">
+    <div class="container">
           <div class="button" ><a href="javascript:doDisplayo();">
       			<button type="button" class="btn btn-outline-danger gothic">오름 정복하기 ( 2/5 )</button>
       		</a></div>
@@ -192,6 +201,7 @@
       			<button type="button" class="btn btn-outline-danger gothic">오름 정복하기 ( 2/5 )</button>
       		</div>
       	</div><!--container-->
+
   </body>
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>

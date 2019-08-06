@@ -58,8 +58,8 @@ public class UserQuestPlayServlet extends HttpServlet {
                 vo.setQuest_id(quest_id);
                 dao.insert(vo); // user_quest_play에 추가
 
-                QuestItemDAO questDAO = new QuestItemDAO();
-                List<Long> idList = questDAO.findIdsByQuestId(quest_id);
+                QuestItemDAO questItemDAO = new QuestItemDAO();
+                List<Long> idList = questItemDAO.findIdsByQuestId(quest_id);
                 UserItemPlayDAO userItemPlayDAO = new UserItemPlayDAO();
                 UserItemPlayVO userItemPlayVO = new UserItemPlayVO();
                 userItemPlayVO.setIs_completed(0);

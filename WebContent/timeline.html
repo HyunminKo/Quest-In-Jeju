@@ -76,6 +76,9 @@ footer {
     border-radius : 100%;
     border : 2px solid blue;
     background-color : white;
+
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
 .LikeButtonG {
     width : 10vw;
@@ -92,13 +95,15 @@ footer {
     background-color : white;
 }
 .likedButton {
-    width: 13vw;
-    height: 13vw;
     background-color: blue;
-    position: relative;
-    transform : transition(-20%,0);
-    -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-    transition:width 2s, height 2s, background-color 2s, transform 2s;   
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
 .MainTopRightUtilB {
     width : 80%;
