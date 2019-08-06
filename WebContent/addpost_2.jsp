@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="board.PostDAO, board.PostVO" %>
 <%@ page import="file.FileUp" %>
-<%@ page import="java.util.List" %>
 <%
 	String ctxPath = request.getContextPath();
 	request.setCharacterEncoding("UTF-8");
