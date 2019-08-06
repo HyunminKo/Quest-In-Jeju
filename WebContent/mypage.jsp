@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
@@ -17,14 +18,16 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="static/css/main.css" />
-  <script src="static/js/main.js"></script>
+  <script src="static/js/mypage.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 back">
-        <img src="static/img/back.png" width="20" height="20">
+        <a href="index.jsp">
+          <img src="static/img/back.png" width="20" height="20">
+        </a>
       </div>
     </div>
     <div class="row user-row">

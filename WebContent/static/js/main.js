@@ -1,31 +1,22 @@
 let menuFlag = false;
-let state = "flag.png";
+let state = "placeholder.png";
 
 $(document).ready(function() {
   $(".navbar-brand").hide();
   showInitIcon(state);
 
-  $(".counter").each(function() {
-    var $this = $(this),
-      countTo = $this.attr("data-count");
-
-    $({ countNum: $this.text() }).animate(
-      {
-        countNum: countTo
-      },
-
-      {
-        duration: 2000,
-        easing: "linear",
-        step: function() {
-          $this.text(Math.floor(this.countNum));
-        },
-        complete: function() {
-          $this.text(this.countNum);
-        }
-      }
-    );
-  });
+  // $.ajax({
+  //   // 참고하세요 여기 남겨도 되나요?
+  //   // https://ddo-o.tistory.com/94
+  //   url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
+  //   type: "POST",
+  //   data: JSON.stringify(params),
+  //   dataType: 'json',
+  //   contentType: "application/json; charset=UTF-8",
+  //   success: function() {
+  //     alert("퀘스트가 시작되었습니다")
+  //   }
+  // });
 });
 function showInitIcon(state) {
   $("#img_1").attr("src", "static/img/" + state);
@@ -109,24 +100,15 @@ function success(pos) {
   const jejuLatitued = 33.38715;
   const jejuLongitude = 126.5266283;
 
-  var crd = pos.coords;
-  $("#app").append("<br>");
-  $("#app").append("Your current position is:");
-  $("#app").append("<br>");
-  $("#app").append("Latitude : " + crd.latitude);
-  $("#app").append("<br>");
-  $("#app").append("Longitude: " + crd.longitude);
-  $("#app").append("<br>");
-  $("#app").append("More or less " + crd.accuracy + " meters.");
-  $("#app").append("<br>");
-  var HOME_PATH = window.HOME_PATH || ".";
-  var mapOptions = {
+  let crd = pos.coords; //현재 위도 경도
+  let HOME_PATH = window.HOME_PATH || ".";
+  let mapOptions = {
     center: new naver.maps.LatLng(jejuLatitued, jejuLongitude),
     zoom: 4
   };
-  var map = new naver.maps.Map("map", mapOptions);
-  var position = new naver.maps.LatLng(crd.latitude, crd.longitude);
-  var latlngs = [
+  let map = new naver.maps.Map("map", mapOptions);
+  let position = new naver.maps.LatLng(crd.latitude, crd.longitude);
+  let latlngs = [
     new naver.maps.LatLng(33.528486, 126.7692923),
     new naver.maps.LatLng(33.555875, 126.7938253),
     new naver.maps.LatLng(33.5437905, 126.6666554),
