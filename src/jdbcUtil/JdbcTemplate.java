@@ -15,8 +15,8 @@ public class JdbcTemplate {
     }
 
     private Connection makeConn() throws Exception {
-        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju", "root", "1111");
-        return conn;
+        Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/quest_in_jeju","root","1111");
+        return conn;				/*"jdbc:mysql://35.237.65.93:3306/test","HR","HR12345678"*/
     }
     public int update(String sql, Object ...args) throws Exception{
         int rc = 0;

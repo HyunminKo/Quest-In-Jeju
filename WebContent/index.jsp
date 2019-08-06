@@ -1,3 +1,34 @@
+<%@ page contentType="text/html; charset=utf-8"
+    pageEncoding="EUC-KR"
+    import="java.util.List, quest.*"%>
+
+   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+
+<%
+    List<QuestItemVO> rl = null;
+    List<QuestVO> rl2 = null;
+	Exception err = null;
+    
+  
+    QuestItemDAO dao = new QuestItemDAO();
+    try{
+    	rl = dao.findAll();
+    	request.setAttribute("rl", rl);
+    	System.out.println(rl);
+    }catch(Exception e){
+    	err = e;
+    }
+
+	QuestDAO dao2 = new QuestDAO();
+	try{
+		rl2 = dao2.findAll();
+		request.setAttribute("rl2",rl2);
+	}catch(Exception e){
+		err = e;
+	}
+    
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,85 +74,57 @@
 
 
         <div class="quest"  style="font-size:30px">
-        <p class="gothic"> ________ÎãòÏù¥ ÏàòÌñâÏ§ëÏù∏ ÌÄòÏä§Ìä∏!</p>
+        <p > ________¥‘¿Ã ºˆ«‡¡ﬂ¿Œ ƒ˘Ω∫∆Æ!</p>
         </div>
 
   <div class="container">
 
       <div class="button" ><a href="javascript:doDisplayo();">
-      			<button type="button" class="btn btn-outline-danger ">Ïò§Î¶Ñ Ï†ïÎ≥µÌïòÍ∏∞</button>
+      			<button type="button" class="btn btn-outline-danger ">ø¿∏ß ¡§∫π«œ±‚</button>
       		</a></div>
 
 
-    <!--Ïò§Î¶ÑÎ¶¨Ïä§Ìä∏-->
+    <!--ø¿∏ß∏ÆΩ∫∆Æ-->
     <div class="container2" id="orumlist">
-
+      
 
           <div class="auth-wrap"> <!--y-scroll-->
 
-<!--Ïó¨Í∏∞Î∂ÄÌÑ∞.. for-->
+<!--ø©±‚∫Œ≈Õ.. for-->
+
+	          <l:forEach  var="vo" items="${rl}">
                 <div class="questlist">
                   <div class ="abcd">
-                      <button type="button" class="btn btn-outline-secondary naming" src="static/img/saebyul.jpeg">ÏÉàÎ≥ÑÏò§Î¶Ñ</button>
+                      <button type="button" class="btn btn-outline-secondary naming" >${vo.name}</button>
                   </div>
 
                   <div class="authbtn">
-                        <button type="button" onclick="aaa();" class="btn btn-outline-success chkbtn" id="btn1"><img id="myimg" src="static/img/submit.png"></button>
+                        <button type="button"  class="btn btn-outline-success chkbtn"><img src="static/img/submit.png"></button>
 
                     </div><!--authbtn-->
                 </div><!--questlist-->
-
-              <div class="questlist">
-                  <div class ="abcd">
-                      <button type="button" class="btn btn-outline-secondary naming">ÏÉàÎ≥ÑÏò§Î¶Ñ</button>
-                  </div>
-
-                  <div class="authbtn">
-                        <button type="button" onclick="bbb();" class="btn btn-outline-success chkbtn" id="btn1"><img id="myimg2" src="static/img/submit.png"></button>
-
-                    </div><!--authbtn-->
-              </div><!--questlist-->
-
-
-              <div class="questlist">
-                  <div class ="abcd">
-                    <button type="button" class="btn btn-outline-secondary naming">ÏÉàÎ≥ÑÏò§Î¶Ñ</button>
-                  </div>
-
-                  <div class="authbtn">
-                        <button type="button" onclick="ccc();" class="btn btn-outline-success chkbtn" id="btn1"><img id="myimg3" src="static/img/submit.png"></button>
-
-                    </div><!--authbtn-->
-
-              </div ><!--quest-->
-
-
-            <div class="questlist">
-                  <div class ="abcd">
-                      <button type="button" class="btn btn-outline-secondary naming">ÏÉàÎ≥ÑÏò§Î¶Ñ</button>
-                      <div class="check"><img src="static/img/check.png"></div>
-                  </div>
-
-                  <div class="authbtn">
-                        <button type="button" onclick="aaa();" class="btn btn-outline-success chkbtn" id="btn1"><img id="myimg" src="static/img/submit.png"></button>
-
-                    </div><!--authbtn-->
-          </div><!--quest-->
-          <div class="questlist">
-                  <div class ="abcd">
-                    <button type="button" class="btn btn-outline-secondary naming">ÏÉàÎ≥ÑÏò§Î¶Ñ</button>
-                  </div>
-
-                  <div class="authbtn">
-                     <button type="button" class="btn btn-outline-success chkbtn">Ïù∏Ï¶ù</button>
-                     <div class="check"><img src="static/img/check.png"></div>
-                  </div>
-          </div><!--quest-->
+			
+	            </l:forEach>
 
         </div><!--authwrap-->
     </div><!--container2-->
 
 
 
+      	
+
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

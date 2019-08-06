@@ -52,27 +52,27 @@ async function showStateIcons(t) {
     menuFlag = false;
   }
 }
-
-
-function doDisplayo(){
-    var con = document.getElementById("orumlist");
-    if(con.style.display=='block'){
-        con.style.display = 'none';
-    }else{con.style.display='block';}
-}
-function doDisplayf(){
-    var con = document.getElementById("foodlist");
-    if(con.style.display=='block'){
-        con.style.display = 'none';
-    }else{con.style.display='block';}
-}
-function doDisplayw(){
-      var con = document.getElementById("walklist");
-      if(con.style.display=='block'){
-          con.style.display = 'none';
-      }else{con.style.display='block';}
-  }
-
+function doDisplayo() {
+	  var con = document.getElementById("orumlist");
+	  if (con.style.display == "block") {
+	    con.style.display = "none";
+	  } else {
+	    con.style.display = "block";
+	  }
+	}
+/*
+  window.onload = function(){
+		var is = document.getElementsByTagName("img");
+			for(var i=0;i<is.length;i++){
+				var fp = function(j){
+					is[j].onclick=function(){
+						is[j].src="static/img/check.png";
+					}
+				};
+				fp(i);
+			}
+		};
+*/
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,

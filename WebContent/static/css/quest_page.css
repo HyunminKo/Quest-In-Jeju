@@ -1,16 +1,20 @@
+
 .container{
   height:33%;
   overflow: scroll;
   width: 77%;
   margin-top: 17%;
-  margin-left: 8%;
+  margin-left: 11%;
 }
 
 .button{
- padding:10px;
- font-size:15px;
- margin-left:9%
+  margin: 15% 15% 0 15%;
+  width: 44%;
+  font-size: 15px;
+  margin-left: -4%;
 }
+
+
 .btn{
  font-size:15px;
  width:100%;
@@ -36,47 +40,72 @@ p{font-size:20px;
 }
 .container2{
   display:none;
-  height: 74%;
-  overflow: scroll;
-  margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  overflow-y: scroll;
+  height: 87%;
+  margin-top: 2%;
 }
 .container3{
   display:none;
-  height: 74%;
-  overflow: scroll;
+  height: 77%;
+  overflow-y: scroll;
+  height: 87%;
   margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  margin-left: -6%;
+  width: 100%;
+  /* margin-right: 21%; */
 }
 .container4{
   display:none;
-  height: 72%;
-  overflow: scroll;
-  margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  height:33%;
+  overflow-y: scroll;
+  width: 77%;
+  margin-top: 17%;
+  margin-left: 11%;
 }
-.orum-button{
-    font-size: 15px;
-    width: 83%;
-    margin-left: 6%;
-    margin-top: 4%;
+
+
+.auth-wrap{
+    height: 77%;
+    width: 170%;
+    margin-bottom: -15%;
 }
+
+.abcd{
+  width:100%;
+  display: inline-block;
+  height:95px;
+}
+
 .naming{
-    width: 54%;
+    height: 77px;
+}
+
+.chkbtn{
+  width: 71%;
+  font-size: 13px;
+
+}
+.checklist{
+    white-space: nowrap;
+
 }
 .auth{
-  margin-left: 19%;
-      width: 20%;
-}
-.auth-wrap{
-  margin:6%;
+  display: inline-block;
 
 }
 
-/**/
+.questlist{
+  text-align: center;
+  display:flex;
+  display:inline-block;
+  margin: 2%;
+}
+.check{
+  display: none;
+  margin-left:27%;
+}
+
+
 font-face {
   font-family: "BRBA_B";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff")
@@ -132,7 +161,6 @@ html {
   border: 0;
 }
 .menu img {
-  display: block;
   float: left;
 }
 #header-title span {
