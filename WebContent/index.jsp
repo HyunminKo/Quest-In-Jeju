@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%
   /*
   Cookie[] cookies = request.getCookies();
@@ -18,17 +17,13 @@
 	String userId = "idididid";
 	
 	request.setAttribute("userId",userId);
-	
-	
 	Object idtest = request.getAttribute("userId");
 	
 	 System.out.println(idtest);// 확인차 보여주기 
-	
-	
-  List<QuestItemVO> rl = null;
-  List<QuestVO> rl2 = null;
-	Exception err = null;
 
+	
+    List<QuestItemVO> rl = null;
+	Exception err = null;
 
   QuestItemDAO dao = new QuestItemDAO();
   try{
@@ -38,14 +33,6 @@
   }catch(Exception e){
   	err = e;
   }
-
-	QuestDAO dao2 = new QuestDAO();
-	try{
-		rl2 = dao2.findAll();
-		request.setAttribute("rl2",rl2);
-	}catch(Exception e){
-		err = e;
-	}
 
 %>
 <!DOCTYPE html>
@@ -73,19 +60,17 @@
 
   </head>
 	<body>
-	 <!--
-    로그인 안했을때 보이는 부분  -->    
-
  <%@include file="header.jsp" %>
+    <div id="map" class="naver-map"></div>
 	<l:choose>
 		<l:when test="${not empty userId}">
-		    <div id="map" class="naver-map"></div>
+
 		    <div class="quest">
 		        <p >--------님이 수행중인 퀘스트!</p>
 		    </div>
 		    <div class="contain">
 		        <div class="button" >
-					     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+                    <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
 		        </div>
                 <!-- 테스트 프로그래스바 -->
                 <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
@@ -116,33 +101,9 @@
 		          </div><!--authwrap-->
 		        </div><!--container2-->
 		    </div><!--container-->
-        
-
   </l:when>
-  
  <l:otherwise>
-    <!-- 로그인 안했을때 보이는 부분  -->  
-    <div class="nav">
-      <div id="menu" class="menu">
-        <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
-          <img id="img_1" src="static/img/flag.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
-          <img id="img_2" src="static/img/placeholder.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
-          <img id="img_3" src="static/img/person.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
-          <img id="img_4" src="static/img/timeline.png" width="30" height="30" alt=""/>
-        </a>
-       </div>
-
-      <div id="header-title">
-        <span>Quest In JeJu</span>
-      </div>
-    </div>
-    <div id="map" class="naver-map"></div>
+    <!-- 로그인 안했을때 보이는 부분  -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         로그인
     </button>
@@ -189,19 +150,19 @@
             <div class="modal-body">
               <form method="POST" action="join.jsp" id="signupform" onsubmit="return check();">
                   <div class="form-group">
-                      <label class="signup-id" for="exampleDropdownFormEmail2">아이디 (Email)</label>
+                      <label class="signup-id" for="email">아이디 (Email)</label>
                         <div class="idform-check">
                           <input type="email" class="form-control id" id="email" placeholder="email@example.com" name="email">
                           <button class="signup-id-check">check</button>
                         </div>
                   </div>
                   <div class="form-group">
-                      <label class="signup-pw" for="exampleDropdownFormPassword2">비밀번호</label>
+                      <label class="signup-pw" for="password">비밀번호</label>
                       <input type="password" class="form-control" id="password" placeholder="password" name="password">
                       <input type="password" class="form-control confirm" id="passwordcheck" placeholder="confirm password" name="passwordcheck">
                   </div>
                   <div class="form-group">
-                      <label class="signup-name" for="exampleDropdownFormEmail2">이름</label>
+                      <label class="signup-name" for="name">이름</label>
                       <input type="password" class="form-control" id="name" placeholder="name" name="name">
                   </div>
                   <button type="submit" class="btn btn-secondary" id="signup-btn" onclick>가입하기</button>
@@ -210,13 +171,10 @@
             </div>
         </div>
     </div>
-
-	
-
   </body>
 </l:otherwise>
 </l:choose>
- <!--  <div class="se-pre-con"></div>--> 
+  <div class="se-pre-con"></div>
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>

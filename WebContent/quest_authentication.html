@@ -22,7 +22,7 @@
             </div>
             <div class="panel-body" id="inner-panel">
                 <div class="panel panel-default" id="user-location">
-                    <a id="user-location-confirm-btn" onclick=getLocation()>현재 위치 확인하기</a>
+                    <a id="user-location-confirm-btn" onclick=getLocation(2)>현재 위치 확인하기</a>
                 </div>
                 <div class="panel panel-default" id="image-upload">
                     <img id="image-print" src="#">
@@ -66,7 +66,7 @@
         }
     }
 </script>
-
-    <script src="static/js/user_location.js"></script>
-
+    <!-- cors 를 해결하기 위해 추가해 봅니다 !! -->
+    <script src='https://poiemaweb.com/assets/data/data-jsonp.js'></script>
+    <script src="static/js/quest_authentication.js"></script>
 </html>
