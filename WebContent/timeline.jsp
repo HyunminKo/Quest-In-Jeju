@@ -439,15 +439,16 @@ textarea.WriterEditor {
 <main>
     <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" />
     
-	<l:forEach  var="pvo" items="${pls}"><%
+	<l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
 		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
 		if( postCategory == 1 ) categoryColor = "B";
 	    else if( postCategory == 2 ) categoryColor = "G";
 	    else if( postCategory == 3 ) categoryColor = "O";
+		request.setAttribute("cc", categoryColor);
 	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	        	<input type="button" id="likeButton_1" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this )" />
+	        	<input type="button" id="button_${vs.count}" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this )" />
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
@@ -501,9 +502,6 @@ textarea.WriterEditor {
 	         		request.setAttribute( "err" , err );
 	         	}
 	         	if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
-	         	
-	         	
-	         	
 	         	%><l:forEach  var="cvo" items="${cls}">
             		<div class="MainTopRightUtilComment">
 		                <div class="MainTopRightUtilCommentTop">
@@ -561,7 +559,8 @@ textarea.WriterEditor {
         });
     });
     function ClickOfLike( t ){
-        $( "#" + t.id ).toggleClass( "<%= "likedButton" + categoryColor %>" );
+        $('#' + t.id ).toggleClass( "<%= "likedButton" %> ");
+        ${cc}
     }
 </script>
 
