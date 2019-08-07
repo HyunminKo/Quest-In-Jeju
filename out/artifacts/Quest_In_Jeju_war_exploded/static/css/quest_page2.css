@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'BRBA_B';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BRRA_R';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    font-family: 'BRBA_B';
+}
+.modal-body {
+    font-family: 'BRRA_R' !important;
+}
+
+body { background: #FFF;
+}
+.quest-main {
+    position: relative;
+    top:65px;
+}
+.container-quest {
+    padding-top: 5%;
+}
+#header-title span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    font-size: 1.8em;
+    transform: translate(-50%, -50%);
+}
+h1 { color: #000;
+    margin-left: 30px;
+}
+
+.cover {
+    width: 140px;
+    height: 140px;
+    background-image: url('static/img/static/img/flag.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.info {
+    padding: 10px;
+}
+
+.title {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.que_box {
+    margin-bottom: 8%;
+}
+
+.que_start_btn {
+    float: right;
+    margin-right: 7%;
+}
+
+.que_list {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #a5a7a9;
+}
+
+.que_next {
+    overflow-y: scroll;
+    white-space: nowrap;
+    padding-left: 2px;
+}
+
+.btn-btn-primary {
+    border: none;
+    background: none;
+}
+
+.btn-btn-secondary {
+    border: none;
+    background: none;
+}
+.que_bold {
+    color: #da0808;
+}
+
+
+.modal-content {
+    width: 80%;
+    margin-left: 10%;
+}
+.que_conq_title {
+    font-size: 1.2em;
+}
+
+.modal-content {
+    width: 80%;
+    margin-left: 10%;
+}
+.que_conq_title {
+    font-size: 1.2em;
+}
+
+.modal-body {
+    font-family: 'BRRA_R' !important;
+    overflow-y: scroll;
+    height: 200px;
+}
