@@ -10,6 +10,7 @@ String poster = null;
 String commenter = null;
 PostDAO pdao = null;
 CommentDAO cdao = null;
+String categoryColor = null;
 
 %><%
 
@@ -111,63 +112,70 @@ footer {
     right : 6%;
 }
 
-.LikeButtonB {
-    width : 10vw;
+.LikeButton {
+	width : 10vw;
     height : 10vw;
     border-radius : 100%;
-    border : 2px solid #03a9f4;
     background-color : white;
-
     -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.LikeButtonG {
-    width : 10vw;
-    height : 10vw;
-    border-radius : 100%;
+.LikeButtonUtilB {
+    border : 2px solid #03a9f4;
+}
+.LikeButtonUtilG {
     border : 2px solid #8bc34a;
-    background-color : white;
 }
-.LikeButtonO {
-    width : 10vw;
-    height : 10vw;
-    border-radius : 100%;
+.LikeButtonUtilO {
     border : 2px solid #ffc107;
-    background-color : white;
 }
-.likedButton {
-    background-color: #03a9f4;
+
+
+.likedButtonB {
+	background-color : #03a9f4;
     -moz-transform: scale(1.3);
     -webkit-transform: scale(1.3);
     -o-transform: scale(1.3);
     -ms-transform: scale(1.3);
     transform: scale(1.3);
-
     -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.MainTopRightUtilB {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
+.likedButtonG {
+	background-color : #8bc34a;
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+}
+.likedButtonO {
+	background-color : #ffc107;
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+}
+
+.MainTopRightUtil {
+	width : 85%;
+	margin-top : 8%;
+	margin-right : 5%;
+	float : right;
+	border : 1px solid #eee;
+}
+.MainTopRightUtilUtilB {
     border-left : 5px solid #03a9f4;
 }
-.MainTopRightUtilG {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
+.MainTopRightUtilUtilG {
     border-left : 5px solid #8bc34a;
 }
-.MainTopRightUtilO {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
+.MainTopRightUtilUtilO {
     border-left : 5px solid #ffc107;
 }
 
@@ -261,6 +269,33 @@ p.WriteDate {
     float : right;
 }
 
+.CommentSubmitButton {
+	width : 11vw;
+	height : 11vw;
+	text-align : center;
+	background-color : #ffffff;
+	border-radius : 10%;
+	box-shadow : 0px 0px;
+	float : right;
+	border-top : 0px;
+	border-bottom : 0px;
+}
+.CommentSubmitButtonUtilB {
+	border-left : 1px solid #03a9f4;
+	border-right : 1px solid #03a9f4;
+	color : #03a9f4;
+}
+.CommentSubmitButtonUtilG {
+	border-left : 1px solid #8bc34a;
+	border-right : 1px solid #8bc34a;
+	color : #8bc34a;
+}
+.CommentSubmitButtonUtilO {
+	border-left : 1px solid #ffc107;
+	border-right : 1px solid #ffc107;
+	color : #ffc107;
+}
+
 textarea.WriterEditor {
     font-size : 7px;
     border-top : 0px solid #eee;
@@ -268,7 +303,7 @@ textarea.WriterEditor {
     border-left : 0px solid #eee;
     border-right : 0px solid #eee;
     resize : none;
-    float : right;
+    float : left;
 }
 
 .MainTopRightUtilComment {
@@ -404,15 +439,17 @@ textarea.WriterEditor {
 <main>
     <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" />
     
-	<l:forEach  var="pvo" items="${pls}">
-	    <div class="MainTopLeft">
-	
-	    </div>
+	<l:forEach  var="pvo" items="${pls}"><%
+		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
+		if( postCategory == 1 ) categoryColor = "B";
+	    else if( postCategory == 2 ) categoryColor = "G";
+	    else if( postCategory == 3 ) categoryColor = "O";
+	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	            <input type="button" id="likeButton_1" class="LikeButtonB" onclick="ClickOfLike(this)"/>
+	        	<input type="button" id="likeButton_1" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this.id )" />
 	        </div>
-	        <div class="MainTopRightUtilB">
+	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
 	                <div class="MainTopRightUtilWriteBot">
 	                    <div class="MainTopRightUtilWriteBotLeft">
@@ -448,7 +485,10 @@ textarea.WriterEditor {
 	            
 	            <div class="MainTopRightUtilWriter">
 	                <div class="MainTopRightUtilWriterRight">
-	                    <textarea class="WriterEditor" id="test" cols="55" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+	                	<form method="POST" action="timeline_2.jsp" >
+		                	<input type="submit" class="<%= "CommentSubmitButton CommentSubmitButtonUtil" + categoryColor %>" />
+		                    <textarea class="WriterEditor" id="test" cols="45" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+	                	</form>
 	                </div>
 	            </div>
 	            
@@ -461,7 +501,7 @@ textarea.WriterEditor {
 		                    %><%= commenter %>
 		                    </div>
 		                    <div class="MainTopRightUtilCommentTopRight"><%
-	                        	String commentDate = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getDate());
+	                        	String commentDate = String.valueOf(((CommentVO) pageContext.getAttribute("cvo")).getDate());
 	                        	datetimeSplit = commentDate.split("\\s");
 	                      %><div class="MainTopRightUtilCommentTopRightLeft">
 		                            <%= datetimeSplit[0] %>
@@ -509,8 +549,8 @@ textarea.WriterEditor {
             }
         });
     });
-    function ClickOfLike(t){
-        $("#"+t.id).toggleClass("likedButton");
+    function ClickOfLike( id ){
+        $( "#" + id ).toggleClass( "<%= "likedButton" + categoryColor %>" );
     }
 </script>
 
