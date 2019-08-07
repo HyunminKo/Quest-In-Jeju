@@ -7,8 +7,10 @@ String ctxPath = null;
 Exception err = null;
 String[] datetimeSplit = null;
 String poster = null;
+String commenter = null;
 PostDAO pdao = null;
 CommentDAO cdao = null;
+String categoryColor = null;
 
 %><%
 
@@ -23,12 +25,12 @@ request.setCharacterEncoding("UTF-8");
 try {
 	pls = pdao.findAll();
 	request.setAttribute( "pls" , pls );
-	cls = cdao.findAll();
-	request.setAttribute( "cls" , cls );
 } catch( Exception e ) {
 	err = e;
 	request.setAttribute( "err" , err );
 }
+
+if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 
 %><!DOCTYPE html>
 <html lang="ko">
@@ -110,64 +112,71 @@ footer {
     right : 6%;
 }
 
-.LikeButtonB {
-    width : 10vw;
+.LikeButton {
+	width : 10vw;
     height : 10vw;
     border-radius : 100%;
-    border : 2px solid blue;
     background-color : white;
-
     -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.LikeButtonG {
-    width : 10vw;
-    height : 10vw;
-    border-radius : 100%;
-    border : 2px solid #3cb371;
-    background-color : white;
+.LikeButtonUtilB {
+    border : 2px solid #03a9f4;
 }
-.LikeButtonO {
-    width : 10vw;
-    height : 10vw;
-    border-radius : 100%;
-    border : 2px solid orange;
-    background-color : white;
+.LikeButtonUtilG {
+    border : 2px solid #8bc34a;
 }
-.likedButton {
-    background-color: blue;
+.LikeButtonUtilO {
+    border : 2px solid #ffc107;
+}
+
+
+.likedButtonB {
+	background-color : #03a9f4;
     -moz-transform: scale(1.3);
     -webkit-transform: scale(1.3);
     -o-transform: scale(1.3);
     -ms-transform: scale(1.3);
     transform: scale(1.3);
-
     -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.MainTopRightUtilB {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
-    border-left : 5px solid blue;
+.likedButtonG {
+	background-color : #8bc34a;
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.MainTopRightUtilG {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
-    border-left : 5px solid #3CB371;
+.likedButtonO {
+	background-color : #ffc107;
+    -moz-transform: scale(1.3);
+    -webkit-transform: scale(1.3);
+    -o-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
-.MainTopRightUtilO {
-    width : 85%;
-    margin-top : 8%;
-    margin-right : 5%;
-    float : right;
-    border : 1px solid #eee;
-    border-left : 5px solid orange;
+
+.MainTopRightUtil {
+	width : 85%;
+	margin-top : 8%;
+	margin-right : 5%;
+	float : right;
+	border : 1px solid #eee;
+}
+.MainTopRightUtilUtilB {
+    border-left : 5px solid #03a9f4;
+}
+.MainTopRightUtilUtilG {
+    border-left : 5px solid #8bc34a;
+}
+.MainTopRightUtilUtilO {
+    border-left : 5px solid #ffc107;
 }
 
 .MainTopRightUtilWrite {
@@ -260,6 +269,33 @@ p.WriteDate {
     float : right;
 }
 
+.CommentSubmitButton {
+	width : 11vw;
+	height : 11vw;
+	text-align : center;
+	background-color : #ffffff;
+	border-radius : 10%;
+	box-shadow : 0px 0px;
+	float : right;
+	border-top : 0px;
+	border-bottom : 0px;
+}
+.CommentSubmitButtonUtilB {
+	border-left : 1px solid #03a9f4;
+	border-right : 1px solid #03a9f4;
+	color : #03a9f4;
+}
+.CommentSubmitButtonUtilG {
+	border-left : 1px solid #8bc34a;
+	border-right : 1px solid #8bc34a;
+	color : #8bc34a;
+}
+.CommentSubmitButtonUtilO {
+	border-left : 1px solid #ffc107;
+	border-right : 1px solid #ffc107;
+	color : #ffc107;
+}
+
 textarea.WriterEditor {
     font-size : 7px;
     border-top : 0px solid #eee;
@@ -267,7 +303,7 @@ textarea.WriterEditor {
     border-left : 0px solid #eee;
     border-right : 0px solid #eee;
     resize : none;
-    float : right;
+    float : left;
 }
 
 .MainTopRightUtilComment {
@@ -336,8 +372,8 @@ textarea.WriterEditor {
     width : 55px;
     height : 35px;
     float : right;
-    background-color : black;
-    border : 1px solid black;
+    background-color : #da0808;
+    border : 1px solid #da0808;
     margin : 8px 5px 0px 5px;
     border-radius : 55px;
     color : white;
@@ -348,8 +384,8 @@ textarea.WriterEditor {
     width : 55px;
     height : 35px;
     float : right;
-    background-color : blue;
-    border : 1px solid blue;
+    background-color : #03a9f4;
+    border : 1px solid #03a9f4;
     margin : 8px 5px 0px 5px;
     border-radius : 55px;
     color : white;
@@ -366,8 +402,8 @@ textarea.WriterEditor {
     width : 55px;
     height : 35px;
     float : left;
-    background-color : #3CB371;
-    border : 1px solid #3CB371;
+    background-color : #8bc34a;
+    border : 1px solid #8bc34a;
     margin : 8px 5px 0px 5px;
     border-radius : 55px;
     color : white;
@@ -378,8 +414,8 @@ textarea.WriterEditor {
     width : 55px;
     height : 35px;
     float : left;
-    background-color : orange;
-    border : 1px solid orange;
+    background-color : #ffc107;
+    border : 1px solid #ffc107;
     margin : 8px 5px 0px 5px;
     border-radius : 55px;
     color : white;
@@ -403,15 +439,17 @@ textarea.WriterEditor {
 <main>
     <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" />
     
-	<l:forEach  var="pvo" items="${pls}">
-	    <div class="MainTopLeft">
-	
-	    </div>
+	<l:forEach  var="pvo" items="${pls}"><%
+		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
+		if( postCategory == 1 ) categoryColor = "B";
+	    else if( postCategory == 2 ) categoryColor = "G";
+	    else if( postCategory == 3 ) categoryColor = "O";
+	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	            <input type="button" id="likeButton_1" class="LikeButtonB" onclick="ClickOfLike(this)"/>
+	        	<input type="button" id="likeButton_1" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this )" />
 	        </div>
-	        <div class="MainTopRightUtilB">
+	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
 	                <div class="MainTopRightUtilWriteBot">
 	                    <div class="MainTopRightUtilWriteBotLeft">
@@ -425,7 +463,7 @@ textarea.WriterEditor {
 	                </div>
 	                <div class=MainTopRightUtilWriteTop>
 	                    <div class="MainTopRightUtilWriteTopLeft"><%
-	                    String id = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getUser_id());
+	                    	String id = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getUser_id());
 	                    	poster = pdao.findNameByUserId(id);
 	                    %> 
 	                        <p class="WriteNickName">
@@ -433,15 +471,13 @@ textarea.WriterEditor {
 	                        </p>
 	                    </div>
 	                    <div class="MainTopRightUtilWriteTopRight"><%
-	                    	//datetimeSplit = (\"+ ${pvo.date}+ \").split("\\s");
-	                    %>
-	                        <p class="WriteDate">
-	                            <%-- <%= datetimeSplit[0] --%>
-	                        	2019.11.11
+	                        	String postDate = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getDate());
+	                        	datetimeSplit = postDate.split("\\s");
+	                      %><p class="WriteDate">
+	                        	<%= datetimeSplit[0] %>
 	                        </p>
 	                        <p class="WriteDatetime">
-	                            <%--<%= datetimeSplit[1] --%>
-	                        	11:11:11
+	                        	<%= datetimeSplit[1] %>
 	                        </p>
 	                    </div>
 	                </div>
@@ -449,22 +485,41 @@ textarea.WriterEditor {
 	            
 	            <div class="MainTopRightUtilWriter">
 	                <div class="MainTopRightUtilWriterRight">
-	                    <textarea class="WriterEditor" id="test" cols="55" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+	                	<form method="POST" action="timeline_2.jsp" >
+		                	<input type="submit" class="<%= "CommentSubmitButton CommentSubmitButtonUtil" + categoryColor %>" />
+		                    <textarea class="WriterEditor" id="test" cols="45" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+	                	</form>
 	                </div>
 	            </div>
-	            
-	            <l:forEach  var="cvo" items="${cls}">
-		            <div class="MainTopRightUtilComment">
+	         	<%
+	         	String check = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getId());
+	         	try {
+		        	cls = cdao.findAllByPostId( check );
+		        	request.setAttribute( "cls" , cls );
+	         	} catch( Exception e ) {
+	         		err = e;
+	         		request.setAttribute( "err" , err );
+	         	}
+	         	if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
+	         	
+	         	
+	         	
+	         	%><l:forEach  var="cvo" items="${cls}">
+            		<div class="MainTopRightUtilComment">
 		                <div class="MainTopRightUtilCommentTop">
-		                    <div class="MainTopRightUtilCommentTopLeft">
-		                        
+		                    <div class="MainTopRightUtilCommentTopLeft"><%
+		                        String id2 = String.valueOf(((CommentVO) pageContext.getAttribute("cvo")).getUser_id());
+	                  		  	commenter = cdao.findNameByUserId(id2);
+		                    %><%= commenter %>
 		                    </div>
-		                    <div class="MainTopRightUtilCommentTopRight">
-		                        <div class="MainTopRightUtilCommentTopRightLeft">
-		                            2019.08.06
+		                    <div class="MainTopRightUtilCommentTopRight"><%
+	                        	String commentDate = String.valueOf(((CommentVO) pageContext.getAttribute("cvo")).getDate());
+	                        	datetimeSplit = commentDate.split("\\s");
+	                      %><div class="MainTopRightUtilCommentTopRightLeft">
+		                            <%= datetimeSplit[0] %>
 		                        </div>
 		                        <div class="MainTopRightUtilCommentTopRightRight">
-		                            11:57:23
+		                            <%= datetimeSplit[1] %>
 		                        </div>
 		                    </div>
 		                </div>
@@ -472,8 +527,7 @@ textarea.WriterEditor {
 		                    ${cvo.contents}
 		                </div>
 		            </div>
-		       	</l:forEach>
-		       	
+				</l:forEach>
 	        </div>
 	    </div>
 	</l:forEach>
@@ -506,8 +560,8 @@ textarea.WriterEditor {
             }
         });
     });
-    function ClickOfLike(t){
-        $("#"+t.id).toggleClass("likedButton");
+    function ClickOfLike( t ){
+        $( "#" + t.id ).toggleClass( "<%= "likedButton" + categoryColor %>" );
     }
 </script>
 

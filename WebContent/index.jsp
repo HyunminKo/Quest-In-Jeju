@@ -68,6 +68,8 @@
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/loading_spinner.css"/>
+    <link rel="stylesheet" href="static/css/progressbar.css"/>
 
   </head>
 	<body>
@@ -75,6 +77,52 @@
     로그인 안했을때 보이는 부분  -->    
 
 		    <%@include file="header.jsp" %>
+<l:choose>
+<l:when test="${userId ne null}">
+		    <div id="map" class="naver-map"></div>
+		    <div class="quest">
+		        <p >--------님이 수행중인 퀘스트!</p>
+		    </div>
+		    <div class="contain">
+		        <div class="button" >
+					     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+		        </div>
+                <!-- 테스트 프로그래스바 -->
+                <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+                    <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                    <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
+                </svg>
+		        <div class="container2" id="orumlist">
+		          <div class="auth-wrap"> <!--y-scroll-->
+			          <l:forEach var="vo" items="${rl}">
+		                <div class="questlist">
+		                  <div class ="abcd">
+		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
+		                  </div>
+		
+		                  <div class="authbtn">
+		                        <button type="button"  class="btn btn-outline-success chkbtn">
+		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
+		                          <img src="static/img/submit.png">
+		                            </a>
+		                        </button>
+		                    </div><!--authbtn-->
+		                </div><!--questlist-->
+			          </l:forEach>
+		<!--1차 for문 끝-->
+		
+		<!--  <a href="logout.jsp">로그아웃</a>-->
+		          </div><!--authwrap-->
+		        </div><!--container2-->
+		    </div><!--container-->
+        
+  </body>
+  </l:when>
+  
+ <l:otherwise>
+    <!-- 로그인 안했을때 보이는 부분  -->    
+  <body >
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
@@ -167,9 +215,11 @@
 	
 
   </body>
+</l:otherwise>
+</l:choose>
+  <div class="se-pre-con"></div>
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
   <script src="static/js/formcheck.js"></script>
 </html>
-

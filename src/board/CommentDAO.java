@@ -4,6 +4,8 @@ import java.util.List;
 
 import jdbcUtil.JdbcTemplate;
 import rowmapper.CommentRowMapper;
+import rowmapper.UserRowMapper;
+import user.UserVO;
 
 public class CommentDAO {
 	
@@ -28,5 +30,26 @@ public class CommentDAO {
             e.printStackTrace();
         }
         return ls;
+    }
+    public String findNameByUserId( String id ) {
+    	UserVO vo = null;
+    	String sql = "select * from user where id = ?";
+    	try {
+    		vo = jdbc.queryForObject( sql, new UserRowMapper() , id );
+    	} catch ( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	return vo.getName();
+    }
+    public List<CommentVO> findAllByPostId( String c ) {
+    	List<CommentVO> ls = null;
+    	String sql = "select * from comment where post_id = ?";
+    	Integer t = Integer.parseInt(c);
+    	try {
+    		ls = jdbc.query( sql , new CommentRowMapper() , t );
+    	} catch( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	return ls;
     }
 }

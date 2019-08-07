@@ -10,6 +10,7 @@
     vo = dao.findOne(item_id);
 
     request.setAttribute("vo", vo);
+    request.setAttribute("item_id", item_id);
   } catch(Exception e) {
     e.printStackTrace();
   }
@@ -44,7 +45,7 @@
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
-            <a id="user-location-confirm-btn" onclick="getLocation()">현재 위치 확인하기</a>
+            <a id="user-location-confirm-btn" onclick="getLocation(${item_id})">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
@@ -88,5 +89,5 @@
     }
   </script>
 
-  <script src="static/js/user_location.js"></script>
+  <script src="static/js/quest_authentication.js"></script>
 </html>
