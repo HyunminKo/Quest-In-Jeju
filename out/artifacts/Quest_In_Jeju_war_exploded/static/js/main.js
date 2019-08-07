@@ -75,7 +75,7 @@ function logDisplay(){
 		    con.style.display = "block";
 		  }
 		}
-/*
+
   window.onload = function(){
 		var is = document.getElementsByTagName("img");
 			for(var i=0;i<is.length;i++){
@@ -87,4 +87,3 @@ function logDisplay(){
 				fp(i);
 			}
 		};
-*/

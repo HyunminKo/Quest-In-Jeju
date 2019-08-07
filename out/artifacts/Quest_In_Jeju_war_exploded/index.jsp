@@ -14,7 +14,7 @@
   //request.setAttribute(" ", );??/
   System.out.println(userId);
 */
-	String userId = "idididid";
+	String userId = "id";
 	
 	request.setAttribute("userId",userId);
 	Object idtest = request.getAttribute("userId");
