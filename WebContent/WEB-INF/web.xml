@@ -16,11 +16,11 @@
 
     <servlet-mapping>
         <servlet-name>UserQuestPlayServlet</servlet-name>
-        <url-pattern>/servlet/UseQusetPlayServlet</url-pattern>
+        <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>UserItemPlayServlet</servlet-name>
-        <url-pattern>/servlet/UseItemPlayServlet</url-pattern>
+        <url-pattern>/servlet/UserItemPlayServlet</url-pattern>
     </servlet-mapping>
 </web-app>
