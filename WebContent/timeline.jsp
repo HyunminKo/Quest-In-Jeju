@@ -559,7 +559,7 @@ textarea.WriterEditor {
         });
     });
     function ClickOfLike( t ){
-        $('#' + t.id ).toggleClass( "<%= "likedButton" %> ");
+        $('#' + t.id ).toggleClass( "<%= "likedButton" + categoryColor %> ");
         ${cc}
     }
 </script>
