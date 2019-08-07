@@ -15,14 +15,14 @@
   //request.setAttribute(" ", );??/
   System.out.println(userId);
 */
-	String userId = null;
+	String userId = "idididid";
 	
-	//request.setAttribute("userId",userId);
+	request.setAttribute("userId",userId);
 	
-	//response.getAttribute("userId");
-	//Object idtest = request.getAttribute("userId");
 	
-	 // System.out.println(idtest);//
+	Object idtest = request.getAttribute("userId");
+	
+	 System.out.println(idtest);// 확인차 보여주기 
 	
 	
   List<QuestItemVO> rl = null;
@@ -76,9 +76,9 @@
 	 <!--
     로그인 안했을때 보이는 부분  -->    
 
-		    <%@include file="header.jsp" %>
-<l:choose>
-<l:when test="${userId ne null}">
+ <%@include file="header.jsp" %>
+	<l:choose>
+		<l:when test="${not empty userId}">
 		    <div id="map" class="naver-map"></div>
 		    <div class="quest">
 		        <p >--------님이 수행중인 퀘스트!</p>
@@ -117,12 +117,11 @@
 		        </div><!--container2-->
 		    </div><!--container-->
         
-  </body>
+
   </l:when>
   
  <l:otherwise>
-    <!-- 로그인 안했을때 보이는 부분  -->    
-  <body >
+    <!-- 로그인 안했을때 보이는 부분  -->  
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
@@ -217,7 +216,7 @@
   </body>
 </l:otherwise>
 </l:choose>
-  <div class="se-pre-con"></div>
+ <!--  <div class="se-pre-con"></div>--> 
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
