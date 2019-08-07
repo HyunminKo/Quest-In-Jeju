@@ -4,6 +4,8 @@ import java.util.List;
 
 import jdbcUtil.JdbcTemplate;
 import rowmapper.PostRowMapper;
+import rowmapper.UserRowMapper;
+import user.UserVO;
 
 public class PostDAO {
 
@@ -29,7 +31,14 @@ public class PostDAO {
         }
         return ls;
     }
-
-
-
+    public String findNameByUserId( String id ) {
+    	UserVO vo = null;
+    	String sql = "select * from user where id = ?";
+    	try {
+    		vo = jdbc.queryForObject( sql, new UserRowMapper() , id );
+    	} catch ( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	return vo.getName();
+    }
 }
