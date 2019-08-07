@@ -29,7 +29,7 @@ public class UserDAO {
         return ls;
     }
     
-    public UserVO findPwByEmail( em ) {
+    public UserVO findPwByEmail( String email ) {
     	UserVO vo = null;
     	String sql = "select password from user where email = ?";
     	try {
