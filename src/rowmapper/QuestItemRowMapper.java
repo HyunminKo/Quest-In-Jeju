@@ -20,5 +20,4 @@ public class QuestItemRowMapper implements RowMapper<QuestItemVO> {
         vo.setFileSystemName(rs.getString("filesystemname"));
         return vo;
     }
-    }
 }
