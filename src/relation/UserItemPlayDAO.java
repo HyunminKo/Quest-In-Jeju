@@ -55,9 +55,9 @@ public class UserItemPlayDAO {
 
     public int update(Long user_id, Long item_id) {
         int rc = 0;
-        String sql = "update user_quest_play set is_completed = ? where user_id = ? and item_id = ?";
+        String sql = "update user_quest_play set is_completed = 1 where user_id = ? and item_id = ?";
         try {
-            rc = jdbc.update(sql, 1, user_id, item_id);
+            rc = jdbc.update(sql,user_id, item_id);
             if (rc != 0) {
                 System.out.println("성공");
             }

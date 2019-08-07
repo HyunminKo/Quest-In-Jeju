@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="static/css/quest_authentication.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 </head>
+
 <body>
     <div class="header">menu bar</div>
 
@@ -19,7 +22,7 @@
             </div>
             <div class="panel-body" id="inner-panel">
                 <div class="panel panel-default" id="user-location">
-                    <a>현재 위치 확인하기</a>
+                    <a id="user-location-confirm-btn" onclick=getLocation(2)>현재 위치 확인하기</a>
                 </div>
                 <div class="panel panel-default" id="image-upload">
                     <img id="image-print" src="#">
@@ -34,35 +37,36 @@
             </div>
             <div class="form-group" id="authentication_submit">
                 <label for="submit-btn">완료</label>
-                <input type="button" id="submit-btn">
+                <!--input type="submit" id="submit-btn"-->
             </div>
         </div>
     </div>
-    </body>
+</body>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $("#exampleInputFile").on('change', function(){
-                readURL(this);
-            });
+<script type="text/javascript">
+    $(function () {
+        $("#exampleInputFile").on('change', function () {
+            readURL(this);
         });
+    });
 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#image-print').attr('src', e.target.result);
-                    $('#image-upload-text').hide();
-                    $('#ineer-camera').show();
-                    $('#outer-camera').show();
-                }
-
-                reader.readAsDataURL(input.files[0]);
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#image-print').attr('src', e.target.result);
+                $('#image-print').show();
+                $('#image-upload-text').hide();
+                $('#inner-camera').show();
+                $('#outer-camera').show();
             }
-        }
-    </script>
 
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+    <!-- cors 를 해결하기 위해 추가해 봅니다 !! -->
+    <script src='https://poiemaweb.com/assets/data/data-jsonp.js'></script>
+    <script src="static/js/quest_authentication.js"></script>
 </html>

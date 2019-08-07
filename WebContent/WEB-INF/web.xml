@@ -7,13 +7,10 @@
         <servlet-name>UserQuestPlayServlet</servlet-name>
         <servlet-class>servlet.UserQuestPlayServlet</servlet-class>
     </servlet>
-
     <servlet>
         <servlet-name>UserItemPlayServlet</servlet-name>
         <servlet-class>servlet.UserItemPlayServlet</servlet-class>
     </servlet>
-
-
     <servlet-mapping>
         <servlet-name>UserQuestPlayServlet</servlet-name>
         <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>
@@ -21,6 +18,7 @@
 
     <servlet-mapping>
         <servlet-name>UserItemPlayServlet</servlet-name>
+        <url-pattern>/servlet/UseItemPlayServlet</url-pattern>
         <url-pattern>/servlet/UserItemPlayServlet</url-pattern>
     </servlet-mapping>
 </web-app>

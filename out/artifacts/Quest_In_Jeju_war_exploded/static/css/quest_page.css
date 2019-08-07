@@ -1,30 +1,39 @@
-.container{
-  height:33%;
-  overflow: scroll;
-  width: 77%;
-  margin-top: 17%;
-  margin-left: 8%;
+
+.contain{
+      height: 44%;
+    margin-top: 11%;
+}
 }
 
 .button{
- padding:10px;
- font-size:15px;
- margin-left:9%
-}
-.btn{
- font-size:15px;
- width:100%;
+    width: 25%;
+    margin-left: 4%;
+    margin-top: 13%;
 }
 
-p{font-size:20px;
+.questname{
+	font-size:1em;
+
+}
+p {
+	font-size:1.5em;
+}
+
+
+.btn{
+	width: 31%;
+    margin-left: 5%;
+    margin-top: 13%;
+}
+
+p{
  text-align:center
 }
 
 .quest{
   position:relative;
   clear:both;
-  padding: 3%;
-  top: 10%;
+  top: 11%;
 }
 /*추가부분 - mainPage의 css*/
 
@@ -36,43 +45,113 @@ p{font-size:20px;
 }
 .container2{
   display:none;
-  height: 74%;
-  overflow: scroll;
-  margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  overflow-y: scroll;
+  height: 87%;
+  margin-top: 2%;
 }
 .container3{
   display:none;
-  height: 74%;
-  overflow: scroll;
+  height: 77%;
+  overflow-y: scroll;
+  height: 87%;
   margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  margin-left: -6%;
+  width: 100%;
+  /* margin-right: 21%; */
 }
 .container4{
   display:none;
-  height: 72%;
-  overflow: scroll;
-  margin-top: 0%;
-  width: 98%;
-  margin-left: 5%;
+  height:33%;
+  overflow-y: scroll;
+  width: 77%;
+  margin-top: 17%;
+  margin-left: 11%;
 }
-.orum-button{
-    font-size: 15px;
-    width: 83%;
-    margin-left: 6%;
-    margin-top: 4%;
+
+
+.auth-wrap{
+    height: 77%;
+    width: 170%;
+    margin-bottom: -15%;
 }
+
+.abcd{
+    width: 8em;
+    display: inline-block;
+    height: 6em;
+  }
+
 .naming{
-    width: 54%;
+    width: 101%;
+    height: 145%;
+}
+
+.chkbtn{
+   margin-left: 13%;
+   margin-top: 62%;
+  width: 71%;
+
+}
+.checklist{
+    white-space: nowrap;
+
 }
 .auth{
-  margin-left: 19%;
-      width: 20%;
+  display: inline-block;
+
 }
-.auth-wrap{
-  margin:6%;
+
+.questlist{
+  text-align: center;
+  display:flex;
+  display:inline-block;
+  margin: 2%;
+}
+.check{
+  display: none;
+  margin-left:27%;
+}
+
+#search1{
+  margin-left: 46%;
+  display:none;
+}
+
+#search2{
+  margin-left: 46%;
+  display:none;
+}
+#search{
+
+  margin-left: 46%;
+  display:none;
+}
+
+
+
+
+/*progress bar*/
+.progress {
+  height: 12%;
+      overflow: hidden;
+      border-radius: 0.25rem;
+      margin-bottom: 4px;
+      margin-left: 10%;
+      margin-right: 11.5%;
+      padding-right: 4%;
+      width: 100%;
+      margin-top: 1%;
+}
+
+.progress-bar{
+  background-color:yellowgreen;
+
+}
+
+.btngress{
+  padding: 1%;
+  margin: 2%;
+  margin-bottom: 5%;
 
 }
 
@@ -132,7 +211,6 @@ html {
   border: 0;
 }
 .menu img {
-  display: block;
   float: left;
 }
 #header-title span {
