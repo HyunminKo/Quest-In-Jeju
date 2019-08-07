@@ -6,9 +6,6 @@ import org.json.simple.parser.JSONParser;
 import quest.QuestItemVO;
 import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
-import relation.UserQuestPlayDAO;
-import relation.UserQuestPlayVO;
-
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +35,16 @@ public class UserItemPlayServlet extends HttpServlet {
 
             String method = (String) jsonObject.get("method");
 
+            // 한 줄 검색
+//            if("queryForObject".equals(method)) {
+//                Long user_id = (Long)jsonObject.get("user_id");
+//                Long item_id = (Long)jsonObject.get("item_id");
+//
+//                UserItemPlayDAO dao = new UserItemPlayDAO();
+//                UserItemPlayVO vo = new UserItemPlayVO();
+//
+//                vo = dao.queryForObject(user_id, item_id);
+//            }
 
             if ("queryForObject".equals(method)) {
                 Long user_id = (Long) jsonObject.get("user_id");
@@ -96,9 +103,9 @@ public class UserItemPlayServlet extends HttpServlet {
 //                }
 //            }
         } catch (Exception e) {
+
             e.printStackTrace();
         }
-
 
         // user_item_play 테이블에서 user_id와 item_id로 찾아야 됨
         // user_item_play 테이블에서 "is_completed" 애트리뷰트 값을 1로 변경 -> 완료했다는 의미

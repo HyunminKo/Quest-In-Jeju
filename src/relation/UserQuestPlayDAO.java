@@ -3,7 +3,9 @@ package relation;
 import java.util.List;
 
 import jdbcUtil.JdbcTemplate;
+import quest.QuestItemVO;
 import rowmapper.AliasRowMapper;
+import rowmapper.QuestItemRowMapper;
 import rowmapper.UserQuestPlayRowMapper;
 import user.AliasVO;
 
@@ -18,6 +20,19 @@ public class UserQuestPlayDAO {
             e.printStackTrace();
         }
     }
+
+    public QuestItemVO findOne(Long item_id) {
+        String sql = "select id from quest_item where id=?";
+        QuestItemVO vo = new QuestItemVO();
+        QuestItemRowMapper rowMapper = new QuestItemRowMapper();
+        try {
+            vo = jdbc.queryForObject(sql, rowMapper, item_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vo;
+    }
+
     public List<UserQuestPlayVO> findAll() {
         List<UserQuestPlayVO> ls = null;
         String sql = "select * from user_quest_play";

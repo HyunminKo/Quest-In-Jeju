@@ -41,4 +41,15 @@ public class CommentDAO {
     	}
     	return vo.getName();
     }
+    public List<CommentVO> findAllByPostId( String c ) {
+    	List<CommentVO> ls = null;
+    	String sql = "select * from comment where post_id = ?";
+    	Integer t = Integer.parseInt(c);
+    	try {
+    		ls = jdbc.query( sql , new CommentRowMapper() , t );
+    	} catch( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	return ls;
+    }
 }
