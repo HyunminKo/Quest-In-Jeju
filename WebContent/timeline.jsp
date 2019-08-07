@@ -25,12 +25,12 @@ request.setCharacterEncoding("UTF-8");
 try {
 	pls = pdao.findAll();
 	request.setAttribute( "pls" , pls );
-	cls = cdao.findAll();
-	request.setAttribute( "cls" , cls );
 } catch( Exception e ) {
 	err = e;
 	request.setAttribute( "err" , err );
 }
+
+if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 
 %><!DOCTYPE html>
 <html lang="ko">
@@ -491,9 +491,21 @@ textarea.WriterEditor {
 	                	</form>
 	                </div>
 	            </div>
-	            
-	            <l:forEach  var="cvo" items="${cls}">
-		            <div class="MainTopRightUtilComment">
+	         	<%
+	         	String check = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getId());
+	         	try {
+		        	cls = cdao.findAllByPostId( check );
+		        	request.setAttribute( "cls" , cls );
+	         	} catch( Exception e ) {
+	         		err = e;
+	         		request.setAttribute( "err" , err );
+	         	}
+	         	if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
+	         	
+	         	
+	         	
+	         	%><l:forEach  var="cvo" items="${cls}">
+            		<div class="MainTopRightUtilComment">
 		                <div class="MainTopRightUtilCommentTop">
 		                    <div class="MainTopRightUtilCommentTopLeft"><%
 		                        String id2 = String.valueOf(((CommentVO) pageContext.getAttribute("cvo")).getUser_id());
@@ -515,8 +527,7 @@ textarea.WriterEditor {
 		                    ${cvo.contents}
 		                </div>
 		            </div>
-		       	</l:forEach>
-		       	
+				</l:forEach>
 	        </div>
 	    </div>
 	</l:forEach>
