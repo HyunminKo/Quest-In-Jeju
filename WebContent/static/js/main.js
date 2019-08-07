@@ -65,6 +65,15 @@ function doDisplay() {
 	    con.style.display = "block";
 	  }
 	}
+
+function logDisplay(){
+	var con = document.getElementById("loginpass");
+	  if (con.style.display == "block") {
+		    con.style.display = "none";
+		  } else {
+		    con.style.display = "block";
+		  }
+		}
 /*
   window.onload = function(){
 		var is = document.getElementsByTagName("img");
