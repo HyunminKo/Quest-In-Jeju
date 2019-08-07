@@ -20,6 +20,10 @@ p {
 }
 
 
+img {
+    margin-left: -6%;
+}
+
 .btn{
 	width: 31%;
     margin-left: 5%;
@@ -92,7 +96,6 @@ p{
   width: 71%;
 
 }
-.checklist{
     white-space: nowrap;
 
 }

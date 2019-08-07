@@ -76,14 +76,4 @@ function logDisplay(){
 		  }
 		}
 
-  window.onload = function(){
-		var is = document.getElementsByTagName("img");
-			for(var i=0;i<is.length;i++){
-				var fp = function(j){
-					is[j].onclick=function(){
-						is[j].src="static/img/check.png";
-					}
-				};
-				fp(i);
-			}
-		};
+

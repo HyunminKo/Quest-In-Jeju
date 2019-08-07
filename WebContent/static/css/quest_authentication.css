@@ -5,22 +5,30 @@
 }
 
 .panel {
-  margin-top: 20px;
   border: 1px solid #747d8c;
+  height: 2.5em;
+  padding-top: 0.5em;
 }
 
 .panel-heading {
   background-color: white !important;
-  border-bottom-width: 2px solid #2f3640 !important;
+}
+
+.panel-default .panel-heading {
+  border-bottom: 1px solid #747d8c;
 }
 
 #outer-panel {
   height: 520px;
+  margin-top: 80px;
+}
+
+#inner-panel {
+  padding-bottom: 7px;
 }
 
 #image-uplaod #user-location {
   margin-top: 10px;
-  padding: 20px 0 20px 0;
 }
 
 #image-upload {
@@ -64,15 +72,20 @@
   margin-top: 16px;
 }
 
-#inner-panel {
-  padding-bottom: 7px;
-}
-
 #authentication_submit {
   margin-top: 15px;
 }
 
 #user-location-confirm-btn {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
+}
+
+#submit {
+  text-decoration: none;
+  border: 1px solid #da0808;
+  padding: 0.4em 0.8em;
+  border-radius: 0.25em;
+  color: #da0808;
+  display: inline;
 }

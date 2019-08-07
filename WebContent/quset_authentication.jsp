@@ -11,6 +11,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="static/css/quest_authentication.css" />
+    <link rel="stylesheet" href="static/css/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script
@@ -20,7 +21,7 @@
   </head>
 
   <body>
-    <%@include file="header.jsp"%>
+  <%@include file="header.jsp" %>
 
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
@@ -45,7 +46,8 @@
           </div>
         </div>
         <div class="form-group" id="authentication_submit">
-          <label for="submit-btn">완료</label>
+          <a href="index.jsp" id="submit">완료</a>
+          <!--label for="submit-btn">완료</label-->
           <!--input type="submit" id="submit-btn"-->
         </div>
       </div>
@@ -76,4 +78,5 @@
   </script>
 
   <script src="static/js/quest_authentication.js"></script>
+  <script src="static/js/main.js"></script>
 </html>
