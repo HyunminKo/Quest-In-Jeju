@@ -181,7 +181,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
         });
     });
     function ClickOfLike( t ){
-        $('#' + t.id ).toggleClass( "<%= "likedButton" %> ");
+        $('#' + t.id ).toggleClass( "<%= "likedButton" + categoryColor %> ");
     }
 </script>
 <script src="static/js/main.js"></script>
