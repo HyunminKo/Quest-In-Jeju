@@ -14,32 +14,25 @@
   //request.setAttribute(" ", );??/
   System.out.println(userId);
 */
-	String userId = null;
+	String userId = "idididid";
 	
 	request.setAttribute("userId",userId);
-	System.out.println("userid: "+userId);
+	Object idtest = request.getAttribute("userId");
 	
+	 System.out.println(idtest);// 확인차 보여주기 
+
 	
     List<QuestItemVO> rl = null;
-    List<QuestVO> rl2 = null;
 	Exception err = null;
 
-
-    QuestItemDAO dao = new QuestItemDAO();
-    try{
-        rl = dao.findAll();
-        request.setAttribute("rl", rl);
-    }catch(Exception e){
-        err = e;
-    }
-
-	QuestDAO dao2 = new QuestDAO();
-	try{
-		rl2 = dao2.findAll();
-		request.setAttribute("rl2",rl2);
-	}catch(Exception e){
-		err = e;
-	}
+  QuestItemDAO dao = new QuestItemDAO();
+  try{
+  	rl = dao.findAll();
+  	request.setAttribute("rl", rl);
+  //	System.out.println(rl);
+  }catch(Exception e){
+  	err = e;
+  }
 
 %>
 <!DOCTYPE html>
@@ -66,51 +59,48 @@
     <link rel="stylesheet" href="static/css/progressbar.css"/>
 
   </head>
-<body>
+	<body>
+ <%@include file="header.jsp" %>
+    <div id="map" class="naver-map"></div>
+	<l:choose>
+		<l:when test="${not empty userId}">
 
-<%@include file="header.jsp" %>
-
-<div id="map" class="naver-map"></div>
-<l:set var="idid" value=" ${userId }" />
-    <l:choose>
-        <l:when test="${ idid ne null}">
-            <div class="quest">
-                <p >--------님이 수행중인 퀘스트!</p>
-            </div>
-            <div class="contain">
-                <div class="button" >
-                         <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
-                </div>
+		    <div class="quest">
+		        <p >--------님이 수행중인 퀘스트!</p>
+		    </div>
+		    <div class="contain">
+		        <div class="button" >
+                    <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+		        </div>
                 <!-- 테스트 프로그래스바 -->
                 <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                     <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
                     <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
                 </svg>
-                <div class="container2" id="orumlist">
-                  <div class="auth-wrap"> <!--y-scroll-->
-                      <l:forEach var="vo" items="${rl}">
-                        <div class="questlist">
-                          <div class ="abcd">
-                              <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
-                          </div>
-
-                          <div class="authbtn">
-                                <button type="button"  class="btn btn-outline-success chkbtn">
-                                  <a href="quset_authentication.jsp?item_id=${vo.id}">
-                                  <img src="static/img/submit.png">
-                                    </a>
-                                </button>
-                            </div><!--authbtn-->
-                        </div><!--questlist-->
-                      </l:forEach>
-            <!--1차 for문 끝-->
-
-            <!--  <a href="logout.jsp">로그아웃</a>-->
-                  </div><!--authwrap-->
-                </div><!--container2-->
-            </div><!--container-->
-</body>
+		        <div class="container2" id="orumlist">
+		          <div class="auth-wrap"> <!--y-scroll-->
+			          <l:forEach var="vo" items="${rl}">
+		                <div class="questlist">
+		                  <div class ="abcd">
+		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
+		                  </div>
+		
+		                  <div class="authbtn">
+		                        <button type="button"  class="btn btn-outline-success chkbtn">
+		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
+		                          <img src="static/img/submit.png">
+		                            </a>
+		                        </button>
+		                    </div><!--authbtn-->
+		                </div><!--questlist-->
+			          </l:forEach>
+		<!--1차 for문 끝-->
+		
+		<!--  <a href="logout.jsp">로그아웃</a>-->
+		          </div><!--authwrap-->
+		        </div><!--container2-->
+		    </div><!--container-->
   </l:when>
  <l:otherwise>
     <!-- 로그인 안했을때 보이는 부분  -->
