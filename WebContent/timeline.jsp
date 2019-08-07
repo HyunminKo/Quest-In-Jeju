@@ -447,7 +447,7 @@ textarea.WriterEditor {
 	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	        	<input type="button" id="likeButton_1" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this.id )" />
+	        	<input type="button" id="likeButton_1" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this )" />
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
@@ -560,8 +560,8 @@ textarea.WriterEditor {
             }
         });
     });
-    function ClickOfLike( id ){
-        $( "#" + id ).toggleClass( "<%= "likedButton" + categoryColor %>" );
+    function ClickOfLike( t ){
+        $( "#" + t.id ).toggleClass( "<%= "likedButton" + categoryColor %>" );
     }
 </script>
 
