@@ -434,15 +434,13 @@ textarea.WriterEditor {
 	                        </p>
 	                    </div>
 	                    <div class="MainTopRightUtilWriteTopRight"><%
-	                    	//datetimeSplit = (\"+ ${pvo.date}+ \").split("\\s");
-	                    %>
-	                        <p class="WriteDate">
-	                            <%-- <%= datetimeSplit[0] --%>
-	                        	${pvo.date}
+	                        	String postDate = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getDate());
+	                        	datetimeSplit = postDate.split("\\s");
+	                      %><p class="WriteDate">
+	                        	<%= datetimeSplit[0] %>
 	                        </p>
 	                        <p class="WriteDatetime">
-	                            <%--<%= datetimeSplit[1] --%>
-	                        	11:11:11
+	                        	<%= datetimeSplit[1] %>
 	                        </p>
 	                    </div>
 	                </div>
@@ -462,12 +460,14 @@ textarea.WriterEditor {
 	                  		  	commenter = cdao.findNameByUserId(id2);
 		                    %><%= commenter %>
 		                    </div>
-		                    <div class="MainTopRightUtilCommentTopRight">
-		                        <div class="MainTopRightUtilCommentTopRightLeft">
-		                            ${cvo.date}
+		                    <div class="MainTopRightUtilCommentTopRight"><%
+	                        	String commentDate = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getDate());
+	                        	datetimeSplit = commentDate.split("\\s");
+	                      %><div class="MainTopRightUtilCommentTopRightLeft">
+		                            <%= datetimeSplit[0] %>
 		                        </div>
 		                        <div class="MainTopRightUtilCommentTopRightRight">
-		                            11:57:23
+		                            <%= datetimeSplit[1] %>
 		                        </div>
 		                    </div>
 		                </div>
