@@ -4,6 +4,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import quest.QuestItemDAO;
+import quest.QuestItemVO;
 import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
 import relation.UserQuestPlayDAO;
@@ -15,7 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class UserQuestPlayServlet extends HttpServlet {
@@ -36,27 +40,44 @@ public class UserQuestPlayServlet extends HttpServlet {
             JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
 
             String method = (String) jsonObject.get("method");
-
-            if("findAll".equals(method)){
-                UserQuestPlayDAO dao = new UserQuestPlayDAO();
-                List<UserQuestPlayVO> list = dao.findAll();
-                System.out.println(list);
-                JSONArray jsonArray = new JSONArray();
-                for(UserQuestPlayVO vo : list){
-                    jsonArray.add(vo.getQuest_id());
+            if("getUserQuestAndItemsPlayingByUserId".equals(method)){
+                UserItemPlayDAO dao = new UserItemPlayDAO();
+                //임시
+                List<QuestItemVO> questItems = dao.getPlayingQuestItemsByUserId(1L);
+                List<UserItemPlayVO> userItemsInfo = dao.getPlayingItemInfoByUserId(1L);
+                Map<Long, Integer> userItemsInfoMap = new HashMap<>();
+                for(UserItemPlayVO info : userItemsInfo){
+                    userItemsInfoMap.put(info.getItem_id(),info.getIs_completed());
                 }
-                jsonArray.add(10);
-                jsonArray.add(11);
-                jsonArray.add(20);
-                jsonArray.add(345);
-                jsonArray.add(123);
-                jsonArray.add(455);
+                Map<Long, Map<String,Map<String,String>>> questMap = new HashMap<>();
+                for(QuestItemVO vo : questItems){
+                    Long quest_id = vo.getQuest_id();
+                    if(!questMap.containsKey(quest_id)){
+                        questMap.put(quest_id,new HashMap<>());
+                    }
+                    Map<String,Map<String,String>> itemKeyMap =  questMap.get(quest_id);
+                    String itemKey = String.valueOf(vo.getId());
+                    HashMap<String,String> itemMap = new HashMap<>();
+                    itemMap.put("name",vo.getName());
+                    itemMap.put("description",vo.getDescription());
+                    itemMap.put("addr",vo.getAddr());
+                    itemMap.put("latitude",vo.getLatitude());
+                    itemMap.put("longitude",vo.getLongitude());
+                    itemMap.put("originalfilename",vo.getOriginalFileName());
+                    itemMap.put("filesystemname",vo.getFileSystemName());
+                    itemMap.put("isCompleted",String.valueOf(userItemsInfoMap.get(vo.getId())));
+                    itemKeyMap.put(itemKey,itemMap);
+                }
+
+                JSONObject jsonMap = new JSONObject();
+                jsonMap.putAll(questMap);
 
                 response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("application/json;charset=utf-8");
+                response.setCharacterEncoding("utf-8");
+
                 PrintWriter out = response.getWriter();
-                response.setContentType("application/json");
-                response.setCharacterEncoding("UTF-8");
-                out.print(jsonArray.toJSONString());
+                out.print(jsonMap.toJSONString());
                 out.flush();
             }else if("insert".equals(method)){
                 Long quest_id = (Long) jsonObject.get("quest_id");

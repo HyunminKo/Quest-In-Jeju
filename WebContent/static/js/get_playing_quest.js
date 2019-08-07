@@ -26,11 +26,11 @@ function loadingProgressCircleBar() {
         });
     });
 }
-$(document).ready(function () {
+function getUserQuestAndItemsPlayingByUserId() {
     const params = {
-        "method": "findAll"
+        "method": "getUserQuestAndItemsPlayingByUserId"
     };
-    console.log("test");
+    console.log("Start getting user_quest_play list");
     $.ajax({
         // 참고하세요 여기 남겨도 되나요?
         // https://ddo-o.tistory.com/94
@@ -39,10 +39,19 @@ $(document).ready(function () {
         data: JSON.stringify(params),
         dataType: 'json',
         contentType: "application/json; charset=UTF-8",
-        success: function(s) {
-            console.log(s);
+        success: function(data) {
+            console.log("Success getting user_quest_play list");
             $(".se-pre-con").fadeOut("slow");
             loadingProgressCircleBar();
+            console.log("user_quest_play: ");
+            console.log(data);
+
+        },
+        error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
+}
+$(document).ready(function () {
+    getUserQuestAndItemsPlayingByUserId();
 });

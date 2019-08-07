@@ -1,6 +1,8 @@
 package relation;
 
 import jdbcUtil.JdbcTemplate;
+import quest.QuestItemVO;
+import rowmapper.QuestItemRowMapper;
 import rowmapper.UserItemPlayRowMapper;
 import rowmapper.UserQuestPlayRowMapper;
 
@@ -18,10 +20,33 @@ public class UserItemPlayDAO {
     }
     public List<UserItemPlayVO> findAll() {
         List<UserItemPlayVO> ls = null;
-        String sql = "select * from user_quest_play";
+        String sql = "select * from user_item_play";
         try {
             ls = jdbc.query(sql,new UserItemPlayRowMapper());
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls;
+    }
+
+    public List<QuestItemVO> getPlayingQuestItemsByUserId(long id) {
+        List<QuestItemVO> ls = null;
+        String sql = "select * from quest_item where id in " +
+                "(select item_id from user_item_play where user_id=?)";
+        try{
+            ls = jdbc.query(sql,new QuestItemRowMapper(),id);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return ls;
+    }
+
+    public List<UserItemPlayVO> getPlayingItemInfoByUserId(long id){
+        List<UserItemPlayVO> ls = null;
+        String sql = "select * from user_item_play where user_id = ?";
+        try {
+            ls = jdbc.query(sql,new UserItemPlayRowMapper(), id);
+        }catch (Exception e){
             e.printStackTrace();
         }
         return ls;
