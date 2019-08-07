@@ -31,7 +31,7 @@ public class UserDAO {
     
     public UserVO findPwByEmail( String email ) {
     	UserVO vo = null;
-    	String sql = "select password from user where email = ?";
+    	String sql = "select * from user where email = ?";
     	try {
     		vo = jdbc.queryForObject(sql, new UserRowMapper(), email );
     	}
