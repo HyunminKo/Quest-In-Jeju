@@ -46,10 +46,6 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 <link rel="stylesheet" href="static/css/quest_authentication.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script
-  type="text/javascript"
-  src="http://code.jquery.com/jquery-2.1.0.min.js"
-></script>
 <link rel="stylesheet" href="static/css/main.css" />
 <link rel="stylesheet" href="static/css/timeline.css"/>
 </head>
@@ -59,7 +55,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     <%@include file="header.jsp"%>
 </header>
 <main>
-    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" />
+    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" data-toggle="modal" data-target="#posting_modal"/>
     
 	<l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
 		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
@@ -168,7 +164,40 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
         </div>
     </div>
 </footer>
+<div class="modal fade" id="posting_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalScrollableTitle"><b class="tl-bold">|&nbsp;</b>새 글 작성</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form method="POST" action="addpost_2.jsp" enctype="multipart/form-data" role="form">
+				<div class="modal-body">
+					<div class="form-group">
+						<input type="radio" value="1" name="category" id="free" checked/>
+						<label for="free">자유</label>
+						<input type="radio" value="2" name="category" id="review"/>
+						<label for="review">후기</label>
+						<input type="radio" value="3" name="category" id="question"/>
+						<label for="question">질문</label>
+					</div>
+					<div class="form-group">
+						<textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
+						<input type="file" name="file" class="tl-select" />
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="form-group">
+						<input type="submit" class="tl-upload" name="submit" value="업로드" />
+					</div>
+				</div>
+			</form>
 
+		</div>
+	</div>
+</div>
 </body>
 
 <script type="text/javascript">

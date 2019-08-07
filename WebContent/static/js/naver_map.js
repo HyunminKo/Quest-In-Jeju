@@ -6,6 +6,8 @@ var options = {
 };
 
 function success(pos) {
+    let questMap = JSON.parse(sessionStorage.getItem("questMap"));
+    console.log(questMap);
     const jejuLatitued = 33.38715;
     const jejuLongitude = 126.5266283;
 
@@ -58,10 +60,11 @@ function success(pos) {
         icon = null;
         marker = null;
     }
+    $(".se-pre-con").fadeOut("slow");
 }
 
 function error(err) {
     console.warn("ERROR(" + err.code + "): " + err.message);
 }
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+

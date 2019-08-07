@@ -14,7 +14,7 @@
   //request.setAttribute(" ", );??/
   System.out.println(userId);
 */
-	String userId = "id";
+	String userId = "alice";
 	
 	request.setAttribute("userId",userId);
 	Object idtest = request.getAttribute("userId");
@@ -66,7 +66,7 @@
 		<l:when test="${not empty userId}">
 
 		    <div class="quest">
-		        <p >--------님이 수행중인 퀘스트!</p>
+		        <p >${userId}님이 수행중인 퀘스트!</p>
 		    </div>
 		    <div class="contain">
 		        <div class="button" >
