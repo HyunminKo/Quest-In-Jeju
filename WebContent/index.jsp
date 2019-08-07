@@ -17,24 +17,21 @@
 	String userId = null;
 	
 	request.setAttribute("userId",userId);
-
-
-	  System.out.println(userId);
+	System.out.println("userid: "+userId);
 	
 	
-  List<QuestItemVO> rl = null;
-  List<QuestVO> rl2 = null;
+    List<QuestItemVO> rl = null;
+    List<QuestVO> rl2 = null;
 	Exception err = null;
 
 
-  QuestItemDAO dao = new QuestItemDAO();
-  try{
-  	rl = dao.findAll();
-  	request.setAttribute("rl", rl);
-  	System.out.println(rl);
-  }catch(Exception e){
-  	err = e;
-  }
+    QuestItemDAO dao = new QuestItemDAO();
+    try{
+        rl = dao.findAll();
+        request.setAttribute("rl", rl);
+    }catch(Exception e){
+        err = e;
+    }
 
 	QuestDAO dao2 = new QuestDAO();
 	try{
@@ -69,78 +66,54 @@
     <link rel="stylesheet" href="static/css/progressbar.css"/>
 
   </head>
-<l:set var="idid" value=" ${userId }" />
-  <l:choose>
-  	<l:when test="${ idid ne null}">
-		  <body>
-		  
-		    <%@include file="header.jsp" %>
+<body>
 
-		    <div id="map" class="naver-map"></div>
-		    <div class="quest">
-		        <p >--------님이 수행중인 퀘스트!</p>
-		    </div>
-		    <div class="contain">
-		        <div class="button" >
-					     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
-		        </div>
+<%@include file="header.jsp" %>
+
+<div id="map" class="naver-map"></div>
+<l:set var="idid" value=" ${userId }" />
+    <l:choose>
+        <l:when test="${ idid ne null}">
+            <div class="quest">
+                <p >--------님이 수행중인 퀘스트!</p>
+            </div>
+            <div class="contain">
+                <div class="button" >
+                         <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+                </div>
                 <!-- 테스트 프로그래스바 -->
                 <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                     <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
                     <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
                 </svg>
-		        <div class="container2" id="orumlist">
-		          <div class="auth-wrap"> <!--y-scroll-->
-			          <l:forEach var="vo" items="${rl}">
-		                <div class="questlist">
-		                  <div class ="abcd">
-		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
-		                  </div>
-		
-		                  <div class="authbtn">
-		                        <button type="button"  class="btn btn-outline-success chkbtn">
-		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
-		                          <img src="static/img/submit.png">
-		                            </a>
-		                        </button>
-		                    </div><!--authbtn-->
-		                </div><!--questlist-->
-			          </l:forEach>
-		<!--1차 for문 끝-->
-		
-		<!--  <a href="logout.jsp">로그아웃</a>-->
-		          </div><!--authwrap-->
-		        </div><!--container2-->
-		    </div><!--container-->
-        
-  </body>
-  </l:when>
-  
- <l:otherwise>
-    <!-- 로그인 안했을때 보이는 부분  -->    
-  <body >
-    <div class="nav">
-      <div id="menu" class="menu">
-        <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
-          <img id="img_1" src="static/img/flag.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
-          <img id="img_2" src="static/img/placeholder.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
-          <img id="img_3" src="static/img/person.png" width="30" height="30" alt=""/>
-        </a>
-        <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
-          <img id="img_4" src="static/img/timeline.png" width="30" height="30" alt=""/>
-        </a>
-       </div>
+                <div class="container2" id="orumlist">
+                  <div class="auth-wrap"> <!--y-scroll-->
+                      <l:forEach var="vo" items="${rl}">
+                        <div class="questlist">
+                          <div class ="abcd">
+                              <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
+                          </div>
 
-      <div id="header-title">
-        <span>Quest In JeJu</span>
-      </div>
-    </div>
-    <div id="map" class="naver-map"></div>
+                          <div class="authbtn">
+                                <button type="button"  class="btn btn-outline-success chkbtn">
+                                  <a href="quset_authentication.jsp?item_id=${vo.id}">
+                                  <img src="static/img/submit.png">
+                                    </a>
+                                </button>
+                            </div><!--authbtn-->
+                        </div><!--questlist-->
+                      </l:forEach>
+            <!--1차 for문 끝-->
+
+            <!--  <a href="logout.jsp">로그아웃</a>-->
+                  </div><!--authwrap-->
+                </div><!--container2-->
+            </div><!--container-->
+</body>
+  </l:when>
+ <l:otherwise>
+    <!-- 로그인 안했을때 보이는 부분  -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         로그인
     </button>
@@ -187,19 +160,19 @@
             <div class="modal-body">
               <form method="POST" action="join.jsp" id="signupform" onsubmit="return check();">
                   <div class="form-group">
-                      <label class="signup-id" for="exampleDropdownFormEmail2">아이디 (Email)</label>
+                      <label class="signup-id" for="email">아이디 (Email)</label>
                         <div class="idform-check">
                           <input type="email" class="form-control id" id="email" placeholder="email@example.com" name="email">
                           <button class="signup-id-check">check</button>
                         </div>
                   </div>
                   <div class="form-group">
-                      <label class="signup-pw" for="exampleDropdownFormPassword2">비밀번호</label>
+                      <label class="signup-pw" for="password">비밀번호</label>
                       <input type="password" class="form-control" id="password" placeholder="password" name="password">
                       <input type="password" class="form-control confirm" id="passwordcheck" placeholder="confirm password" name="passwordcheck">
                   </div>
                   <div class="form-group">
-                      <label class="signup-name" for="exampleDropdownFormEmail2">이름</label>
+                      <label class="signup-name" for="name">이름</label>
                       <input type="password" class="form-control" id="name" placeholder="name" name="name">
                   </div>
                   <button type="submit" class="btn btn-secondary" id="signup-btn" onclick>가입하기</button>

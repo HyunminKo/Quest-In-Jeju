@@ -19,7 +19,7 @@ html {
 }
 .navbar-brand {
   padding: 5px 5px !important;
-  margin-right: 0.3rem;
+  margin-right: 0.3rem !important;
 }
 .nav {
   background: #da0808;

@@ -3,4 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>UserQuestPlayServlet</servlet-name>
+        <servlet-class>servlet.UserQuestPlayServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserItemPlayServlet</servlet-name>
+        <servlet-class>servlet.UserItemPlayServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserQuestPlayServlet</servlet-name>
+        <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserItemPlayServlet</servlet-name>
+        <url-pattern>/servlet/UseItemPlayServlet</url-pattern>
+        <url-pattern>/servlet/UserItemPlayServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
