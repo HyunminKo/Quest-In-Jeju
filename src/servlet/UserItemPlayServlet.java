@@ -2,6 +2,11 @@ package servlet;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import quest.QuestItemVO;
+import relation.UserItemPlayVO;
+import relation.UserQuestPlayVO;
+import rowmapper.QuestItemRowMapper;
+import rowmapper.UserItemPlayRowMapper;
 
 
 import javax.servlet.http.HttpServlet;
@@ -30,56 +35,20 @@ public class UserItemPlayServlet extends HttpServlet {
 
             String method = (String) jsonObject.get("method");
 
-
+            // 한 줄 검색
             if("queryForObject".equals(method)) {
                 Long user_id = (Long)jsonObject.get("user_id");
-                Long quest_id = (Long)jsonObject.get("quset_id");
-
+                Long item_id = (Long)jsonObject.get("item_id");
             }
 
 
 
-//            if("insert".equals(method)){
-//                Long quest_id = (Long) jsonObject.get("quest_id");
-//                UserQuestPlayDAO dao = new UserQuestPlayDAO();
-//                UserQuestPlayVO vo = new UserQuestPlayVO();
-//                //임시
-//                vo.setUser_id(1L);
-//                vo.setQuest_id(quest_id);
-//                dao.insert(vo); // user_quest_play에 추가
-//
-//                QuestItemDAO questItemDAO = new QuestItemDAO();
-//                List<Long> idList = questItemDAO.findIdsByQuestId(quest_id);
-//                UserItemPlayDAO userItemPlayDAO = new UserItemPlayDAO();
-//                UserItemPlayVO userItemPlayVO = new UserItemPlayVO();
-//                userItemPlayVO.setIs_completed(0);
-//                userItemPlayVO.setUser_id(1L);
-//                for(Long id : idList){
-//                    userItemPlayVO.setItem_id(id);
-//                    userItemPlayDAO.insert(userItemPlayVO);
-//                }
-//            }
+
         } catch(Exception e) {
             e.printStackTrace();
         }
 
 
     }
-
-
-    // user_item_play 테이블에서 user_id와 item_id로 찾아야 됨
-        // user_item_play 테이블에서 "is_completed" 애트리뷰트 값을 1로 변경 -> 완료했다는 의미
-
-
-
-
-
-//        UserItemPlayDAO dao = new UserQuestItemDAO();
-//
-//        String sql = "select item_id from user_item_play where item_id = (?)";
-//        dao.queryForObject(sql, <UserItemPlayVO>);
-
-
-        // 모든 item을 불러와라
-    }
+}
 
