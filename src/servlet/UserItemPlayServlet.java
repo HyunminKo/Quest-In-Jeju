@@ -21,6 +21,8 @@ public class UserItemPlayServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        System.out.println("servlet");
+
         StringBuffer sb = new StringBuffer();
         String line = null;
 

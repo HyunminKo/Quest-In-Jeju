@@ -1,22 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"
          import="java.util.List, quest.*"%>
 
-<%
-  Long item_id = Long.parseLong(request.getParameter("item_id"));
-
-  QuestItemDAO dao = new QuestItemDAO();
-  QuestItemVO vo = new QuestItemVO();
-  try {
-    vo = dao.findOne(item_id);
-
-    request.setAttribute("vo", vo);
-    request.setAttribute("item_id", item_id);
-  } catch(Exception e) {
-    e.printStackTrace();
-  }
-%>
-
-
 <html lang="ko">
   <head>
     <title>퀘스트 인증</title>
@@ -41,11 +25,13 @@
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
-          <h3 class="panel-title">${vo.name}</h3>
+          <!-- 데이터 불러와야 됨 -->
+          <h3 class="panel-title">새별 오름</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
-            <a id="user-location-confirm-btn" onclick="getLocation(${item_id})">현재 위치 확인하기</a>
+            <!-- getLocation(item_id) 로 변경하기 -->
+            <a id="user-location-confirm-btn" onclick="getLocation(2)">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />

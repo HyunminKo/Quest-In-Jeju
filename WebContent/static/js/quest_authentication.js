@@ -111,10 +111,8 @@ function postParams() {
       dataType: "json",
       contentType: "application/json; charset=UTF-8",
       success: function() {
-        alert("인증되었습니다");
+        console.log("success");
       }
     });
-  } else {
-    const result = false;
   }
 }
