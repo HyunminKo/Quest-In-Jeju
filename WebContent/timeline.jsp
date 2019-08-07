@@ -46,10 +46,6 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 <link rel="stylesheet" href="static/css/quest_authentication.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script
-  type="text/javascript"
-  src="http://code.jquery.com/jquery-2.1.0.min.js"
-></script>
 <link rel="stylesheet" href="static/css/main.css" />
 <link rel="stylesheet" href="static/css/timeline.css"/>
 </head>
