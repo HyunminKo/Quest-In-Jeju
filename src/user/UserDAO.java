@@ -28,4 +28,16 @@ public class UserDAO {
         }
         return ls;
     }
+    
+    public UserVO findPwByEmail( em ) {
+    	UserVO vo = null;
+    	String sql = "select password from user where email = ?";
+    	try {
+    		vo = jdbc.queryForObject(sql, new UserRowMapper(), email );
+    	}
+    	catch ( Exception e ) {
+    		 e.printStackTrace();
+    	}
+    	return vo;
+    }
 }
