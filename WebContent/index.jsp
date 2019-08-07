@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%
   /*
   Cookie[] cookies = request.getCookies();
@@ -16,10 +17,12 @@
 */
 	String userId = null;
 	
-	request.setAttribute("userId",userId);
-
-
-	  System.out.println(userId);
+	//request.setAttribute("userId",userId);
+	
+	//response.getAttribute("userId");
+	//Object idtest = request.getAttribute("userId");
+	
+	 // System.out.println(idtest);//
 	
 	
   List<QuestItemVO> rl = null;
@@ -31,7 +34,7 @@
   try{
   	rl = dao.findAll();
   	request.setAttribute("rl", rl);
-  	System.out.println(rl);
+  //	System.out.println(rl);
   }catch(Exception e){
   	err = e;
   }
@@ -67,51 +70,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   </head>
-<l:set var="idid" value=" ${userId }" />
-  <l:choose>
-  	<l:when test="${ idid ne null}">
-		  <body>
-		  
+	<body>
+	 <!--
+    로그인 안했을때 보이는 부분  -->    
+
 		    <%@include file="header.jsp" %>
-		
-		    <div id="map" class="naver-map"></div>
-		    <div class="quest">
-		        <p >--------님이 수행중인 퀘스트!</p>
-		    </div>
-		    <div class="contain">
-		        <div class="button" >
-					     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
-		        </div>
-		        <div class="container2" id="orumlist">
-		          <div class="auth-wrap"> <!--y-scroll-->
-			          <l:forEach var="vo" items="${rl}">
-		                <div class="questlist">
-		                  <div class ="abcd">
-		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
-		                  </div>
-		
-		                  <div class="authbtn">
-		                        <button type="button"  class="btn btn-outline-success chkbtn">
-		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
-		                          <img src="static/img/submit.png">
-		                            </a>
-		                        </button>
-		                    </div><!--authbtn-->
-		                </div><!--questlist-->
-			          </l:forEach>
-		<!--1차 for문 끝-->
-		
-		<!--  <a href="logout.jsp">로그아웃</a>-->
-		          </div><!--authwrap-->
-		        </div><!--container2-->
-		    </div><!--container-->
-        
-  </body>
-  </l:when>
-  
- <l:otherwise>
-    <!-- 로그인 안했을때 보이는 부분  -->    
-  <body >
     <div class="nav">
       <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
@@ -200,9 +163,10 @@
             </div>
         </div>
     </div>
+
+	
+
   </body>
-</l:otherwise>
-</l:choose>
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
