@@ -12,7 +12,7 @@ function showInitIcon(state) {
   $("#link_1").show();
 }
 function sleep(ms) {
-  return new Promise(resolve = setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function showStateIcons(t) {
   if (!menuFlag) {
@@ -49,8 +49,9 @@ async function showStateIcons(t) {
     $(".navbar-brand").hide();
 
     let img = $("#img_" + t.id.split("_")[1]);
-    state = img.attr("src").split("/")[2];
-    showInitIcon(state);
+    state = img.attr("src").split("/")[2]; // index.png
+    state = state.substring(0,state.length - 4); // index
+    showInitIcon(state+".png");
 
     $("#header-title").show();
     menuFlag = false;
@@ -78,63 +79,3 @@ function doDisplay() {
 			}
 		};
 */
-var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-function success(pos) {
-  const jejuLatitued = 33.38715;
-  const jejuLongitude = 126.5266283;
-
-  var crd = pos.coords;
-  var HOME_PATH = window.HOME_PATH || ".";
-  var mapOptions = {
-    center: new naver.maps.LatLng(jejuLatitued, jejuLongitude),
-    zoom: 4
-  };
-  var map = new naver.maps.Map("map", mapOptions);
-  var position = new naver.maps.LatLng(crd.latitude, crd.longitude);
-  var latlngs = [
-    new naver.maps.LatLng(33.528486, 126.7692923),
-    new naver.maps.LatLng(33.555875, 126.7938253),
-    new naver.maps.LatLng(33.5437905, 126.6666554),
-    new naver.maps.LatLng(33.366052, 126.3555555)
-  ];
-  var markerList = [];
-  var newMarker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(crd.latitude, crd.longitude),
-    map: map,
-    animation: naver.maps.Animation.BOUNCE,
-    icon: {
-      url: HOME_PATH + "/static/img/user_red_50_50.png",
-      size: new naver.maps.Size(50, 52),
-      origin: new naver.maps.Point(0, 0),
-      anchor: new naver.maps.Point(25, 26)
-    }
-  });
-  for (var i = 0, size = latlngs.length; i < size; i++) {
-    var icon = {
-      url: HOME_PATH + "/static/img/current_icon_30_30.png",
-      size: new naver.maps.Size(50, 52),
-      origin: new naver.maps.Point(0, 0),
-      anchor: new naver.maps.Point(25, 26)
-    };
-    marker = new naver.maps.Marker({
-      position: latlngs[i],
-      map: map,
-      icon: icon
-    });
-
-    marker.set("seq", i);
-
-    markerList.push(marker);
-
-    // marker.addListener("mouseover", onMouseOver);
-    // marker.addListener("mouseout", onMouseOut);
-
-    icon = null;
-    marker = null;
-  }
-}

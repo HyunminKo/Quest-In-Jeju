@@ -1,5 +1,6 @@
 package servlet;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import quest.QuestItemDAO;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -39,12 +41,23 @@ public class UserQuestPlayServlet extends HttpServlet {
                 UserQuestPlayDAO dao = new UserQuestPlayDAO();
                 List<UserQuestPlayVO> list = dao.findAll();
                 System.out.println(list);
+                JSONArray jsonArray = new JSONArray();
+                for(UserQuestPlayVO vo : list){
+                    jsonArray.add(vo.getQuest_id());
+                }
+                jsonArray.add(10);
+                jsonArray.add(11);
+                jsonArray.add(20);
+                jsonArray.add(345);
+                jsonArray.add(123);
+                jsonArray.add(455);
 
-//                PrintWriter out = response.getWriter();
-//                response.setContentType("application/json");
-//                response.setCharacterEncoding("UTF-8");
-//                out.print(jsonObject.toJSONString(list));
-//                out.flush();
+                response.setStatus(HttpServletResponse.SC_OK);
+                PrintWriter out = response.getWriter();
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                out.print(jsonArray.toJSONString());
+                out.flush();
             }else if("insert".equals(method)){
                 Long quest_id = (Long) jsonObject.get("quest_id");
                 UserQuestPlayDAO dao = new UserQuestPlayDAO();

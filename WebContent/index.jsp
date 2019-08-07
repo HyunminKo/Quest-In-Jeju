@@ -63,6 +63,7 @@
         <link rel="stylesheet" href="static/css/quest_page.css" />
         <link rel="stylesheet" href="static/css/progressbar.css" />
         <link rel="stylesheet" href="static/css/main.css" />
+        <link rel="stylesheet" href="static/css/loading_spinner.css"/>
 
       </head>
 
@@ -118,9 +119,9 @@
           <!--container-->
           <!--container-->
       </body>
+      <div class="se-pre-con"></div>
       <script src="static/js/naver_map.js"></script>
       <script src="static/js/main.js"></script>
       <script src="static/js/get_playing_quest.js"></script>
-      <script src="static/js/progressbar.js"></script>
 
       </html>
