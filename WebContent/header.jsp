@@ -5,11 +5,6 @@
 
 <%@ page contentType="text/html;charset=utf-8" language="java" %>
 --%>
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
 <div class="nav">
     <div id="menu" class="menu">
         <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
@@ -30,5 +25,3 @@
         <span>Quest In JeJu</span>
     </div>
 </div>
-</body>
-</html>
