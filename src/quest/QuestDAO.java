@@ -40,10 +40,15 @@ public class QuestDAO {
         List<QuestItemVO> questItems = dao.getPlayingQuestItemsByUserId(userId);
         List<UserItemPlayVO> userItemsInfo = dao.getPlayingItemInfoByUserId(userId);
 
+        HttpSession session = request.getSession();
+
         Map<Long, Integer> userItemsInfoMap = new HashMap<>();
         for(UserItemPlayVO info : userItemsInfo){
             userItemsInfoMap.put(info.getItem_id(),info.getIs_completed());
         }
+
+        session.setAttribute("userItemsInfoMap",userItemsInfoMap);
+
         Map<Long, Map<String,Map<String,String>>> questMap = new HashMap<>();
         for(QuestItemVO vo : questItems){
             Long quest_id = vo.getQuest_id();
@@ -64,7 +69,6 @@ public class QuestDAO {
             itemMap.put("isCompleted",String.valueOf(userItemsInfoMap.get(vo.getId())));
             itemKeyMap.put(itemKey,itemMap);
         }
-        HttpSession session = request.getSession();
         session.setAttribute("questIdSet",questIdSet);
         session.setAttribute("questMap",questMap);
         return questItems;
