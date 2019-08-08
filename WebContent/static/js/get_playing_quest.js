@@ -43,11 +43,14 @@ function getUserQuestAndItemsPlayingByUserId() {
         contentType: "application/json; charset=UTF-8",
         success: function(obj) {
             console.log(obj);
-            sessionStorage.setItem("questMap", JSON.stringify(obj['data']));
+            if(obj['code'] == 200){
+                sessionStorage.setItem("questMap", JSON.stringify(obj['data']));
+            }
             navigator.geolocation.getCurrentPosition(success, error, options);
         },
         error:function(request,status,error){
-            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            $(".se-pre-con").fadeOut("slow");
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
 }

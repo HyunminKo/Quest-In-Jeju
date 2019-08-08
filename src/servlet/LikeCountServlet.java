@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,6 @@ public class LikeCountServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ctxPath = request.getContextPath();
-		System.out.println("서블릿 시작 라이크 카운트");
 		StringBuffer sb = new StringBuffer();
         String line = null;
 
@@ -43,17 +43,21 @@ public class LikeCountServlet extends HttpServlet{
             
             UserPostLikeVO vo = new UserPostLikeVO();
             if("Add".equals(method)) {
-            	postDAO.updateLikeCount(Long.parseLong(postId), "+1");
+            	postDAO.updateLikeCount(Long.parseLong(postId), "Add");
             	
             	vo.setPost_id(Long.parseLong(postId));
             	vo.setUser_id(Long.parseLong(userId));
             	userPostLikeDAO.insert(vo);
             	
             }else if("Sub".equals(method)) {
-            	postDAO.updateLikeCount(Long.parseLong(postId), "-1");
-            	
-            	userPostLikeDAO.delete(Long.parseLong(postId),Long.parseLong(userId));
+            	postDAO.updateLikeCount(Long.parseLong(postId), "Sub");
+                userPostLikeDAO.delete(Long.parseLong(postId),Long.parseLong(userId));
             }
+            response.setStatus(HttpServletResponse.SC_OK);
+            PrintWriter out = response.getWriter();
+            out.println(method);
+            out.flush();
+            out.close();
         }catch(Exception e) {
         	e.printStackTrace();
         }

@@ -28,7 +28,7 @@ public class UserAliasHaveDAO {
     }
 
     public void insert(UserAliasHaveVO vo){
-        String sql = "insert into quest_alias values(?, ?)";
+        String sql = "insert into user_alias_have values(?, ?)";
         try {
             jdbc.update(sql, vo.getUser_id(), vo.getAlias_id());
         } catch (Exception e) {

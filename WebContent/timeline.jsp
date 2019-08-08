@@ -86,12 +86,12 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	        <div class="MainTopRightUtilLeft"><%
 	        Long post_id = ((PostVO)pageContext.getAttribute("pvo")).getId();
 	        if( lps.contains( post_id ) ) { %>
-	        	<div type="button" id="button_${vs.count}_${post_id}" class="HeartButton likedButton" onclick="ClickOfLike( this )"></div>
+	        	<div type="button" id="button_${vs.count}_${pvo.id}" class="HeartButton likedButton" onclick="ClickOfLike( this )"></div>
 	   <%   } else { %>
-	        	<div type="button" id="button_${vs.count}_${post_id}" class="HeartButton" onclick="ClickOfLike( this )"></div>
+	        	<div type="button" id="button_${vs.count}_${pvo.id}" class="HeartButton" onclick="ClickOfLike( this )"></div>
 	   <%   }        %>
    				<p class="TextWithHeight">¡¡æ∆ø‰</p>
-   				<p class="TextWithHeight"> <l:out value="${pvo.like_count}"/> </p>
+   				<p class="TextWithHeight" id="likeText_${pvo.id}"> <l:out value="${pvo.like_count}"/> </p>
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
@@ -249,12 +249,12 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     function ClickOfLike( t ){
     	let method;
     	if($('#'+t.id).hasClass('likedButton')){
-    		method = 'Add';
-    	}else {
     		method = 'Sub';
+    	}else {
+    		method = 'Add';
     	}
     	$('#' + t.id ).toggleClass("likedButton");
-    	
+    	console.log("post id : "+t.id.split("_")[2])
 		let post_id = t.id.split("_")[2];
 		console.log(post_id);
     	const params = {
@@ -267,6 +267,14 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
             data: JSON.stringify(params),
             success: function(data) {
                 console.log(data)
+				if(data.trim()=='Sub'){
+					let test = parseInt($("#likeText_"+post_id).html()) - 1;
+					$("#likeText_"+post_id).html(test);
+				}else {
+					let test = parseInt($("#likeText_"+post_id).html()) + 1;
+					$("#likeText_"+post_id).html(test);
+				}
+
             },
             error:function(request,status,error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

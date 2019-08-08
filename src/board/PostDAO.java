@@ -82,11 +82,17 @@ public class PostDAO {
         }
         return ls.size();
     }
-    public int updateLikeCount(Long post_id,String num) {
+    public int updateLikeCount(Long post_id,String method) {
     	int result = -1;
-    	String sql = "update post set like_count = like_count ? where post_id = ?";
+    	String sql = null;
+    	if(method.equals("Add")){
+            sql = "update post set like_count = like_count + 1 where id = ?";
+        }else {
+            sql = "update post set like_count = like_count - 1 where id = ?";
+        }
+
     	try {
-			result = jdbc.update(sql,num,post_id);
+			result = jdbc.update(sql,post_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
