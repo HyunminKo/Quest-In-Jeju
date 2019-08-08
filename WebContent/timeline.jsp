@@ -21,6 +21,7 @@ List<UserPostLikeVO> lls = null;
 
 pdao = new PostDAO();
 cdao = new CommentDAO();
+ldao = new UserPostLikeDAO();
 List<PostVO> pls = null;
 List<CommentVO> cls = null;
 
