@@ -24,7 +24,7 @@ public class UserQuestPlayServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        System.out.println("here");
         StringBuffer sb = new StringBuffer();
         String line = null;
 
@@ -40,7 +40,9 @@ public class UserQuestPlayServlet extends HttpServlet {
             String method = (String) jsonObject.get("method");
             if("getUserQuestAndItemsPlayingByUserId".equals(method)){
                 String userId = Utils.getValueInCookie(request,"user_id");
-                if(userId ==null){
+                if(userId == null){
+                    response.setStatus(HttpServletResponse.SC_OK);
+
                     return ;
                 }
 

@@ -1,11 +1,11 @@
 console.log("enter");
 
 let item_id = 0;
-// 임시로 1로 설정
-let user_id = 1;
+
+
 
 // 인증 페이지에서 '현재 위치 확인하기' 버튼을 눌렀을 때
-function getLocation(id) {
+function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     item_id = id;
@@ -86,9 +86,9 @@ function degreesToRadians(degrees) {
 }
 
 function changeButton() {
-  console.log("sdsdf");
   document.getElementById("user-location-confirm-btn").innerText =
-    "인증되었습니다✔️";
+    "인증되었습니다✔ ️";
+  document.getElementById("user-location-confirm-btn").style.color = "#27ae60";
   postParams();
 }
 
@@ -100,7 +100,7 @@ function postParams() {
     console.log("status = 인증");
     const params = {
       item_id: item_id,
-      user_id: user_id,
+      // user_id: user_id,
       method: "update"
     };
 
