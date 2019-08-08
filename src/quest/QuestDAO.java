@@ -1,9 +1,13 @@
 package quest;
 
 import jdbcUtil.JdbcTemplate;
+import relation.UserItemPlayDAO;
+import relation.UserItemPlayVO;
 import rowmapper.QuestRowMapper;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.*;
 
 public class QuestDAO {
 
@@ -29,5 +33,59 @@ public class QuestDAO {
             e.printStackTrace();
         }
         return ls;
+    }
+    public List<QuestItemVO> getPlayingUserQuest(HttpServletRequest request, Long userId){
+        UserItemPlayDAO dao = new UserItemPlayDAO();
+        Set<Long> questIdSet = new HashSet<>();
+        List<QuestItemVO> questItems = dao.getPlayingQuestItemsByUserId(userId);
+        List<UserItemPlayVO> userItemsInfo = dao.getPlayingItemInfoByUserId(userId);
+
+        HttpSession session = request.getSession();
+
+        Map<Long, Integer> userItemsInfoMap = new HashMap<>();
+        for(UserItemPlayVO info : userItemsInfo){
+            userItemsInfoMap.put(info.getItem_id(),info.getIs_completed());
+        }
+
+        session.setAttribute("userItemsInfoMap",userItemsInfoMap);
+
+        Map<Long, Map<String,Map<String,String>>> questMap = new HashMap<>();
+        Map<Long,List<QuestItemVO>> questList = new HashMap<>();
+        for(QuestItemVO vo : questItems){
+            Long quest_id = vo.getQuest_id();
+            questIdSet.add(quest_id);
+            if(!questMap.containsKey(quest_id)){
+                questMap.put(quest_id,new HashMap<>());
+            }
+            if(!questList.containsKey(quest_id)){
+                questList.put(quest_id,new ArrayList<>());
+            }
+            questList.get(quest_id).add(vo);
+            Map<String,Map<String,String>> itemKeyMap =  questMap.get(quest_id);
+            String itemKey = String.valueOf(vo.getId());
+            HashMap<String,String> itemMap = new HashMap<>();
+            itemMap.put("name",vo.getName());
+            itemMap.put("description",vo.getDescription());
+            itemMap.put("addr",vo.getAddr());
+            itemMap.put("latitude",vo.getLatitude());
+            itemMap.put("longitude",vo.getLongitude());
+            itemMap.put("originalfilename",vo.getOriginalFileName());
+            itemMap.put("filesystemname",vo.getFileSystemName());
+            itemMap.put("isCompleted",String.valueOf(userItemsInfoMap.get(vo.getId())));
+            itemKeyMap.put(itemKey,itemMap);
+        }
+        session.setAttribute("questIdSet",questIdSet);
+        session.setAttribute("questMap",questMap);
+        session.setAttribute("questList",questList);
+        return questItems;
+    }
+
+    public Map<Long, String> getQuestNameMap() {
+        Map<Long, String> result = new HashMap<>();
+        List<QuestVO> list = this.findAll();
+        for(QuestVO vo : list){
+            result.put(vo.getId(),vo.getName());
+        }
+        return result;
     }
 }

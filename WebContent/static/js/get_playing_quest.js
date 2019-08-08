@@ -40,10 +40,7 @@ function getUserQuestAndItemsPlayingByUserId() {
         dataType: 'json',
         contentType: "application/json; charset=UTF-8",
         success: function(data) {
-            console.log("Success getting user_quest_play list");
             loadingProgressCircleBar();
-            console.log("user_quest_play: ");
-            console.log(data);
             sessionStorage.setItem("questMap", JSON.stringify(data));
             navigator.geolocation.getCurrentPosition(success, error, options);
         },
@@ -52,6 +49,10 @@ function getUserQuestAndItemsPlayingByUserId() {
         }
     });
 }
-$(document).ready(function () {
-    getUserQuestAndItemsPlayingByUserId();
-});
+function isLogin(idValue){
+    if(idValue!==undefined){
+        getUserQuestAndItemsPlayingByUserId();
+    }else {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+}

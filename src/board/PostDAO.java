@@ -6,6 +6,9 @@ import jdbcUtil.JdbcTemplate;
 import rowmapper.PostRowMapper;
 import rowmapper.UserRowMapper;
 import user.UserVO;
+import util.Utils;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class PostDAO {
 
@@ -31,6 +34,30 @@ public class PostDAO {
         }
         return ls;
     }
+    public List<PostVO> findAllDesc() {
+    	List<PostVO> ls = null;
+    	String sql = "select * from post order by id desc";
+    	try {
+            ls = jdbc.query(sql,new PostRowMapper());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls;
+    }
+    public List<PostVO> findAllCategory( String lo ) {
+    	List<PostVO> ls = null;
+    	String sql = null;
+    	if( lo.equals("1") ) sql = "select * from post order by id desc";
+    	else if( lo.equals("2") ) sql = "select * from post where category = 1 order by id desc";
+    	else if( lo.equals("3") ) sql = "select * from post where category = 2 order by id desc";
+    	else if( lo.equals("4") ) sql = "select * from post where category = 3 order by id desc";
+    	try {
+            ls = jdbc.query(sql,new PostRowMapper());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls;
+    }
     public String findNameByUserId( String id ) {
     	UserVO vo = null;
     	String sql = "select * from user where id = ?";
@@ -40,5 +67,17 @@ public class PostDAO {
     		e.printStackTrace();
     	}
     	return vo.getName();
+    }
+
+    public int findPostCountByUserId(HttpServletRequest request) {
+        List<PostVO> ls = null;
+        String sql = "select * from post where user_id = ?";
+        Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+        try {
+            ls = jdbc.query(sql, new PostRowMapper(), user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls.size();
     }
 }

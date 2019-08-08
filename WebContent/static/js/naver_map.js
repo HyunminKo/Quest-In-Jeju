@@ -7,7 +7,6 @@ var options = {
 
 function success(pos) {
     let questMap = JSON.parse(sessionStorage.getItem("questMap"));
-    console.log(questMap);
     let latlngs = [];
     for(i in questMap){
         for(item in questMap[i]){

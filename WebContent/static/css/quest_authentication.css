@@ -11,7 +11,7 @@
 }
 
 .panel-heading {
-  background-color: white !important;
+  background-color: #da0808 !important;
 }
 
 .panel-default .panel-heading {
@@ -20,15 +20,17 @@
 
 #outer-panel {
   height: 520px;
-  margin-top: 80px;
+  margin-top: 60px;
+  padding-top: 0;
 }
+
 
 #inner-panel {
   padding-bottom: 7px;
 }
 
 #image-uplaod #user-location {
-  margin-top: 10px;
+  margin-top: 17px;
 }
 
 #image-upload {
@@ -69,7 +71,7 @@
 }
 
 #outer-camera {
-  margin-top: 16px;
+  margin-top: 1.3em;
 }
 
 #authentication_submit {
@@ -89,3 +91,10 @@
   color: #da0808;
   display: inline;
 }
+
+.panel-title {
+  color: white;
+  /*background-color: #da0808;*/
+  font-size: 20px;
+}
+
