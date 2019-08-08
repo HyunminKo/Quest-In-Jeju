@@ -3,6 +3,9 @@
 <%@ page import="util.Utils" %>
 <%@ page import="java.util.List" %>
 <%@ page import="quest.QuestDAO" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.ArrayList" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
     String userId = Utils.getValueInCookie(request,"user_id");
@@ -11,6 +14,7 @@
     System.out.println(initLoaded);
     request.setAttribute("initLoaded",initLoaded);
 
+    Map<Long,List<QuestItemVO>> questMap = new HashMap<>();
     List<QuestItemVO> rl = null;
     Exception err = null;
     String ctxPath = request.getContextPath();
@@ -29,6 +33,12 @@
         }
     }else {
         rl = (List<QuestItemVO>) session.getAttribute("rl");
+//        for(QuestItemVO vo : rl){
+////            Long quest
+//            if(!questMap.containsKey()){
+//                questMap.put();
+//            }
+//        }
         request.setAttribute("rl",rl);
     }
     if (userId != null) {
@@ -67,7 +77,7 @@
     <link rel="stylesheet" href="static/css/progressbar.css"/>
 
   </head>
-	<body>
+	<body onload="isLogin(${userId})">
  <%@include file="header.jsp" %>
     <div id="map" class="naver-map"></div>
 	<l:choose>

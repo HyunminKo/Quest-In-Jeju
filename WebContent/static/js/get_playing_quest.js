@@ -49,6 +49,10 @@ function getUserQuestAndItemsPlayingByUserId() {
         }
     });
 }
-$(document).ready(function () {
-    getUserQuestAndItemsPlayingByUserId();
-});
+function isLogin(idValue){
+    if(idValue!==undefined){
+        getUserQuestAndItemsPlayingByUserId();
+    }else {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+}
