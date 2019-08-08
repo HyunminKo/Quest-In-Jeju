@@ -6,7 +6,12 @@ var options = {
 };
 
 function success(pos) {
-    let questMap = JSON.parse(sessionStorage.getItem("questMap"));
+    let questMap;
+    if(isLogined){
+        questMap = JSON.parse(sessionStorage.getItem("questMap"));
+    }else {
+        questMap = {};
+    }
     let latlngs = [];
     for(i in questMap){
         for(item in questMap[i]){
@@ -63,6 +68,7 @@ function success(pos) {
         marker = null;
     }
     $(".se-pre-con").fadeOut("slow");
+    loadingProgressCircleBar();
 }
 
 function error(err) {

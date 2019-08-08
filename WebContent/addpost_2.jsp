@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="board.PostDAO, board.PostVO" %>
 <%@ page import="file.FileUp" %>
+<%@ page import="util.Utils" %>
 <%
 	String ctxPath = request.getContextPath();
 	request.setCharacterEncoding("UTF-8");
@@ -11,8 +12,12 @@
 		vo.setLike_count(0);
 		FileUp.fileUpload(request,"/post",vo);
 
-		//임시
-		vo.setUser_id(1L);
+		String userId = Utils.getValueInCookie(request,"user_id");
+		if(userId!=null){
+			vo.setUser_id(Long.parseLong(userId));
+		}else {
+			vo.setUser_id(1L);
+		}
 
 //		로그인 기능(쿠키에 사용자 ID 저장) 구현 이후 실행해야함.
 //		Cookie[] cookies = request.getCookies();
@@ -34,6 +39,6 @@
 		session.setAttribute("error",err);
 		response.sendRedirect(ctxPath + "/error.jsp");
 	}else{
-		response.sendRedirect(ctxPath + "/timeline02.html");
+		response.sendRedirect(ctxPath + "/timeline.jsp");
 	}
 %>

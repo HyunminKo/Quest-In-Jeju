@@ -53,17 +53,18 @@ footer {
     float : left;
     margin-top : 8%;
     position : relative;
+    background-color : white;
     right : 6%;
 }
 
-.LikeButton {
-    width : 10vw;
-    height : 10vw;
-    border-radius : 100%;
-    background-color : white;
-    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
-    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+.TextWithHeight {
+	width : 100%;
+	height : 100%;
+	margin : 0px 0px 0px 2px;
+	font-size : 10px;
+	text-align : center;
 }
+
 .LikeButtonUtilB {
     border : 2px solid #03a9f4;
 }
@@ -74,34 +75,37 @@ footer {
     border : 2px solid #ffc107;
 }
 
+.HeartButton {
+  background-color: red;
+  height: 5vw;
+  transform: rotate(-45deg);
+  width: 5vw;
+  margin: 27%;
+}
+.HeartButton:before,
+.HeartButton:after{
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 5vw;
+  position: absolute;
+  width: 5vw;
+}
+.HeartButton:before {
+  top: -10px;
+  left: 0;
+}
+.HeartButton:after {
+  top: 0px;
+  left: 10px;
+}
 
-.likedButtonB {
-    background-color : #03a9f4;
-    -moz-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    -o-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
-    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-}
-.likedButtonG {
-    background-color : #8bc34a;
-    -moz-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    -o-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-    -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
-    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
-}
-.likedButtonO {
-    background-color : #ffc107;
-    -moz-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    -o-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
+.likedButton {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
     -webkit-transition:width 0.5s, height 0.5s, background-color 0.5s, -webkit-transform 0.5s;
     transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
 }
@@ -112,6 +116,9 @@ footer {
     margin-right : 5%;
     float : right;
     border : 1px solid #eee;
+    -moz-box-shadow: 4px 1px 10px #8a8a8a;
+    -webkit-box-shadow: 4px 1px 10px #8a8a8a;
+    box-shadow: 4px 1px 10px #8a8a8a;
 }
 .MainTopRightUtilUtilB {
     border-left : 5px solid #03a9f4;
@@ -219,6 +226,9 @@ p.WriteDate {
     float : right;
     border-top : 0px;
     border-bottom : 0px;
+    -moz-box-shadow: 0px;
+    -webkit-box-shadow: 0px;
+    box-shadow: 0px;
 }
 .CommentSubmitButtonUtilB {
     border-left : 1px solid #03a9f4;
@@ -379,3 +389,13 @@ textarea.WriterEditor {
 .CommentOfOne {
 	margin : 0px;
 }
+.modal-content {
+    margin-top:25%;
+}
+.tl-new {
+    width: 100%;
+    border: 1px solid #00000040;
+}
+.tl-bold {
+     color: #da0808;
+ }

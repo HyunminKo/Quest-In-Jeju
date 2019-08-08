@@ -11,12 +11,11 @@
 
   // 로그인하지 않은 사용자이면 home으로
   String ctxPath = request.getContextPath();
-  try {
-    Long current_user = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
-  } catch(Exception e) {
-    response.sendRedirect(ctxPath + "/");
+  String userId = Utils.getValueInCookie(request, "user_id");
+  if(userId == null){
+    response.sendRedirect(ctxPath);
+    return;
   }
-
 
   // 게시글 수
   PostDAO post_dao = new PostDAO();
@@ -41,7 +40,8 @@
   UserAliasHaveDAO user_alias_have_dao = new UserAliasHaveDAO();
   int alias_count = 0;
   try {
-    alias_count = user_alias_have_dao.getAliasCountByUserId(request);
+
+    alias_count = user_alias_have_dao.getAliasCountByUserId(Long.parseLong(userId));
   } catch(Exception e) {
     e.printStackTrace();
   }
@@ -51,7 +51,7 @@
   // 칭호 리스트
   List<UserAliasHaveVO> aliasList = null;
   try {
-    aliasList = user_alias_have_dao.getAliasListByUserId(request);
+    aliasList = user_alias_have_dao.getAliasListByUserId(Long.parseLong(userId));
   } catch(Exception e) {
     e.printStackTrace();
   }
@@ -116,7 +116,7 @@
           <p class="quest-circle-title">획득 칭호</p>
         </div>
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="${user_completed_item}">0</span>
+          <span class="quest-circle-innertext counter" data-count="152">0</span>
           <p class="quest-circle-title">완료한 아이템</p>
         </div>
         <div class="quest-circle">

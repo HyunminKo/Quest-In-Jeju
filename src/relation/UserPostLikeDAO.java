@@ -10,7 +10,7 @@ public class UserPostLikeDAO {
 	JdbcTemplate jdbc = new JdbcTemplate();
 
     public void insert( UserPostLikeVO vo ){
-        String sql = "insert into UserPostLike"
+        String sql = "insert into user_post_like"
         		+ "( user_id , post_id ) "
         		+ "values( ? , ? )";
         try {
@@ -31,7 +31,7 @@ public class UserPostLikeDAO {
     }
     public List<UserPostLikeVO> findAllPostId( Long user_id ) {
     	List<UserPostLikeVO> ls = null;
-    	String sql = "select post_id from user_post_like where user_id = ?";
+    	String sql = "select * from user_post_like where user_id = ?";
     	try {
     		ls = jdbc.query( sql , new UserPostLikeRowMapper() , user_id );
     	} catch( Exception e ) {
@@ -39,4 +39,15 @@ public class UserPostLikeDAO {
     	}
     	return ls;
     }
+	public int delete(long postId, long userId) {
+        int result = -1;
+		String sql = "delete from user_post_like where user_id=? and post_id=?";
+		
+		try {
+			result = jdbc.update(sql, userId,postId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

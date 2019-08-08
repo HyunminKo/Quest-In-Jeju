@@ -12,6 +12,14 @@
         <servlet-class>servlet.UserItemPlayServlet</servlet-class>
     </servlet>
     <servlet>
+    	<servlet-name>LikeCountServlet</servlet-name>
+    	<servlet-class>servlet.LikeCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>LikeCountServlet</servlet-name>
+    	<url-pattern>/servlet/LikeCountServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
     	<servlet-name>EmailCheckServlet</servlet-name>
     	<servlet-class>servlet.EmailCheckServlet</servlet-class>
     </servlet>

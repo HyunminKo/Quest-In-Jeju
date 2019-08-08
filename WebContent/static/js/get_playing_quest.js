@@ -1,3 +1,5 @@
+let isLogined = false;
+
 function loadingProgressCircleBar() {
     $(function() {
         // Remove svg.radial-progress .complete inline styling
@@ -39,18 +41,22 @@ function getUserQuestAndItemsPlayingByUserId() {
         data: JSON.stringify(params),
         dataType: 'json',
         contentType: "application/json; charset=UTF-8",
-        success: function(data) {
-            loadingProgressCircleBar();
-            sessionStorage.setItem("questMap", JSON.stringify(data));
+        success: function(obj) {
+            console.log(obj);
+            if(obj['code'] == 200){
+                sessionStorage.setItem("questMap", JSON.stringify(obj['data']));
+            }
             navigator.geolocation.getCurrentPosition(success, error, options);
         },
         error:function(request,status,error){
-            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            $(".se-pre-con").fadeOut("slow");
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
 }
 function isLogin(idValue){
     if(idValue!==undefined){
+        isLogined = true;
         getUserQuestAndItemsPlayingByUserId();
     }else {
         navigator.geolocation.getCurrentPosition(success, error, options);

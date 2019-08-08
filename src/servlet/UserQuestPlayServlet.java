@@ -26,7 +26,7 @@ public class UserQuestPlayServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         StringBuffer sb = new StringBuffer();
         String line = null;
-
+        String ctxPath = request.getContextPath();
         try {
             BufferedReader reader = request.getReader();
             while((line = reader.readLine()) != null) {
@@ -37,28 +37,37 @@ public class UserQuestPlayServlet extends HttpServlet {
             JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
 
             String method = (String) jsonObject.get("method");
+
             if("getUserQuestAndItemsPlayingByUserId".equals(method)){
+                PrintWriter out = response.getWriter();
                 String userId = Utils.getValueInCookie(request,"user_id");
                 if(userId == null){
                     response.setStatus(HttpServletResponse.SC_OK);
-                    System.out.println(userId);
+                    JSONObject obj = new JSONObject();
+                    obj.put("code",201);
+                    out.println(obj.toJSONString());
                     return ;
                 }
 
                 HttpSession session = request.getSession();
                 Map<Long, Map<String,Map<String,String>>> questMap = (Map<Long, Map<String,Map<String,String>>>) session.getAttribute("questMap");
                 if(questMap == null){
-                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                    response.setStatus(HttpServletResponse.SC_OK);
+                    JSONObject obj = new JSONObject();
+                    obj.put("code",202);
+                    out.println(obj.toJSONString());
                     return;
                 }
                 JSONObject jsonMap = new JSONObject();
+                jsonMap.put("code",200);
+                jsonMap.put("data",questMap);
                 jsonMap.putAll(questMap);
 
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.setContentType("application/json;charset=utf-8");
                 response.setCharacterEncoding("utf-8");
 
-                PrintWriter out = response.getWriter();
+
                 out.print(jsonMap.toJSONString());
                 out.flush();
 
@@ -86,6 +95,13 @@ public class UserQuestPlayServlet extends HttpServlet {
                     userItemPlayVO.setItem_id(id);
                     userItemPlayDAO.insert(userItemPlayVO);
                 }
+                HttpSession session = request.getSession();
+                session.setAttribute("init_load", null);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("text/plain");
+                PrintWriter out = response.getWriter();
+                out.println("success");
+                out.flush();
             }
         } catch(Exception e) {
             e.printStackTrace();

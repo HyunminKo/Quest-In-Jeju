@@ -4,7 +4,6 @@ import java.util.List;
 
 import jdbcUtil.JdbcTemplate;
 import rowmapper.AliasRowMapper;
-import rowmapper.UserRowMapper;
 
 public class AliasDAO {
 	

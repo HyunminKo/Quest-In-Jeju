@@ -44,6 +44,7 @@
         request.setAttribute("err",err);
         response.sendRedirect(ctxPath + "/error.jsp");
     }
+
 %>
 <!DOCTYPE html>
 <html>
@@ -61,13 +62,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
   	<%--<link rel="stylesheet" href="static/css/quest_page.css"/>--%>
+=======
+>>>>>>> 11f3f87b5888489dd989374a4ef72c2ad017ac2b
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/loading_spinner.css"/>
     <link rel="stylesheet" href="static/css/progressbar.css"/>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 11f3f87b5888489dd989374a4ef72c2ad017ac2b
   </head>
 	<body onload="isLogin(${userId})">
  <%@include file="header.jsp" %>
@@ -88,10 +96,10 @@
                         <div class="progress-card">
                             <div class="progress-head">
                                 <!-- 테스트 프로그래스바 -->
-                                <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+                                <svg class="radial-progress" data-percentage="75" viewBox="0 0 80 80">
                                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                                     <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
-                                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
+                                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">75%</text>
                                 </svg>
                             </div>
                             <div class="progress-body">
@@ -109,7 +117,7 @@
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
                                     <button type="button"  class="btn btn-outline-success chkbtn">
-                                        <a href="quest_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
+                                        <a href="quest_authentication.jsp?item_id=${vo.id}&quest_id=${quest_key}" class="quest-item-a">
                                             인증
                                         </a>
                                     </button>
@@ -174,7 +182,7 @@
             <div class="modal-body">
               <form method="POST" action="join.jsp" id="signupform" onsubmit="return signupcheck();">
                   <div class="form-group">
-                      <label class="signup-id" for="email">아이디 (Email)</label>
+                      <label class="signup-id" for="joinEmail">아이디 (Email)</label>
                         <div class="idform-check">
                           <input type="email" class="form-control id" id="joinEmail" placeholder="email@example.com" name="joinemail">
                           <button class="signup-id-check" type="button" onclick="checkEmail()">check</button>
