@@ -114,7 +114,7 @@
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
                                     <l:choose>
-                                        <l:when test="${userItemsInfoMap[vo.id]} eq 0">
+                                        <l:when test="${userItemsInfoMap[vo.id]} ne 0">
                                             <button type="button"  class="btn btn-outline-danger">
                                                 <a href="quest_authentication.jsp?item_id=${vo.id}&quest_id=${quest_key}" class="quest-item-a">
                                                     인증

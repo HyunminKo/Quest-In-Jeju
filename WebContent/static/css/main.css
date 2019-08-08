@@ -146,7 +146,7 @@ html {
   margin: 17% 0 0 0;
 }
 .quest-list-main {
-  margin-left: 0px !important;
+  margin: 5% 0 0 0 !important;
 }
 .quest-circle {
   display: inline-block;
