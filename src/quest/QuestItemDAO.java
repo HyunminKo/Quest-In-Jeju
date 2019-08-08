@@ -34,7 +34,8 @@ public class QuestItemDAO {
         return ls;
     }
 
-    public String findNameByItemId(Long item_id){
+
+    public QuestItemVO findOne(Long item_id){
         QuestItemVO vo = null;
         String sql = "select * from quest_item where id=?";
         try {
@@ -42,7 +43,7 @@ public class QuestItemDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return vo.getName();
+        return vo;
     }
 
 
