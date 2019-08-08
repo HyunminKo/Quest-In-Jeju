@@ -115,7 +115,7 @@
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
                                     <button type="button"  class="btn btn-outline-success chkbtn">
-                                        <a href="quset_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
+                                        <a href="quest_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
                                             인증
                                         </a>
                                     </button>
