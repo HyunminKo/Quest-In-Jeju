@@ -33,7 +33,8 @@
     }else {
         questNameMap = dao.getQuestNameMap();
         dao.getPlayingUserQuest(request, Long.parseLong(userId));
-
+        Map<Long, Integer> userItemsInfoMap = (Map<Long, Integer>) session.getAttribute("userItemsInfoMap");
+        request.setAttribute("userItemsInfoMap",userItemsInfoMap);
         request.setAttribute("questNameMap",questNameMap);
         Map<Long,List<QuestItemVO>> questList = (Map<Long,List<QuestItemVO>>) session.getAttribute("questList");
         request.setAttribute("questList",questList);
@@ -112,11 +113,20 @@
                             <div class="quest-body">
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
-                                    <button type="button"  class="btn btn-outline-success chkbtn">
-                                        <a href="quest_authentication.jsp?item_id=${vo.id}&quest_id=${quest_key}" class="quest-item-a">
-                                            인증
-                                        </a>
-                                    </button>
+                                    <l:choose>//isCompleted
+                                        <l:when test="${userItemsInfoMap[vo.id]} eq 0">
+                                            <button type="button"  class="btn btn-outline-danger">
+                                                <a href="quest_authentication.jsp?item_id=${vo.id}&quest_id=${quest_key}" class="quest-item-a">
+                                                    인증
+                                                </a>
+                                            </button>
+                                        </l:when>
+                                        <l:otherwise>
+                                            <button type="button"  class="btn btn-outline-success">
+                                                    인증 완료
+                                            </button>
+                                        </l:otherwise>
+                                    </l:choose>
                                 </div>
                             </div>
                         </div>
