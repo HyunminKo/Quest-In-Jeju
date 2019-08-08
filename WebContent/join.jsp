@@ -16,8 +16,9 @@
 	vo.setPassword(password);
 	int result = dao.insert(vo);
 	if(result != -1){ //success
-		Long userId = dao.findIdByEmail(email);
-		response.addCookie(new Cookie("user_id",String.valueOf(userId)));
+		UserVO newUser = dao.findIdByEmail(email);
+		response.addCookie(new Cookie("user_id",String.valueOf(newUser.getId())));
+		response.addCookie(new Cookie("user_name",newUser.getName()));
 		response.sendRedirect(ctxPath);
 	}else { //fail
 		out.println("<script>alert('회원가입에 실패하였습니다. 잠시 후 다시 시도하세요.');location.href='index.jsp';</script>");
