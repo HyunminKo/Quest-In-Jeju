@@ -2,6 +2,7 @@ package servlet;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import quest.QuestDAO;
 import quest.QuestItemDAO;
 import quest.QuestItemVO;
 import relation.UserItemPlayDAO;
@@ -50,8 +51,10 @@ public class UserQuestPlayServlet extends HttpServlet {
                 }
 
                 HttpSession session = request.getSession();
+                QuestDAO dao = new QuestDAO();
+                dao.getPlayingUserQuest(request,Long.parseLong(userId));
                 Map<Long, Map<String,Map<String,String>>> questMap = (Map<Long, Map<String,Map<String,String>>>) session.getAttribute("questMap");
-                System.out.println("[test]: "+questMap);
+                System.out.println("[test]: "+ questMap);
                 if(questMap == null){
                     response.setStatus(HttpServletResponse.SC_OK);
                     JSONObject obj = new JSONObject();
