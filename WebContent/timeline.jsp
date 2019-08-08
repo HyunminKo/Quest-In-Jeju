@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"
-    import="board.*, java.util.*" %>
+    import="board.*, java.util.*, util.Utils , relation.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%><%!
 
 String ctxPath = null;
@@ -12,6 +12,10 @@ PostDAO pdao = null;
 CommentDAO cdao = null;
 String categoryColor = null;
 String lo = "1";
+String LikeCheck = null;
+UserPostLikeDAO ldao = null;
+UserPostLikeVO lvo = null;
+List<UserPostLikeVO> lls = null;
 
 %><%
 
@@ -22,6 +26,19 @@ List<CommentVO> cls = null;
 
 ctxPath = request.getContextPath();
 request.setCharacterEncoding("UTF-8");
+
+lo = request.getParameter("lo");
+if( lo == null ) lo = "1";
+try {
+	pls = pdao.findAllCategory( lo );
+	request.setAttribute( "pls" , pls );
+	
+	lls = ldao.findAll();
+	request.setAttribute( "lls" , lls );
+} catch( Exception e ) {
+	err = e;
+	request.setAttribute( "err" , err );
+}
 
 if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 
@@ -48,17 +65,9 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     <%@include file="header.jsp"%>
 </header>
 <main>
-    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" data-toggle="modal" data-target="#posting_modal"/><%
-    lo = request.getParameter("lo");
-    if( lo == null ) lo = "1";
-	try {
-		pls = pdao.findAllCategory( lo );
-		request.setAttribute( "pls" , pls );
-	} catch( Exception e ) {
-		err = e;
-		request.setAttribute( "err" , err );
-	}
-    %><l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
+    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" data-toggle="modal" data-target="#posting_modal"/>
+    
+    <l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
 		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
 		if( postCategory == 1 ) categoryColor = "B";
 	    else if( postCategory == 2 ) categoryColor = "G";
@@ -67,7 +76,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	        	<input type="button" id="button_${vs.count}" class="<%= "LikeButton LikeButtonUtil" + categoryColor %>" onclick= "ClickOfLike( this )" />
+	        	<input type="button" id="button_${vs.count}" class="<%= "LikeButton LikeButtonUtil" + categoryColor + "LikedButtonB" %>" onclick= "ClickOfLike( this )" />
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
