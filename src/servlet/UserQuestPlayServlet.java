@@ -47,6 +47,10 @@ public class UserQuestPlayServlet extends HttpServlet {
 
                 HttpSession session = request.getSession();
                 Map<Long, Map<String,Map<String,String>>> questMap = (Map<Long, Map<String,Map<String,String>>>) session.getAttribute("questMap");
+                if(questMap == null){
+                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                    return;
+                }
                 JSONObject jsonMap = new JSONObject();
                 jsonMap.putAll(questMap);
 
