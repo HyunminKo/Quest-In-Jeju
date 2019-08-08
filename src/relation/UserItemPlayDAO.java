@@ -58,9 +58,6 @@ public class UserItemPlayDAO {
         String sql = "update user_item_play set is_completed = 1 where user_id = ? and item_id = ?";
         try {
             rc = jdbc.update(sql,user_id, item_id);
-            if (rc != 0) {
-                System.out.println("성공");
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
