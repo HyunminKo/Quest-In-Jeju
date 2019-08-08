@@ -9,11 +9,11 @@ import rowmapper.UserRowMapper;
 public class AliasDAO {
 	
     JdbcTemplate jdbc = new JdbcTemplate();
-    public void insert(){
-        String name = "DBTest";
+    public void insert(AliasVO vo){
+        //String name = "DBTest";
         String sql = "insert into alias (name) values(?)";
         try {
-            jdbc.update(sql,name);
+            jdbc.update(sql,vo.getName());
         } catch (Exception e) {
             e.printStackTrace();
         }

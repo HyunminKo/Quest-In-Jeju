@@ -1,6 +1,11 @@
+import java.util.List;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import user.AliasDAO;
+import user.AliasVO;
 
 public class DBTest {
     public static void main(String[] args) throws ParseException {
@@ -42,6 +47,19 @@ public class DBTest {
 //        questVO.setId(1L);
 //        System.out.println(questDAO.insert(questVO));
 ///////////////////////////////////////////////////
+//		  Alias Test
+//    	  AliasDAO aliasDAO = new AliasDAO();
+//  	  AliasVO aliasVO = new AliasVO();
+//   	  aliasDAO.insert(aliasVO);
+//    	  aliasVO.setName("바다의 수호자");
+//    	  aliasDAO.insert(aliasVO);
+//    	  aliasVO.setName("인스타 갬성러");
+//    	  aliasDAO.insert(aliasVO);
+//    	  aliasVO.setName("고독한 미식가");
+//    	  aliasDAO.insert(aliasVO);
+//    	  List<AliasVO> list = aliasDAO.findAll();
+//    	  System.out.println(list);
+///////////////////////////////////////////////////////   	  
 //        QuestItem Test
 //        QuestItemDAO dao = new QuestItemDAO();
 //        QuestItemVO vo = new QuestItemVO();
