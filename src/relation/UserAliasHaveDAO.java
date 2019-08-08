@@ -26,4 +26,13 @@ public class UserAliasHaveDAO {
         }
         return ls;
     }
+
+    public void insert(UserAliasHaveVO vo){
+        String sql = "insert into quest_alias values(?, ?)";
+        try {
+            jdbc.update(sql, vo.getUser_id(), vo.getAlias_id());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
