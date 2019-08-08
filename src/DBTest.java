@@ -1,4 +1,4 @@
-
+import java.text.ParseException;
 
 //import java.util.List;
 //
@@ -13,14 +13,14 @@
 //import quest.QuestVO;
 
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import quest.QuestDAO;
-import quest.QuestItemDAO;
-import quest.QuestItemVO;
-import quest.QuestVO;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
+//
+//import quest.QuestDAO;
+//import quest.QuestItemDAO;
+//import quest.QuestItemVO;
+//import quest.QuestVO;
 
 /*
 import user.AliasDAO;
@@ -75,7 +75,7 @@ public class DBTest {
 //      questVO.setItem_count(4);
 //      questVO.setId(2L);
 //      System.out.println(questDAO.insert(questVO));
-    	
+//    	
     	
 
 
@@ -101,52 +101,52 @@ public class DBTest {
 //    	  System.out.println(list);
 ///////////////////////////////////////////////////////   	  
 //        QuestItem Test
-        QuestItemDAO dao = new QuestItemDAO();
-        QuestItemVO vo = new QuestItemVO();
-        vo.setName("용담 해안도로");
-        vo.setQuest_id(4L);
-        vo.setLatitude("33.558577");
-        vo.setLongitude("126.763316");
-        vo.setDescription("용담동에서 이호동으로 이어지는 해안도로. 제주공항에서 가깝고 일몰이 예뻐서 많은 분들이 찾아요! 용담 해안도로의 끝에 있는 이호테우 해변도 좋답니다. ");
-        vo.setAddr("제주특별자치도 제주시 구좌읍 김녕리 주변");
-        vo.setOriginalFileName("yongdam.jpg");
-        vo.setFileSystemName("static/img/yongdam.jpg");
-        System.out.println(dao.insert(vo));
+//        QuestItemDAO dao = new QuestItemDAO();
+//        QuestItemVO vo = new QuestItemVO();
+//        vo.setName("용담 해안도로");
+//        vo.setQuest_id(4L);
+//        vo.setLatitude("33.558577");
+//        vo.setLongitude("126.763316");
+//        vo.setDescription("용담동에서 이호동으로 이어지는 해안도로. 제주공항에서 가깝고 일몰이 예뻐서 많은 분들이 찾아요! 용담 해안도로의 끝에 있는 이호테우 해변도 좋답니다. ");
+//        vo.setAddr("제주특별자치도 제주시 구좌읍 김녕리 주변");
+//        vo.setOriginalFileName("yongdam.jpg");
+//        vo.setFileSystemName("static/img/yongdam.jpg");
+//        System.out.println(dao.insert(vo));
         
-//       
-        vo.setName("애월 해안도로");
-        vo.setQuest_id(4L);
-        vo.setLatitude("33.483934");
-        vo.setLongitude("126.378466");
-        vo.setDescription("푸르른 바닷가와 탁 트인 전경을 보며 하염없이 달리다 보면, 용암대지가 품고 있던 샘물이 솟구치는 중엄새물이 나와요. 파도가 찰랑이는 샘터에서 힐링 하고 가세요!");
-        vo.setAddr("제주특별자치도 제주시 애월읍 주변");
-        vo.setOriginalFileName("aewol.jpg");
-        vo.setFileSystemName("static/img/aewol.jpg");
-        System.out.println(dao.insert(vo));
+////       
+//        vo.setName("애월 해안도로");
+//        vo.setQuest_id(4L);
+//        vo.setLatitude("33.483934");
+//        vo.setLongitude("126.378466");
+//        vo.setDescription("푸르른 바닷가와 탁 트인 전경을 보며 하염없이 달리다 보면, 용암대지가 품고 있던 샘물이 솟구치는 중엄새물이 나와요. 파도가 찰랑이는 샘터에서 힐링 하고 가세요!");
+//        vo.setAddr("제주특별자치도 제주시 애월읍 주변");
+//        vo.setOriginalFileName("aewol.jpg");
+//        vo.setFileSystemName("static/img/aewol.jpg");
+//        System.out.println(dao.insert(vo));
+////        
+//   
 //        
-   
-        
-//
-        vo.setName("신창 풍차 해안도로");
-        vo.setQuest_id(4L);
-        vo.setLatitude("33.342981");
-        vo.setLongitude("126.174091");
-        vo.setDescription("제주의 맑은 물빛 중에서도 손꼽히는 에메랄드빛 해안을 가진 풍차 해안도로 ! 색다른 경험을 해보고 싶으신 분들은 풍차 해안도로에 있는 투명 카약을 타보시는 것을 추천합니다 ");
-        vo.setAddr("제주특별자치도 제주시 한경면 신창리 주변");
-        vo.setOriginalFileName("windmill.JPG");
-        vo.setFileSystemName("static/img/windmill.JPG");
-        System.out.println(dao.insert(vo));
-//
-        vo.setName("성산 세화 해안도로");
-        vo.setQuest_id(4L);
-        vo.setLatitude("33.342981");
-        vo.setLongitude("126.174091");
-        vo.setDescription("세화 해안도로는 해맞이 해안로이기도 하지만 제주 환상 자전거길 구간이기도 하고, 중간중간 올레길을 공유하는 구간이기도 합니다. 도로를 따라 가다보면 독립서점부터 소소한 카페도 많으니 놓치지 이 점도 놓치지 마세요!");
-        vo.setAddr("제주특별자치도 제주시 구좌읍 종달리");
-        vo.setOriginalFileName("jongdal.JPG");
-        vo.setFileSystemName("static/img/jongdal.JPG");
-        System.out.println(dao.insert(vo));
-        
+////
+//        vo.setName("신창 풍차 해안도로");
+//        vo.setQuest_id(4L);
+//        vo.setLatitude("33.342981");
+//        vo.setLongitude("126.174091");
+//        vo.setDescription("제주의 맑은 물빛 중에서도 손꼽히는 에메랄드빛 해안을 가진 풍차 해안도로 ! 색다른 경험을 해보고 싶으신 분들은 풍차 해안도로에 있는 투명 카약을 타보시는 것을 추천합니다 ");
+//        vo.setAddr("제주특별자치도 제주시 한경면 신창리 주변");
+//        vo.setOriginalFileName("windmill.JPG");
+//        vo.setFileSystemName("static/img/windmill.JPG");
+//        System.out.println(dao.insert(vo));
+////
+//        vo.setName("성산 세화 해안도로");
+//        vo.setQuest_id(4L);
+//        vo.setLatitude("33.342981");
+//        vo.setLongitude("126.174091");
+//        vo.setDescription("세화 해안도로는 해맞이 해안로이기도 하지만 제주 환상 자전거길 구간이기도 하고, 중간중간 올레길을 공유하는 구간이기도 합니다. 도로를 따라 가다보면 독립서점부터 소소한 카페도 많으니 놓치지 이 점도 놓치지 마세요!");
+//        vo.setAddr("제주특별자치도 제주시 구좌읍 종달리");
+//        vo.setOriginalFileName("jongdal.JPG");
+//        vo.setFileSystemName("static/img/jongdal.JPG");
+//        System.out.println(dao.insert(vo));
+//        
 
 //        List<QuestItemVO> list = dao.findAll();
 //        System.out.println(list);

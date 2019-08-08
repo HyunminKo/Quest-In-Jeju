@@ -16,7 +16,7 @@ let isChecked = false;
 
 function signupcheck(){
     var signupform = document.getElementById("signupform");
-    var email = document.getElementById("joinEmail");
+    var joinEmail = document.getElementById("joinEmail");
     var password = document.getElementById("password");
     var passwordcheck = document.getElementById("passwordcheck");
     var name = document.getElementById("name");
@@ -28,7 +28,7 @@ function signupcheck(){
     	alert("이메일 중복 체크를 해주세요.");
     	return false;
     }
-    if(email.value == ''){
+    if(joinEmail.value == ''){
         alert("이메일을 입력해주세요")
         email.focus();
         return false;
@@ -55,7 +55,23 @@ function signupcheck(){
     }
 }
 function loginCheck() {
-
+	 var loginform = document.getElementById("loginform");
+     var email = document.getElementById("email");
+     var password = document.getElementById("password");
+     
+     if(email.value == ''){
+         alert("아이디를 입력해주세요")
+         email.focus();
+         return false;
+     } 
+     else if(password.value == '') {
+         alert("비밀번호를 입력해주세요")
+         password.focus();
+         return false;
+     } 
+     else{
+         loginform.submit();
+     }
 }
 
 function checkEmail() {
