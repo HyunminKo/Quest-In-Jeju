@@ -19,6 +19,7 @@
 		UserVO newUser = dao.findIdByEmail(email);
 		response.addCookie(new Cookie("user_id",String.valueOf(newUser.getId())));
 		response.addCookie(new Cookie("user_name",newUser.getName()));
+		System.out.println("Join after: "+ctxPath);
 		response.sendRedirect(ctxPath);
 	}else { //fail
 		out.println("<script>alert('회원가입에 실패하였습니다. 잠시 후 다시 시도하세요.');location.href='index.jsp';</script>");
