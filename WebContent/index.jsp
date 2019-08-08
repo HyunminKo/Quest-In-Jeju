@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
     String userId = Utils.getValueInCookie(request,"user_id");
-    String userName = Utils.getValueInCookie(request,"user_id");
+    String userName = Utils.getValueInCookie(request,"user_name");
 
     if(userId != null){
         request.setAttribute("userId",userId);
@@ -23,7 +23,7 @@
     if(userName != null){
         request.setAttribute("userName",userName);
     }
-    
+
 %>
 <!DOCTYPE html>
 <html>
