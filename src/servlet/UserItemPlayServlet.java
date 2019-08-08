@@ -21,7 +21,6 @@ public class UserItemPlayServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("servlet");
 
         StringBuffer sb = new StringBuffer();
         String line = null;
@@ -71,7 +70,6 @@ public class UserItemPlayServlet extends HttpServlet {
             }else if("update".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
                 int rc = dao.update(user_id, item_id);
-                System.out.println("update!!!");
             }
         } catch (Exception e) {
 

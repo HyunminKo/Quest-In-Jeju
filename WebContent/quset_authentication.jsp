@@ -43,12 +43,12 @@
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
           <!-- 데이터 불러와야 됨 -->
-          <h3 class="panel-title">sss</h3>
+          <h3 class="panel-title">${name}</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
             <!-- getLocation(item_id) 로 변경하기 -->
-            <a id="user-location-confirm-btn" onclick="getLocation(2)">현재 위치 확인하기</a>
+            <a id="user-location-confirm-btn" onclick="getLocation(${id})">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
