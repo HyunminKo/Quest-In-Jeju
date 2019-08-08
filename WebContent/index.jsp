@@ -36,18 +36,25 @@
     <title>Index</title>
 
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>
+<!-- 추가된 css -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+	
   	<link rel="stylesheet" href="static/css/quest_page.css"/>
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/loading_spinner.css"/>
     <link rel="stylesheet" href="static/css/progressbar.css"/>
-
+	<link rel="stylesheet" href="bootstrap.css"/>	
+	
+	
   </head>
 	<body>
  <%@include file="header.jsp" %>
@@ -59,12 +66,21 @@
 		        <span>${userName}님이 수행중인 퀘스트!</span>
 		    </div>s
 		    <div class="contain">
-		        <div class="button" >
-                    <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
-                    <form>
-                    	<input type="checkbox"  name="marker" id="mk1">
-                    </form>
-		        </div>
+		        <div class="button btnchk">
+                    <button type="button" class="btn btn-outline-danger qbtn" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+                   <!-- 체크박스여기 -->
+                   
+                   
+                        <div class="material-switch pull-right marker">
+                            <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionWarning" class="label-warning"></label>
+                        </div>
+				
+					
+					
+					
+				</div>
+
                 <!-- 테스트 프로그래스바 -->
                 <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
@@ -93,7 +109,7 @@
 		<!--  <a href="logout.jsp">로그아웃</a>-->
 		          </div><!--authwrap-->
 		        </div><!--container2-->
-		    </div><!--container-->
+		    </div><!--contain-->
   </l:when>
  <l:otherwise>
     <!-- 로그인 안했을때 보이는 부분  -->
