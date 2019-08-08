@@ -13,31 +13,28 @@
     String initLoaded = (String) session.getAttribute("init_load");
     request.setAttribute("initLoaded",initLoaded);
 
-    Map<Long,List<QuestItemVO>> questMap = new HashMap<>();
-    List<QuestItemVO> rl = null;
     Exception err = null;
     String ctxPath = request.getContextPath();
     QuestDAO dao = new QuestDAO();
 
+    Map<Long,String> questNameMap = dao.getQuestNameMap();
+
     if(initLoaded == null) {
         if (userId != null) {
             try {
-                rl = dao.getPlayingUserQuest(request, Long.parseLong(userId));
-                for(QuestItemVO vo : rl){
-                    Long questId = vo.getQuest_id();
-                    if(!questMap.containsKey(questId)){
-                        questMap.put(questId,new ArrayList<>());
-                    }
-                    questMap.get(questId).add(vo);
-                }
-                request.setAttribute("questMap",questMap);
+                dao.getPlayingUserQuest(request, Long.parseLong(userId));
+                Map<Long,List<QuestItemVO>> questList = (Map<Long,List<QuestItemVO>>) session.getAttribute("questList");
+                request.setAttribute("questNameMap",questNameMap);
+                request.setAttribute("questList",questList);
                 session.setAttribute("init_load", "true");
             } catch (Exception e) {
                 err = e;
             }
         }
     }else {
-        request.setAttribute("questMap",session.getAttribute("questMap"));
+        request.setAttribute("questNameMap",questNameMap);
+        Map<Long,List<QuestItemVO>> questList = (Map<Long,List<QuestItemVO>>) session.getAttribute("questList");
+        request.setAttribute("questList",questList);
     }
     if (userId != null) {
         request.setAttribute("userId", userId);
@@ -84,10 +81,11 @@
 		    <div class="quest-main-title">
 		        <span>${userName}님이 수행중인 퀘스트!</span>
 		    </div>
-            <l:forEach var="rl" items="${questMap}">
+            <l:forEach var="rl" items="${questList}">
+                <l:set var="quest_key" value="${rl.key}"/>
                 <div class="row quest-list quest-list-main">
 
-                <p class="quest-title">Qeust Ing...</p>
+                <p class="quest-title">${questNameMap[quest_key]}</p>
                 <ul class="quest-ul">
                     <li>
                         <div class="progress-card">
@@ -104,7 +102,7 @@
                             </div>
                         </div>
                     </li>
-                    <l:forEach var="vo" items="${rl}">
+                    <l:forEach var="vo" items="${rl.value}">
                     <li>
                         <div class="quest-card">
                             <div class="quest-head">

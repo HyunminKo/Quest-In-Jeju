@@ -50,12 +50,17 @@ public class QuestDAO {
         session.setAttribute("userItemsInfoMap",userItemsInfoMap);
 
         Map<Long, Map<String,Map<String,String>>> questMap = new HashMap<>();
+        Map<Long,List<QuestItemVO>> questList = new HashMap<>();
         for(QuestItemVO vo : questItems){
             Long quest_id = vo.getQuest_id();
             questIdSet.add(quest_id);
             if(!questMap.containsKey(quest_id)){
                 questMap.put(quest_id,new HashMap<>());
             }
+            if(!questList.containsKey(quest_id)){
+                questList.put(quest_id,new ArrayList<>());
+            }
+            questList.get(quest_id).add(vo);
             Map<String,Map<String,String>> itemKeyMap =  questMap.get(quest_id);
             String itemKey = String.valueOf(vo.getId());
             HashMap<String,String> itemMap = new HashMap<>();
@@ -71,6 +76,16 @@ public class QuestDAO {
         }
         session.setAttribute("questIdSet",questIdSet);
         session.setAttribute("questMap",questMap);
+        session.setAttribute("questList",questList);
         return questItems;
+    }
+
+    public Map<Long, String> getQuestNameMap() {
+        Map<Long, String> result = new HashMap<>();
+        List<QuestVO> list = this.findAll();
+        for(QuestVO vo : list){
+            result.put(vo.getId(),vo.getName());
+        }
+        return result;
     }
 }
