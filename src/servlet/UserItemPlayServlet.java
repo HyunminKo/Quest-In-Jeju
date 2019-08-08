@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import static java.lang.Math.toIntExact;
+
 
 public class UserItemPlayServlet extends HttpServlet {
 
@@ -38,7 +40,13 @@ public class UserItemPlayServlet extends HttpServlet {
             String method = (String) jsonObject.get("method");
             Long item_id = (Long) jsonObject.get("item_id");
             Long quest_id = (Long) jsonObject.get("quest_id");
-            int item_count = (int) jsonObject.get("item_count");
+//            System.out.println(jsonObject.get("item_count").getClass().getName());
+//            int item_count = toIntExact(jsonObject.get("item_count"));
+            Long item_count = (Long) jsonObject.get("item_count");
+
+            if("select".equals(method)) {
+                System.out.println("sdsdsdsds");
+            }
 
             if("findAll".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
@@ -76,7 +84,9 @@ public class UserItemPlayServlet extends HttpServlet {
                 if(user_id != null) {
                     int rc = dao.update(user_id, item_id);
                 }
+                System.out.println("update 성공");
             }else if("select".equals(method)){
+                System.out.println("들어오니?");
                 UserItemPlayDAO dao = new UserItemPlayDAO();
                 List<UserItemPlayVO> ls = null;
                 Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));

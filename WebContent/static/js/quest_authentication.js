@@ -13,10 +13,13 @@ function getLocation(id, latitude, longitude, quest, item) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     item_id = id;
-    item_latitude = parseInt(latitude);
-    item_longitude = parseInt(longitude);
+    item_latitude = parseFloat(latitude);
+    item_longitude = parseFloat(longitude);
+    console.log("item_lat", item_latitude);
+    console.log("item_lng", item_longitude);
     quest_id = quest;
     item_count = item;
+    console.log(item_count);
   } else {
     alert("이 브라우저는 Geolocation를 지원하지 않습니다");
   }
@@ -27,8 +30,9 @@ function successCallback(position) {
   const user_longitude = position.coords.longitude;
 
   quest_authentication(user_latitude, user_longitude);
-  console.log(user_latitude);
-  console.log(user_longitude);
+  console.log("user_lat", user_latitude);
+  console.log("user_lng", user_longitude);
+  compareItemCount();
 }
 
 function errorCallback(error) {
@@ -133,26 +137,32 @@ function postParams() {
       dataType: "json",
       contentType: "application/json; charset=UTF-8",
       success: function() {
-        console.log("success");
+        // compareItemCount();
       }
     });
 
-    const after_update_params = {
-      quest_id: quest_id,
-      item_count: item_count,
-      method: "select"
-    };
-
-    $.ajax({
-      url: "/quest-in-jeju/servlet/UserItemPlayServlet",
-      type: "POST",
-      data: JSON.stringify(after_update_params),
-      dataType: "json",
-      contentType: "application/json; charset=UTF-8",
-      success: function () {
-        console.log("select success");
-      }
-    });
-
+    console.log("upadate 끝");
+    // compareItemCount();
   }
+}
+
+function compareItemCount() {
+  console.log("compare");
+  const after_update_params = {
+    quest_id: quest_id,
+    item_count: item_count,
+    method: "select"
+  };
+
+  $.ajax({
+    url: "/quest-in-jeju/servlet/UserItemPlayServlet",
+    type: "POST",
+    data: JSON.stringify(after_update_params),
+    dataType: "json",
+    contentType: "application/json; charset=UTF-8",
+    success: function () {
+      console.log("select success");
+    }
+  });
+  console.log("compare 끝");
 }
