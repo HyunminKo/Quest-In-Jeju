@@ -6,6 +6,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import quest.QuestItemVO;
+import relation.UserAliasHaveDAO;
+import relation.UserAliasHaveVO;
 import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
 import util.Utils;
@@ -45,6 +47,7 @@ public class UserItemPlayServlet extends HttpServlet {
 //            System.out.println(jsonObject.get("item_count").getClass().getName());
 //            int item_count = toIntExact(jsonObject.get("item_count"));
             Long item_count = (Long) jsonObject.get("item_count");
+            Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
 
             if("select".equals(method)) {
                 System.out.println("sdsdsdsds");
@@ -81,7 +84,6 @@ public class UserItemPlayServlet extends HttpServlet {
                 out.flush();
             }else if("update".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
-                Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
                 System.out.println(user_id);
                 if(user_id != null) {
                     int rc = dao.update(user_id, item_id);
@@ -91,7 +93,6 @@ public class UserItemPlayServlet extends HttpServlet {
                 System.out.println("들어오니?");
                 UserItemPlayDAO dao = new UserItemPlayDAO();
                 List<UserItemPlayVO> ls = null;
-                Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
                 int is_completed_count = 0;
                 if(user_id != null) {
                     ls = dao.getPlayingItemInfoByUserId(user_id);
@@ -101,7 +102,7 @@ public class UserItemPlayServlet extends HttpServlet {
                         }
                     }
                     if(is_completed_count == item_count) {
-                        System.out.println("성공");
+                        // insert post
                         PostVO vo = new PostVO();
                         PostDAO post_dao = new PostDAO();
                         vo.setCategory(1);
@@ -109,6 +110,14 @@ public class UserItemPlayServlet extends HttpServlet {
                         vo.setDate("2019-08-09 02:51:52");
                         vo.setUser_id(1L);
                         post_dao.insert(vo);
+
+                        // insert 칭호
+                        UserAliasHaveDAO user_alias_dao = new UserAliasHaveDAO();
+                        UserAliasHaveVO user_alias_vo = new UserAliasHaveVO();
+                        user_alias_vo.setUser_id(user_id);
+                        // 임시로 6번
+                        user_alias_vo.setAlias_id(6L);
+                        user_alias_dao.insert(user_alias_vo);
                     }
                 }
             }
