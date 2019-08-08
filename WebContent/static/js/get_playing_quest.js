@@ -50,5 +50,6 @@ function getUserQuestAndItemsPlayingByUserId() {
     });
 }
 $(document).ready(function () {
-    getUserQuestAndItemsPlayingByUserId();
+    $(".se-pre-con").fadeOut("slow");
+    //getUserQuestAndItemsPlayingByUserId();
 });
