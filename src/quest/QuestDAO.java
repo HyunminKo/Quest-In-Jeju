@@ -78,9 +78,6 @@ public class QuestDAO {
         session.setAttribute("questIdSet",questIdSet);
         session.setAttribute("questMap",questMap);
         session.setAttribute("questList",questList);
-        System.out.println("[questIdSet]:"+ questIdSet);
-        System.out.println("[questMap]:"+ questMap);
-        System.out.println("[questList]:"+questList);
         return questItems;
     }
 
