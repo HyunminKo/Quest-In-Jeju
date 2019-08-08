@@ -105,7 +105,7 @@
 		                  <div class ="abcd">
 		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
 		                  </div>
-		
+
 		                  <div class="authbtn">
 		                        <button type="button"  class="btn btn-outline-success chkbtn">
 		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
