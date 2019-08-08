@@ -37,8 +37,6 @@
   </head>
 
   <body>
-  <%@include file="header.jsp" %>
-
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
@@ -92,6 +90,7 @@
       }
     }
   </script>
+
 
   <script src="static/js/quest_authentication.js"></script>
   <script src="static/js/main.js"></script>
