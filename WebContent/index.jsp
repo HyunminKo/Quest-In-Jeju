@@ -1,29 +1,47 @@
 <%@ page contentType="text/html; charset=utf-8"
-    import="java.util.List, quest.*"%>
+    import="quest.QuestItemDAO, quest.QuestItemVO"%>
 <%@ page import="util.Utils" %>
+<%@ page import="java.util.List" %>
+<%@ page import="quest.QuestDAO" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
     String userId = Utils.getValueInCookie(request,"user_id");
     String userName = Utils.getValueInCookie(request,"user_name");
+    String initLoaded = (String) session.getAttribute("init_load");
+    System.out.println(initLoaded);
+    request.setAttribute("initLoaded",initLoaded);
 
-    if(userId != null){
-        request.setAttribute("userId",userId);
-        List<QuestItemVO> rl = null;
-        Exception err = null;
+    List<QuestItemVO> rl = null;
+    Exception err = null;
+    String ctxPath = request.getContextPath();
+    QuestDAO dao = new QuestDAO();
 
-        QuestItemDAO dao = new QuestItemDAO();
-        try{
-        rl = dao.findAll();
-        request.setAttribute("rl", rl);
-        //	System.out.println(rl);
-        }catch(Exception e){
-        err = e;
+    if(initLoaded == null) {
+        if (userId != null) {
+            try {
+                rl = dao.getPlayingUserQuest(request, Long.parseLong(userId));
+                request.setAttribute("rl", rl);
+                session.setAttribute("rl",rl);
+                session.setAttribute("init_load", "true");
+            } catch (Exception e) {
+                err = e;
+            }
         }
+    }else {
+        rl = (List<QuestItemVO>) session.getAttribute("rl");
+        request.setAttribute("rl",rl);
     }
-    if(userName != null){
-        request.setAttribute("userName",userName);
+    if (userId != null) {
+        request.setAttribute("userId", userId);
     }
-
+    if (userName != null) {
+        request.setAttribute("userName", userName);
+    }
+    if(err!=null){
+        err.printStackTrace();
+        request.setAttribute("err",err);
+        response.sendRedirect(ctxPath + "/error.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -168,6 +186,7 @@
 </l:otherwise>
 </l:choose>
   <div class="se-pre-con"></div>
+
   <script src="static/js/naver_map.js"></script>
   <script src="static/js/main.js"></script>
   <script src="static/js/get_playing_quest.js"></script>
