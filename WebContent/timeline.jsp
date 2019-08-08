@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"
     import="board.*, java.util.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%><%!
@@ -11,6 +11,7 @@ String commenter = null;
 PostDAO pdao = null;
 CommentDAO cdao = null;
 String categoryColor = null;
+String lo = "1";
 
 %><%
 
@@ -21,14 +22,6 @@ List<CommentVO> cls = null;
 
 ctxPath = request.getContextPath();
 request.setCharacterEncoding("UTF-8");
-
-try {
-	pls = pdao.findAll();
-	request.setAttribute( "pls" , pls );
-} catch( Exception e ) {
-	err = e;
-	request.setAttribute( "err" , err );
-}
 
 if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 
@@ -55,9 +48,17 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     <%@include file="header.jsp"%>
 </header>
 <main>
-    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" data-toggle="modal" data-target="#posting_modal"/>
-    
-	<l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
+    <img src="static/img/PlusButtonImage.png" class="PlusButtonImage" data-toggle="modal" data-target="#posting_modal"/><%
+    lo = request.getParameter("lo");
+    if( lo == null ) lo = "1";
+	try {
+		pls = pdao.findAllCategory( lo );
+		request.setAttribute( "pls" , pls );
+	} catch( Exception e ) {
+		err = e;
+		request.setAttribute( "err" , err );
+	}
+    %><l:forEach  var="pvo" items="${pls}" varStatus="vs"><%
 		Integer postCategory = Integer.valueOf(((PostVO) pageContext.getAttribute("pvo")).getCategory());
 		if( postCategory == 1 ) categoryColor = "B";
 	    else if( postCategory == 2 ) categoryColor = "G";
@@ -105,6 +106,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	            <div class="MainTopRightUtilWriter">
 	                <div class="MainTopRightUtilWriterRight">
 	                	<form method="POST" action="timeline_2.jsp" >
+	                		<input type="hidden" name="post_id" value=" <%= String.valueOf(((PostVO)pageContext.getAttribute("pvo")).getId()) %>" />
 		                	<input type="submit" class="<%= "CommentSubmitButton CommentSubmitButtonUtil" + categoryColor %>" value="작성" />
 		                    <textarea name="comment" class="WriterEditor" id="test" cols="45" rows="3" srcolling="no" placeholder="댓글을 작성하세요."></textarea>
 	                	</form>
@@ -157,12 +159,24 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     </div>
     <div class="MainBotBot">
         <div class="MainBotBotLeft">
-            <input type="button" value="자유" class="MainBotBotLeftFreedom"/>
-            <input type="button" value="전체" class="MainBotBotLeftAll"/>
+        	<form method="POST" action="timeline.jsp">
+        		<input type="hidden" value="2" name="lo"/>
+            	<input type="submit" value="자유" class="MainBotBotLeftFreedom"/>
+            </form>
+            <form method="POST" action="timeline.jsp">
+        		<input type="hidden" value="1" name="lo"/>
+            	<input type="submit" value="전체" class="MainBotBotLeftAll"/>
+            </form>	
         </div>
         <div class="MainBotBotRight">
-            <input type="button" value="후기" class="MainBotBotRightReview"/>
-            <input type="button" value="질문" class="MainBotBotRightQuestion"/>
+        	<form method="POST" action="timeline.jsp">
+        		<input type="hidden" value="3" name="lo"/>
+	            <input type="submit" value="후기" class="MainBotBotRightReview"/>
+	        </form>
+            <form method="POST" action="timeline.jsp">
+        		<input type="hidden" value="4" name="lo"/>
+	            <input type="submit" value="질문" class="MainBotBotRightQuestion"/>
+	        </form>
         </div>
     </div>
 </footer>
@@ -196,7 +210,6 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 					</div>
 				</div>
 			</form>
-
 		</div>
 	</div>
 </div>
