@@ -1,11 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"
-    import="quest.QuestItemDAO, quest.QuestItemVO"%>
+    import="quest.QuestDAO, quest.QuestItemVO"%>
 <%@ page import="util.Utils" %>
 <%@ page import="java.util.List" %>
-<%@ page import="quest.QuestDAO" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.ArrayList" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
     String userId = Utils.getValueInCookie(request,"user_id");
@@ -112,7 +109,7 @@
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
                                     <button type="button"  class="btn btn-outline-success chkbtn">
-                                        <a href="quset_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
+                                        <a href="quest_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
                                             인증
                                         </a>
                                     </button>
@@ -128,8 +125,11 @@
   </l:when>
  <l:otherwise>
     <!-- 로그인 안했을때 보이는 부분  -->
+    <div class="main-intro">
+    <p>퀘스트를 시작하시려면 <br>로그인, 또는 회원가입을 해주세요 ! </p>
+    </div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        로그인
+        로 그 인
     </button>
     <!-- login form -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -142,7 +142,7 @@
               </button>
             </div>
             <div class="modal-body">
-                    <form method="POST" action="login.jsp" onsubmit="return loginCheck()">
+                    <form method="POST" action="login.jsp" onsubmit="return loginCheck();">
                       <div class="form-group">
                         <label class="main-id" for="loginEmail">아이디</label>
                         <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="id" name="email">
@@ -159,7 +159,7 @@
         </div>
     </div>
     <button type="button" class="btn btn-primary main-su" data-toggle="modal" data-target="#exampleModalLong">
-        회원가입
+        회 원 가 입
     </button>
     <!-- signup form -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -172,12 +172,13 @@
                 </button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="join.jsp" id="signupform" onsubmit="return check();">
+              <form method="POST" action="join.jsp" id="signupform" onsubmit="return signupcheck();">
                   <div class="form-group">
                       <label class="signup-id" for="email">아이디 (Email)</label>
                         <div class="idform-check">
                           <input type="email" class="form-control id" id="email" placeholder="email@example.com" name="email">
                           <button class="signup-id-check">check</button>
+                          <div class="checkcheck" id="idcheck"></div>
                         </div>
                   </div>
                   <div class="form-group">
@@ -189,7 +190,7 @@
                       <label class="signup-name" for="name">이름</label>
                       <input type="password" class="form-control" id="name" placeholder="name" name="name">
                   </div>
-                  <button type="submit" class="btn btn-secondary" id="signup-btn" onclick>가입하기</button>
+                  <button type="submit" class="btn btn-secondary" id="signup-btn">가 입 하 기</button>
               </form>
             </div>
             </div>

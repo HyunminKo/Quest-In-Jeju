@@ -1,16 +1,23 @@
-import java.util.List;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import java.util.List;
+//
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
+//
+//<<<<<<< HEAD
+//import quest.QuestDAO;
+//import quest.QuestItemDAO;
+//import quest.QuestItemVO;
+//import quest.QuestVO;
 
 /*
 import user.AliasDAO;
 import user.AliasVO;
+>>>>>>> 6bdf6ba0e07b975053d55dad20dd81e7c7c24bc5
 import user.UserDAO;
 */
-public class DBTest {
-    public static void main(String[] args) throws ParseException {
+//public class DBTest {
+//    public static void main(String[] args) throws ParseException {
 //        //JSON 데이터
 //        String jsonInfo = "{\"books\":[{\"genre\":\"소설\",\"price\":\"100\",\"name\":\"사람은 무엇으로 사는가?\",\"writer\":\"톨스토이\",\"publisher\":\"톨스토이 출판사\"},{\"genre\":\"소설\",\"price\":\"300\",\"name\":\"홍길동전\",\"writer\":\"허균\",\"publisher\":\"허균 출판사\"},{\"genre\":\"소설\",\"price\":\"900\",\"name\":\"레미제라블\",\"writer\":\"빅토르 위고\",\"publisher\":\"빅토르 위고 출판사\"}],\"persons\":[{\"nickname\":\"남궁민수\",\"age\":\"25\",\"name\":\"송강호\",\"gender\":\"남자\"},{\"nickname\":\"예니콜\",\"age\":\"21\",\"name\":\"전지현\",\"gender\":\"여자\"}]}";
 //        String testStr = "{\"user_id\":1,\"quest_id\":1}";
@@ -48,6 +55,13 @@ public class DBTest {
 //        questVO.setItem_count(3);
 //        questVO.setId(1L);
 //        System.out.println(questDAO.insert(questVO));
+
+//      QuestDAO questDAO = new QuestDAO();
+//      QuestVO questVO = new QuestVO();
+//      questVO.setName("로컬맛집 정복하기");
+//      questVO.setItem_count(4);
+//      questVO.setId(3L);
+//      System.out.println(questDAO.insert(questVO));
 ///////////////////////////////////////////////////
 //		  Alias Test
 //    	  AliasDAO aliasDAO = new AliasDAO();
@@ -65,15 +79,32 @@ public class DBTest {
 //        QuestItem Test
 //        QuestItemDAO dao = new QuestItemDAO();
 //        QuestItemVO vo = new QuestItemVO();
-//        vo.setName("새별오름");
+//        vo.setName("거문오름");
 //        vo.setQuest_id(1L);
-//        vo.setLatitude("33.3669846");
-//        vo.setLongitude("126.3564604");
-//        vo.setDescription("이름에서부터 샛별이 보이는 새별오름(519m). 초저녁에 뜨는 샛별 같다고 이름 붙었단다. 새별오름의 새별은 샛별, 금성을 뜻하는데, 이른 아침 이 오름을 찾으면 금성의 빛을 만난다고 이런 이름이 붙었다는 얘기도 있다. 실제로 새별오름을 찾아가다 보면 허허벌판에 외롭게 서있는 그를 발견하게 된다. 예쁘면서 외로운 이름을 지닌 오름답게 가는 길은 조금 쓸쓸하지만 일단 오름에 올라서면 눈부신 억새들이 반겨준다. 이름도 이름이지만 새별오름이 우리들에게 다가온 것은 매년 정월대보름 열리는 들불 축제 공이 크다. 가을에는 억새축제도 진행되곤 했다. 굳이 축제일정을 기억하지 않아도 가을날의 새별오름은 억새꽃 춤사위가 끊이질 않는다.");
+//        vo.setLatitude("33.365955");
+//        vo.setLongitude("126.356440");
+//        vo.setDescription("초저녁에 뜨는 샛별 같다고 이름이 붙은 새별오름. 예쁘면서 외로운 이름을 지닌 오름답게 가는 길은 조금 쓸쓸하지만 오름에 올라서면 눈부신 억새들이 반겨주어요. 새별오름은 정상에 올라 다시 돌아오는데 1시간이면 충분하니 가벼운 마음으로 다녀오세요! ");
 //        vo.setAddr("제주특별자치도 제주시 애월읍 봉성리 주변");
 //        vo.setOriginalFileName("static/img/saebyul.jpeg");
 //        vo.setFileSystemName("static/img/saebyul.jpeg");
 //        System.out.println(dao.insert(vo));
+        
+//       
+//        vo.setName("용눈이오름");
+//        vo.setQuest_id(1L);
+//        vo.setLatitude("33.460571");
+//        vo.setLongitude("126.831417");
+//        vo.setDescription("숨을 헐떡이게 만드는 여느 오름과 달리 용눈이오름을 오르는 길은 평탄하고 부드러워요. 제주도 동쪽 가장 끝에 자리하고 있어 성산일출봉과 바다가 어우러지는 장관을 한눈에 담을 수 있답니다!");
+//        vo.setAddr("제주특별자치도 제주시 구좌읍 종달리");
+//        vo.setOriginalFileName("static/img/yongnun.jpg");
+//        vo.setFileSystemName("static/img/yongnun.jpg");
+//        System.out.println(dao.insert(vo));
+////        
+//        List<QuestItemVO> ls = dao.findAll();
+//        System.out.println(ls);
+	        
+      
+        
 //
 //        vo.setName("거문오름");
 //        vo.setQuest_id(1L);
@@ -89,7 +120,7 @@ public class DBTest {
 //        vo.setQuest_id(1L);
 //        vo.setLatitude("33.3684804");
 //        vo.setLongitude("126.4399921");
-//        vo.setDescription("세계자연유산 제주 오름제주 단원이 들려주는 제주도 오름 노로오름 이야기. 크고 작은 제주도의  수많은 오름 들 중에서도 오늘 오름제주님께서 여러분께 소개해 드릴 곳은 바로 노로오름이랍니다. '노로'는 노루를 뜻하는 옛말로, 예전에 노루가 많이 서식 했다고 하여 붙여진 이름이라고 합니다. 제주도 오름 산행을 계획하고 계신 분들께서는 오늘 오름 이야기, 참고하시길 바랍니다~ :) ");
+//        vo.setDescription("'노로'는 노루를 뜻하는 옛말로, 예전에 노루가 많이 서식 했다고 하여 붙여진 이름이라고 합니다.");
 //        vo.setAddr("제주특별자치도 제주시 애월읍 어음리 주변");
 //        vo.setOriginalFileName("static/img/noro.jpg");
 //        vo.setFileSystemName("static/img/noro.jpg");
@@ -99,5 +130,5 @@ public class DBTest {
 //        System.out.println(list);
 //    	UserDAO dao = new UserDAO();
 //    	System.out.println(dao.findAll());
-    }
-}
+//    }
+//}

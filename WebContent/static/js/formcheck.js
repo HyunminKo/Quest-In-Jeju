@@ -12,7 +12,7 @@
 //     }
 //     };
 // };
-function check(){
+function signupcheck(){
     var signupform = document.getElementById("signupform");
     var email = document.getElementById("email");
     var password = document.getElementById("password");
@@ -26,6 +26,7 @@ function check(){
     if(email.value == ''){
         alert("이메일을 입력해주세요")
         return false;
+        email.focus();
     } 
     else if(password.value == '') {
         alert("비밀번호를 입력해주세요")

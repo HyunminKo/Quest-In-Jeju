@@ -21,6 +21,7 @@ List<UserPostLikeVO> lls = null;
 
 pdao = new PostDAO();
 cdao = new CommentDAO();
+ldao = new UserPostLikeDAO();
 List<PostVO> pls = null;
 List<CommentVO> cls = null;
 
@@ -76,7 +77,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
 	        <div class="MainTopRightUtilLeft">
-	        	<input type="button" id="button_${vs.count}" class="<%= "LikeButton LikeButtonUtil" + categoryColor + "LikedButtonB" %>" onclick= "ClickOfLike( this )" />
+	        	<input type="button" id="button_${vs.count}_${cc}" class="LikeButton LikeButtonUtil${cc} LikedButton${cc}" onclick="ClickOfLike( this )"/>
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
@@ -232,7 +233,8 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
         });
     });
     function ClickOfLike( t ){
-        $('#' + t.id ).toggleClass( "<%= "likedButton" + categoryColor %> ");
+    	let color = t.id.split("_")[2];
+        $('#' + t.id ).toggleClass("likedButton"+color);
     }
 </script>
 <script src="static/js/main.js"></script>
