@@ -34,8 +34,15 @@ try {
 	pls = pdao.findAllCategory( lo );
 	request.setAttribute( "pls" , pls );
 	
-	lls = ldao.findAll();
-	request.setAttribute( "lls" , lls );
+	Long user_id = Long.parseLong( Utils.getValueInCookie( request , "user_id") );
+	List<UserPostLikeVO> lls = ldao.findAllPostId( user_id );
+	Set<Long> postLikeSet = new HashSet<Long>();
+	for( UserPostLikeVO vo : lls ) {
+		postLikeSet.add( vo.getPost_id() );
+	}
+	System.out.println( postLikeSet.contains(1L) );
+	System.out.println( postLikeSet.contains(2L) );
+	
 } catch( Exception e ) {
 	err = e;
 	request.setAttribute( "err" , err );
@@ -129,9 +136,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 		        	request.setAttribute( "cls" , cls );
 	         	} catch( Exception e ) {
 	         		err = e;
-	         		request.setAttribute( "err" , err );
 	         	}
-	         	if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	         	%><l:forEach  var="cvo" items="${cls}">
             		<div class="MainTopRightUtilComment">
 		                <div class="MainTopRightUtilCommentTop">

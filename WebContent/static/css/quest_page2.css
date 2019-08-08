@@ -89,19 +89,15 @@ h1 { color: #000;
 .que_bold {
     color: #da0808;
 }
-
-
-.modal-content {
-    width: 80%;
-    margin-left: 10%;
-}
 .que_conq_title {
     font-size: 1.2em;
 }
 
 .modal-content {
-    width: 80%;
-    margin-left: 10%;
+    width: 95%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 .que_conq_title {
     font-size: 1.2em;
@@ -110,5 +106,11 @@ h1 { color: #000;
 .modal-body {
     font-family: 'BRRA_R' !important;
     overflow-y: scroll;
-    height: 200px;
+    height: 250px;
+}
+.modal-img-container img {
+    width: 100%;
+}
+#modal-content {
+    margin-top: 10px;
 }
