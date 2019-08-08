@@ -37,6 +37,8 @@ public class UserItemPlayServlet extends HttpServlet {
 
             String method = (String) jsonObject.get("method");
             Long item_id = (Long) jsonObject.get("item_id");
+            Long quest_id = (Long) jsonObject.get("quest_id");
+            int item_count = (int) jsonObject.get("item_count");
 
             if("findAll".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
@@ -73,6 +75,22 @@ public class UserItemPlayServlet extends HttpServlet {
                 System.out.println(user_id);
                 if(user_id != null) {
                     int rc = dao.update(user_id, item_id);
+                }
+            }else if("select".equals(method)){
+                UserItemPlayDAO dao = new UserItemPlayDAO();
+                List<UserItemPlayVO> ls = null;
+                Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+                int is_completed_count = 0;
+                if(user_id != null) {
+                    ls = dao.getPlayingItemInfoByUserId(user_id);
+                    for(UserItemPlayVO vo: ls) {
+                        if(vo.getIs_completed() == 1) {
+                            is_completed_count = is_completed_count + 1;
+                        }
+                    }
+                    if(is_completed_count == item_count) {
+                        System.out.println("성공");
+                    }
                 }
             }
         } catch (Exception e) {
