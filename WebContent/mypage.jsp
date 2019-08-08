@@ -3,16 +3,39 @@
 <%@ page import="java.util.List" %>
 <%@ page import="relation.UserItemPlayDAO" %>
 <%@ page import="util.Utils" %>
+<%@ page import="relation.UserAliasHaveDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
 
+  // 게시글 수
   PostDAO post_dao = new PostDAO();
-  int post_count = post_dao.findPostCountByUserId(request);
+  int post_count = 0;
+  try {
+    post_count = post_dao.findPostCountByUserId(request);
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
   request.setAttribute("post_count", post_count);
 
-  String user_name = Utils.getValueInCookie(request,"user_name");
+
+  String user_name = null;
+  try {
+    user_name = Utils.getValueInCookie(request,"user_name");
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
   request.setAttribute("user_name", user_name);
+
+  // 칭호 획득 수
+  UserAliasHaveDAO user_alias_have_dao = new UserAliasHaveDAO();
+  int alias_count = 0;
+  try {
+    alias_count = user_alias_have_dao.getAliasCountByUserId(request);
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
+  request.setAttribute("alias_count", alias_count);
 
 %>
 <!DOCTYPE html>
@@ -69,7 +92,7 @@
     <div class="row quest-status">
       <div class="quest-circle-container">
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="142">0</span>
+          <span class="quest-circle-innertext counter" data-count="${alias_count}">0</span>
           <p class="quest-circle-title">획득 칭호</p>
         </div>
         <div class="quest-circle">
