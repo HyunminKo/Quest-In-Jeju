@@ -2,12 +2,8 @@ package relation;
 
 import java.util.List;
 
-import board.PostVO;
 import jdbcUtil.JdbcTemplate;
-import rowmapper.PostRowMapper;
-import rowmapper.UserRowMapper;
 import rowmapper.UserPostLikeRowMapper;
-import user.UserVO;
 
 public class UserPostLikeDAO {
 	
@@ -32,5 +28,22 @@ public class UserPostLikeDAO {
             e.printStackTrace();
         }
         return ls;
+    }
+    public String checkPostLike( UserPostLikeVO vo ) {
+    	List<UserPostLikeVO> ls = null;
+    	String sql = "select post_id from user_post_like where user_id = ?";
+    	String check = "";
+    	try {
+    		ls = jdbc.query( sql ,  new UserPostLikeRowMapper() , vo.getUser_id() );
+    	} catch( Exception e ) {
+    		e.printStackTrace();
+    	}
+    	for( UserPostLikeVO lvo : ls ) {
+    		if( lvo.getPost_id() == vo.getPost_id() ) {
+    			check = "likedButton";
+    			break;
+    		}
+    	}
+    	return check;
     }
 }
