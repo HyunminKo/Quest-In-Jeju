@@ -1,5 +1,7 @@
 package servlet;
 
+import board.PostDAO;
+import board.PostVO;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -100,6 +102,13 @@ public class UserItemPlayServlet extends HttpServlet {
                     }
                     if(is_completed_count == item_count) {
                         System.out.println("성공");
+                        PostVO vo = new PostVO();
+                        PostDAO post_dao = new PostDAO();
+                        vo.setCategory(1);
+                        vo.setContents("A유저가 B칭호를 획득했습니다");
+                        vo.setDate("2019-08-09 02:51:52");
+                        vo.setUser_id(1L);
+                        post_dao.insert(vo);
                     }
                 }
             }
