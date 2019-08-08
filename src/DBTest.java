@@ -1,9 +1,4 @@
-import java.text.ParseException;
 
-import quest.QuestDAO;
-import quest.QuestItemDAO;
-import quest.QuestItemVO;
-import quest.QuestVO;
 
 //import java.util.List;
 //
@@ -16,6 +11,17 @@ import quest.QuestVO;
 //import quest.QuestItemDAO;
 //import quest.QuestItemVO;
 //import quest.QuestVO;
+
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import quest.QuestDAO;
+import quest.QuestItemDAO;
+import quest.QuestItemVO;
+import quest.QuestVO;
+
 /*
 import user.AliasDAO;
 import user.AliasVO;
@@ -79,6 +85,7 @@ public class DBTest {
 //      questVO.setItem_count(4);
 //      questVO.setId(3L);
 //      System.out.println(questDAO.insert(questVO));
+
 ///////////////////////////////////////////////////
 //		  Alias Test
 //    	  AliasDAO aliasDAO = new AliasDAO();
@@ -139,11 +146,13 @@ public class DBTest {
         vo.setOriginalFileName("jongdal.JPG");
         vo.setFileSystemName("static/img/jongdal.JPG");
         System.out.println(dao.insert(vo));
+        
 
 //        List<QuestItemVO> list = dao.findAll();
 //        System.out.println(list);
 //    	UserDAO dao = new UserDAO();
 //    	System.out.println(dao.findAll());
+
  /*   	
     	QuestItemDAO dao = new QuestItemDAO();
         QuestItemVO vo = new QuestItemVO();
@@ -218,8 +227,10 @@ public class DBTest {
       System.out.println(dao.insert(vo));  
        
    */ 	 
+
     	
     }
 }
+
 //    }
 //}

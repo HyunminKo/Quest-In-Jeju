@@ -18,11 +18,11 @@
   } catch ( Exception e ) {
     err = e;
   }
-
   request.setAttribute("id", id);
   request.setAttribute("name", name);
   request.setAttribute("latitude", latitude);
   request.setAttribute("longitude", longitude);
+
 %>
 
 <html lang="ko">
