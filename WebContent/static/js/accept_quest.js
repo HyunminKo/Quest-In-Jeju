@@ -13,11 +13,15 @@ function post_user_quest(quest_id){
         url: "/quest-in-jeju/servlet/UserQuestPlayServlet",
         type: "POST",
         data: JSON.stringify(params),
-        dataType: 'json',
+        dataType: 'text',
         contentType: "application/json; charset=UTF-8",
-        success: function() {
+        success: function(request,status,error) {
+            console.log(request.responseText);
             alert("퀘스트가 시작되었습니다");
             location.href="quest.jsp";
+        },
+        error: function(request,status,error){
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
     });
 }

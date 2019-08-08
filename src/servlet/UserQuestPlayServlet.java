@@ -26,7 +26,7 @@ public class UserQuestPlayServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         StringBuffer sb = new StringBuffer();
         String line = null;
-
+        String ctxPath = request.getContextPath();
         try {
             BufferedReader reader = request.getReader();
             while((line = reader.readLine()) != null) {
@@ -88,8 +88,10 @@ public class UserQuestPlayServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("init_load", null);
                 response.setStatus(HttpServletResponse.SC_OK);
-                response.setContentType("application/json;charset=utf-8");
-                response.setCharacterEncoding("utf-8");
+                response.setContentType("text/plain");
+                PrintWriter out = response.getWriter();
+                out.println("success");
+                out.flush();
             }
         } catch(Exception e) {
             e.printStackTrace();

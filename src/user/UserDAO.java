@@ -40,15 +40,15 @@ public class UserDAO {
     	}
     	return vo;
     }
-    public Long findIdByEmail(String email) {
+    public UserVO findIdByEmail(String email) {
     	UserVO vo = null;
-    	String sql = "select id from user where email=?";
+    	String sql = "select * from user where email=?";
     	try {
     		vo = jdbc.queryForObject(sql, new UserRowMapper(), email);
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
-    	return vo.getId();
+    	return vo;
     }
     
     public List<UserVO> findAllEmail() {
@@ -63,7 +63,7 @@ public class UserDAO {
    	return ls;
     }
     public boolean isExistByEmail(String email) {
-    	String sql = "select email from user where email=?";
+    	String sql = "select * from user where email=?";
     	try {
     		UserVO vo = jdbc.queryForObject(sql,new UserRowMapper(),email);
     		if(vo!=null) {
