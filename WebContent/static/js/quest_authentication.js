@@ -6,7 +6,7 @@ let item_longitude;
 let item_count;
 let quest_id;
 
-
+// init 함수 추가하기
 
 // 인증 페이지에서 '현재 위치 확인하기' 버튼을 눌렀을 때
 function getLocation(id, latitude, longitude, quest, item) {
@@ -138,8 +138,21 @@ function postParams() {
     });
 
     const after_update_params = {
+      quest_id: quest_id,
+      item_count: item_count,
+      method: "select"
+    };
 
-    }
+    $.ajax({
+      url: "/quest-in-jeju/servlet/UserItemPlayServlet",
+      type: "POST",
+      data: JSON.stringify(after_update_params),
+      dataType: "json",
+      contentType: "application/json; charset=UTF-8",
+      success: function () {
+        console.log("select success");
+      }
+    });
 
   }
 }
