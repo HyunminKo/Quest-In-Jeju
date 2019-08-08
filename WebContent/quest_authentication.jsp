@@ -1,15 +1,18 @@
 <%@ page contentType="text/html; charset=utf-8"
          import="quest.QuestItemDAO"%>
 <%@ page import="quest.QuestItemVO" %>
+<%@ page import="quest.QuestDAO" %>
 
 <%
   QuestItemDAO dao = new QuestItemDAO();
+  QuestDAO quest_dao = new QuestDAO();
   QuestItemVO vo = null;
   Exception err = null;
   Long id = Long.parseLong(request.getParameter("item_id"));
   Long quest_id = Long.parseLong(request.getParameter("quest_id"));
   String latitude = null;
   String longitude = null;
+  int item_count = quest_dao.getItemCount();
   String name = null;
   try {
     vo = dao.findOne(id);
@@ -24,6 +27,7 @@
   request.setAttribute("latitude", latitude);
   request.setAttribute("longitude", longitude);
   request.setAttribute("quest_id", quest_id);
+  request.setAttribute("item_count", item_count);
 %>
 
 <html lang="ko">
@@ -55,7 +59,7 @@
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
             <!-- getLocation(item_id) 로 변경하기 -->
-            <a id="user-location-confirm-btn" onclick="getLocation(${id}, ${latitude}, ${longitude}, ${quest_id})">현재 위치 확인하기</a>
+            <a id="user-location-confirm-btn" onclick="getLocation(${id}, ${latitude}, ${longitude}, ${quest_id}, ${item_count})">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
