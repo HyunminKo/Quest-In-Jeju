@@ -34,9 +34,11 @@ if( lo == null ) lo = "1";
 try {
 	pls = pdao.findAllCategory( lo );
 	request.setAttribute( "pls" , pls );
-	
-	Long user_id = Long.parseLong( Utils.getValueInCookie( request , "user_id") );
-	List<UserPostLikeVO> lls = ldao.findAllPostId( user_id );
+	String userId = Utils.getValueInCookie(request,"user_id");
+	List<UserPostLikeVO> lls = null;
+	if(userId != null){
+	 lls = ldao.findAllPostId( Long.parseLong(userId) );
+	}
 	lps = new HashSet<Long>();
 	
 	for( UserPostLikeVO vo : lls ) {
@@ -45,7 +47,7 @@ try {
 	
 } catch( Exception e ) {
 	err = e;
-	request.setAttribute( "err" , err );
+	request.setAttribute( "error" , err );
 }
 
 if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
