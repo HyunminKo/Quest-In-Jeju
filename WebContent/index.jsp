@@ -24,22 +24,21 @@
         if (userId != null) {
             try {
                 rl = dao.getPlayingUserQuest(request, Long.parseLong(userId));
-                request.setAttribute("rl", rl);
-                session.setAttribute("rl",rl);
+                for(QuestItemVO vo : rl){
+                    Long questId = vo.getQuest_id();
+                    if(!questMap.containsKey(questId)){
+                        questMap.put(questId,new ArrayList<>());
+                    }
+                    questMap.get(questId).add(vo);
+                }
+                request.setAttribute("questMap",questMap);
                 session.setAttribute("init_load", "true");
             } catch (Exception e) {
                 err = e;
             }
         }
     }else {
-        rl = (List<QuestItemVO>) session.getAttribute("rl");
-//        for(QuestItemVO vo : rl){
-////            Long quest
-//            if(!questMap.containsKey()){
-//                questMap.put();
-//            }
-//        }
-        request.setAttribute("rl",rl);
+        request.setAttribute("questMap",session.getAttribute("questMap"));
     }
     if (userId != null) {
         request.setAttribute("userId", userId);
@@ -86,8 +85,8 @@
 		    <div class="quest-main-title">
 		        <span>${userName}님이 수행중인 퀘스트!</span>
 		    </div>
-
-            <div class="row quest-list quest-list-main">
+            <l:forEach var="rl" items="${questMap}">
+                <div class="row quest-list quest-list-main">
 
                 <p class="quest-title">Qeust Ing...</p>
                 <ul class="quest-ul">
@@ -127,6 +126,7 @@
                     </l:forEach>
                 </ul>
             </div>
+            </l:forEach>
         </div>
   </l:when>
  <l:otherwise>
