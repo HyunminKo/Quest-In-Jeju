@@ -1,4 +1,17 @@
+<%@ page import="board.PostDAO" %>
+<%@ page import="board.PostVO" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+
+  PostDAO dao = new PostDAO();
+  int post_count = dao.findPostCountByUserId(request);
+
+  request.setAttribute("post_count", post_count);
+
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -61,7 +74,7 @@
           <p class="quest-circle-title">해결한 퀘스트 수</p>
         </div>
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="15">0</span>
+          <span class="quest-circle-innertext counter" data-count="${post_count}">0</span>
           <p class="quest-circle-title">올린 게시글 수</p>
         </div>
       </div>

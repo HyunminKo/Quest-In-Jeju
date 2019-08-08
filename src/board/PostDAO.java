@@ -6,6 +6,9 @@ import jdbcUtil.JdbcTemplate;
 import rowmapper.PostRowMapper;
 import rowmapper.UserRowMapper;
 import user.UserVO;
+import util.Utils;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class PostDAO {
 
@@ -64,5 +67,17 @@ public class PostDAO {
     		e.printStackTrace();
     	}
     	return vo.getName();
+    }
+
+    public int findPostCountByUserId(HttpServletRequest request) {
+        List<PostVO> ls = null;
+        String sql = "select * from post where user_id = ?";
+        Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+        try {
+            ls = jdbc.query(sql, new PostRowMapper(), user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls.size();
     }
 }

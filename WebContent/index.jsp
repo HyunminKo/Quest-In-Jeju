@@ -19,6 +19,7 @@
     String ctxPath = request.getContextPath();
     QuestDAO dao = new QuestDAO();
 
+
     if(initLoaded == null) {
         if (userId != null) {
             try {
