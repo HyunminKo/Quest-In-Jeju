@@ -9,6 +9,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
 
+  // 로그인하지 않은 사용자이면 home으로
+  String ctxPath = request.getContextPath();
+  try {
+    Long current_user = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+  } catch(Exception e) {
+    response.sendRedirect(ctxPath + "/");
+  }
+
+
   // 게시글 수
   PostDAO post_dao = new PostDAO();
   int post_count = 0;
