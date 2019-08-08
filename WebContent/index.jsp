@@ -79,6 +79,9 @@
 		    <div class="contain">
 		        <div class="button" >
                     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
+                    <form>
+                    	<input type="checkbox"  name="marker" id="mk1">
+                    </form>
 		        </div>
                 <!-- 테스트 프로그래스바 -->
                 <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">

@@ -3,6 +3,7 @@ package quest;
 import jdbcUtil.JdbcTemplate;
 import rowmapper.QuestItemIdsRowMapper;
 import rowmapper.QuestItemRowMapper;
+import rowmapper.UserRowMapper;
 
 import java.util.List;
 
@@ -33,16 +34,15 @@ public class QuestItemDAO {
         return ls;
     }
 
-    public QuestItemVO findOne(Long item_id) {
-        String sql = "select id from quest_item where id=?";
-        QuestItemVO vo = new QuestItemVO();
-        QuestItemRowMapper rowMapper = new QuestItemRowMapper();
+    public String findNameByItemId(Long item_id){
+        QuestItemVO vo = null;
+        String sql = "select * from quest_item where id=?";
         try {
-            vo = jdbc.queryForObject(sql, rowMapper, item_id);
+            vo = jdbc.queryForObject(sql, new QuestItemRowMapper() , item_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return vo;
+        return vo.getName();
     }
 
 
