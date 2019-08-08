@@ -54,7 +54,7 @@ public class UserQuestPlayServlet extends HttpServlet {
                 if(questMap == null){
                     response.setStatus(HttpServletResponse.SC_OK);
                     JSONObject obj = new JSONObject();
-                    obj.put("code",201);
+                    obj.put("code",202);
                     out.println(obj.toJSONString());
                     return;
                 }
