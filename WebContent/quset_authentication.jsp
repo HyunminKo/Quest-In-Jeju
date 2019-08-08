@@ -1,5 +1,21 @@
 <%@ page contentType="text/html; charset=utf-8"
-         import="java.util.List, quest.*"%>
+         import="quest.QuestItemDAO"%>
+
+<%
+  QuestItemDAO dao = new QuestItemDAO();
+  Exception err = null;
+  Long id = Long.parseLong(request.getParameter("item_id"));
+  String name = null;
+
+  try {
+    name = dao.findNameByItemId(id);
+  } catch ( Exception e ) {
+    err = e;
+  }
+
+  request.setAttribute("id", id);
+  request.setAttribute("name", name);
+%>
 
 <html lang="ko">
   <head>
@@ -27,7 +43,7 @@
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
           <!-- 데이터 불러와야 됨 -->
-          <h3 class="panel-title">새별 오름</h3>
+          <h3 class="panel-title">sss</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">

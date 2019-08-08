@@ -1,6 +1,7 @@
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import quest.QuestItemDAO;
 
 public class DBTest {
     public static void main(String[] args) throws ParseException {
@@ -77,5 +78,7 @@ public class DBTest {
 //
 //        List<QuestItemVO> list = dao.findAll();
 //        System.out.println(list);
+        QuestItemDAO dao = new QuestItemDAO();
+        System.out.println(dao.findNameByItemId(1L));
     }
 }
