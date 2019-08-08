@@ -41,11 +41,11 @@ function getUserQuestAndItemsPlayingByUserId() {
         contentType: "application/json; charset=UTF-8",
         success: function(data) {
             console.log("Success getting user_quest_play list");
-            $(".se-pre-con").fadeOut("slow");
             loadingProgressCircleBar();
             console.log("user_quest_play: ");
             console.log(data);
-
+            sessionStorage.setItem("questMap", JSON.stringify(data));
+            navigator.geolocation.getCurrentPosition(success, error, options);
         },
         error:function(request,status,error){
             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);

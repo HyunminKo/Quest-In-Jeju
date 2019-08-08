@@ -15,8 +15,8 @@
     margin-top: 12px;
     background-color: #da0808;
     border: none;
-    ffont-family: 'BRRA_B';
-
+    width: 100%;
+    margin-left:0;
 }
 
 .main-id {

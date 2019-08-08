@@ -68,9 +68,7 @@ public class UserQuestPlayServlet extends HttpServlet {
                 }
 
                 JSONObject jsonMap = new JSONObject();
-                Map<String,String> tempMap = new HashMap<>();
-                tempMap.put("code","200");
-                jsonMap.putAll(tempMap);
+                jsonMap.putAll(questMap);
 
                 response.setStatus(HttpServletResponse.SC_OK);
                 response.setContentType("application/json;charset=utf-8");
