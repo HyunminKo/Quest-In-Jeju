@@ -1,11 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8"
-    import="quest.QuestItemDAO, quest.QuestItemVO"%>
+    import="quest.QuestDAO, quest.QuestItemVO"%>
 <%@ page import="util.Utils" %>
 <%@ page import="java.util.List" %>
-<%@ page import="quest.QuestDAO" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.util.ArrayList" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
     String userId = Utils.getValueInCookie(request,"user_id");
