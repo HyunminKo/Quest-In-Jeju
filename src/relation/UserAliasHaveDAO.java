@@ -22,4 +22,17 @@ public class UserAliasHaveDAO {
         }
         return ls.size();
     }
+
+
+    public List<UserAliasHaveVO> getAliasListByUserId(HttpServletRequest request) {
+        String sql = "select * from user_id";
+        List<UserAliasHaveVO> ls = null;
+        Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+        try {
+            ls = jdbc.query(sql, new UserAliasHaveRowMapper(), user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls;
+    }
 }
