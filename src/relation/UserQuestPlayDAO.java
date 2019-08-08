@@ -43,4 +43,15 @@ public class UserQuestPlayDAO {
         }
         return ls;
     }
+
+    public List<UserQuestPlayVO> findPlayingQuestByUserId(Long userId) {
+        List<UserQuestPlayVO> ls = null;
+        String sql = "select * from user_quest_play where user_id=?";
+        try{
+            ls = jdbc.query(sql,new UserQuestPlayRowMapper(),userId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return ls;
+    }
 }

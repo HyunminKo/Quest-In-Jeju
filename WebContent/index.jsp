@@ -57,11 +57,6 @@
     <title>Index</title>
 
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1da8ruo4kk"></script>
-<!-- 추가된 css -->
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
-
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -70,7 +65,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/loading_spinner.css"/>
     <link rel="stylesheet" href="static/css/progressbar.css"/>
-	
 	
   </head>
 	<body onload="isLogin(${userId})">
@@ -178,7 +172,7 @@
             <div class="modal-body">
               <form method="POST" action="join.jsp" id="signupform" onsubmit="return signupcheck();">
                   <div class="form-group">
-                      <label class="signup-id" for="email">아이디 (Email)</label>
+                      <label class="signup-id" for="joinEmail">아이디 (Email)</label>
                         <div class="idform-check">
                           <input type="email" class="form-control id" id="joinEmail" placeholder="email@example.com" name="joinEmail">
                           <button class="signup-id-check" type="button" onclick="checkEmail()">check</button>

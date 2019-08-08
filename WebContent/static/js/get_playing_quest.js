@@ -1,3 +1,5 @@
+let isLogined = false;
+
 function loadingProgressCircleBar() {
     $(function() {
         // Remove svg.radial-progress .complete inline styling
@@ -51,6 +53,7 @@ function getUserQuestAndItemsPlayingByUserId() {
 }
 function isLogin(idValue){
     if(idValue!==undefined){
+        isLogined = true;
         getUserQuestAndItemsPlayingByUserId();
     }else {
         navigator.geolocation.getCurrentPosition(success, error, options);

@@ -76,7 +76,11 @@ h1 { color: #000;
     white-space: nowrap;
     padding-left: 2px;
 }
-
+.que_item {
+    -moz-box-shadow: 4px 1px 10px #8a8a8a;
+    -webkit-box-shadow: 4px 1px 10px #8a8a8a;
+    box-shadow: 4px 1px 10px #8a8a8a;
+}
 .btn-btn-primary {
     border: none;
     background: none;
