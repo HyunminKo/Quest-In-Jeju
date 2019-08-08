@@ -12,7 +12,7 @@
   Long quest_id = Long.parseLong(request.getParameter("quest_id"));
   String latitude = null;
   String longitude = null;
-  int item_count = quest_dao.getItemCount();
+  int item_count = quest_dao.getItemCount(quest_id);
   String name = null;
   try {
     vo = dao.findOne(id);

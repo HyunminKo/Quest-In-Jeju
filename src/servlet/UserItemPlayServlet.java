@@ -89,7 +89,7 @@ public class UserItemPlayServlet extends HttpServlet {
                         }
                     }
                     if(is_completed_count == item_count) {
-                        //
+                        System.out.println("성공");
                     }
                 }
             }
