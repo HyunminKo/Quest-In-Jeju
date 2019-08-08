@@ -31,6 +31,9 @@
             }
         }
     }else {
+        questNameMap = dao.getQuestNameMap();
+        dao.getPlayingUserQuest(request, Long.parseLong(userId));
+
         request.setAttribute("questNameMap",questNameMap);
         Map<Long,List<QuestItemVO>> questList = (Map<Long,List<QuestItemVO>>) session.getAttribute("questList");
         request.setAttribute("questList",questList);
