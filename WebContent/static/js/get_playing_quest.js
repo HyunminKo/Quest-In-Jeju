@@ -49,7 +49,10 @@ function getUserQuestAndItemsPlayingByUserId() {
         }
     });
 }
-$(document).ready(function () {
-    $(".se-pre-con").fadeOut("slow");
-    //getUserQuestAndItemsPlayingByUserId();
-});
+function isLogin(idValue){
+    if(idValue!==undefined){
+        getUserQuestAndItemsPlayingByUserId();
+    }else {
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    }
+}
