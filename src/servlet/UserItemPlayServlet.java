@@ -6,6 +6,7 @@ import org.json.simple.parser.JSONParser;
 import quest.QuestItemVO;
 import relation.UserItemPlayDAO;
 import relation.UserItemPlayVO;
+import util.Utils;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,6 @@ public class UserItemPlayServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("servlet");
 
         StringBuffer sb = new StringBuffer();
         String line = null;
@@ -36,8 +36,8 @@ public class UserItemPlayServlet extends HttpServlet {
             JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
 
             String method = (String) jsonObject.get("method");
-            Long user_id = (Long) jsonObject.get("user_id");
             Long item_id = (Long) jsonObject.get("item_id");
+            System.out.println(item_id);
 
             if("findAll".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
@@ -70,8 +70,11 @@ public class UserItemPlayServlet extends HttpServlet {
                 out.flush();
             }else if("update".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
-                int rc = dao.update(user_id, item_id);
-                System.out.println("update!!!");
+                Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+                System.out.println(user_id);
+                if(user_id != null) {
+                    int rc = dao.update(user_id, item_id);
+                }
             }
         } catch (Exception e) {
 

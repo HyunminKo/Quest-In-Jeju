@@ -150,3 +150,5 @@ local.properties
 .project
 
 
+out/production/*
+WebContent/WEB-INF/classes/*

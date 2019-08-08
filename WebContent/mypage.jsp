@@ -1,4 +1,20 @@
+<%@ page import="board.PostDAO" %>
+<%@ page import="board.PostVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="relation.UserItemPlayDAO" %>
+<%@ page import="util.Utils" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+
+  PostDAO post_dao = new PostDAO();
+  int post_count = post_dao.findPostCountByUserId(request);
+  request.setAttribute("post_count", post_count);
+
+  String user_name = Utils.getValueInCookie(request,"user_name");
+  request.setAttribute("user_name", user_name);
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -39,7 +55,7 @@
             <img src="static/img/avatar.png" class="thumb">
           </div>
           <p class="txt">
-            <em class="name">Hyunmin Ko</em>
+            <em class="name">${user_name}</em>
           </p>
           <p class="alias">
             <span class="name">오름 정복자</span>
@@ -54,15 +70,15 @@
       <div class="quest-circle-container">
         <div class="quest-circle">
           <span class="quest-circle-innertext counter" data-count="142">0</span>
-          <p class="quest-circle-title">획득 칭호 수</p>
+          <p class="quest-circle-title">획득 칭호</p>
         </div>
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="512">0</span>
-          <p class="quest-circle-title">해결한 퀘스트 수</p>
+          <span class="quest-circle-innertext counter" data-count="${user_completed_item}">0</span>
+          <p class="quest-circle-title">완료한 아이템</p>
         </div>
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="15">0</span>
-          <p class="quest-circle-title">올린 게시글 수</p>
+          <span class="quest-circle-innertext counter" data-count="${post_count}">0</span>
+          <p class="quest-circle-title">게시글</p>
         </div>
       </div>
     </div>

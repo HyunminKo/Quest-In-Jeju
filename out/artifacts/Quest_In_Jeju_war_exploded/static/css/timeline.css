@@ -191,7 +191,7 @@ p.WriteDate {
 .MainTopRightUtilWriteBotRightWrite {
     width : 100%;
     height : 100%;
-    font-size : 10px;
+    font-size : 12px;
     display : -webkit-box;
     overflow : hidden;
     vertical-align : top;
@@ -214,8 +214,8 @@ p.WriteDate {
 }
 
 .CommentSubmitButton {
-    width : 11vw;
-    height : 11vw;
+    width : 20%;
+    height : 15vw;
     text-align : center;
     background-color : #ffffff;
     border-radius : 10%;
@@ -241,7 +241,8 @@ p.WriteDate {
 }
 
 textarea.WriterEditor {
-    font-size : 7px;
+	width : 80%;
+    font-size : 12px;
     border-top : 0px solid #eee;
     border-bottom : 0px solid #eee;
     border-left : 0px solid #eee;
@@ -269,6 +270,7 @@ textarea.WriterEditor {
 .MainTopRightUtilCommentTopRight {
     width : 60%;
     float : right;
+    margin-bottom : 2px;
 }
 
 .MainTopRightUtilCommentTopRightLeft {
@@ -285,13 +287,17 @@ textarea.WriterEditor {
     padding : 3px 3px 2px 3px;
     color : #eee;
     font-size : 7px;
+    margin-bottom : 1px;
 }
 
 .MainTopRightUtilCommentBot {
     width : 100%;
-    padding : 8px;
-    font-size : 7px;
+    padding : 10px;
+    margin-top : 5px;
+    font-size : 10px;
+    text-align : left;
     border-top : 1px solid #eee;
+    margin-top : 5px;
 }
 
 .MainBotTop {
@@ -370,5 +376,5 @@ textarea.WriterEditor {
     width : 15vw;
     height : 15vw;
     position : fixed;
-    margin : 70vh 10vw 10vh 80vw;
+    margin : 65vh 10vw 15vh 80vw;
 }

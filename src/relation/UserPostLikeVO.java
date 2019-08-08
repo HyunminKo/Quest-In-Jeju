@@ -2,14 +2,7 @@ package relation;
 
 public class UserPostLikeVO {
     private Long user_id = null;
-
-    @Override
-    public String toString() {
-        return "UserPostLikeVO{" +
-                "user_id=" + user_id +
-                ", post_id=" + post_id +
-                '}';
-    }
+    private Long post_id = null;
 
     public Long getUser_id() {
         return user_id;
@@ -26,6 +19,4 @@ public class UserPostLikeVO {
     public void setPost_id(Long post_id) {
         this.post_id = post_id;
     }
-
-    private Long post_id = null;
 }
