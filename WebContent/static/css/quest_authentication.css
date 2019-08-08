@@ -20,7 +20,7 @@
 
 #outer-panel {
   height: 520px;
-  margin-top: 80px;
+  margin-top: 60px;
   padding-top: 0;
 }
 
@@ -71,7 +71,7 @@
 }
 
 #outer-camera {
-  margin-top: 1.5em;
+  margin-top: 1.3em;
 }
 
 #authentication_submit {
@@ -95,5 +95,6 @@
 .panel-title {
   color: white;
   /*background-color: #da0808;*/
+  font-size: 20px;
 }
 

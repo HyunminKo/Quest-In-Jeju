@@ -13,8 +13,13 @@
 }
 
 .main-intro {
-	margin-top: 30%;
+	margin-top: 26%;
+	font-family: 'BRRA_R' !important;
+	margin-left: 11%;
+	font-size: 20px;
+	margin-top: 27%;
 }
+
 
 /* 로그인 */
 .btn.btn-primary {
@@ -22,11 +27,27 @@
     margin-left: 5%;
     font-family: 'BRRA_B';
     font-size: 1.2em;
-    color: black;
+    color: white;
     border-radius: 0;
-    background: none;
+    background: #da0808;
     border: 1px solid #da0808;
+    margin-top: 17px;
 }
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+    border-color: #da0808;
+    background-color: #da0808;
+    color: #FFF; }
+
+.btn.btn-primary:active,
+.btn.btn-primary:visited,
+.btn.btn-primary:active:focus,
+.btn.btn-primary:active:hover {
+    border-color: #da0808;
+    background-color: #da0808;
+    color: #FFF; }  
+
 .btn.btn-secondary{
     margin-top: 12px;
     background-color: #da0808;
@@ -34,6 +55,7 @@
     width: 100%;
     margin-left:0;
     font-family: 'BRRA_R';
+    color: white;
 }
 
 .main-id {
@@ -62,7 +84,7 @@
     font-size: 1.2em;
     font-family: 'BRRA_B';
     font-size: 1.2em;
-    color: black;
+    color: #da0808;
     border-radius: 0;
     background: none;
     border: 1px solid #da0808;
