@@ -85,6 +85,11 @@ public class UserQuestPlayServlet extends HttpServlet {
                     userItemPlayVO.setItem_id(id);
                     userItemPlayDAO.insert(userItemPlayVO);
                 }
+                HttpSession session = request.getSession();
+                session.setAttribute("init_load", null);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("application/json;charset=utf-8");
+                response.setCharacterEncoding("utf-8");
             }
         } catch(Exception e) {
             e.printStackTrace();

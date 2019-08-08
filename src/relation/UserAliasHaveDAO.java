@@ -10,26 +10,17 @@ import java.util.List;
 public class UserAliasHaveDAO {
 
     JdbcTemplate jdbc = new JdbcTemplate();
-    List<UserAliasHaveVO> ls = null;
 
-    public int getAliasCountByUserId(HttpServletRequest request) {
-        String sql = "select * from user_id";
-        Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
-        try {
-            ls = jdbc.query(sql, new UserAliasHaveRowMapper(), user_id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return ls.size();
+    public int getAliasCountByUserId(Long userId) {
+        return getAliasListByUserId(userId).size();
     }
 
 
-    public List<UserAliasHaveVO> getAliasListByUserId(HttpServletRequest request) {
-        String sql = "select * from user_id";
+    public List<UserAliasHaveVO> getAliasListByUserId(Long userId) {
         List<UserAliasHaveVO> ls = null;
-        Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
+        String sql = "select * from user_alias_have where user_id=?";
         try {
-            ls = jdbc.query(sql, new UserAliasHaveRowMapper(), user_id);
+            ls = jdbc.query(sql, new UserAliasHaveRowMapper(), userId);
         } catch (Exception e) {
             e.printStackTrace();
         }
