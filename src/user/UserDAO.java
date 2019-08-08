@@ -40,4 +40,40 @@ public class UserDAO {
     	}
     	return vo;
     }
+    public Long findIdByEmail(String email) {
+    	UserVO vo = null;
+    	String sql = "select id from user where email=?";
+    	try {
+    		vo = jdbc.queryForObject(sql, new UserRowMapper(), email);
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return vo.getId();
+    }
+    
+    public List<UserVO> findAllEmail() {
+    	List<UserVO> ls = null;
+    	String sql = "select email from user";
+    	try {
+    		ls = jdbc.query(sql, new UserRowMapper());
+       	}
+    	catch ( Exception e ) {
+   		 e.printStackTrace();
+   	}
+   	return ls;
+    }
+    public boolean isExistByEmail(String email) {
+    	String sql = "select email from user where email=?";
+    	try {
+    		UserVO vo = jdbc.queryForObject(sql,new UserRowMapper(),email);
+    		if(vo!=null) {
+    			return true;
+    		}else {
+    			return false;
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    		return true;
+    	}
+    }
 }

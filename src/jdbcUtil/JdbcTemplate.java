@@ -78,10 +78,12 @@ public class JdbcTemplate {
             if(rs.next()){
                 vo = rowMapper.mapRow(rs);
                 if(rs.next()){
-                    throw new Exception("many records");
+                    System.out.println("many records");
+                    return null;
                 }
             }else {
-                throw new Exception("no record");
+                System.out.println("no record");
+                return null;
             }
         } catch(Exception e){
             throw e;

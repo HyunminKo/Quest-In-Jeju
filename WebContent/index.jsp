@@ -182,8 +182,8 @@
                   <div class="form-group">
                       <label class="signup-id" for="email">아이디 (Email)</label>
                         <div class="idform-check">
-                          <input type="email" class="form-control id" id="email" placeholder="email@example.com" name="email">
-                          <button class="signup-id-check">check</button>
+                          <input type="email" class="form-control id" id="joinEmail" placeholder="email@example.com" name="joinEmail">
+                          <button class="signup-id-check" type="button" onclick="checkEmail()">check</button>
                           <div class="checkcheck" id="idcheck"></div>
                         </div>
                   </div>
@@ -194,7 +194,7 @@
                   </div>
                   <div class="form-group">
                       <label class="signup-name" for="name">이름</label>
-                      <input type="password" class="form-control" id="name" placeholder="name" name="name">
+                      <input type="text" class="form-control" id="name" placeholder="name" name="name">
                   </div>
                   <button type="submit" class="btn btn-secondary" id="signup-btn">가 입 하 기</button>
               </form>
