@@ -3,10 +3,11 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+/*
 import user.AliasDAO;
 import user.AliasVO;
-
+import user.UserDAO;
+*/
 public class DBTest {
     public static void main(String[] args) throws ParseException {
 //        //JSON 데이터
@@ -95,5 +96,7 @@ public class DBTest {
 //
 //        List<QuestItemVO> list = dao.findAll();
 //        System.out.println(list);
+//    	UserDAO dao = new UserDAO();
+//    	System.out.println(dao.findAll());
     }
 }

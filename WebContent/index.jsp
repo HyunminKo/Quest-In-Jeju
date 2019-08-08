@@ -2,26 +2,24 @@
     import="java.util.List, quest.*"%>
   <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
     <%
-  /*
+
   Cookie[] cookies = request.getCookies();
   String userId = null;
+  String userName = null;
   for( int i = 0 ; i < cookies.length ; i++ ) {
       if( ( "user_id" ).equals(cookies[i].getName()) ) {
           userId = cookies[i].getValue();
-          break;
+          continue;
+      }
+      if( ( "user_name" ).equals(cookies[i].getName()) ) {
+          userName = cookies[i].getValue();
+          continue;
       }
   }
-  //request.setAttribute(" ", );??/
-  System.out.println(userId);
-*/
-	String userId = "alice";
 	
 	request.setAttribute("userId",userId);
-	Object idtest = request.getAttribute("userId");
-	
-	 System.out.println(idtest);// 확인차 보여주기 
+	request.setAttribute("userName",userName);
 
-	
     List<QuestItemVO> rl = null;
 	Exception err = null;
 
@@ -66,8 +64,8 @@
 		<l:when test="${not empty userId}">
 
 		    <div class="quest">
-		        <p >${userId}님이 수행중인 퀘스트!</p>
-		    </div>
+		        <span>${userName}님이 수행중인 퀘스트!</span>
+		    </div>s
 		    <div class="contain">
 		        <div class="button" >
                     <button type="button" class="btn btn-outline-danger" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
@@ -121,15 +119,15 @@
               </button>
             </div>
             <div class="modal-body">
-                    <form>
+                    <form method="POST" action="login.jsp" onsubmit="return loginCheck()">
                       <div class="form-group">
-                        <label class="main-id" for="exampleInputEmail1">아이디</label>
-                        <input type="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="id">
+                        <label class="main-id" for="loginEmail">아이디</label>
+                        <input type="email" class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="id" name="email">
                       </div>
                       
                       <div class="form-group">
-                        <label class="main-pw" for="exampleInputPassword1">비밀번호</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+                        <label class="main-pw" for="loginPassword">비밀번호</label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="password" name="password">
                       </div>
                       <button type="submit" class="btn btn-secondary">L O G I N</button>
                     </form>

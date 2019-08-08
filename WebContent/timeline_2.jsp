@@ -1,12 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@ page contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"
+    import="board.*" %><%!
+    %><%
+    
+    String ctxPath = request.getContextPath();
+	request.setCharacterEncoding("UTF-8");
+	Exception err = null;
+    
+	CommentDAO dao = new CommentDAO();
+	CommentVO vo = new CommentVO();
+	
+	String contents = request.getParameter("comment");
+	
+	String id = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getUser_id());
+	System.out.println( id );
+	
+	Cookie[] cookies = request.getCookies();
+	for( int i = 0 ; i < cookies.length ; i++ ) {
+		if( ( "user_id" ).equals(cookies[i].getName()) ) {
+			vo.setUser_id(Long.parseLong( cookies[i].getValue() ));
+			break;
+		}
+	}
+	
+	
+	
+%><!DOCTYPE html>
