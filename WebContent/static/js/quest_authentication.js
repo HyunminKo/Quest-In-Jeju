@@ -106,7 +106,7 @@ function changeButton(status) {
     postParams();
   } else {
     document.getElementById("user-location-confirm-btn").innerText =
-        "조금 더 이동해주세요️?? 실패일 때 뭘로할까?";
+        "인증 범위를 벗어났습니다😢 다시 시도해주세요";
   }
 
 }
