@@ -1,37 +1,29 @@
 <%@ page contentType="text/html; charset=utf-8"
     import="java.util.List, quest.*"%>
-  <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
-    <%
+<%@ page import="util.Utils" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+<%
+    String userId = Utils.getValueInCookie(request,"user_id");
+    String userName = Utils.getValueInCookie(request,"user_id");
 
-  Cookie[] cookies = request.getCookies();
-  String userId = null;
-  String userName = null;
-  for( int i = 0 ; i < cookies.length ; i++ ) {
-      if( ( "user_id" ).equals(cookies[i].getName()) ) {
-          userId = cookies[i].getValue();
-          continue;
-      }
-      if( ( "user_name" ).equals(cookies[i].getName()) ) {
-          userName = cookies[i].getValue();
-          continue;
-      }
-  }
-	
-	request.setAttribute("userId",userId);
-	request.setAttribute("userName",userName);
+    if(userId != null){
+        request.setAttribute("userId",userId);
+        List<QuestItemVO> rl = null;
+        Exception err = null;
 
-    List<QuestItemVO> rl = null;
-	Exception err = null;
-
-  QuestItemDAO dao = new QuestItemDAO();
-  try{
-  	rl = dao.findAll();
-  	request.setAttribute("rl", rl);
-  //	System.out.println(rl);
-  }catch(Exception e){
-  	err = e;
-  }
-
+        QuestItemDAO dao = new QuestItemDAO();
+        try{
+        rl = dao.findAll();
+        request.setAttribute("rl", rl);
+        //	System.out.println(rl);
+        }catch(Exception e){
+        err = e;
+        }
+    }
+    if(userName != null){
+        request.setAttribute("userName",userName);
+    }
+    
 %>
 <!DOCTYPE html>
 <html>
