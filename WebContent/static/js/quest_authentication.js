@@ -4,16 +4,18 @@ let item_id = 0;
 let item_latitude;
 let item_longitude;
 let item_count;
+let quest_id;
 
 
 
 // 인증 페이지에서 '현재 위치 확인하기' 버튼을 눌렀을 때
-function getLocation(id, latitude, longitude) {
+function getLocation(id, latitude, longitude, quest) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     item_id = id;
     item_latitude = parseInt(latitude);
     item_longitude = parseInt(longitude);
+    quest_id = quest_id;
   } else {
     alert("이 브라우저는 Geolocation를 지원하지 않습니다");
   }
@@ -133,5 +135,10 @@ function postParams() {
         console.log("success");
       }
     });
+
+    const after_update_params = {
+
+    }
+
   }
 }

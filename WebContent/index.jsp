@@ -44,6 +44,7 @@
         request.setAttribute("err",err);
         response.sendRedirect(ctxPath + "/error.jsp");
     }
+
 %>
 <!DOCTYPE html>
 <html>
@@ -63,21 +64,12 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<<<<<<< HEAD
-	
-  	<link rel="stylesheet" href="static/css/quest_page.css"/>
-=======
 
-  	<%--<link rel="stylesheet" href="static/css/quest_page.css"/>--%>
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="static/css/loading_spinner.css"/>
     <link rel="stylesheet" href="static/css/progressbar.css"/>
-	<link rel="stylesheet" href="bootstrap.css"/>	
 	
 	
   </head>
@@ -89,54 +81,6 @@
         <div class="main-body-content">
 		    <div class="quest-main-title">
 		        <span>${userName}님이 수행중인 퀘스트!</span>
-<<<<<<< HEAD
-		    </div>s
-		    <div class="contain">
-		        <div class="button btnchk">
-                    <button type="button" class="btn btn-outline-danger qbtn" onclick="doDisplay()"><a class="questname">오름정복하기</a></button>
-                   <!-- 체크박스여기 -->
-                   
-                   
-                        <div class="material-switch pull-right marker">
-                            <input id="someSwitchOptionWarning" name="someSwitchOption001" type="checkbox"/>
-                            <label for="someSwitchOptionWarning" class="label-warning"></label>
-                        </div>
-				
-					
-					
-					
-				</div>
-
-                <!-- 테스트 프로그래스바 -->
-                <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
-                    <circle class="incomplete" cx="40" cy="40" r="35"></circle>
-                    <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
-                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%</text>
-                </svg>
-		        <div class="container2" id="orumlist">
-		          <div class="auth-wrap"> <!--y-scroll-->
-			          <l:forEach var="vo" items="${rl}">
-		                <div class="questlist">
-		                  <div class ="abcd">
-		                      <button type="button" class="btn btn-outline-secondary naming" ><a class="itemname">${vo.name}</a></button>
-		                  </div>
-		
-		                  <div class="authbtn">
-		                        <button type="button"  class="btn btn-outline-success chkbtn">
-		                          <a href="quset_authentication.jsp?item_id=${vo.id}">
-		                          <img src="static/img/submit.png">
-		                            </a>
-		                        </button>
-		                    </div><!--authbtn-->
-		                </div><!--questlist-->
-			          </l:forEach>
-		<!--1차 for문 끝-->
-		
-		<!--  <a href="logout.jsp">로그아웃</a>-->
-		          </div><!--authwrap-->
-		        </div><!--container2-->
-		    </div><!--contain-->
-=======
 		    </div>
             <l:forEach var="rl" items="${questList}">
                 <l:set var="quest_key" value="${rl.key}"/>
@@ -169,7 +113,7 @@
                                 <p class="quest-body-title">${vo.name}</p>
                                 <div class="authbtn">
                                     <button type="button"  class="btn btn-outline-success chkbtn">
-                                        <a href="quest_authentication.jsp?item_id=${vo.id}" class="quest-item-a">
+                                        <a href="quest_authentication.jsp?item_id=${vo.id}&quest_id=${quest_key}" class="quest-item-a">
                                             인증
                                         </a>
                                     </button>
@@ -182,7 +126,6 @@
             </div>
             </l:forEach>
         </div>
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
   </l:when>
  <l:otherwise>
     <!-- 로그인 안했을때 보이는 부분  -->
