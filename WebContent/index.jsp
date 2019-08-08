@@ -15,7 +15,9 @@
     QuestDAO dao = new QuestDAO();
 
     Map<Long,String> questNameMap = dao.getQuestNameMap();
-
+    System.out.println("userId" + userId);
+    System.out.println("userName" + userName);
+    System.out.println("initLoaded" + initLoaded);
     if(initLoaded == null) {
         if (userId != null) {
             try {
@@ -42,7 +44,7 @@
     if(err!=null){
         err.printStackTrace();
         request.setAttribute("err",err);
-        response.sendRedirect(ctxPath + "/error.jsp");
+        response.sendRedirect("error.jsp");
     }
 
 %>

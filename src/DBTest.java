@@ -6,13 +6,10 @@ import java.text.ParseException;
 //import org.json.simple.parser.JSONParser;
 //import org.json.simple.parser.ParseException;
 //
-//<<<<<<< HEAD
 //import quest.QuestDAO;
 //import quest.QuestItemDAO;
 //import quest.QuestItemVO;
 //import quest.QuestVO;
-
-<<<<<<< HEAD
 
 //import org.json.simple.JSONObject;
 //import org.json.simple.parser.JSONParser;
@@ -23,16 +20,13 @@ import java.text.ParseException;
 //import quest.QuestItemVO;
 //import quest.QuestVO;
 
-=======
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import quest.QuestDAO;
 import quest.QuestItemDAO;
 import quest.QuestItemVO;
 import quest.QuestVO;
->>>>>>> 11f3f87b5888489dd989374a4ef72c2ad017ac2b
 /*
 import user.AliasDAO;
 import user.AliasVO;
@@ -84,12 +78,7 @@ public class DBTest {
 //      questVO.setItem_count(4);
 //      questVO.setId(2L);
 //      System.out.println(questDAO.insert(questVO));
-<<<<<<< HEAD
-//    	
-    	
 
-=======
->>>>>>> 11f3f87b5888489dd989374a4ef72c2ad017ac2b
 
 //      QuestDAO questDAO = new QuestDAO();
 //      QuestVO questVO = new QuestVO();
@@ -112,7 +101,6 @@ public class DBTest {
 //    	  System.out.println(list);
 ///////////////////////////////////////////////////////   	  
 //        QuestItem Test
-<<<<<<< HEAD
 //        QuestItemDAO dao = new QuestItemDAO();
 //        QuestItemVO vo = new QuestItemVO();
 //        vo.setName("용담 해안도로");
@@ -159,7 +147,6 @@ public class DBTest {
 //        vo.setFileSystemName("static/img/jongdal.JPG");
 //        System.out.println(dao.insert(vo));
 //        
-=======
                 QuestItemDAO dao = new QuestItemDAO();
                 QuestItemVO vo = new QuestItemVO();
                 vo.setName("용담 해안도로");
@@ -206,7 +193,6 @@ public class DBTest {
                 vo.setFileSystemName("static/img/jongdal.JPG");
                 System.out.println(dao.insert(vo));
 
->>>>>>> 11f3f87b5888489dd989374a4ef72c2ad017ac2b
 
 //        List<QuestItemVO> list = dao.findAll();
 //        System.out.println(list);
