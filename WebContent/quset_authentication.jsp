@@ -1,5 +1,21 @@
 <%@ page contentType="text/html; charset=utf-8"
-         import="java.util.List, quest.*"%>
+         import="quest.QuestItemDAO"%>
+
+<%
+  QuestItemDAO dao = new QuestItemDAO();
+  Exception err = null;
+  Long id = Long.parseLong(request.getParameter("item_id"));
+  String name = null;
+
+  try {
+    name = dao.findNameByItemId(id);
+  } catch ( Exception e ) {
+    err = e;
+  }
+
+  request.setAttribute("id", id);
+  request.setAttribute("name", name);
+%>
 
 <html lang="ko">
   <head>
@@ -21,18 +37,16 @@
   </head>
 
   <body>
-  <%@include file="header.jsp" %>
-
     <div class="container text-center">
       <div class="panel panel-default" id="outer-panel">
         <div class="panel-heading">
           <!-- 데이터 불러와야 됨 -->
-          <h3 class="panel-title">새별 오름</h3>
+          <h3 class="panel-title">${name}</h3>
         </div>
         <div class="panel-body" id="inner-panel">
           <div class="panel panel-default" id="user-location">
             <!-- getLocation(item_id) 로 변경하기 -->
-            <a id="user-location-confirm-btn" onclick="getLocation(2)">현재 위치 확인하기</a>
+            <a id="user-location-confirm-btn" onclick="getLocation(${id})">현재 위치 확인하기</a>
           </div>
           <div class="panel panel-default" id="image-upload">
             <img id="image-print" src="#" />
@@ -76,6 +90,7 @@
       }
     }
   </script>
+
 
   <script src="static/js/quest_authentication.js"></script>
   <script src="static/js/main.js"></script>
