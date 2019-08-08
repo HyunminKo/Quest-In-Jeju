@@ -15,9 +15,9 @@
     QuestDAO dao = new QuestDAO();
 
     Map<Long,String> questNameMap = dao.getQuestNameMap();
-    System.out.println("userId" + userId);
-    System.out.println("userName" + userName);
-    System.out.println("initLoaded" + initLoaded);
+    System.out.println("userId: " + userId);
+    System.out.println("userName: " + userName);
+    System.out.println("initLoaded: " + initLoaded);
     if(initLoaded == null) {
         if (userId != null) {
             try {

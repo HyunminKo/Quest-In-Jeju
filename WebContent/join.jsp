@@ -17,6 +17,7 @@
 	int result = dao.insert(vo);
 	if(result != -1){ //success
 		UserVO newUser = dao.findIdByEmail(email);
+		System.out.println(newUser);
 		response.addCookie(new Cookie("user_id",String.valueOf(newUser.getId())));
 		response.addCookie(new Cookie("user_name",newUser.getName()));
 		System.out.println("Join after: "+ctxPath);
