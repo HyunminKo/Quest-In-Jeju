@@ -11,7 +11,14 @@
         <servlet-name>UserItemPlayServlet</servlet-name>
         <servlet-class>servlet.UserItemPlayServlet</servlet-class>
     </servlet>
-    
+    <servlet>
+    	<servlet-name>LikeCountServlet</servlet-name>
+    	<servlet-class>servlet.LikeCountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    	<servlet-name>LikeCountServlet</servlet-name>
+    	<url-pattern>/servlet/LikeCountServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserQuestPlayServlet</servlet-name>
         <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>

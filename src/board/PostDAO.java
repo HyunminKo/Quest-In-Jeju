@@ -80,4 +80,14 @@ public class PostDAO {
         }
         return ls.size();
     }
+    public int updateLikeCount(Long post_id,String num) {
+    	int result = -1;
+    	String sql = "update post set like_count = like_count ? where post_id = ?";
+    	try {
+			result = jdbc.update(sql,num,post_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return result;
+    }
 }

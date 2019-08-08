@@ -31,7 +31,7 @@ public class UserPostLikeDAO {
     }
     public List<UserPostLikeVO> findAllPostId( Long user_id ) {
     	List<UserPostLikeVO> ls = null;
-    	String sql = "select post_id from user_post_like where user_id = ?";
+    	String sql = "select * from user_post_like where user_id = ?";
     	try {
     		ls = jdbc.query( sql , new UserPostLikeRowMapper() , user_id );
     	} catch( Exception e ) {
@@ -39,4 +39,13 @@ public class UserPostLikeDAO {
     	}
     	return ls;
     }
+	public void delete(long postId, long userId) {
+		String sql = "delete from user_;post_like where user_id=? and post_id=?";
+		
+		try {
+			jdbc.update(sql, userId,postId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

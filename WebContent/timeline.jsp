@@ -16,6 +16,7 @@ String LikeCheck = null;
 UserPostLikeDAO ldao = null;
 UserPostLikeVO lvo = null;
 List<UserPostLikeVO> lls = null;
+Set<Long> lps = null;
 
 %><%
 
@@ -36,12 +37,11 @@ try {
 	
 	Long user_id = Long.parseLong( Utils.getValueInCookie( request , "user_id") );
 	List<UserPostLikeVO> lls = ldao.findAllPostId( user_id );
-	Set<Long> postLikeSet = new HashSet<Long>();
+	lps = new HashSet<Long>();
+	
 	for( UserPostLikeVO vo : lls ) {
-		postLikeSet.add( vo.getPost_id() );
+		lps.add( vo.getPost_id() );
 	}
-	System.out.println( postLikeSet.contains(1L) );
-	System.out.println( postLikeSet.contains(2L) );
 	
 } catch( Exception e ) {
 	err = e;
@@ -83,8 +83,15 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 		request.setAttribute("cc", categoryColor);
 	    %><div class="MainTopLeft"></div>
 	    <div class="MainTopRight">
-	        <div class="MainTopRightUtilLeft">
-	        	<input type="button" id="button_${vs.count}_${cc}" class="LikeButton LikeButtonUtil${cc} LikedButton${cc}" onclick="ClickOfLike( this )"/>
+	        <div class="MainTopRightUtilLeft"><%
+	        Long post_id = ((PostVO)pageContext.getAttribute("pvo")).getId();
+	        if( lps.contains( post_id ) ) { %>
+	        	<div type="button" id="button_${vs.count}_${post_id}" class="HeartButton likedButton" onclick="ClickOfLike( this )"></div>
+	   <%   } else { %>
+	        	<div type="button" id="button_${vs.count}_${post_id}" class="HeartButton" onclick="ClickOfLike( this )"></div>
+	   <%   }        %>
+   				<p class="TextWithHeight">¡¡æ∆ø‰</p>
+   				<p class="TextWithHeight"> <l:out value="${pvo.like_count}"/> </p>
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
@@ -240,8 +247,32 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
         });
     });
     function ClickOfLike( t ){
-    	let color = t.id.split("_")[2];
-        $('#' + t.id ).toggleClass("likedButton"+color);
+    	let method;
+    	if($('#'+t.id).hasClass('likedButton')){
+    		method = 'Add';
+    	}else {
+    		method = 'Sub';
+    	}
+    	$('#' + t.id ).toggleClass("likedButton");
+    	
+		let post_id = t.id.split("_")[2];
+		console.log(post_id);
+    	const params = {
+   	        "post_id": post_id,
+   	        "method" : method
+   	    };
+    	$.ajax({
+    		url: '/quest-in-jeju/servlet/LikeCountServlet',
+            type: "POST",
+            data: JSON.stringify(params),
+            success: function(data) {
+                console.log(data)
+            },
+            error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+    	});
+         
     }
 </script>
 <script src="static/js/main.js"></script>

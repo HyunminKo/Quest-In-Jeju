@@ -65,13 +65,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<<<<<<< HEAD
 	
   	<link rel="stylesheet" href="static/css/quest_page.css"/>
-=======
 
   	<%--<link rel="stylesheet" href="static/css/quest_page.css"/>--%>
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
     <link rel="stylesheet" href="static/css/main.css"/>
     <link rel="stylesheet" href="static/css/mainlogin.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -89,7 +86,6 @@
         <div class="main-body-content">
 		    <div class="quest-main-title">
 		        <span>${userName}님이 수행중인 퀘스트!</span>
-<<<<<<< HEAD
 		    </div>s
 		    <div class="contain">
 		        <div class="button btnchk">
@@ -136,7 +132,6 @@
 		          </div><!--authwrap-->
 		        </div><!--container2-->
 		    </div><!--contain-->
-=======
 		    </div>
             <l:forEach var="rl" items="${questList}">
                 <l:set var="quest_key" value="${rl.key}"/>
@@ -182,7 +177,6 @@
             </div>
             </l:forEach>
         </div>
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
   </l:when>
  <l:otherwise>
     <!-- 로그인 안했을때 보이는 부분  -->
