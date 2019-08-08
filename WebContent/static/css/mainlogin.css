@@ -5,11 +5,27 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'BRRA_B';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-intro {
+	margin-top: 30%;
+}
+
 /* 로그인 */
 .btn.btn-primary {
-    margin-top: 30%;
     width: 90%;
     margin-left: 5%;
+    font-family: 'BRRA_B';
+    font-size: 1.2em;
+    color: black;
+    border-radius: 0;
+    background: none;
+    border: 1px solid #da0808;
 }
 .btn.btn-secondary{
     margin-top: 12px;
@@ -17,6 +33,7 @@
     border: none;
     width: 100%;
     margin-left:0;
+    font-family: 'BRRA_R';
 }
 
 .main-id {
@@ -41,6 +58,14 @@
 /* 회원가입 */
 .btn.btn-primary.main-su {
     margin-top: 15px !important;
+    font-family: 'BRRA_B';
+    font-size: 1.2em;
+    font-family: 'BRRA_B';
+    font-size: 1.2em;
+    color: black;
+    border-radius: 0;
+    background: none;
+    border: 1px solid #da0808;
 }
 
 .form-control.confirm {
@@ -48,7 +73,7 @@
 }
 
 .modal-content.sign {
-    margin-top: 25%;
+    margin-top: 30%;
 }
 /* 
 .form-control.id  {
