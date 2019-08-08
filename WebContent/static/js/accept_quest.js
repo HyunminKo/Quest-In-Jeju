@@ -1,9 +1,4 @@
-let quest_id = 0;
-// 임시로 1번 user
-let user_id = 1;
-
-
-function post_user_quest(){
+function post_user_quest(quest_id){
 
     console.log("enter");
 
@@ -27,11 +22,14 @@ function post_user_quest(){
 }
 
 
-function confirm_user_accept(id) {
-    quest_id = id;
-
+function confirm_user_accept(quest_id,user_id) {
+    if(user_id == undefined){
+        alert("로그인이 필요한 기능입니다.\n로그인 페이지로 이동하겠습니다.");
+        location.href="index.jsp";
+    }
+    return;
     if(confirm('퀘스트를 시작하시겠습니까?')){
-        post_user_quest();
+        post_user_quest(quest_id);
         return true;
     };
 }

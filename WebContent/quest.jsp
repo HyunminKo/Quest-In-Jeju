@@ -6,9 +6,14 @@
 <%@ page import="quest.QuestItemDAO" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="util.Utils" %>
+<%@ page import="relation.UserQuestPlayDAO" %>
+<%@ page import="relation.UserQuestPlayVO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
+  String userId = Utils.getValueInCookie(request,"user_id");
+
   QuestDAO questDAO = new QuestDAO();
   QuestItemDAO questItemDAO = new QuestItemDAO();
 
@@ -25,6 +30,16 @@
     }
     questItemMap.get(questId).add(vo);
   }
+  Map<Long,String> playingQuestMap = new HashMap<>();
+  if(userId != null){
+    UserQuestPlayDAO dao = new UserQuestPlayDAO();
+    List<UserQuestPlayVO> list = dao.findPlayingQuestByUserId(Long.parseLong(userId));
+    for(UserQuestPlayVO vo: list){
+      playingQuestMap.put(vo.getQuest_id(),"playing");
+    }
+  }
+  request.setAttribute("playingQuestMap",playingQuestMap);
+  request.setAttribute("user_id",userId);
   request.setAttribute("questItemMap",questItemMap);
   request.setAttribute("questNameMap",questNameMap);
   request.setAttribute("questVOList",questVOList);
@@ -59,16 +74,26 @@
               <img src ='static/img/quest.png' width="30" height="30">
               ${row.name}
               <!-- 큰 quest의 id를 <div>의 id로 주고, button을 클릭할 때 onclick 인자로 quest id를 보냅니다 -->
-              <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" onclick=confirm_user_accept(${row.id})>
-                start
-              </button>
+              <l:set var="quest_id" value="${row.id}"/>
+              <l:choose>
+                <l:when test="${playingQuestMap[quest_id] ne 'playing'}">
+                  <button type="button" class="btn btn-outline-success btn-sm que_start_btn" onclick=confirm_user_accept(${row.id},${user_id})>
+                    시작
+                  </button>
+                </l:when>
+                <l:otherwise>
+                  <button type="button" class="btn btn-outline-danger btn-sm que_start_btn" >
+                    수행중
+                  </button>
+                </l:otherwise>
+              </l:choose>
             </p>
           <div>
           <ul class="que_next">
             <l:forEach var="questItemVO" items="${questItemVOList}">
               <l:if test="${questItemVO.quest_id eq row.id}">
                 <li class="que_list">
-                  <div class="item" onclick="insertDataToModal(${questItemVO.id})" data-toggle="modal" data-target="#exampleModalCenter">
+                  <div class="que_item" onclick="insertDataToModal(${questItemVO.id})" data-toggle="modal" data-target="#exampleModalCenter">
                     <div class="cover">
                       <img src= '${questItemVO.fileSystemName}' style="width: 100%; height: 100%;">
                     </div>

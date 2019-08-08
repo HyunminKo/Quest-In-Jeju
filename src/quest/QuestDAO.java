@@ -37,6 +37,7 @@ public class QuestDAO {
     public List<QuestItemVO> getPlayingUserQuest(HttpServletRequest request, Long userId){
         UserItemPlayDAO dao = new UserItemPlayDAO();
         Set<Long> questIdSet = new HashSet<>();
+
         List<QuestItemVO> questItems = dao.getPlayingQuestItemsByUserId(userId);
         List<UserItemPlayVO> userItemsInfo = dao.getPlayingItemInfoByUserId(userId);
 
