@@ -10,7 +10,6 @@
 //import quest.QuestItemVO;
 //import quest.QuestVO;
 
-<<<<<<< HEAD
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -19,12 +18,9 @@ import quest.QuestDAO;
 import quest.QuestItemDAO;
 import quest.QuestItemVO;
 import quest.QuestVO;
-=======
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
 /*
 import user.AliasDAO;
 import user.AliasVO;
->>>>>>> 6bdf6ba0e07b975053d55dad20dd81e7c7c24bc5
 import user.UserDAO;
 */
 //public class DBTest {
@@ -66,17 +62,13 @@ import user.UserDAO;
 //        questVO.setItem_count(3);
 //        questVO.setId(1L);
 //        System.out.println(questDAO.insert(questVO));
-<<<<<<< HEAD
-    	
+
 //      QuestDAO questDAO = new QuestDAO();
 //      QuestVO questVO = new QuestVO();
 //      questVO.setName("이색체험 정복하기");
 //      questVO.setItem_count(4);
 //      questVO.setId(2L);
 //      System.out.println(questDAO.insert(questVO));
-    	
-    	
-=======
 
 //      QuestDAO questDAO = new QuestDAO();
 //      QuestVO questVO = new QuestVO();
@@ -84,7 +76,6 @@ import user.UserDAO;
 //      questVO.setItem_count(4);
 //      questVO.setId(3L);
 //      System.out.println(questDAO.insert(questVO));
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8
 ///////////////////////////////////////////////////
 //		  Alias Test
 //    	  AliasDAO aliasDAO = new AliasDAO();
@@ -153,7 +144,6 @@ import user.UserDAO;
 //        System.out.println(list);
 //    	UserDAO dao = new UserDAO();
 //    	System.out.println(dao.findAll());
-<<<<<<< HEAD
  /*   	
     	QuestItemDAO dao = new QuestItemDAO();
         QuestItemVO vo = new QuestItemVO();
@@ -228,10 +218,6 @@ import user.UserDAO;
       System.out.println(dao.insert(vo));  
        
    */ 	 
-    	
-    }
-}
-=======
+
 //    }
 //}
->>>>>>> e304aa4abfa1e2a3250ba4af999700bcdc31e8b8

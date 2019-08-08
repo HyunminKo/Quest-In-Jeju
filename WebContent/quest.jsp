@@ -68,12 +68,12 @@
             <l:forEach var="questItemVO" items="${questItemVOList}">
               <l:if test="${questItemVO.quest_id eq row.id}">
                 <li class="que_list">
-                  <div class="item">
+                  <div class="item" onclick="insertDataToModal(${questItemVO.id})" data-toggle="modal" data-target="#exampleModalCenter">
                     <div class="cover">
                       <img src= '${questItemVO.fileSystemName}' style="width: 100%; height: 100%;">
                     </div>
                     <div class="info">
-                      <button type="button" class="btn-btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="insertDataToModal(${questItemVO.id})">
+                      <button type="button" class="btn-btn-primary" >
                         ${questItemVO.name}
                       </button>
                     </div>
