@@ -41,9 +41,9 @@ function getUserQuestAndItemsPlayingByUserId() {
         data: JSON.stringify(params),
         dataType: 'json',
         contentType: "application/json; charset=UTF-8",
-        success: function(data) {
-            loadingProgressCircleBar();
-            sessionStorage.setItem("questMap", JSON.stringify(data));
+        success: function(obj) {
+            console.log(obj);
+            sessionStorage.setItem("questMap", JSON.stringify(obj['data']));
             navigator.geolocation.getCurrentPosition(success, error, options);
         },
         error:function(request,status,error){

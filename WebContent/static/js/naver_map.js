@@ -68,6 +68,7 @@ function success(pos) {
         marker = null;
     }
     $(".se-pre-con").fadeOut("slow");
+    loadingProgressCircleBar();
 }
 
 function error(err) {
