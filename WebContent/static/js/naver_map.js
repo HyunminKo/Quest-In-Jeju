@@ -6,6 +6,16 @@ var options = {
 };
 
 function success(pos) {
+    let questMap = JSON.parse(sessionStorage.getItem("questMap"));
+    console.log(questMap);
+    let latlngs = [];
+    for(i in questMap){
+        for(item in questMap[i]){
+            let latitude = questMap[i][item]['latitude'];
+            let longitude = questMap[i][item]['longitude'];
+            latlngs.push(new naver.maps.LatLng(latitude, longitude))
+        }
+    }
     const jejuLatitued = 33.38715;
     const jejuLongitude = 126.5266283;
 
@@ -17,12 +27,7 @@ function success(pos) {
     };
     let map = new naver.maps.Map("map", mapOptions);
     let position = new naver.maps.LatLng(crd.latitude, crd.longitude);
-    let latlngs = [
-        new naver.maps.LatLng(33.528486, 126.7692923),
-        new naver.maps.LatLng(33.555875, 126.7938253),
-        new naver.maps.LatLng(33.5437905, 126.6666554),
-        new naver.maps.LatLng(33.366052, 126.3555555)
-    ];
+
     var markerList = [];
     var newMarker = new naver.maps.Marker({
         position: new naver.maps.LatLng(crd.latitude, crd.longitude),
@@ -58,10 +63,11 @@ function success(pos) {
         icon = null;
         marker = null;
     }
+    $(".se-pre-con").fadeOut("slow");
 }
 
 function error(err) {
     console.warn("ERROR(" + err.code + "): " + err.message);
 }
 
-navigator.geolocation.getCurrentPosition(success, error, options);
+

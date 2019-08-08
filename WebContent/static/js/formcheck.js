@@ -43,6 +43,9 @@ function check(){
         signupform.submit();
     }
 }
+function loginCheck() {
+
+}
 // if(signupform.content.value ==''){
     //     alert('빈칸을 모두 입력해주세요');
     // }
