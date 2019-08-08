@@ -74,17 +74,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	        </div>
 	        <div class="<%= "MainTopRightUtil MainTopRightUtilUtil" + categoryColor %>">
 	            <div class="MainTopRightUtilWrite">
-	                <div class="MainTopRightUtilWriteBot">
-	                    <div class="MainTopRightUtilWriteBotLeft">
-	                        <img src="${pvo.filesystemname}" class="MainTopRightUtilWriteBotLeftImage"/>
-	                    </div>
-	                    <div class="MainTopRightUtilWriteBotRight">
-	                        <p class="MainTopRightUtilWriteBotRightWrite">
-	                        	${pvo.contents}
-	                        </p>
-	                    </div>
-	                </div>
-	                <div class=MainTopRightUtilWriteTop>
+	            	<div class=MainTopRightUtilWriteTop>
 	                    <div class="MainTopRightUtilWriteTopLeft"><%
 	                    	String id = String.valueOf(((PostVO) pageContext.getAttribute("pvo")).getUser_id());
 	                    	poster = pdao.findNameByUserId(id);
@@ -104,13 +94,23 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	                        </p>
 	                    </div>
 	                </div>
+	                <div class="MainTopRightUtilWriteBot">
+	                    <div class="MainTopRightUtilWriteBotLeft">
+	                        <img src="${pvo.filesystemname}" class="MainTopRightUtilWriteBotLeftImage"/>
+	                    </div>
+	                    <div class="MainTopRightUtilWriteBotRight">
+	                        <p class="MainTopRightUtilWriteBotRightWrite">
+	                        	${pvo.contents}
+	                        </p>
+	                    </div>
+	                </div>
 	            </div>
 	            
 	            <div class="MainTopRightUtilWriter">
 	                <div class="MainTopRightUtilWriterRight">
 	                	<form method="POST" action="timeline_2.jsp" >
-		                	<input type="submit" class="<%= "CommentSubmitButton CommentSubmitButtonUtil" + categoryColor %>" />
-		                    <textarea class="WriterEditor" id="test" cols="45" rows="3" srcolling="no" onclick="this.value=''">댓글을 작성해주세요</textarea>
+		                	<input type="submit" class="<%= "CommentSubmitButton CommentSubmitButtonUtil" + categoryColor %>" value="작성" />
+		                    <textarea name="comment" class="WriterEditor" id="test" cols="45" rows="3" srcolling="no" placeholder="댓글을 작성하세요."></textarea>
 	                	</form>
 	                </div>
 	            </div>
@@ -144,7 +144,9 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 		                    </div>
 		                </div>
 		                <div class="MainTopRightUtilCommentBot">
-		                    ${cvo.contents}
+		                	<p class="CommentOfOne">
+		                    	${cvo.contents}
+		                	</p>
 		                </div>
 		            </div>
 				</l:forEach>
