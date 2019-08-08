@@ -177,7 +177,7 @@
                   <div class="form-group">
                       <label class="signup-id" for="joinEmail">아이디 (Email)</label>
                         <div class="idform-check">
-                          <input type="email" class="form-control id" id="joinEmail" placeholder="email@example.com" name="joinemail">
+                          <input type="email" class="form-control id" id="joinEmail" placeholder="email@example.com" name="joinEmail">
                           <button class="signup-id-check" type="button" onclick="checkEmail()">check</button>
                           <div class="checkcheck" id="idcheck"></div>
                         </div>
