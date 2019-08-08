@@ -5,7 +5,7 @@ let item_id = 0;
 
 
 // 인증 페이지에서 '현재 위치 확인하기' 버튼을 눌렀을 때
-function getLocation() {
+function getLocation(id) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     item_id = id;
@@ -96,13 +96,14 @@ function postParams() {
   console.log("enter postParams");
   const status = document.getElementById("user-location-confirm-btn").innerText;
 
-  if (status === "인증되었습니다✔️") {
+  if (status === "인증되었습니다✔ ️") {
     console.log("status = 인증");
     const params = {
       item_id: item_id,
       // user_id: user_id,
       method: "update"
     };
+
 
     $.ajax({
       url: "/quest-in-jeju/servlet/UserItemPlayServlet",
