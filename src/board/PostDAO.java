@@ -74,7 +74,9 @@ public class PostDAO {
         String sql = "select * from post where user_id = ?";
         Long user_id = Long.parseLong(Utils.getValueInCookie(request, "user_id"));
         try {
-            ls = jdbc.query(sql, new PostRowMapper(), user_id);
+            if(user_id != null) {
+                ls = jdbc.query(sql, new PostRowMapper(), user_id);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

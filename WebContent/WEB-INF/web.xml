@@ -19,6 +19,15 @@
     	<servlet-name>LikeCountServlet</servlet-name>
     	<url-pattern>/servlet/LikeCountServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+    	<servlet-name>EmailCheckServlet</servlet-name>
+    	<servlet-class>servlet.EmailCheckServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>EmailCheckServlet</servlet-name>
+    	<url-pattern>/servlet/EmailCheckServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserQuestPlayServlet</servlet-name>
         <url-pattern>/servlet/UserQuestPlayServlet</url-pattern>

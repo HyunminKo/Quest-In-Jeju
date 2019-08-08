@@ -1,12 +1,21 @@
 <%@ page import="board.PostDAO" %>
 <%@ page import="board.PostVO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="relation.UserItemPlayDAO" %>
+<%@ page import="relation.*" %>
 <%@ page import="util.Utils" %>
 <%@ page import="relation.UserAliasHaveDAO" %>
+<%@ page import="relation.UserAliasHaveVO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
 <%
+
+  // 로그인하지 않은 사용자이면 home으로
+  String ctxPath = request.getContextPath();
+  String userId = Utils.getValueInCookie(request, "user_id");
+  if(userId == null){
+    response.sendRedirect(ctxPath);
+    return;
+  }
 
   // 게시글 수
   PostDAO post_dao = new PostDAO();
@@ -31,11 +40,22 @@
   UserAliasHaveDAO user_alias_have_dao = new UserAliasHaveDAO();
   int alias_count = 0;
   try {
-    alias_count = user_alias_have_dao.getAliasCountByUserId(request);
+
+    alias_count = user_alias_have_dao.getAliasCountByUserId(Long.parseLong(userId));
   } catch(Exception e) {
     e.printStackTrace();
   }
   request.setAttribute("alias_count", alias_count);
+
+
+  // 칭호 리스트
+  List<UserAliasHaveVO> aliasList = null;
+  try {
+    aliasList = user_alias_have_dao.getAliasListByUserId(Long.parseLong(userId));
+  } catch(Exception e) {
+    e.printStackTrace();
+  }
+  request.setAttribute("aliasList", aliasList);
 
 %>
 <!DOCTYPE html>
@@ -96,7 +116,7 @@
           <p class="quest-circle-title">획득 칭호</p>
         </div>
         <div class="quest-circle">
-          <span class="quest-circle-innertext counter" data-count="${user_completed_item}">0</span>
+          <span class="quest-circle-innertext counter" data-count="152">0</span>
           <p class="quest-circle-title">완료한 아이템</p>
         </div>
         <div class="quest-circle">
@@ -109,42 +129,47 @@
       <p class="quest-title">Qeust Ing...</p>
       <ul class="quest-ul">
         <li>
+          <!-- 칭호 리스트 for문으로 출력 -->
           <div class="quest-card">
-            <div class="quest-head">
-              <img src="static/img/saebeyolorum.jpg" width=150 height=100/>
+            <div class="thumb_img">
+              <div class="mask" />
+              <img src="static/img/avatar.png" class="thumb">
             </div>
             <div class="quest-body">
-              <p class="title">새별오름</p>
+              <p class="title">칭호1</p>
             </div>
           </div>
         </li>
         <li>
           <div class="quest-card">
-            <div class="quest-head">
-              <img src="static/img/saebeyolorum.jpg" width=150 height=100/>
+            <div class="thumb_img">
+              <div class="mask" />
+              <img src="static/img/avatar.png" class="thumb">
             </div>
             <div class="quest-body">
-              <p class="title">새별오름</p>
+              <p class="title">칭호2</p>
             </div>
           </div>
         </li>
         <li>
           <div class="quest-card">
-            <div class="quest-head">
-              <img src="static/img/saebeyolorum.jpg" width=150 height=100/>
+            <div class="thumb_img">
+              <div class="mask" />
+              <img src="static/img/avatar.png" class="thumb">
             </div>
             <div class="quest-body">
-              <p class="title">새별오름</p>
+              <p class="title">칭호3</p>
             </div>
           </div>
         </li>
         <li>
           <div class="quest-card">
-            <div class="quest-head">
-              <img src="static/img/saebeyolorum.jpg" width=150 height=100/>
+            <div class="thumb_img">
+              <div class="mask" />
+              <img src="static/img/avatar.png" class="thumb">
             </div>
             <div class="quest-body">
-              <p class="title">새별오름</p>
+              <p class="title">칭호4</p>
             </div>
           </div>
         </li>

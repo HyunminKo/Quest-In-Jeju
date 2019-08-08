@@ -37,6 +37,7 @@ public class QuestDAO {
     public List<QuestItemVO> getPlayingUserQuest(HttpServletRequest request, Long userId){
         UserItemPlayDAO dao = new UserItemPlayDAO();
         Set<Long> questIdSet = new HashSet<>();
+
         List<QuestItemVO> questItems = dao.getPlayingQuestItemsByUserId(userId);
         List<UserItemPlayVO> userItemsInfo = dao.getPlayingItemInfoByUserId(userId);
 
@@ -87,5 +88,16 @@ public class QuestDAO {
             result.put(vo.getId(),vo.getName());
         }
         return result;
+    }
+
+    public int getItemCount(Long quest_id) {
+        String sql = "select * from quest where id=?";
+        QuestVO vo = null;
+        try {
+            vo = jdbc.queryForObject(sql, new QuestRowMapper(), quest_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vo.getItem_count();
     }
 }

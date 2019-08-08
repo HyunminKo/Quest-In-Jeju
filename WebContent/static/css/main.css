@@ -130,7 +130,9 @@ html {
 }
 .quest-card {
   float: left;
-  border: 1px solid #da0808;
+  -moz-box-shadow: 4px 1px 10px #8a8a8a;
+  -webkit-box-shadow: 4px 1px 10px #8a8a8a;
+  box-shadow: 4px 1px 10px #8a8a8a;
 }
 .quest-main-title {
   position: relative;

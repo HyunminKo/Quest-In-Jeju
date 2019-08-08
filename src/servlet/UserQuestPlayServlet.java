@@ -26,7 +26,7 @@ public class UserQuestPlayServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         StringBuffer sb = new StringBuffer();
         String line = null;
-
+        String ctxPath = request.getContextPath();
         try {
             BufferedReader reader = request.getReader();
             while((line = reader.readLine()) != null) {
@@ -41,7 +41,6 @@ public class UserQuestPlayServlet extends HttpServlet {
                 String userId = Utils.getValueInCookie(request,"user_id");
                 if(userId == null){
                     response.setStatus(HttpServletResponse.SC_OK);
-
                     return ;
                 }
 
@@ -86,6 +85,13 @@ public class UserQuestPlayServlet extends HttpServlet {
                     userItemPlayVO.setItem_id(id);
                     userItemPlayDAO.insert(userItemPlayVO);
                 }
+                HttpSession session = request.getSession();
+                session.setAttribute("init_load", null);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.setContentType("text/plain");
+                PrintWriter out = response.getWriter();
+                out.println("success");
+                out.flush();
             }
         } catch(Exception e) {
             e.printStackTrace();
