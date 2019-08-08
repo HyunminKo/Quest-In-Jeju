@@ -128,9 +128,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 		        	request.setAttribute( "cls" , cls );
 	         	} catch( Exception e ) {
 	         		err = e;
-	         		request.setAttribute( "err" , err );
 	         	}
-	         	if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
 	         	%><l:forEach  var="cvo" items="${cls}">
             		<div class="MainTopRightUtilComment">
 		                <div class="MainTopRightUtilCommentTop">
