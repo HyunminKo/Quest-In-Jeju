@@ -37,6 +37,7 @@ public class UserItemPlayServlet extends HttpServlet {
 
             String method = (String) jsonObject.get("method");
             Long item_id = (Long) jsonObject.get("item_id");
+            System.out.println(item_id);
 
             if("findAll".equals(method)){
                 UserItemPlayDAO dao = new UserItemPlayDAO();
@@ -73,7 +74,6 @@ public class UserItemPlayServlet extends HttpServlet {
                 System.out.println(user_id);
                 if(user_id != null) {
                     int rc = dao.update(user_id, item_id);
-                    System.out.println("updqte 성공");
                 }
             }
         } catch (Exception e) {
