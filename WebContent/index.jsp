@@ -11,7 +11,6 @@
     String userId = Utils.getValueInCookie(request,"user_id");
     String userName = Utils.getValueInCookie(request,"user_name");
     String initLoaded = (String) session.getAttribute("init_load");
-    System.out.println(initLoaded);
     request.setAttribute("initLoaded",initLoaded);
 
     Map<Long,List<QuestItemVO>> questMap = new HashMap<>();
