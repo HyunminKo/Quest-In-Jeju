@@ -41,7 +41,6 @@ public class UserQuestPlayServlet extends HttpServlet {
                 String userId = Utils.getValueInCookie(request,"user_id");
                 if(userId == null){
                     response.setStatus(HttpServletResponse.SC_OK);
-                    System.out.println(userId);
                     return ;
                 }
 
