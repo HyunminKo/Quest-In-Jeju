@@ -226,7 +226,7 @@ p.WriteDate {
     float : right;
     border-top : 0px;
     border-bottom : 0px;
-    -moz-box-shadow: 0px
+    -moz-box-shadow: 0px;
     -webkit-box-shadow: 0px;
     box-shadow: 0px;
 }
@@ -389,3 +389,13 @@ textarea.WriterEditor {
 .CommentOfOne {
 	margin : 0px;
 }
+.modal-content {
+    margin-top:25%;
+}
+.tl-new {
+    width: 100%;
+    border: 1px solid #00000040;
+}
+.tl-bold {
+     color: #da0808;
+ }

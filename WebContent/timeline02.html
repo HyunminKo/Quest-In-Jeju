@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/css/main.css" />
+    <script src="static/js/main.js"></script>
+
+    <title>TimeLine</title>
+    <style>
+        @font-face {
+            font-family: 'BRBA_B';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'BRRA_R';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'BRRA_R';
+        }
+        body {
+            width : 100%;
+            height : 100%;
+        }
+        header {
+            width : 100%;
+            height : 65px;
+            background-color : #da0808;
+        }
+        main {
+            width : 100%;
+            height : 537px;
+            overflow-y : auto;
+            overflow-x : hidden;
+        }
+        footer {
+            width : 100%;
+            height : 65px;
+        }
+        /* ~~~~~~~ Header ~~~~~~~ */
+        .HeaderLeft {
+            width : 205px;
+            height : 100%;
+            float : left;
+        }
+        .HeaderRight {
+            width : 170px;
+            height : 100%;
+            float : right;
+        }
+        /* ~~~~ Main Write ~~~~~ */
+        .MainMain {
+            width : 100%;
+            height : 100%;
+        }
+        .MainWrite {
+            width : 100%;
+            height : 100px;
+            margin-top : 10px;
+            border-top : 1px solid #eee;
+            border-bottom : 1px solid #eee;
+        }
+        .MainWriteLeft {
+            width : 100px;
+            height : 100px;
+            float : left;
+        }
+        .MainWriteLeftLeftB {
+            width : 10px;
+            height : 100%;
+            background-color : blue;
+            float : left;
+        }
+        .MainWriteLeftLeftG {
+            width : 10px;
+            height : 100%;
+            background-color : green;
+            float : left;
+        }
+        .MainWriteLeftLeftO {
+            width : 10px;
+            height : 100%;
+            background-color : orange;
+            float : left;
+        }
+        .MainWriteLeftRight {
+            width : 90px;
+            height : 100px;
+            float : right;
+        }
+        .MainImagesB {
+            width : 80px;
+            height : 80px;
+            margin : 10px 0px 10px 10px;
+            border : 5px solid blue;
+        }
+        .MainImagesG {
+            width : 80px;
+            height : 80px;
+            margin : 10px 0px 10px 10px;
+            border : 5px solid green;
+        }
+        .MainImagesO {
+            width : 80px;
+            height : 80px;
+            margin : 10px 0px 10px 10px;
+            border : 5px solid orange;
+        }
+        .MainWriteRight {
+            width : 275px;
+            height : 100px;
+            float : right;
+        }
+        .MainWriteRightLeft {
+            width : 235px;
+            height : 100%;
+            float : left;
+        }
+        .MainWriteRightLeftLeft {
+            width : 230px;
+            height : 100px;
+            float : left;
+        }
+        .MainWriteRightLeftLeftTop {
+            width : 100%;
+            height : 30px;
+        }
+        .MainWriteRightLeftLeftTopLeft {
+            width : 100px;
+            height : 100%;
+            float : left;
+        }
+        .MainWriteRightLeftLeftTopRight {
+            width : 130px;
+            height : 100%;
+            float : right;
+        }
+        .MainWriteRightLeftLeftBot {
+            width : 100%;
+            height : 70px;
+        }
+        .MainWriteRightLeftRight {
+            width : 5px;
+            height : 100px;
+            float : right;
+        }
+        .MainWriteRightRight {
+            width : 40px;
+            height : 100%;
+            float : right;
+        }
+        .ThreeIcons {
+            width : 40px;
+            height : 33px;
+            border-top : 1px solid #eee;
+            border-right : 1px solid #eee;
+            border-bottom : 1px solid #eee;
+        }
+        /* ~~~~~~ Comment ~~~~~~~ */
+        .MainCommentLine {
+            width : 100%;
+            height : 80px;
+        }
+        .MainComment {
+            width : 300px;
+            height : 80px;
+            float : right;
+            border-bottom : 1px solid #eee;
+        }
+        .MainCommentLeftB {
+            width : 8px;
+            height : 100%;
+            float : left;
+            background-color : blue;
+        }
+        .MainCommentLeftG {
+            width : 8px;
+            height : 100%;
+            float : left;
+            background-color : green;
+        }
+        .MainCommentLeftO {
+            width : 8px;
+            height : 100%;
+            float : left;
+            background-color : orange;
+        }
+        .MainCommentRight {
+            width : 292px;
+            height : 100%;
+            float : right;
+        }
+        .MainCommentRightTop {
+            width : 100%;
+            height : 20px;
+        }
+        .MainCommentRightTopLeft {
+            width : 92px;
+            height : 100%;
+            float : left;
+        }
+        .MainCommentRightTopRight {
+            width : 200px;
+            height : 100%;
+            float : right;
+        }
+        .MainCommentRightBot {
+            width : 100%;
+            height : 60px;
+        }
+        /* ~~~~~~ Editor ~~~~~~~ */
+        .MainEditor {
+            width : 100%;
+            height : 90px;
+            background-color : #eee;
+        }
+        .MainEditorLeft {
+            width : 305px;
+            height : 100%;
+            float : left;
+            font-size : 5px;
+        }
+        textarea.MainEditorLeftTextarea {
+            width : 275px;
+            height : 60px;
+            float : right;
+            overflow:visible;
+            margin-top : 15px;
+            border : 1px solid black;
+        }
+        .MainEditorRight {
+            width : 70px;
+            height : 100%;
+            float : right;
+            font-size : 15px;
+        }
+        .MainEditorRightSubmit {
+            width : 40px;
+            height : 60px;
+            float : left;
+            margin-top : 15px;
+            background-color : #FFFFFF;
+            border-top : 1px solid black;
+            border-right : 1px solid black;
+            border-bottom : 1px solid black;
+            border-left : 0px solid black;
+        }
+        /* ~~~~~~~ Footer ~~~~~~~ */
+        .FooterTop {
+            width : 100%;
+            height : 5px;
+            background-color : #DA0808;
+        }
+        .FooterBot {
+            width : 100%;
+            height : 60px;
+            background-color : #FFFFFF;
+        }
+        .FooterBotLeft {
+            width : 50%;
+            height : 100%;
+            float : left;
+        }
+        .FooterBotLeftAll {
+            width : 55px;
+            height : 35px;
+            float : right;
+            background-color : black;
+            border : 1px solid black;
+            margin : 12px 5px 0px 5px;
+            border-radius : 55px;
+            color : white;
+            font-size : 15px;
+        }
+        .FooterBotLeftFreedom {
+            width : 55px;
+            height : 35px;
+            float : right;
+            background-color : blue;
+            border : 1px solid blue;
+            margin : 12px 5px 0px 5px;
+            border-radius : 55px;
+            color : white;
+            font-size : 15px;
+        }
+        .FooterBotLeftReview {
+            width : 55px;
+            height : 35px;
+            float : left;
+            background-color : green;
+            border : 1px solid green;
+            margin : 12px 5px 0px 5px;
+            border-radius : 55px;
+            color : white;
+            font-size : 15px;
+        }
+        .FooterBotLeftQuestion {
+            width : 55px;
+            height : 35px;
+            float : left;
+            background-color : orange;
+            border : 1px solid orange;
+            margin : 12px 5px 0px 5px;
+            border-radius : 55px;
+            color : white;
+            font-size : 15px;
+        }
+        .FooterBotRight {
+            width : 50%;
+            height : 100%;
+            float : right;
+        }
+        /* ~~~~~~~ ... ~~~~~~~ */
+        hr.VerticalLine {
+            height : 100%;
+            margin-top : 0px;
+            margin-bottom:0px;
+            float : right;
+            border : solid 1px #eee;
+        }
+        hr.ImageLine {
+            width : 100%;
+            margin-top : 0px;
+            margin-bottom : 0px;
+        }
+        .RightIcons {
+            width : 25px;
+            height : 25px;
+            margin : 4px 7px 4px 7px;
+        }
+        p.MainWriteRightLeftLeftTopLeftWrite {
+            width : 100%;
+            height : 100%;
+            padding : 10px 5px 5px 10px;
+            margin : 0px;
+            font-size : 15px;
+        }
+        p.MainWriteRightLeftLeftTopRightWrite {
+            width : 100%;
+            height : 100%;
+            padding : 15px 5px 5px 5px;
+            margin : 0px;
+            font-size : 5px;
+        }
+        p.MainWriteRightLeftLeftBotWrite {
+            width : 100%;
+            height : 100%;
+            display : inline-block;
+            padding : 5px 5px 5px 25px;
+            margin : 0px;
+            font-size : 5px;
+            overflow : hidden;
+            text-overflow : ellipsis;
+            white-space: nowrap;
+        }
+        p.MainCommentRightTopLeftComment {
+            width : 92px;
+            height : 20px;
+            margin : 0px;
+            font-size : 13px;
+            padding : 5px 2px 2px 15px;
+        }
+        p.MainCommentRightTopRightComment {
+            width : 200px;
+            height : 20px;
+            margin : 0px;
+            font-size : 4px;
+            padding : 5px 10px 2px 2px;
+            overflow : hidden;
+            text-overflow : ellipsis;
+            white-space: nowrap;
+            text-align : right;
+        }
+        p.MainCommentRightBotComment {
+            width : 292px;
+            height : 60px;
+            margin : 0px;
+            font-size : 4px;
+            padding : 10px 30px 10px 20px;
+        }
+        .WritePlusButton {
+            width : 50px;
+            height : 50px;
+            position : fixed;
+            margin : 460px 10px 10px 300px;
+        }
+        .modal-body {
+            height: 400px;
+        }
+        .tl-new{
+            margin-top: 7%;
+        }
+        .modal-content {
+            margin-top: 20%;
+        }
+        .tl-upload {
+            border: none;
+            background: none;
+            font-size: 1.3em;
+            /* padding-bottom: 17px; */
+        }
+        .modal-footer {
+            height: 50px;
+        }
+        .tl-select {
+            margin-top: 12px;
+        }
+        .tl-bold {
+            color: #da0808;
+        }
+        .tl-date {
+            display: none;
+        }
+        .tl-btn {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <div id="menu" class="menu">
+            <a class="navbar-brand" href="#" id="link_1" onclick="showStateIcons(this)">
+                <img id="img_1" src="static/img/quest.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_2" onclick="showStateIcons(this)">
+                <img id="img_2" src="static/img/home.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_3" onclick="showStateIcons(this)">
+                <img id="img_3" src="static/img/gamer.png" width="40" height="40" alt=""/>
+            </a>
+            <a class="navbar-brand" href="#" id="link_4" onclick="showStateIcons(this)">
+                <img id="img_4" src="static/img/timeline.png" width="40" height="40" alt=""/>
+            </a>
+        </div>
+
+        <div id="header-title">
+            <span>Time Line</span>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <div class="PlusButton">
+        <img src="static/img/PlusButtonImage.png" class="WritePlusButton" data-toggle="modal" data-target="#exampleModalScrollable"/></button>
+    </div>
+
+    <div class="MainMain">
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftB">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/WriteTempImage.png" class="MainImagesB"/>
+                    </div>
+                </div>
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/ShareImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/BinHeartImage.png" class="RightIcons"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainEditor">
+            <div class="MainEditorLeft">
+                <textarea class="MainEditorLeftTextarea" onkeyup="resize(this)" onkeyup="resize(this)" placeholder="댓글을 작성하세요"></textarea>
+            </div>
+            <div class="MainEditorRight">
+                <input type="submit" value="작성" class="MainEditorRightSubmit"/>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftB">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftG">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/WriteTempImage.png" class="MainImagesG"/>
+                    </div>
+                </div>
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/ShareImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/BinHeartImage.png" class="RightIcons"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftG">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftG">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainWriteLine">
+            <div class="MainWrite">
+                <div class="MainWriteLeft">
+                    <div class="MainWriteLeftLeftO">
+                    </div>
+                    <div class="MainWriteLeftRight">
+                        <img src="static/img/WriteTempImage.png" class="MainImagesO"/>
+                    </div>
+                </div>
+                <div class="MainWriteRight">
+                    <div class="MainWriteRightLeft">
+                        <div class="MainWriteRightLeftLeft">
+                            <div class="MainWriteRightLeftLeftTop">
+                                <div class="MainWriteRightLeftLeftTopLeft">
+                                    <p class="MainWriteRightLeftLeftTopLeftWrite">
+                                        오징어흐물
+                                    </p>
+                                </div>
+                                <div class="MainWriteRightLeftLeftTopRight">
+                                    <p class="MainWriteRightLeftLeftTopRightWrite">
+                                        12.12.12 - 12:12:12
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="MainWriteRightLeftLeftBot">
+                                <p class="MainWriteRightLeftLeftBotWrite">
+                                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadfadfadfadfadfasdfasdfasdfadfasdfdhfajsdhfjkashdkfhadkjfhakdjhfkajdhfkjahsdkjfhaskdjfhaksjdhfkjashdkfjahsdkfjhasdkjfhaksdjfhakjsdhfkajsdhkfj
+                                </p>
+                            </div>
+                        </div>
+                        <div class="MainWriteRightLeftRight">
+                            <hr class="VerticalLine"/>
+                        </div>
+                    </div>
+                    <div class="MainWriteRightRight">
+                        <div class="ThreeIcons">
+                            <img src="static/img/CommentImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="ThreeIcons">
+                            <img src="static/img/ShareImage.png" class="RightIcons"/>
+                        </div>
+                        <div class="TreeIcons">
+                            <img src="static/img/BinHeartImage.png" class="RightIcons"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftO">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="MainCommentLine">
+            <div class="MainComment">
+                <div class="MainCommentLeftO">
+                </div>
+                <div class="MainCommentRight">
+                    <div class="MainCommentRightTop">
+                        <div class="MainCommentRightTopLeft">
+                            <p class="MainCommentRightTopLeftComment">
+                                이진혁
+                            </p>
+                        </div>
+                        <div class="MainCommentRightTopRight">
+                            <p class="MainCommentRightTopRightComment">
+                                19-08-04 : 12:29:00
+                            </p>
+                        </div>
+                    </div>
+                    <div class="MainCommentRightBot">
+                        <p class="MainCommentRightBotComment">
+                            안녕하세요
+                            반갑습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<footer>
+    <div class="FooterTop">
+    </div>
+    <div class="FooterBot">
+        <div class="FooterBotLeft">
+            <input type="button" value="전체" class="FooterBotLeftAll"/>
+            <input type="button" value="자유" class="FooterBotLeftFreedom"/>
+        </div>
+        <div class="FooterBotRight">
+            <input type="button" value="후기" class="FooterBotLeftReview"/>
+            <input type="button" value="질문" class="FooterBotLeftQuestion"/>
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                   +
+                  </button>   -->
+            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle"><b class="tl-bold">|&nbsp;</b>새 글 작성</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="addpost_2.jsp">
+                                <input type="radio" values="1" name="category" checked/>자유
+                                <input type="radio" values="2" name="category"/>후기
+                                <input type="radio" values="3" name="category"/>질문
+                                <textarea class="tl-new" name="contents" cols="40" rows="11"></textarea>
+                                <input type="file" name="src" class="tl-select"/>
+                                <input type="datetime" name="date" class="tl-date"/>
+                                <div class="modal-footer">
+                                    <input type="submit"  class="tl-upload" name="submit" value="업로드"/>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</footer>
+
+
+</body>
+</html>

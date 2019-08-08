@@ -203,7 +203,7 @@ if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
     </div>
 </footer>
 <div class="modal fade" id="posting_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-scrollable" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalScrollableTitle"><b class="tl-bold">|&nbsp;</b>새 글 작성</h5>
