@@ -35,6 +35,8 @@ public class QuestDAO {
         return ls;
     }
     public List<QuestItemVO> getPlayingUserQuest(HttpServletRequest request, Long userId){
+        QuestDAO questDAO = new QuestDAO();
+        List<QuestVO> questVOList = questDAO.findAll();
         UserItemPlayDAO dao = new UserItemPlayDAO();
         Set<Long> questIdSet = new HashSet<>();
 
@@ -47,14 +49,21 @@ public class QuestDAO {
         for(UserItemPlayVO info : userItemsInfo){
             userItemsInfoMap.put(info.getItem_id(),info.getIs_completed());
         }
+        Map<Long, Integer> questCount = new HashMap<>();
+        for(QuestVO vo: questVOList) {
+            questCount.put(vo.getId(),vo.getItem_count());
+        }
 
+        session.setAttribute("questCount",questCount);
         session.setAttribute("userItemsInfoMap",userItemsInfoMap);
 
         Map<Long, Map<String,Map<String,String>>> questMap = new HashMap<>();
         Map<Long,List<QuestItemVO>> questList = new HashMap<>();
+        Map<Long,Integer> questItemCount = new HashMap<>();
         for(QuestItemVO vo : questItems){
             Long quest_id = vo.getQuest_id();
             questIdSet.add(quest_id);
+            questItemCount.put(quest_id,questItemCount.get(quest_id) + userItemsInfoMap.get(vo.getId()));
             if(!questMap.containsKey(quest_id)){
                 questMap.put(quest_id,new HashMap<>());
             }
@@ -62,6 +71,7 @@ public class QuestDAO {
                 questList.put(quest_id,new ArrayList<>());
             }
             questList.get(quest_id).add(vo);
+
             Map<String,Map<String,String>> itemKeyMap =  questMap.get(quest_id);
             String itemKey = String.valueOf(vo.getId());
             HashMap<String,String> itemMap = new HashMap<>();
@@ -78,6 +88,8 @@ public class QuestDAO {
         session.setAttribute("questIdSet",questIdSet);
         session.setAttribute("questMap",questMap);
         session.setAttribute("questList",questList);
+        session.setAttribute("questItemCount",questItemCount);
+
         return questItems;
     }
 

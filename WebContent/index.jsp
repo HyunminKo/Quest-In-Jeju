@@ -34,6 +34,11 @@
         questNameMap = dao.getQuestNameMap();
         dao.getPlayingUserQuest(request, Long.parseLong(userId));
         Map<Long, Integer> userItemsInfoMap = (Map<Long, Integer>) session.getAttribute("userItemsInfoMap");
+        Map<Long, Integer> questCount = (Map<Long, Integer>) session.getAttribute("questCount");
+
+        Map<Long,Integer> questItemCount = (Map<Long,Integer>) session.getAttribute("questItemCount");
+        request.setAttribute("questItemCount",questItemCount);
+        request.setAttribute("questCount",questCount);
         request.setAttribute("userItemsInfoMap",userItemsInfoMap);
         request.setAttribute("questNameMap",questNameMap);
         Map<Long,List<QuestItemVO>> questList = (Map<Long,List<QuestItemVO>>) session.getAttribute("questList");
@@ -100,7 +105,7 @@
                                 </svg>
                             </div>
                             <div class="progress-body">
-                                <p class="title">3 / 4</p>
+                                <p class="title">${questItemCount[quest_key]} / ${questCount[quest_key]}</p>
                             </div>
                         </div>
                     </li>
