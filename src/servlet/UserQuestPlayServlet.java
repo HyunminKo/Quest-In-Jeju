@@ -54,7 +54,6 @@ public class UserQuestPlayServlet extends HttpServlet {
                 QuestDAO dao = new QuestDAO();
                 dao.getPlayingUserQuest(request,Long.parseLong(userId));
                 Map<Long, Map<String,Map<String,String>>> questMap = (Map<Long, Map<String,Map<String,String>>>) session.getAttribute("questMap");
-                System.out.println("[test]: "+ questMap);
                 if(questMap == null){
                     response.setStatus(HttpServletResponse.SC_OK);
                     JSONObject obj = new JSONObject();

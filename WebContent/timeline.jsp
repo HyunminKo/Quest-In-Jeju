@@ -32,10 +32,11 @@ request.setCharacterEncoding("UTF-8");
 lo = request.getParameter("lo");
 if( lo == null ) lo = "1";
 try {
+	System.out.println("timeline start");
 	pls = pdao.findAllCategory( lo );
 	request.setAttribute( "pls" , pls );
 	String userId = Utils.getValueInCookie(request,"user_id");
-	List<UserPostLikeVO> lls = null;
+	List<UserPostLikeVO> lls = new ArrayList<>();
 	if(userId != null){
 	 lls = ldao.findAllPostId( Long.parseLong(userId) );
 	}
@@ -50,7 +51,7 @@ try {
 	request.setAttribute( "error" , err );
 }
 
-if( err != null ) response.sendRedirect( ctxPath + "/error.jsp" );
+if( err != null ) response.sendRedirect("error.jsp" );
 
 %><!DOCTYPE html>
 <html lang="ko">
