@@ -99,11 +99,12 @@
                         <div class="progress-card">
                             <div class="progress-head">
                                 <!-- 테스트 프로그래스바 -->
-                                <fmt:formatNumber var="result" value="${ (questItemCount[quest_key] div questCount[quest_key]) div 10}" pattern="#"/>
-                                <svg class="radial-progress" data-percentage="${result}" viewBox="0 0 80 80">
+                                <fmt:formatNumber var="result" value="${questItemCount[quest_key] div questCount[quest_key]}"/>
+                                <fmt:formatNumber var="rs" value="${result div 10}" pattern="#"/>
+                                <svg class="radial-progress" data-percentage="${rs}" viewBox="0 0 80 80">
                                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                                     <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
-                                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">${result}%</text>
+                                    <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">${rs}%</text>
                                 </svg>
                             </div>
                             <div class="progress-body">
