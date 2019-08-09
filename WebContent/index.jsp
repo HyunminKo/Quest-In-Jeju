@@ -98,6 +98,7 @@
                         <div class="progress-card">
                             <div class="progress-head">
                                 <!-- 테스트 프로그래스바 -->
+                                <%--<l:parseNumber></l:parseNumber>--%>
                                 <svg class="radial-progress" data-percentage="75" viewBox="0 0 80 80">
                                     <circle class="incomplete" cx="40" cy="40" r="35"></circle>
                                     <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>

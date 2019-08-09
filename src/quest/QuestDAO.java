@@ -63,6 +63,9 @@ public class QuestDAO {
         for(QuestItemVO vo : questItems){
             Long quest_id = vo.getQuest_id();
             questIdSet.add(quest_id);
+            if(!questItemCount.containsKey(quest_id)){
+                questItemCount.put(quest_id,new Integer(0));
+            }
             questItemCount.put(quest_id,questItemCount.get(quest_id) + userItemsInfoMap.get(vo.getId()));
             if(!questMap.containsKey(quest_id)){
                 questMap.put(quest_id,new HashMap<>());
